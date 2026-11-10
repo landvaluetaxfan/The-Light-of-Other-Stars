@@ -12,6 +12,12 @@ const { store, errors } = loadFromDirectory(root);
 if (!store) {
   console.error(`✗ Public data failed validation — ${errors.length} error(s):\n`);
   for (const e of errors) console.error(`  • ${e}`);
+  if (process.env.GITHUB_ACTIONS) {
+    // Workflow commands become check-run annotations, readable through the GitHub API
+    // (getCheckRunErrors), so publishing tools can see exactly why a commit was rejected.
+    const esc = (s: string) => s.replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+    console.log(`::error title=Data validation failed (${errors.length})::${esc(errors.join('\n'))}`);
+  }
   process.exit(1);
 }
 

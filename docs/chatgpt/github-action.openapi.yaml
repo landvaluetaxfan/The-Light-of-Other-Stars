@@ -1,0 +1,254 @@
+openapi: 3.1.0
+info:
+  title: Assembly Records Publisher (GitHub)
+  description: >
+    Writes public records for the World Assembly Information Service by committing
+    files to the landvaluetaxfan/The-Light-of-Other-Stars repository through GitHub's
+    Git Data API. File contents are sent as plain UTF-8 text (no base64). Every commit
+    to main is validated by CI; invalid data is never deployed.
+  version: 1.0.0
+servers:
+  - url: https://api.github.com
+paths:
+  /repos/landvaluetaxfan/The-Light-of-Other-Stars/git/ref/heads/{branch}:
+    get:
+      operationId: getBranchHead
+      summary: Get the latest commit SHA of a branch (use branch "main").
+      parameters:
+        - name: branch
+          in: path
+          required: true
+          schema: { type: string, default: main }
+      responses:
+        '200':
+          description: The branch reference. The commit SHA is object.sha.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ref: { type: string }
+                  object:
+                    type: object
+                    properties:
+                      sha: { type: string }
+                      type: { type: string }
+
+  /repos/landvaluetaxfan/The-Light-of-Other-Stars/git/commits/{commit_sha}:
+    get:
+      operationId: getCommit
+      summary: Get a commit, including its tree SHA (tree.sha).
+      parameters:
+        - name: commit_sha
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: The commit.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sha: { type: string }
+                  message: { type: string }
+                  tree:
+                    type: object
+                    properties:
+                      sha: { type: string }
+
+  /repos/landvaluetaxfan/The-Light-of-Other-Stars/git/trees/{tree_sha}:
+    get:
+      operationId: listFiles
+      summary: List every file path in a tree. Pass recursive=1 to list all files.
+      parameters:
+        - name: tree_sha
+          in: path
+          required: true
+          schema: { type: string }
+        - name: recursive
+          in: query
+          required: false
+          schema: { type: string, default: '1' }
+      responses:
+        '200':
+          description: The tree. Each entry's path is relative to the repository root.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sha: { type: string }
+                  truncated: { type: boolean }
+                  tree:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        path: { type: string }
+                        type: { type: string }
+
+  /repos/landvaluetaxfan/The-Light-of-Other-Stars/git/trees:
+    post:
+      operationId: createTree
+      summary: >
+        Create a new tree from base_tree plus changed files. To add or replace a file,
+        give path, mode "100644", type "blob" and its full text in content. To delete a
+        file, give path, mode "100644", type "blob" and sha null.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [base_tree, tree]
+              properties:
+                base_tree:
+                  type: string
+                  description: The tree SHA of the current main commit.
+                tree:
+                  type: array
+                  items:
+                    type: object
+                    required: [path, mode, type]
+                    properties:
+                      path:
+                        type: string
+                        description: Repository-relative path, e.g. data/canonical/bills/B-T1-001.json
+                      mode: { type: string, enum: ['100644'] }
+                      type: { type: string, enum: [blob] }
+                      content:
+                        type: string
+                        description: Complete UTF-8 file contents. Omit when deleting.
+                      sha:
+                        type: [string, 'null']
+                        description: Set to null to delete the file. Omit otherwise.
+      responses:
+        '201':
+          description: The new tree. Use its sha in createCommit.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sha: { type: string }
+
+  /repos/landvaluetaxfan/The-Light-of-Other-Stars/git/commits:
+    post:
+      operationId: createCommit
+      summary: Create a commit pointing at a tree, with the current main commit as its parent.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [message, tree, parents]
+              properties:
+                message: { type: string, description: 'Short description, e.g. "Publish roll call D-T1-001"' }
+                tree: { type: string, description: The SHA returned by createTree. }
+                parents:
+                  type: array
+                  items: { type: string }
+                  description: Exactly one entry, the main commit SHA from getBranchHead.
+      responses:
+        '201':
+          description: The new commit.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sha: { type: string }
+
+  /repos/landvaluetaxfan/The-Light-of-Other-Stars/git/refs/heads/{branch}:
+    patch:
+      operationId: updateBranch
+      summary: >
+        Move the branch to the new commit. Never set force to true. A 422 error means
+        main moved since getBranchHead; start again from getBranchHead.
+      parameters:
+        - name: branch
+          in: path
+          required: true
+          schema: { type: string, default: main }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [sha]
+              properties:
+                sha: { type: string }
+                force: { type: boolean, default: false }
+      responses:
+        '200':
+          description: The branch now points at the new commit.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  ref: { type: string }
+                  object:
+                    type: object
+                    properties:
+                      sha: { type: string }
+
+  /repos/landvaluetaxfan/The-Light-of-Other-Stars/commits/{ref}/check-runs:
+    get:
+      operationId: listCheckRuns
+      summary: >
+        Check the CI result for a commit. "Validate and build" must conclude "success";
+        "Deploy to GitHub Pages" then publishes. status "queued"/"in_progress" means wait.
+      parameters:
+        - name: ref
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Check runs for the commit.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  total_count: { type: integer }
+                  check_runs:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id: { type: integer }
+                        name: { type: string }
+                        status: { type: string }
+                        conclusion: { type: [string, 'null'] }
+                        html_url: { type: string }
+
+  /repos/landvaluetaxfan/The-Light-of-Other-Stars/check-runs/{check_run_id}/annotations:
+    get:
+      operationId: getCheckRunErrors
+      summary: Read the validation errors reported by a failed check run.
+      parameters:
+        - name: check_run_id
+          in: path
+          required: true
+          schema: { type: integer }
+      responses:
+        '200':
+          description: Annotations; each message is one validation error.
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    title: { type: string }
+                    message: { type: string }
+                    annotation_level: { type: string }
+components:
+  schemas: {}
