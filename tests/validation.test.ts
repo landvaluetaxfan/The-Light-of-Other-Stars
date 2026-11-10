@@ -80,29 +80,28 @@ test('division tallies must match ballots', () => {
 
 test('division outcomes must follow from the threshold', () => {
   const s = fresh();
-  s.divisions.find((d) => d.id === 'DEMO-D-T1-007')!.result!.outcome = 'carried';
+  s.divisions.find((d) => d.id === 'DEMO-D-T1-002')!.result!.outcome = 'not-carried';
   has(errorsOf(s), 'inconsistent with the tally');
 });
 
-test('a ninety-per-cent vote with 74% support is not carried', () => {
-  const d = loaded.store!.divisions.find((x) => x.id === 'DEMO-D-T1-007')!;
-  assert.equal(d.threshold, 'ninety-percent');
-  assert.equal(d.result!.required, 508);
-  assert.equal(d.result!.outcome, 'not-carried');
+test('the example override needs two-thirds of seats voting', () => {
+  const d = loaded.store!.divisions.find((x) => x.id === 'DEMO-D-T1-003')!;
+  assert.equal(d.stage, 'override');
+  assert.equal(d.result!.required, 400);
+  assert.equal(d.result!.outcome, 'carried');
 });
 
 test('open divisions may not publish ballots or results (sealed tallies)', () => {
   const s = fresh();
-  const open = s.divisions.find((d) => d.status === 'open')!;
-  const closed = s.divisions.find((d) => d.status === 'closed')!;
-  open.ballots = structuredClone(closed.ballots);
+  const d = s.divisions.find((x) => x.id === 'DEMO-D-T1-002')!;
+  d.status = 'open';
   has(errorsOf(s), 'may not publish ballots');
 });
 
 test('non-voting blocs must be recorded as abstaining', () => {
   const s = fresh();
-  const d = s.divisions.find((x) => x.id === 'DEMO-D-T1-007')!;
-  d.ballots.find((b) => b.castBy === 'not-cast')!.vote = 'no';
+  const d = s.divisions.find((x) => x.id === 'DEMO-D-T1-002')!;
+  d.ballots.find((b) => b.vote === 'no')!.castBy = 'not-cast';
   has(errorsOf(s), 'must be recorded as abstaining');
 });
 
@@ -119,7 +118,7 @@ test('override divisions require two-thirds', () => {
 
 test('bill threshold must match its category', () => {
   const s = fresh();
-  s.bills.find((b) => b.category === 'prohibition')!.threshold = 'two-thirds';
+  s.bills.find((b) => b.id === 'DEMO-B-T1-001')!.category = 'prohibition';
   has(errorsOf(s), 'requires threshold ninety-percent');
 });
 

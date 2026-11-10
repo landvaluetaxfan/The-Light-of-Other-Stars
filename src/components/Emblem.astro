@@ -1,31 +1,17 @@
 ---
-/** The Assembly's emblem: a seal with Earth's limb, an orbit and a four-pointed star. */
+/**
+ * The Assembly's emblem: seven interlocking circles (a "seed of life" figure),
+ * drawn in the current text colour so it reads white on the masthead and
+ * black in print.
+ */
 interface Props { class?: string; title?: string }
 const { class: cls = 'emblem', title = 'Emblem of the World Assembly for Extrasolar Resources' } = Astro.props;
-const uid = `em${Math.random().toString(36).slice(2, 7)}`;
+const C = 32;
+const R = 14;
+const centers = [[C, C], ...Array.from({ length: 6 }, (_, k) => [C + R * Math.cos((k * Math.PI) / 3), C + R * Math.sin((k * Math.PI) / 3)])];
 ---
 <svg class={cls} viewBox="0 0 64 64" role="img" aria-label={title} xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id={`${uid}-sky`} x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f4f9f9" />
-      <stop offset="1" stop-color="#bfd9dd" />
-    </linearGradient>
-    <linearGradient id={`${uid}-earth`} x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#5fa3ad" />
-      <stop offset="1" stop-color="#1d4f59" />
-    </linearGradient>
-    <clipPath id={`${uid}-c`}><circle cx="32" cy="32" r="24.5" /></clipPath>
-  </defs>
-  <circle cx="32" cy="32" r="31" fill="#123c44" />
-  <circle cx="32" cy="32" r="29.2" fill="none" stroke="#d6e8ea" stroke-width="0.8" />
-  <circle cx="32" cy="32" r="26.6" fill="none" stroke="#d6e8ea" stroke-width="0.5" stroke-dasharray="1.2 1.6" />
-  <g clip-path={`url(#${uid}-c)`}>
-    <rect x="0" y="0" width="64" height="64" fill={`url(#${uid}-sky)`} />
-    <circle cx="32" cy="88" r="46" fill={`url(#${uid}-earth)`} />
-    <circle cx="32" cy="88" r="46" fill="none" stroke="#ffffff" stroke-width="0.9" opacity="0.8" />
-    <path d="M10 49 C 20 44, 44 44, 54 49" fill="none" stroke="#a9d3d8" stroke-width="0.6" />
+  <g fill="none" stroke="currentColor" stroke-width="1.5">
+    {centers.map(([x, y]) => <circle cx={x.toFixed(3)} cy={y.toFixed(3)} r={R} />)}
   </g>
-  <ellipse cx="32" cy="30" rx="20" ry="6.4" fill="none" stroke="#1d4f59" stroke-width="0.9" transform="rotate(-16 32 30)" />
-  <path d="M32 13 L34.2 26.8 L46 29 L34.2 31.2 L32 45 L29.8 31.2 L18 29 L29.8 26.8 Z" fill="#ffffff" stroke="#1d4f59" stroke-width="0.9" stroke-linejoin="round" />
-  <circle cx="49.5" cy="25" r="1.6" fill="#1d4f59" />
 </svg>

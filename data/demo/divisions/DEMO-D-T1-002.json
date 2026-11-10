@@ -2,10 +2,10 @@
   "id": "DEMO-D-T1-002",
   "visibility": "public",
   "termId": "T1",
-  "billId": "DEMO-B-T1-002",
+  "billId": "DEMO-B-T1-001",
   "amendmentId": null,
   "stage": "passage",
-  "question": "That the First Term release be divided according to Split A (35 / 30 / 5 / 30).",
+  "question": "That the Near-System Survey and Preservation Bill, as amended, be passed.",
   "threshold": "simple-majority",
   "basis": "seats-voting",
   "opens": {
@@ -79,7 +79,7 @@
     {
       "blocId": "DEMO-BL-05",
       "seats": 48,
-      "vote": "no",
+      "vote": "abstain",
       "castBy": "holder",
       "proxyMemberId": null
     },
@@ -114,11 +114,11 @@
   ],
   "result": {
     "yes": 408,
-    "no": 192,
-    "abstain": 0,
-    "seatsVoting": 600,
+    "no": 144,
+    "abstain": 48,
+    "seatsVoting": 552,
     "totalSeats": 600,
-    "required": 301,
+    "required": 277,
     "outcome": "carried"
   }
 }

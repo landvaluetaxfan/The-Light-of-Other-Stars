@@ -20,58 +20,18 @@
       "logo": "press/geneva-ledger/logo.svg",
       "displayFont": "playfair",
       "bodyFont": "source-serif",
-      "colors": { "paper": "#F6F1E6", "ink": "#1C1A17", "accent": "#7C2323", "rule": "#1C1A17" }
+      "colors": {
+        "paper": "#F6F1E6",
+        "ink": "#1C1A17",
+        "accent": "#7C2323",
+        "rule": "#1C1A17"
+      }
     },
-    "sections": ["Assembly", "Council", "Resources", "Opinion"]
-  },
-  {
-    "id": "DEMO-PUB-CHANNEL-L5",
-    "visibility": "public",
-    "slug": "channel-l5",
-    "name": "Channel L5",
-    "kind": "broadcaster",
-    "status": "demonstration",
-    "ownerLabel": "Demonstration title — no player owner assigned",
-    "ownerMemberId": null,
-    "editorLabel": "Demonstration newsroom",
-    "founded": "2040-03",
-    "tagline": "Treaty news, relayed",
-    "description": "A fast-moving broadcast newsroom: bulletins when windows open and close, explainers on the arithmetic, and live coverage of override week.",
-    "editorialStance": "Fast, plain-spoken and numerate; leans toward explaining procedure rather than taking sides.",
-    "affiliation": "independent",
-    "affiliatedPartyId": null,
-    "brand": {
-      "theme": "broadcast",
-      "logo": "press/channel-l5/logo.svg",
-      "displayFont": "archivo",
-      "bodyFont": "plex-sans",
-      "colors": { "paper": "#F3F5F8", "ink": "#0C1B2E", "accent": "#E4572E", "rule": "#0C1B2E" }
-    },
-    "sections": ["Bulletins", "Explainers", "Live"]
-  },
-  {
-    "id": "DEMO-PUB-AFTERLIGHT",
-    "visibility": "public",
-    "slug": "afterlight",
-    "name": "Afterlight",
-    "kind": "magazine",
-    "status": "demonstration",
-    "ownerLabel": "Demonstration title — notionally published by Delegationist supporters",
-    "ownerMemberId": null,
-    "editorLabel": "Demonstration editors",
-    "founded": "2040-03",
-    "tagline": "Essays on the long future",
-    "description": "A quarterly of long essays and interviews on deferral, reserves, digital persons and the obligations of the living to those not yet born.",
-    "editorialStance": "Openly sympathetic to delegation and slow release; publishes dissent from its own side.",
-    "affiliation": "party-affiliated",
-    "affiliatedPartyId": "PTY-DELEGATIONISTS",
-    "brand": {
-      "theme": "editorial",
-      "logo": "press/afterlight/logo.svg",
-      "displayFont": "fraunces",
-      "bodyFont": "source-serif",
-      "colors": { "paper": "#FAF7F1", "ink": "#25212B", "accent": "#3D5C78", "rule": "#CFC5B5" }
-    },
-    "sections": ["Essays", "Interviews", "Notes"]
+    "sections": [
+      "Assembly",
+      "Council",
+      "Resources",
+      "Opinion"
+    ]
   }
 ]

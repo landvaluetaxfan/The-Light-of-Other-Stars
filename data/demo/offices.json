@@ -18,25 +18,5 @@
         "note": "Bloc control transferred to the Collectivist floor leader, Delegate Rigel."
       }
     ]
-  },
-  {
-    "id": "DEMO-OFF-COMMISSIONER",
-    "visibility": "public",
-    "institutionId": "INST-COMMISSIONER",
-    "title": "Commissioner for Future Generations",
-    "selection": "Elected by the Assembly by simple majority each term.",
-    "tenure": "One term.",
-    "relinquishesBloc": true,
-    "publicStance": "",
-    "holders": [
-      {
-        "termId": "T1",
-        "memberId": "DEMO-M-SIRIUS",
-        "status": "serving",
-        "from": "2040-03",
-        "to": null,
-        "note": ""
-      }
-    ]
   }
 ]

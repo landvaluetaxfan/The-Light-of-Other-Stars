@@ -1,42 +1,15 @@
 [
   {
-    "id": "DEMO-ART-GL-001",
-    "visibility": "public",
-    "publicationId": "DEMO-PUB-GENEVA-LEDGER",
-    "slug": "assembly-sets-first-release-at-twelve-per-cent",
-    "headline": "Assembly Sets First Release at Twelve Per Cent",
-    "dek": "A Proprietarian–Collectivist–Expansionist majority edges past the default; a broader coalition then carries the balanced split.",
-    "byline": ["Demonstration correspondent"],
-    "simDate": "2040-06",
-    "section": "Assembly",
-    "kind": "report",
-    "illustration": {
-      "src": "press/geneva-ledger/hemicycle.svg",
-      "alt": "Engraving-style drawing of a semicircular parliamentary chamber, seats shown as rows of small circles.",
-      "caption": "The chamber at Geneva, as the Ledger's draughtsman imagines it.",
-      "credit": "Illustration: The Geneva Ledger (demonstration)"
-    },
-    "body": [
-      "GENEVA — The first Assembly of the treaty era voted on Friday to release twelve per cent of the cosmic pool, two points above the figure that would have applied had it failed to agree at all.",
-      "The [[DEMO-B-T1-001|release-size resolution]], filed by Delegate Deneb, carried by 324 seats to 222, with the 54-seat Kochab bloc of the Universalists abstaining. Delegate Izar's Expansionist bloc was voted by party proxy.",
-      "## The split",
-      "The more consequential fight was over how the twelve units would be divided. Two splits reached the floor. Split A — 35 per cent to individual endowments, 30 to Assembly projects, 5 to the Council on Long-Term Values and 30 to the Reserve — carried comfortably, 408 to 192 ([[DEMO-D-T1-002]]). Split B, which would have sent half the release to endowments and nothing to deferral, failed by 234 to 336 ([[DEMO-D-T1-003]]).",
-      "> “Five per cent to the machines is not a surrender. It is a pilot,” one Delegationist aide told the Ledger in the lobby.",
-      "Proprietarian members were less pleased. Their split would have issued 6.0000 units in endowments; Split A issues 4.2000.",
-      "## What it means",
-      "Under the rules, if more than one split passes, the one with the most affirmative votes prevails. With only one carried, the question did not arise. The Council of Treaty Parties now has forty-eight hours to act.",
-      "The Ledger prints the complete roll calls on the facing page, as it will for every division of this Assembly."
-    ],
-    "refs": { "bills": ["DEMO-B-T1-001", "DEMO-B-T1-002", "DEMO-B-T1-003"], "divisions": ["DEMO-D-T1-001", "DEMO-D-T1-002", "DEMO-D-T1-003"], "institutions": ["INST-ASSEMBLY"] }
-  },
-  {
     "id": "DEMO-ART-GL-002",
     "visibility": "public",
     "publicationId": "DEMO-PUB-GENEVA-LEDGER",
     "slug": "council-delay-fails-to-hold",
     "headline": "Council Delay Fails to Hold as Survey Act Clears Override",
     "dek": "Four seats slowed the near-system survey; the Arbiter declined to call it a protected matter, and the Assembly found its two-thirds.",
-    "byline": ["Demonstration correspondent", "Demonstration legal affairs desk"],
+    "byline": [
+      "Demonstration correspondent",
+      "Demonstration legal affairs desk"
+    ],
     "simDate": "2040-07",
     "section": "Council",
     "kind": "report",
@@ -48,119 +21,28 @@
     },
     "body": [
       "The first test of the Council's suspensive power ended where the treaty says it should: on the Assembly floor, with a two-thirds vote.",
-      "The [[DEMO-B-T1-004|Near-System Survey and Preservation Act]] passed in Week 3 by 408 to 144. Within the 48-hour window, the seats of the United States, China, the frontier laboratories and the other middle powers [[DEMO-EV-03|delayed it]], arguing that preservation zones could catch missions already in flight.",
+      "The [[DEMO-B-T1-001|Near-System Survey and Preservation Act]] passed in Week 3 by 408 to 144. Within the 48-hour window, the seats of the United States, China, the frontier laboratories and the other middle powers [[DEMO-B-T1-001-CA1|delayed it]], arguing that preservation zones could catch missions already in flight.",
       "## The ruling",
-      "The delaying seats had hoped for more than a delay. They asked the [[INST-ARBITER|Arbiter]] to classify the Act as a restriction on established holdings — one of the four matters on which an affected seat holds an entrenched veto. The Arbiter [[DEMO-EV-04|declined]], pointing to the Act's fourth provision, which leaves antecedent holdings untouched.",
+      "The delaying seats had hoped for more than a delay. They asked the [[INST-ARBITER|Arbiter]] to classify the Act as a restriction on established holdings — one of the four matters on which an affected seat holds an entrenched veto. The Arbiter [[DEMO-B-T1-001-R1|declined]], pointing to the Act's fourth provision, which leaves antecedent holdings untouched.",
       "## The override",
-      "In Week 4 the override carried by 456 to 144 against a requirement of 400 ([[DEMO-D-T1-006]]). The Proprietarian Electra bloc, which had abstained on passage, voted to override.",
+      "In Week 4 the override carried by 456 to 144 against a requirement of 400 ([[DEMO-D-T1-003]]). The Proprietarian Electra bloc, which had abstained on passage, voted to override.",
       "The Act's 0.8000 units are now committed. No probe has moved. As the Act itself notes, passing a bill does not teleport anything anywhere."
     ],
-    "refs": { "bills": ["DEMO-B-T1-004"], "divisions": ["DEMO-D-T1-005", "DEMO-D-T1-006"], "institutions": ["INST-COUNCIL", "INST-ARBITER"], "events": ["DEMO-EV-03", "DEMO-EV-04"] }
-  },
-  {
-    "id": "DEMO-ART-L5-001",
-    "visibility": "public",
-    "publicationId": "DEMO-PUB-CHANNEL-L5",
-    "slug": "probe-register-vote-opens",
-    "headline": "Probe register vote opens — tally sealed until Saturday",
-    "dek": "Bureau missed the Week 2 deadline; the bill reached the floor automatically.",
-    "byline": ["Demonstration bulletin desk"],
-    "simDate": "2040-06",
-    "section": "Bulletins",
-    "kind": "bulletin",
-    "illustration": null,
-    "body": [
-      "Voting is open on the [[DEMO-B-T1-005|Register of Antecedent Probe Holdings Act]]. The window runs 72 hours.",
-      "The Bureau did not schedule the bill by the end of Week 2, so under the rules it went to the Week 3 floor automatically.",
-      "Nobody — not the Speaker, not the Bureau, not this newsroom — can see the running count. The full roll call is published when the window shuts.",
-      "We will carry the result the moment the Information Service posts it."
-    ],
-    "refs": { "bills": ["DEMO-B-T1-005"], "divisions": ["DEMO-D-T1-008"] }
-  },
-  {
-    "id": "DEMO-ART-L5-002",
-    "visibility": "public",
-    "publicationId": "DEMO-PUB-CHANNEL-L5",
-    "slug": "explainer-what-a-unit-buys",
-    "headline": "Explainer: what a ‘unit’ actually buys",
-    "dek": "Twelve units were released this term. None of them is a pile of metal.",
-    "byline": ["Demonstration explainer team"],
-    "simDate": "2040-07",
-    "section": "Explainers",
-    "kind": "analysis",
-    "illustration": {
-      "src": "press/channel-l5/units.svg",
-      "alt": "Bar diagram: a pool of 100 units, of which 12 are released and divided into four coloured channels.",
-      "caption": "The first release, by channel.",
-      "credit": "Graphic: Channel L5 (demonstration)"
-    },
-    "body": [
-      "The treaty divides everything reachable beyond the solar system into a pool of 100 units. A unit is a legal claim — a right to resources that may be reached or used in the future. It is not a shipment.",
-      "## The arithmetic",
-      "Each term the Assembly releases between 5 and 25 per cent of what is left. This term it chose 12 per cent: 12 units out, 88 left. Next term, 12 per cent would be 10.56 units, because the base shrinks.",
-      "## The four doors",
-      "Released units go through four channels. *Endowment* gives equal shares to every adult. *Assembly* pays for projects the chamber votes on. *Deferral* hands a slice to the Council on Long-Term Values. *Reserve* holds claims for people born after 2040 — and needs a two-thirds vote to spend.",
-      "## The catch",
-      "The ledger tracks four stages: allocated, committed, reached, used. Today every unit released is at the first or second stage. Near stars are decades away at a tenth of light speed. Distant galaxies, millions of years."
-    ],
-    "refs": { "bills": ["DEMO-B-T1-001", "DEMO-B-T1-002"], "documents": ["DOC-RESOURCES"] }
-  },
-  {
-    "id": "DEMO-ART-AL-001",
-    "visibility": "public",
-    "publicationId": "DEMO-PUB-AFTERLIGHT",
-    "slug": "the-twelve-per-cent-question",
-    "headline": "The Twelve Per Cent Question",
-    "dek": "We have released an eighth of everything. What did we ask of ourselves in return?",
-    "byline": ["Demonstration essayist"],
-    "simDate": "2040-07",
-    "section": "Essays",
-    "kind": "opinion",
-    "illustration": {
-      "src": "press/afterlight/torus.svg",
-      "alt": "Line drawing of a ring-shaped space habitat with spokes, seen at an angle against dark space.",
-      "caption": "A ring habitat of the kind first sketched in the 1970s.",
-      "credit": "Illustration: Afterlight (demonstration)"
-    },
-    "body": [
-      "There is a kind of argument that sounds like prudence and is really impatience in a good coat. *Twelve per cent is modest*, we were told. *The default is ten.* As though the default were a law of nature rather than a compromise struck at Geneva by people who expected us to do better than it.",
-      "## What deferral is for",
-      "Five per cent of this release — six-tenths of a unit — went to the Council on Long-Term Values. It is the smallest channel by far, and it will be the most scrutinised. Good. A delegation that cannot bear scrutiny should not be made.",
-      "But notice what the Reserve received: thirty per cent, held for people who cannot yet vote and, for the most part, do not yet exist. The Commissioner for Future Generations can delay one measure a term. That is the whole of their political power. Everything else depends on our restraint.",
-      "> The living are not trustees by nature. We become trustees by choosing to act like them.",
-      "## Dissent",
-      "Some of our own readers will say the deferral share was too small to mean anything. Perhaps. A pilot is meant to be small. What matters is that the Council's first report, due before the close of the Second Term, is read — and argued over — in public."
-    ],
-    "refs": { "bills": ["DEMO-B-T1-002"], "institutions": ["INST-CLTV", "INST-COMMISSIONER"] }
-  },
-  {
-    "id": "DEMO-ART-AL-002",
-    "visibility": "public",
-    "publicationId": "DEMO-PUB-AFTERLIGHT",
-    "slug": "interview-the-commissioner-on-impact-reports",
-    "headline": "“An impact report is a question, not a verdict”",
-    "dek": "A conversation with the (demonstration) Commissioner for Future Generations about delay, reserves and the limits of the office.",
-    "byline": ["Demonstration interviewer"],
-    "simDate": "2040-07",
-    "section": "Interviews",
-    "kind": "interview",
-    "illustration": {
-      "src": "press/afterlight/horizon.svg",
-      "alt": "The curved limb of the Earth at dawn, a thin bright line under a deep blue sky.",
-      "caption": "",
-      "credit": "Illustration: Afterlight (demonstration)"
-    },
-    "body": [
-      "*Delegate Sirius, a fictional demonstration character, was elected Commissioner and relinquished their bloc. This interview is illustrative.*",
-      "**You have one delay per term. Why not use it on the release?**",
-      "Because a delay is not a veto, and pretending otherwise wastes it. The release passed with a clear majority and the Reserve received thirty per cent. Using my only delay to make a point would have left me with nothing for a measure that actually threatens the Reserve.",
-      "**What would?**",
-      "A proposal to spend from the Reserve, which needs two-thirds anyway. Or a project that quietly makes a distant claim irreversible. That is where an impact report earns its keep.",
-      "**Critics say the office is symbolic.**",
-      "It is limited. That is different. The treaty gave the unborn a voice that can ask for a report and buy a week. The rest is persuasion — which, for people who cannot vote, is the honest position.",
-      "**And the Commission's research priorities?**",
-      "The [[DEMO-EV-06|first priorities]] include representing people not yet born. I would like that research to tell me I am doing this job wrong. Better now than in 2060."
-    ],
-    "refs": { "institutions": ["INST-COMMISSIONER", "INST-INQUIRY"], "events": ["DEMO-EV-06"] }
+    "refs": {
+      "bills": [
+        "DEMO-B-T1-001"
+      ],
+      "divisions": [
+        "DEMO-D-T1-002",
+        "DEMO-D-T1-003"
+      ],
+      "institutions": [
+        "INST-COUNCIL",
+        "INST-ARBITER"
+      ],
+      "events": [
+        "DEMO-EV-01"
+      ]
+    }
   }
 ]
