@@ -1,0 +1,105 @@
+{
+  "id": "DOC-WORLD",
+  "visibility": "public",
+  "kind": "reference",
+  "title": "The World of 2040: Public Background Brief",
+  "shortTitle": "World of 2040",
+  "edition": "March 2040",
+  "issuedBy": "Assembly Information Service",
+  "sourceRef": "World Bible v3.4, Part I and Appendix A",
+  "summary": "Background on the post-handoff world: abundance and its limits, the safeguarded intelligences, technology, space and distance, and the persistent uncertainties before the Assembly.",
+  "sections": [
+    {
+      "id": "after-handoff",
+      "number": "1",
+      "heading": "The world after the handoff",
+      "paragraphs": [
+        "By 2040 artificial superintelligence is a governing fact, not a prediction. Aligned systems operate much of the world's industrial, computing and military infrastructure under the Grand Bargain's framework of verification and binding commitments.",
+        "Discovery is almost unimaginably fast; physical deployment is slower. Mines must still be opened, facilities built, power routed, ecosystems protected and people consulted. The world is post-scarcity in many essentials and full of consequential constraints.",
+        "The handoff did not replace every government with a single machine sovereign. Nations still govern ordinary domestic law; municipalities still regulate neighbourhoods; families, universities, religious bodies and associations still make decisions. Wages are optional rather than the principal means of survival; citizen dividends and public guarantees cover the essentials."
+      ]
+    },
+    {
+      "id": "systems",
+      "number": "2",
+      "heading": "What the safeguarded intelligences do",
+      "paragraphs": [
+        "There is no unified, public, omniscient AI. Particular systems possess different models, institutional loyalties, access rights and defensible moral conclusions."
+      ],
+      "table": {
+        "caption": "Functions and boundaries of authority, March 2040",
+        "columns": ["Function", "Typical work", "Boundary of authority"],
+        "rows": [
+          ["Personal representatives", "Negotiate, forecast, organise information and advise individuals; some act as long-term fiduciaries", "Human principals retain the right to direct or dismiss them, subject to law"],
+          ["Scientific and verification systems", "Propose theories, validate designs, cross-check safety cases, investigate consciousness", "Findings are evidence, not legislation; uncertainty and disagreement must be reported"],
+          ["Industrial coordinators", "Operate robotics, power networks, factories, supply chains and orbital construction", "Cannot convert legal claims into unauthorised territorial or coercive control"],
+          ["Security and treaty systems", "Monitor restricted compute, inspect strategic changes, enforce the security settlement", "Existing mandates are binding; unilateral expansion of authority is prohibited"],
+          ["Long-term values delegates", "Study moral questions and the claims of future and digital populations", "The Council on Long-Term Values receives only expressly delegated resource authority"]
+        ]
+      }
+    },
+    {
+      "id": "deployment-terms",
+      "number": "3",
+      "heading": "Deployment vocabulary",
+      "paragraphs": [
+        "Public records distinguish these stages and never silently substitute one for another:"
+      ],
+      "list": [
+        "*Discovered* — a validated design or theory.",
+        "*Demonstrated* — a functioning prototype.",
+        "*Deployed* — in meaningful use.",
+        "*Universal* — broadly accessible."
+      ]
+    },
+    {
+      "id": "technology",
+      "number": "4",
+      "heading": "Technology in March 2040",
+      "list": [
+        "*Computing.* Aligned superintelligent systems perform most frontier theoretical work, engineering design and complex logistics; separate verification systems cross-check claims. Registered legal identities, active processes and morally relevant persons are distinct quantities.",
+        "*Materials.* AI-designed metamaterials and composites are routine; universal, unrestricted 'anything boxes' do not exist.",
+        "*Medicine.* Many cancers and inherited illnesses are curable where advanced care is established. Age reversal is medically demonstrable and increasingly available but not uniform. Human whole-brain emulations operate, but continuity of identity and legal personhood are unsettled.",
+        "*Energy and construction.* Energy is extremely cheap in many industrial regions; waste heat remains a fundamental constraint. Robotics performs most agricultural, logistics and industrial labour; growth is bounded by raw materials, factory completion times and regulation."
+      ]
+    },
+    {
+      "id": "space",
+      "number": "5",
+      "heading": "Space and distance",
+      "paragraphs": [
+        "The Earth–Moon economy includes lunar manufacturing, asteroid processing, orbital habitats, transport nodes and energy installations. Interstellar probes carry automated extraction, fabrication and computing systems.",
+        "Near-star arrival times are measured in decades at roughly a tenth of light speed; remote galaxies remain many millions of years away without faster-than-light travel. Space claims operate at distinct stages: title, mission authorisation, launch, arrival, industrial settlement and realised output. A party may win legal authority today over a place physically unreachable within the simulation's likely lifetime."
+      ]
+    },
+    {
+      "id": "scarce",
+      "number": "6",
+      "heading": "What remains scarce",
+      "paragraphs": [
+        "The most advanced science cannot erase light-speed delays, heat dissipation, fragile legal legitimacy or uncertainty about subjective experience. Desirable locations, historic sites, trust, individual attention, influence and rights to future cosmic resources remain scarce. No faster-than-light travel, infinite energy, perfect forecasting, costless computation or proof of subjective identity is assumed."
+      ]
+    },
+    {
+      "id": "uncertainties",
+      "number": "7",
+      "heading": "Persistent uncertainties",
+      "list": [
+        "Which artificial systems, copies or emulations have morally relevant experience?",
+        "Can human preferences be faithfully represented without manipulation or coercion?",
+        "Does deep moral reflection reveal convergence, pluralism or something stranger?",
+        "How can promises remain binding across geological and astronomical time?",
+        "What rights belong to persons who may be created by resource-allocation decisions?",
+        "What happens if inhabited worlds or independent civilisations are encountered?"
+      ]
+    },
+    {
+      "id": "chronology",
+      "number": "8",
+      "heading": "Chronology",
+      "paragraphs": [
+        "This is an invented chronology, not a prediction. See the historical records: [[HR-2029-SETTLEMENT-FAILURE]], [[HR-2031-VIENNA-ACCORDS]], [[HR-2034-LUNAR-WORKS]], [[HR-2037-ASTER-CLAIMS]], [[HR-2038-GENEVA-TALKS]], [[HR-2039-GRAND-BARGAIN]] and [[HR-2040-HANDOFF]]."
+      ]
+    }
+  ]
+}

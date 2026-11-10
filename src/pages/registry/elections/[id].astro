@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Panel from '../../../components/Panel.astro';
+import Badge from '../../../components/Badge.astro';
+import RecordTools from '../../../components/RecordTools.astro';
+import Hemicycle from '../../../components/Hemicycle.astro';
+import EmptyState from '../../../components/EmptyState.astro';
+import PartyName from '../../../components/PartyName.astro';
+import { getStore } from '../../../lib/data/load.ts';
+import { href, fmtSim, displayName, partiesInSeatingOrder } from '../../../lib/site.ts';
+import type { ElectionT } from '../../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  return getStore().elections.map((e) => ({ params: { id: e.id }, props: { el: e } }));
+}
+interface Props { el: ElectionT }
+const { el: e } = Astro.props;
+const s = getStore();
+const term = s.terms.find((t) => t.id === e.termId)!;
+const KIND = { 'founding-assignment': 'Founding party assignment', general: 'General election', 'by-election': 'By-election' } as const;
+const TONE = { scheduled: 'neutral', pending: 'amber', certified: 'ok' } as const;
+const parties = partiesInSeatingOrder(s);
+const res = e.results ? parties.map((p) => ({ p, r: e.results!.parties.find((x) => x.partyId === p.id) })).filter((x) => x.r) : [];
+---
+<BaseLayout title={`${KIND[e.kind]}: ${term.name}`} section="registry" recordId={e.id} demo={e.dataset === 'demonstration'} crumbs={[{ label: 'Registry', href: href('/registry/') }, { label: 'Elections', href: href('/registry/elections/') }, { label: e.id }]}>
+  <div class="page-head">
+    <div>
+      <div class="kicker">Election record · {fmtSim(e.simDate)}</div>
+      <h1>{KIND[e.kind]} — {term.name}</h1>
+      <p class="lede">{e.summary}</p>
+      <p style="margin:6px 0 0"><Badge tone={TONE[e.status]}>{e.status}</Badge></p>
+    </div>
+    <RecordTools id={e.id} />
+  </div>
+  <div class="layout-main-side">
+    <div>
+      <Panel title="Results" flush>
+        {e.results ? (
+          <div>
+            <div class="panel-b">
+              <Hemicycle segments={res.map(({ p, r }) => ({ key: p.id, label: p.name, color: p.color, count: r!.constituencySeats + r!.listSeats }))} total={term.assemblySize} title={`Seats won, ${term.name}`} desc="Seats by party; figures in the table that follows." centerLabel={String(term.assemblySize)} />
+            </div>
+            <div class="table-wrap"><table class="tbl">
+              <thead><tr><th scope="col">Party</th><th scope="col" class="num">Vote share</th><th scope="col" class="num">Const.</th><th scope="col" class="num">List</th><th scope="col" class="num">Total</th></tr></thead>
+              <tbody>
+                {res.map(({ p, r }) => (
+                  <tr><td><PartyName id={p.id} /></td><td class="num">{r!.voteSharePercent === null ? '—' : `${r!.voteSharePercent.toFixed(1)}%`}</td><td class="num">{r!.constituencySeats}</td><td class="num">{r!.listSeats}</td><td class="num"><b>{r!.constituencySeats + r!.listSeats}</b></td></tr>
+                ))}
+              </tbody>
+            </table></div>
+            {e.results.turnoutPercent === null && <p class="small muted" style="padding:6px 12px;margin:0">No vote shares or turnout exist for this record.</p>}
+          </div>
+        ) : (
+          <div class="panel-b">
+            <EmptyState code={e.status === 'scheduled' ? 'ELECTION SCHEDULED' : 'RESULTS PENDING'} title={e.status === 'scheduled' ? 'This election has not yet been held.' : 'Results have not yet been certified.'}>
+              <p>Results are published only once certified. They are computed by the published electoral model and are never narrated in advance.</p>
+            </EmptyState>
+          </div>
+        )}
+      </Panel>
+      <Panel title="Method"><p>{e.method}</p></Panel>
+      {e.notes.length > 0 && <Panel title="Notes"><ul style="margin:0;padding-left:1.2em">{e.notes.map((n) => <li>{n}</li>)}</ul></Panel>}
+    </div>
+    <aside>
+      <Panel title="Particulars" flush>
+        <dl class="kv">
+          <dt>Identifier</dt><dd class="mono">{e.id}</dd>
+          <dt>Kind</dt><dd>{KIND[e.kind]}</dd>
+          <dt>Seats effective</dt><dd><a href={href(`/archive/${term.id}/`)}>{term.name}</a></dd>
+          <dt>Simulated date</dt><dd>{fmtSim(e.simDate)}</dd>
+          <dt>Status</dt><dd>{e.status}</dd>
+          {e.compositionId && <><dt>Composition</dt><dd><a href={href(e.dataset === 'demonstration' ? '/assembly/demonstration/' : '/assembly/')} class="mono">{e.compositionId}</a></dd></>}
+        </dl>
+      </Panel>
+      <Panel title="Reference" flush>
+        <ul class="reclist"><li><a href={href('/registry/documents/DOC-ELECTORAL/')}>{displayName(s, 'DOC-ELECTORAL')}</a></li><li><a href={href('/registry/elections/#regions')}>Electoral regions</a></li></ul>
+      </Panel>
+    </aside>
+  </div>
+</BaseLayout>

@@ -1,0 +1,53 @@
+---
+import type { BillT } from '../lib/data/schema.ts';
+import { getStore } from '../lib/data/load.ts';
+import { href, BILL_STATUS, BILL_CATEGORY, fmtSim, displayName } from '../lib/site.ts';
+import { THRESHOLD_LABEL } from '../lib/procedure.ts';
+import Badge from './Badge.astro';
+import DatasetBadge from './DatasetBadge.astro';
+interface Props { bills: BillT[]; filterable?: boolean; caption?: string }
+const { bills, filterable = false, caption } = Astro.props;
+const s = getStore();
+const sorted = [...bills].sort((a, b) => a.termId.localeCompare(b.termId) || a.number - b.number || a.dataset.localeCompare(b.dataset));
+---
+<div class="table-wrap">
+  <table class="tbl stack">
+    {caption && <caption>{caption}</caption>}
+    <thead>
+      <tr>
+        <th scope="col">Record</th>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Sponsor</th>
+        <th scope="col">Threshold</th>
+        <th scope="col">Status</th>
+        <th scope="col">Filed</th>
+      </tr>
+    </thead>
+    <tbody>
+      {sorted.map((b) => {
+        const st = BILL_STATUS[b.status];
+        const sponsor = b.sponsorIds.map((id) => displayName(s, id)).join(', ');
+        return (
+          <tr
+            class:list={{ 'is-demo': b.dataset === 'demonstration' }}
+            data-item={filterable ? '' : undefined}
+            data-status={b.status}
+            data-category={b.category}
+            data-term={b.termId}
+            data-dataset={b.dataset}
+            data-text={`${b.id} ${b.title} ${b.shortTitle} ${b.summary} ${sponsor} ${b.tags.join(' ')}`}
+          >
+            <td data-label="Record"><a href={href(`/legislation/${b.id}/`)} class="mono">{b.id}</a> <DatasetBadge dataset={b.dataset} /></td>
+            <td class="primary"><a href={href(`/legislation/${b.id}/`)}>{b.title}</a></td>
+            <td data-label="Category">{BILL_CATEGORY[b.category]}</td>
+            <td data-label="Sponsor">{sponsor}</td>
+            <td data-label="Threshold" class="nowrap">{THRESHOLD_LABEL[b.threshold]}</td>
+            <td data-label="Status"><Badge tone={st.tone}>{st.label}</Badge></td>
+            <td data-label="Filed" class="nowrap">{fmtSim(b.filed.simDate)} <span class="muted">· Wk {b.filed.week}</span></td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+</div>

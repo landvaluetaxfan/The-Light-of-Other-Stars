@@ -1,0 +1,36 @@
+{
+  "id": "DEMO-B-T1-001",
+  "visibility": "public",
+  "termId": "T1",
+  "number": 1,
+  "title": "First Term Release Size Resolution",
+  "shortTitle": "Release size: 12%",
+  "category": "release-size",
+  "threshold": "simple-majority",
+  "sponsorIds": ["DEMO-M-DENEB"],
+  "cosponsorIds": ["DEMO-M-ALTAIR", "DEMO-M-HADAR"],
+  "filed": { "week": 2, "simDate": "2040-04", "realDate": "2026-12-09T12:00Z" },
+  "status": "enacted",
+  "summary": "Fixes the First Term release at twelve per cent of the remaining pool — 12.0000 of 100 units — slightly above the ten-per-cent default.",
+  "provisions": [
+    { "number": "1", "heading": "Release", "text": "The release for the First Term is fixed at twelve per cent (0.12) of the remaining pool of 100 units, being 12.0000 units." },
+    { "number": "2", "heading": "Remainder", "text": "The remaining pool after this release is 88.0000 units, to be carried forward to the Second Term." },
+    { "number": "3", "heading": "Channels", "text": "The division of the release among the Endowment, Assembly, Deferral and Reserve channels is determined separately under the channel-split procedure." },
+    { "number": "4", "heading": "Review", "text": "The Assembly Bureau shall publish, at the close of the First Term, a statement of the claims released under this Resolution and their ledger stages." }
+  ],
+  "resource": { "releaseFraction": 0.12 },
+  "amendments": [],
+  "history": [
+    { "simDate": "2040-04", "week": 2, "realDate": "2026-12-09T12:00Z", "action": "Filed by Delegate Deneb, whose bloc holds one-tenth of the Assembly, as entitled to propose a release size.", "refId": null },
+    { "simDate": "2040-04", "week": 2, "realDate": "2026-12-11T12:00Z", "action": "Scheduled by the Bureau for the Week 3 floor.", "refId": null },
+    { "simDate": "2040-06", "week": 3, "realDate": "2026-12-18T18:00Z", "action": "Passed on division (324 – 222, 54 abstaining).", "refId": "DEMO-D-T1-001" },
+    { "simDate": "2040-06", "week": 3, "realDate": "2026-12-20T18:00Z", "action": "Council window closed without delay or veto.", "refId": null },
+    { "simDate": "2040-07", "week": 4, "realDate": null, "action": "Entered in the resource ledger.", "refId": "DEMO-REL-T1" }
+  ],
+  "councilActions": [],
+  "rulings": [],
+  "divisionIds": ["DEMO-D-T1-001"],
+  "outcome": { "summary": "12.0000 units released; 88.0000 units carried forward. Channel division under [[DEMO-B-T1-002]].", "allocationIds": [] },
+  "refs": { "events": ["DEMO-EV-02"], "documents": ["DOC-RESOURCES"] },
+  "tags": ["first-release", "release-size"]
+}

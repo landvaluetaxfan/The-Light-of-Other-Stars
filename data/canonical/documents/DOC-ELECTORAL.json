@@ -1,0 +1,68 @@
+{
+  "id": "DOC-ELECTORAL",
+  "visibility": "public",
+  "kind": "reference",
+  "title": "Electoral System and Regions",
+  "shortTitle": "Electoral system",
+  "edition": "Founding model",
+  "issuedBy": "Assembly Information Service",
+  "sourceRef": "World Bible v3.4, §§ 5, 17 and Appendix B",
+  "summary": "How the vote becomes seats: twelve regions, 300 constituency seats, 300 compensatory list seats, the two-per-cent threshold and overhang.",
+  "sections": [
+    {
+      "id": "structure",
+      "number": "1",
+      "heading": "Structure of the Assembly",
+      "paragraphs": [
+        "The Assembly consists of 600 seats at the outset: 300 constituency seats elected across twelve regions and 300 compensatory global-list seats. The second tier keeps overall representation close to each party's share of the vote."
+      ]
+    },
+    {
+      "id": "method",
+      "number": "2",
+      "heading": "How the vote becomes seats",
+      "list": [
+        "Each region is divided into single-seat constituencies drawn from its electorate. The leading party in each constituency wins that seat.",
+        "A global tier of 300 list seats adjusts party totals toward their share of the worldwide vote using the largest-remainder method.",
+        "Parties need at least two per cent of the global vote to qualify for list seats.",
+        "A party with more constituency seats than its proportional entitlement keeps the excess, enlarging the Assembly for that term.",
+        "If digital minds are enfranchised in later terms, the starting model assigns them to the global-list tier unless the charter establishes a different rule."
+      ]
+    },
+    {
+      "id": "regions",
+      "number": "3",
+      "heading": "The twelve electoral regions",
+      "paragraphs": [
+        "Population figures are fictional 2040 scenario estimates inherited from the founding design. Together they total approximately 9.16 billion people and allocate 300 constituency seats. Antarctica is excluded. All six voter families appear in every region, in varying proportions."
+      ],
+      "table": {
+        "caption": "Regions and constituency seats",
+        "columns": ["No.", "Region", "2040 population (billions)", "Constituency seats"],
+        "rows": [
+          ["1", "North America", "0.41", "13"],
+          ["2", "Mexico, Central America and Caribbean", "0.25", "8"],
+          ["3", "South America", "0.46", "15"],
+          ["4", "Europe", "0.55", "18"],
+          ["5", "Northern Eurasia", "0.33", "11"],
+          ["6", "Middle East and North Africa", "0.76", "25"],
+          ["7", "West and Central Africa", "0.97", "32"],
+          ["8", "East and Southern Africa", "0.78", "26"],
+          ["9", "South Asia", "2.24", "73"],
+          ["10", "Southeast Asia", "0.76", "25"],
+          ["11", "East Asia", "1.60", "52"],
+          ["12", "Oceania and Pacific", "0.05", "2"]
+        ]
+      }
+    },
+    {
+      "id": "calculation",
+      "number": "4",
+      "heading": "Calculation and publication",
+      "paragraphs": [
+        "Voting is modelled using a public formula outline, private group weights and a deterministic computation pipeline; the narrative does not override the counted results. Moderators may narrate results but must not invent numerical outcomes inconsistent with the calculations.",
+        "Moderators publish noisy family-level polling. Each party may commission two subgroup polls per term. Private group weights, loyalty variables and random draws are not published."
+      ]
+    }
+  ]
+}

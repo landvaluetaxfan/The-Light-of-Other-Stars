@@ -1,0 +1,145 @@
+[
+  {
+    "id": "DEMO-BL-01",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-COLLECTIVISTS",
+    "holderId": "DEMO-M-ALTAIR",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 60,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-02",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-COLLECTIVISTS",
+    "holderId": "DEMO-M-BELLATRIX",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 42,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-03",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-COLLECTIVISTS",
+    "holderId": "DEMO-M-CAPELLA",
+    "controllerId": "DEMO-M-RIGEL",
+    "controlNote": "Controlled by the party floor leader while the holder serves as Speaker (World Bible §5).",
+    "seats": 30,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-04",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-PROPRIETARIANS",
+    "holderId": "DEMO-M-DENEB",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 60,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-05",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-PROPRIETARIANS",
+    "holderId": "DEMO-M-ELECTRA",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 48,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-06",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-CONSERVATIONISTS",
+    "holderId": "DEMO-M-FOMALHAUT",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 56,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-07",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-CONSERVATIONISTS",
+    "holderId": "DEMO-M-GACRUX",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 40,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-08",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-EXPANSIONISTS",
+    "holderId": "DEMO-M-HADAR",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 50,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-09",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-EXPANSIONISTS",
+    "holderId": "DEMO-M-IZAR",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 34,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-10",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-UNIVERSALISTS",
+    "holderId": "DEMO-M-KOCHAB",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 54,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-11",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-UNIVERSALISTS",
+    "holderId": "DEMO-M-LESATH",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 36,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-12",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-DELEGATIONISTS",
+    "holderId": "DEMO-M-MIRACH",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 60,
+    "status": "active"
+  },
+  {
+    "id": "DEMO-BL-13",
+    "visibility": "public",
+    "termId": "T1",
+    "partyId": "PTY-DELEGATIONISTS",
+    "holderId": "DEMO-M-NUNKI",
+    "controllerId": null,
+    "controlNote": "",
+    "seats": 30,
+    "status": "active"
+  }
+]

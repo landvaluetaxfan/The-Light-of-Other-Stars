@@ -1,0 +1,104 @@
+---
+/**
+ * Layout for player-operated publications. Deliberately NOT the government
+ * portal: each publication supplies its own masthead, typography and colours.
+ * A slim directory frame keeps the independence notice and the way back.
+ */
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource-variable/source-serif-4/index.css';
+import '@fontsource-variable/source-serif-4/wght-italic.css';
+import '@fontsource/playfair-display/700.css';
+import '@fontsource/playfair-display/900.css';
+import '@fontsource-variable/archivo/wdth.css';
+import '@fontsource-variable/fraunces/index.css';
+import '@fontsource-variable/fraunces/wght-italic.css';
+import '../styles/press.css';
+import type { PublicationT } from '../lib/data/schema.ts';
+import { href, asset, fmtSim } from '../lib/site.ts';
+import { getStore } from '../lib/data/load.ts';
+
+interface Props { pub: PublicationT; title: string; description?: string; compact?: boolean }
+const { pub, title, description, compact = false } = Astro.props;
+const s = getStore();
+const FONT = {
+  playfair: "'Playfair Display', Georgia, serif",
+  archivo: "'Archivo Variable', 'Arial Black', Arial, sans-serif",
+  fraunces: "'Fraunces Variable', Georgia, serif",
+  'plex-sans': "'IBM Plex Sans', Arial, sans-serif",
+  'source-serif': "'Source Serif 4 Variable', Georgia, serif",
+} as const;
+const c = pub.brand.colors;
+const style = `--p-paper:${c.paper};--p-ink:${c.ink};--p-accent:${c.accent};--p-rule:${c.rule};--p-display:${FONT[pub.brand.displayFont]};--p-body:${FONT[pub.brand.bodyFont]};`;
+const KIND = { newspaper: 'Newspaper', magazine: 'Magazine', newsletter: 'Newsletter', broadcaster: 'Broadcaster' } as const;
+const articles = s.articles.filter((a) => a.publicationId === pub.id);
+const latest = [...articles].sort((a, b) => b.simDate.localeCompare(a.simDate))[0];
+const pubHome = href(`/press/${pub.slug}/`);
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — {pub.name}</title>
+    <meta name="description" content={description ?? pub.description} />
+    <link rel="icon" type="image/svg+xml" href={asset(pub.brand.logo)} />
+    <meta name="theme-color" content={c.ink} />
+  </head>
+  <body class={`press theme-${pub.brand.theme}`} style={style}>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <div class="dir-frame" role="note">
+      <div class="dir-wrap">
+        <a href={href('/press/')} class="dir-back">← Press directory</a>
+        <span class="dir-note"><strong>Independent publication.</strong> Not an official communication of the World Assembly or any treaty institution.</span>
+        <a href={href('/')} class="dir-portal">Information Service</a>
+      </div>
+      {pub.status === 'demonstration' && (
+        <div class="dir-demo"><div class="dir-wrap"><strong>DEMONSTRATION PUBLICATION</strong> — an example title created to test the press system. No player operates it; its articles describe demonstration records only.</div></div>
+      )}
+    </div>
+
+    <header class:list={['p-mast', { compact }]}>
+      <div class="p-wrap">
+        {pub.brand.theme === 'broadsheet' && (
+          <>
+            <div class="bs-ears">
+              <span>Founded {fmtSim(pub.founded)}</span>
+              <span>{pub.affiliation === 'independent' ? 'An independent newspaper' : 'Party-affiliated'}</span>
+            </div>
+            <a class="p-name" href={pubHome}>{pub.name}</a>
+            <div class="bs-dateline"><span>Geneva</span><span>{pub.tagline}</span><span>{latest ? `Latest edition: ${fmtSim(latest.simDate)}` : 'No editions yet'}</span></div>
+          </>
+        )}
+        {pub.brand.theme === 'broadcast' && (
+          <div class="bc-bar">
+            <a class="bc-logo" href={pubHome}><img src={asset(pub.brand.logo)} alt="" width="56" height="56" /><span class="p-name">{pub.name}</span></a>
+            <span class="bc-tag">{pub.tagline}</span>
+          </div>
+        )}
+        {pub.brand.theme === 'editorial' && (
+          <>
+            <a class="p-name" href={pubHome}><img src={asset(pub.brand.logo)} alt="" width="40" height="40" />{pub.name}</a>
+            <div class="ed-tag">{pub.tagline}</div>
+          </>
+        )}
+      </div>
+      {pub.brand.theme === 'broadcast' && latest && !compact && (
+        <div class="bc-ticker"><div class="p-wrap"><span class="bc-chip">Latest</span> <a href={href(`/press/${pub.slug}/${latest.slug}/`)}>{latest.headline}</a></div></div>
+      )}
+    </header>
+
+    <main id="content" class="p-wrap p-main">
+      <slot />
+    </main>
+
+    <footer class="p-foot">
+      <div class="p-wrap">
+        <p><strong>{pub.name}</strong> · {KIND[pub.kind]} · {pub.ownerLabel}. Editor: {pub.editorLabel}.</p>
+        <p>Hosted in the press directory of the World Assembly Information Service. Listing does not imply endorsement. Statements here are the publication's own and do not alter the public record; official records cited are linked to the Information Service.</p>
+        <p><a href={href('/press/')}>Press directory</a> · <a href={pubHome}>{pub.name} home</a> · <a href={href('/')}>Information Service</a></p>
+      </div>
+    </footer>
+  </body>
+</html>

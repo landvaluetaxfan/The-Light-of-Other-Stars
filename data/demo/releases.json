@@ -1,0 +1,20 @@
+[
+  {
+    "id": "DEMO-REL-T1",
+    "visibility": "public",
+    "termId": "T1",
+    "status": "authorized",
+    "startingPool": 100,
+    "fraction": 0.12,
+    "releasedUnits": 12,
+    "closingPool": 88,
+    "sizeDecision": "voted",
+    "sizeBillId": "DEMO-B-T1-001",
+    "splitDecision": "voted",
+    "splitBillId": "DEMO-B-T1-002",
+    "channels": { "endowment": 4.2, "assembly": 3.6, "deferral": 0.6, "reserve": 3.6 },
+    "notes": [
+      "Hypothetical First Term release used to test the ledger. Not the canonical release, which is pending."
+    ]
+  }
+]

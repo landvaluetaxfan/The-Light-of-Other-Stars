@@ -1,0 +1,157 @@
+[
+  {
+    "id": "DEMO-EV-01",
+    "visibility": "public",
+    "kind": "election-bulletin",
+    "title": "Demonstration seating of a six-party Assembly",
+    "simDate": "2040-03",
+    "realDate": null,
+    "termId": "T1",
+    "week": 1,
+    "issuerId": "INST-INFOSERVICE",
+    "issuerLabel": "",
+    "summary": "A hypothetical six-party composition used to test the seating diagram, bloc register and roll calls.",
+    "body": [
+      "This bulletin accompanies the [[DEMO-EL-T1|demonstration founding assignment]]: 600 seats among six parties and thirteen blocs, none larger than sixty seats.",
+      "The figures are invented for testing. The canonical composition of the Assembly has not been published."
+    ],
+    "refs": { "elections": ["DEMO-EL-T1"] },
+    "sourceRef": ""
+  },
+  {
+    "id": "DEMO-EV-02",
+    "visibility": "public",
+    "kind": "official-notice",
+    "title": "Division results: first release size and channel division",
+    "simDate": "2040-06",
+    "realDate": "2026-12-18T18:30Z",
+    "termId": "T1",
+    "week": 3,
+    "issuerId": "INST-INFOSERVICE",
+    "issuerLabel": "",
+    "summary": "The Assembly fixed the release at 12% and adopted Split A (35 / 30 / 5 / 30). Split B was not carried.",
+    "body": [
+      "The voting window closed at 18:00 UTC. Roll calls are now published.",
+      "[[DEMO-D-T1-001]]: release size of twelve per cent — carried, 324 to 222, with 54 seats abstaining.",
+      "[[DEMO-D-T1-002]]: Split A (Endowment 35, Assembly 30, Deferral 5, Reserve 30) — carried, 408 to 192.",
+      "[[DEMO-D-T1-003]]: Split B (Endowment 50, Assembly 30, Deferral 0, Reserve 20) — not carried, 234 to 336, with 30 abstaining.",
+      "As only one split passed, Split A takes effect. The Council of Treaty Parties now has 48 hours to delay or exercise a protected veto."
+    ],
+    "refs": { "divisions": ["DEMO-D-T1-001", "DEMO-D-T1-002", "DEMO-D-T1-003"], "bills": ["DEMO-B-T1-001", "DEMO-B-T1-002", "DEMO-B-T1-003"] },
+    "sourceRef": ""
+  },
+  {
+    "id": "DEMO-EV-03",
+    "visibility": "public",
+    "kind": "council-statement",
+    "title": "Council of Treaty Parties delays the Near-System Survey and Preservation Act",
+    "simDate": "2040-06",
+    "realDate": "2026-12-19T20:00Z",
+    "termId": "T1",
+    "week": 3,
+    "issuerId": "INST-COUNCIL",
+    "issuerLabel": "",
+    "summary": "Four seats — the United States, China, the frontier AI laboratories and the other middle powers — delayed the Act and sought an Arbiter classification.",
+    "body": [
+      "Four seats of the [[INST-COUNCIL|Council of Treaty Parties]] exercised the suspensive delay on [[DEMO-B-T1-004]].",
+      "The delaying seats stated that preservation zones near candidate systems could restrict missions already en route, and asked the Arbiter whether the Act falls within protected matter (1). A delay may be overridden by two-thirds of the Assembly in Week 4."
+    ],
+    "refs": { "bills": ["DEMO-B-T1-004"], "institutions": ["OFF-CTP-US", "OFF-CTP-CN", "OFF-CTP-LABS", "OFF-CTP-MIDDLE"] },
+    "sourceRef": ""
+  },
+  {
+    "id": "DEMO-EV-04",
+    "visibility": "public",
+    "kind": "legal-ruling",
+    "title": "Arbiter: survey act is not a protected matter",
+    "simDate": "2040-06",
+    "realDate": "2026-12-20T12:00Z",
+    "termId": "T1",
+    "week": 3,
+    "issuerId": "INST-ARBITER",
+    "issuerLabel": "",
+    "summary": "The Arbiter classified the Near-System Survey and Preservation Act outside the protected-veto list. The Council's action stands as a suspensive delay only.",
+    "body": [
+      "The Act's preservation zones bind only claims released under the Act, and provision 4 expressly preserves antecedent holdings. The Act therefore does not seize or restrict an established holding, and no entrenched veto applies.",
+      "The ruling may be appealed to the [[INST-TRIBUNAL|Charter Review Tribunal]]. The full holding is recorded on [[DEMO-B-T1-004|the bill record]]."
+    ],
+    "refs": { "bills": ["DEMO-B-T1-004"], "institutions": ["INST-ARBITER"] },
+    "sourceRef": ""
+  },
+  {
+    "id": "DEMO-EV-05",
+    "visibility": "public",
+    "kind": "official-notice",
+    "title": "Override carried; release ledger updated",
+    "simDate": "2040-07",
+    "realDate": "2026-12-23T18:30Z",
+    "termId": "T1",
+    "week": 4,
+    "issuerId": "INST-INFOSERVICE",
+    "issuerLabel": "",
+    "summary": "The Assembly overrode the Council delay by 456 to 144. The First Term release and its allocations are entered in the ledger.",
+    "body": [
+      "[[DEMO-D-T1-006]]: override of the Council delay on [[DEMO-B-T1-004]] — carried, 456 to 144, against a two-thirds requirement of 400.",
+      "The [[DEMO-REL-T1|First Term release]] of 12.0000 units is entered in the ledger with its four-channel division. 2.8000 units of the Assembly channel remain unallocated."
+    ],
+    "refs": { "divisions": ["DEMO-D-T1-006"], "bills": ["DEMO-B-T1-004"] },
+    "sourceRef": ""
+  },
+  {
+    "id": "DEMO-EV-06",
+    "visibility": "public",
+    "kind": "research-report",
+    "title": "Commission on Long-Term Inquiry sets first inquiry priorities",
+    "simDate": "2040-07",
+    "realDate": null,
+    "termId": "T1",
+    "week": 4,
+    "issuerId": "INST-INQUIRY",
+    "issuerLabel": "",
+    "summary": "The Commission named digital political identity and the continuity of copies as the first priorities of the publicly funded research programme.",
+    "body": [
+      "The [[INST-INQUIRY|Commission on Long-Term Inquiry]] set three priorities for the publicly funded research programme: digital political identity; continuity of identity across copies and emulations; and methods for representing people not yet born without claiming to read their values.",
+      "Findings will appear in the next public world-state update. Research findings are evidence, not legislation."
+    ],
+    "refs": { "institutions": ["INST-INQUIRY"] },
+    "sourceRef": ""
+  },
+  {
+    "id": "DEMO-EV-07",
+    "visibility": "public",
+    "kind": "world-event",
+    "title": "Survey consortium chartered; first instrument contracts let",
+    "simDate": "2041",
+    "realDate": null,
+    "termId": "T1",
+    "week": null,
+    "issuerId": "INST-INFOSERVICE",
+    "issuerLabel": "",
+    "summary": "The consortium created by the Near-System Survey and Preservation Act has been chartered and has contracted its first observatory instruments.",
+    "body": [
+      "The allocation under [[DEMO-B-T1-004]] advanced from *allocated* to *committed* in the ledger.",
+      "No survey mission has yet reached a target system. Near-star arrival times are measured in decades."
+    ],
+    "refs": { "bills": ["DEMO-B-T1-004"] },
+    "sourceRef": ""
+  },
+  {
+    "id": "DEMO-EV-08",
+    "visibility": "public",
+    "kind": "official-notice",
+    "title": "Voting open: Register of Antecedent Probe Holdings Act",
+    "simDate": "2040-06",
+    "realDate": "2026-12-16T18:00Z",
+    "termId": "T1",
+    "week": 3,
+    "issuerId": "INST-INFOSERVICE",
+    "issuerLabel": "",
+    "summary": "The division on the Register of Antecedent Probe Holdings Act is open. The tally is sealed until the window closes.",
+    "body": [
+      "The division [[DEMO-D-T1-008]] opened at 18:00 UTC and closes 72 hours later. Running totals are sealed from all parties, including the Speaker and Bureau.",
+      "The complete roll call will be published when the window closes."
+    ],
+    "refs": { "divisions": ["DEMO-D-T1-008"], "bills": ["DEMO-B-T1-005"] },
+    "sourceRef": ""
+  }
+]

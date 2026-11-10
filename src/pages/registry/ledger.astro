@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import LedgerTables from '../../components/LedgerTables.astro';
+import DemoBand from '../../components/DemoBand.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, fmtUnits } from '../../lib/site.ts';
+import { RELEASE_MIN, RELEASE_MAX, RELEASE_DEFAULT } from '../../lib/procedure.ts';
+
+const s = getStore();
+const canonRel = s.releases.filter((r) => r.dataset === 'canonical');
+const lastAuth = canonRel.filter((r) => r.status === 'authorized').at(-1);
+const remaining = lastAuth?.closingPool ?? s.meta.pool.initialUnits;
+---
+<BaseLayout title="Resource ledger" section="registry" crumbs={[{ label: 'Registry', href: href('/registry/') }, { label: 'Resource ledger' }]} description="The public ledger of resource releases, channel divisions and allocations under the Treaty on Extrasolar Resource Governance.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Registry · Public resource-allocation ledger</div>
+      <h1>Resource ledger</h1>
+      <p class="lede">The pool of 100 units represents legal claims on accessible resources beyond the solar system. Each term the Assembly releases between {RELEASE_MIN * 100}% and {RELEASE_MAX * 100}% of the remainder ({RELEASE_DEFAULT * 100}% by default) and divides it among four channels. Every claim is tracked from authorisation to realised use.</p>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="label">Initial pool</div><div class="value">{fmtUnits(s.meta.pool.initialUnits)}</div><div class="sub">units, March 2040</div></div>
+    <div class="stat"><div class="label">Remaining</div><div class="value">{fmtUnits(remaining)}</div><div class="sub">units unreleased</div></div>
+    <div class="stat"><div class="label">Released</div><div class="value">{fmtUnits(s.meta.pool.initialUnits - remaining)}</div><div class="sub">units, all terms</div></div>
+    <div class="stat"><div class="label">Next release</div><div class="value">{canonRel.find((r) => r.status === 'pending')?.termId ?? '—'}</div><div class="sub">pending decision</div></div>
+  </div>
+
+  <h2 style="margin-top:4px">Canonical ledger</h2>
+  <LedgerTables dataset="canonical" />
+
+  <Panel title="Release calculator" meta="Illustrative — computed from the published rule, not a forecast" id="calculator">
+    <form class="calc" onsubmit="return false" data-remaining={remaining}>
+      <div class="filterbar" style="margin:-10px -12px 10px;border-bottom:1px solid var(--rule-2)">
+        <div class="field grow">
+          <label for="calc-p">Release fraction per term: <output id="calc-p-out">{RELEASE_DEFAULT * 100}%</output></label>
+          <input id="calc-p" type="range" min={RELEASE_MIN * 100} max={RELEASE_MAX * 100} step="0.5" value={RELEASE_DEFAULT * 100} style="width:100%" />
+        </div>
+        <div class="field">
+          <label for="calc-n">Terms</label>
+          <select id="calc-n"><option>5</option><option selected>10</option><option>15</option><option>20</option></select>
+        </div>
+      </div>
+      <p class="small" id="calc-summary" aria-live="polite">At a constant {RELEASE_DEFAULT * 100}%, the next release would be {fmtUnits(remaining * RELEASE_DEFAULT)} units, leaving {fmtUnits(remaining * (1 - RELEASE_DEFAULT))}.</p>
+      <div class="table-wrap">
+        <table class="tbl" id="calc-table">
+          <thead><tr><th scope="col">Term from now</th><th scope="col" class="num">Starting pool</th><th scope="col" class="num">Release</th><th scope="col" class="num">Remaining</th><th scope="col" style="width:40%">Remaining (share of 100)</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </form>
+  </Panel>
+
+  <section id="demonstration" style="margin-top:22px">
+    <h2>Demonstration ledger</h2>
+    <DemoBand text="a hypothetical First Term release and allocations, used to test the ledger. These figures are not the canonical record and are excluded from every total above." />
+    <LedgerTables dataset="demonstration" />
+  </section>
+
+  <script>
+    const form = document.querySelector<HTMLFormElement>('form.calc');
+    if (form) {
+      const R0 = Number(form.dataset.remaining);
+      const p = form.querySelector<HTMLInputElement>('#calc-p')!;
+      const n = form.querySelector<HTMLSelectElement>('#calc-n')!;
+      const out = form.querySelector<HTMLOutputElement>('#calc-p-out')!;
+      const sum = form.querySelector<HTMLElement>('#calc-summary')!;
+      const body = form.querySelector<HTMLTableSectionElement>('#calc-table tbody')!;
+      const f4 = (x: number) => (Math.round(x * 10000) / 10000).toFixed(4);
+      const render = () => {
+        const frac = Number(p.value) / 100;
+        const terms = Number(n.value);
+        out.textContent = `${Number(p.value).toFixed(1)}%`;
+        let R = R0;
+        const rows: string[] = [];
+        for (let t = 1; t <= terms; t++) {
+          const rel = R * frac;
+          const next = R - rel;
+          rows.push(`<tr><td>+${t}</td><td class="num">${f4(R)}</td><td class="num">${f4(rel)}</td><td class="num">${f4(next)}</td><td><div class="chbar" style="height:9px"><span style="width:${next}%;background:var(--teal-3)"></span></div></td></tr>`);
+          R = next;
+        }
+        body.innerHTML = rows.join('');
+        sum.textContent = `At a constant ${(frac * 100).toFixed(1)}%, the next release would be ${f4(R0 * frac)} units, leaving ${f4(R0 * (1 - frac))}. After ${terms} terms, ${f4(R)} units would remain unreleased.`;
+      };
+      p.addEventListener('input', render);
+      n.addEventListener('change', render);
+      render();
+    }
+  </script>
+</BaseLayout>

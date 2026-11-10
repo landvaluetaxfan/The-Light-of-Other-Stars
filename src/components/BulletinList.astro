@@ -1,0 +1,31 @@
+---
+import type { EventT } from '../lib/data/schema.ts';
+import { getStore } from '../lib/data/load.ts';
+import { href, fmtSim, EVENT_KIND, displayName } from '../lib/site.ts';
+import { inline } from '../lib/richtext.ts';
+import DatasetBadge from './DatasetBadge.astro';
+interface Props { events: EventT[]; filterable?: boolean; summaries?: boolean }
+const { events, filterable = false, summaries = true } = Astro.props;
+const s = getStore();
+---
+<ul class="reclist">
+  {events.map((e) => (
+    <li
+      data-item={filterable ? '' : undefined}
+      data-kind={e.kind}
+      data-term={e.termId ?? 'none'}
+      data-dataset={e.dataset}
+      data-text={`${e.id} ${e.title} ${e.summary}`}
+    >
+      <div class="rl-meta">
+        <span class="mono">{e.id}</span>
+        <span>{EVENT_KIND[e.kind]}</span>
+        <span>{fmtSim(e.simDate)}{e.week ? ` · Week ${e.week}` : ''}</span>
+        {e.issuerId && <span>{displayName(s, e.issuerId)}</span>}
+        <DatasetBadge dataset={e.dataset} />
+      </div>
+      <a class="rl-title" href={href(`/bulletins/${e.id}/`)}>{e.title}</a>
+      {summaries && <p class="rl-sum" set:html={inline(e.summary, s)} />}
+    </li>
+  ))}
+</ul>

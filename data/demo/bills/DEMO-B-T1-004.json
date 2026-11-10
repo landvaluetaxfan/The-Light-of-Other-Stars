@@ -1,0 +1,83 @@
+{
+  "id": "DEMO-B-T1-004",
+  "visibility": "public",
+  "termId": "T1",
+  "number": 4,
+  "title": "Near-System Survey and Preservation Act",
+  "shortTitle": "Near-system survey and preservation",
+  "category": "assembly-project",
+  "threshold": "simple-majority",
+  "sponsorIds": ["DEMO-M-FOMALHAUT"],
+  "cosponsorIds": ["DEMO-M-KOCHAB", "DEMO-M-BELLATRIX"],
+  "filed": { "week": 2, "simDate": "2040-04", "realDate": "2026-12-10T14:00Z" },
+  "status": "enacted",
+  "summary": "Dedicates 0.8000 units of the Assembly channel to a public survey of nearby star systems and to conditional preservation zones around potentially habitable worlds, pending survey. Delayed by the Council; delay overridden.",
+  "provisions": [
+    { "number": "1", "heading": "Allocation", "text": "0.8000 units of the Assembly channel of the First Term release are allocated to the Near-System Survey and Preservation Programme (the Programme)." },
+    { "number": "2", "heading": "Survey", "text": "The Programme shall fund non-invasive survey missions and observatories to assess nearby star systems for potentially habitable worlds and emergent ecologies, and shall publish its findings openly." },
+    { "number": "3", "heading": "Preservation zones", "text": "Claims released under this Act may not be used for irreversible transformation within a designated zone around a potentially habitable world until the survey of that world is published. Zones are designated by the implementing consortium and published in the ledger." },
+    { "number": "4", "heading": "Antecedent holdings", "text": "Nothing in this Act restricts, conditions or reallocates any holding established before the Treaty, including the holdings of the Aster programme and its competitors." },
+    { "number": "5", "heading": "Implementing actor", "text": "A public survey consortium is chartered under this Act, reporting to the Assembly Bureau and subject to audit by an independent verification system." },
+    { "number": "6", "heading": "Reach and duration", "text": "The Programme's reach is near (within the Milky Way). Its authority lasts thirty years from authorisation." },
+    { "number": "7", "heading": "Success and failure", "text": "The Programme succeeds if surveys of at least the nearest candidate systems are published within its duration. It fails if no survey is published before the sunset review." }
+  ],
+  "resource": {
+    "units": 0.8,
+    "channel": "assembly",
+    "reach": "near",
+    "implementingActor": "Public survey consortium chartered under the Act, reporting to the Assembly Bureau",
+    "beneficiaries": "The public; scientific community; future generations",
+    "duration": "Thirty years from authorisation, with a sunset review in the Third Term (Amendment 1)",
+    "conditions": [
+      "Survey findings published openly.",
+      "Preservation zones bind only claims released under this Act.",
+      "Antecedent holdings are unaffected.",
+      "Independent verification audit of expenditures."
+    ]
+  },
+  "amendments": [
+    {
+      "id": "DEMO-B-T1-004-A1",
+      "number": 1,
+      "sponsorIds": ["DEMO-M-MIRACH"],
+      "summary": "Adds a sunset review in the Third Term.",
+      "text": "After provision 6, insert: 'The Assembly shall review the Programme in Week 2 of the Third Term. Unless renewed by ordinary majority, preservation zones designated under provision 3 lapse at the end of that term.'",
+      "status": "adopted",
+      "divisionId": "DEMO-D-T1-004"
+    }
+  ],
+  "history": [
+    { "simDate": "2040-04", "week": 2, "realDate": "2026-12-10T14:00Z", "action": "Filed by Delegate Fomalhaut with the motion particulars required by the Rules of Procedure.", "refId": null },
+    { "simDate": "2040-04", "week": 2, "realDate": "2026-12-12T10:00Z", "action": "Amendment 1 filed by Delegate Mirach.", "refId": "DEMO-B-T1-004-A1" },
+    { "simDate": "2040-06", "week": 3, "realDate": "2026-12-18T18:00Z", "action": "Amendment 1 adopted on division (516 – 84).", "refId": "DEMO-D-T1-004" },
+    { "simDate": "2040-06", "week": 3, "realDate": "2026-12-18T18:00Z", "action": "Passed as amended on division (408 – 144, 48 abstaining).", "refId": "DEMO-D-T1-005" },
+    { "simDate": "2040-06", "week": 3, "realDate": "2026-12-19T20:00Z", "action": "Delayed by four seats of the Council of Treaty Parties.", "refId": "DEMO-B-T1-004-CA1" },
+    { "simDate": "2040-06", "week": 3, "realDate": "2026-12-20T12:00Z", "action": "Arbiter classification: the Act does not fall within a protected matter; no veto applies.", "refId": "DEMO-B-T1-004-R1" },
+    { "simDate": "2040-07", "week": 4, "realDate": "2026-12-23T18:00Z", "action": "Council delay overridden on division (456 – 144).", "refId": "DEMO-D-T1-006" },
+    { "simDate": "2040-07", "week": 4, "realDate": null, "action": "Allocation entered in the resource ledger.", "refId": "DEMO-AL-T1-02" }
+  ],
+  "councilActions": [
+    {
+      "id": "DEMO-B-T1-004-CA1",
+      "kind": "delay",
+      "officeIds": ["OFF-CTP-US", "OFF-CTP-CN", "OFF-CTP-LABS", "OFF-CTP-MIDDLE"],
+      "simDate": "2040-06",
+      "week": 3,
+      "basis": "Suspensive delay (World Bible §6). The delaying seats also asked the Arbiter whether the Act restricts established probe holdings.",
+      "text": "The seats state that preservation zones near candidate systems could, in practice, restrict missions already en route, and request that the Assembly reconsider."
+    }
+  ],
+  "rulings": [
+    {
+      "id": "DEMO-B-T1-004-R1",
+      "institutionId": "INST-ARBITER",
+      "simDate": "2040-06",
+      "question": "Does the Act fall within protected matter (1), the seizure or restriction of a Council seat's established holdings?",
+      "holding": "No. Provision 3 binds only claims released under this Act, and provision 4 expressly preserves antecedent holdings. The Council's action is a suspensive delay, which the Assembly may override by two-thirds. The ruling may be appealed to the Charter Review Tribunal."
+    }
+  ],
+  "divisionIds": ["DEMO-D-T1-004", "DEMO-D-T1-005", "DEMO-D-T1-006"],
+  "outcome": { "summary": "0.8000 units allocated and committed; consortium chartered and first instrument contracts let. No survey mission has yet reached a target system.", "allocationIds": ["DEMO-AL-T1-02"] },
+  "refs": { "institutions": ["INST-COUNCIL", "INST-ARBITER"], "events": ["DEMO-EV-03", "DEMO-EV-04", "DEMO-EV-05", "DEMO-EV-07"], "documents": ["DOC-RESOURCES"] },
+  "tags": ["preservation", "survey", "assembly-project"]
+}

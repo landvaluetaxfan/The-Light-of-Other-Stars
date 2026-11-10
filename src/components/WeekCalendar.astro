@@ -1,0 +1,14 @@
+---
+import { WEEKS } from '../lib/procedure.ts';
+interface Props { current: number; compact?: boolean }
+const { current, compact = false } = Astro.props;
+---
+<ol class="weeks" style="list-style:none;margin:0;padding:0" aria-label="The four weeks of a term">
+  {WEEKS.map((w) => (
+    <li class:list={['week', { current: w.week === current, past: w.week < current }]} aria-current={w.week === current ? 'step' : undefined}>
+      <span class="wk">WEEK {w.week}{w.week === current ? ' · CURRENT' : ''}</span>
+      <span class="wn">{w.name}</span>
+      {!compact && <span class="wd">{w.detail}</span>}
+    </li>
+  ))}
+</ol>

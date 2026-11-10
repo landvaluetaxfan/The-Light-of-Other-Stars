@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="t">
+  <title id="t">Engraving-style drawing of a semicircular chamber</title>
+  <rect width="800" height="420" fill="#F6F1E6"/>
+  <g fill="none" stroke="#1C1A17">
+    <!-- hatched back wall -->
+    <g stroke-width="0.6" opacity="0.55">
+      <path d="M40 60 L760 60 M40 66 L760 66 M40 72 L760 72 M40 78 L760 78 M40 84 L760 84 M40 90 L760 90"/>
+    </g>
+    <path d="M40 96 H760" stroke-width="1.5"/>
+    <!-- columns -->
+    <g stroke-width="1">
+      <path d="M90 96 V360 M110 96 V360 M690 96 V360 M710 96 V360"/>
+      <path d="M84 96 h32 M84 360 h32 M684 96 h32 M684 360 h32"/>
+    </g>
+    <!-- tiers -->
+    <g stroke-width="1.2">
+      <path d="M160 360 A240 240 0 0 1 640 360"/>
+      <path d="M190 360 A210 210 0 0 1 610 360"/>
+      <path d="M220 360 A180 180 0 0 1 580 360"/>
+      <path d="M250 360 A150 150 0 0 1 550 360"/>
+      <path d="M280 360 A120 120 0 0 1 520 360"/>
+    </g>
+    <!-- aisles -->
+    <g stroke-width="0.9">
+      <path d="M400 240 V120"/>
+      <path d="M315 275 L230 190"/>
+      <path d="M485 275 L570 190"/>
+    </g>
+    <!-- rostrum -->
+    <path d="M360 360 V320 H440 V360" stroke-width="1.4"/>
+    <path d="M370 330 H430" stroke-width="0.8"/>
+    <path d="M40 360 H760" stroke-width="2"/>
+    <g stroke-width="0.5" opacity="0.5">
+      <path d="M40 368 H760 M40 374 H760 M40 380 H760 M40 386 H760"/>
+    </g>
+  </g>
+  <!-- seats as dots along tiers -->
+  <g fill="#1C1A17">
+    <circle cx="176" cy="300" r="3.2"/><circle cx="196" cy="256" r="3.2"/><circle cx="224" cy="216" r="3.2"/><circle cx="258" cy="182" r="3.2"/><circle cx="298" cy="155" r="3.2"/><circle cx="345" cy="135" r="3.2"/><circle cx="455" cy="135" r="3.2"/><circle cx="502" cy="155" r="3.2"/><circle cx="542" cy="182" r="3.2"/><circle cx="576" cy="216" r="3.2"/><circle cx="604" cy="256" r="3.2"/><circle cx="624" cy="300" r="3.2"/>
+    <circle cx="206" cy="305" r="3.2"/><circle cx="224" cy="266" r="3.2"/><circle cx="250" cy="232" r="3.2"/><circle cx="282" cy="203" r="3.2"/><circle cx="320" cy="180" r="3.2"/><circle cx="360" cy="164" r="3.2"/><circle cx="440" cy="164" r="3.2"/><circle cx="480" cy="180" r="3.2"/><circle cx="518" cy="203" r="3.2"/><circle cx="550" cy="232" r="3.2"/><circle cx="576" cy="266" r="3.2"/><circle cx="594" cy="305" r="3.2"/>
+    <circle cx="236" cy="310" r="3.2"/><circle cx="254" cy="276" r="3.2"/><circle cx="280" cy="247" r="3.2"/><circle cx="310" cy="224" r="3.2"/><circle cx="350" cy="206" r="3.2"/><circle cx="450" cy="206" r="3.2"/><circle cx="490" cy="224" r="3.2"/><circle cx="520" cy="247" r="3.2"/><circle cx="546" cy="276" r="3.2"/><circle cx="564" cy="310" r="3.2"/>
+    <circle cx="266" cy="315" r="3.2"/><circle cx="286" cy="284" r="3.2"/><circle cx="314" cy="260" r="3.2"/><circle cx="352" cy="244" r="3.2"/><circle cx="448" cy="244" r="3.2"/><circle cx="486" cy="260" r="3.2"/><circle cx="514" cy="284" r="3.2"/><circle cx="534" cy="315" r="3.2"/>
+  </g>
+  <text x="400" y="404" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#1C1A17">The Chamber of the World Assembly</text>
+</svg>

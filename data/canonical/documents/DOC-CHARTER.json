@@ -1,0 +1,81 @@
+{
+  "id": "DOC-CHARTER",
+  "visibility": "public",
+  "kind": "charter",
+  "title": "The Interim Charter (2040–2060)",
+  "shortTitle": "Interim Charter",
+  "edition": "In force from March 2040 · Expires 2060",
+  "issuedBy": "Treaty on Extrasolar Resource Governance",
+  "sourceRef": "World Bible v3.4, Part III (§§ 9–11)",
+  "summary": "The temporary constitutional rules adopted for 2040–2060: the material guarantee, the franchise, five prohibitions, amendment thresholds and the 2060 expiry.",
+  "sections": [
+    {
+      "id": "guarantee",
+      "number": "I",
+      "heading": "The guarantee",
+      "paragraphs": [
+        "The Charter guarantees every person alive in 2040, and their descendants, a comfortable and secure material standard at least equal to that of a wealthy person in 2026.",
+        "This is secured by the wider post-ASI settlement; the cosmic resource pool is not the ordinary funding source for everyone's food or housing. The guarantee lowers the personal cost of political disagreement without eliminating disputes about positional scarcity, meaning, identity and future rights."
+      ]
+    },
+    {
+      "id": "franchise",
+      "number": "II",
+      "heading": "The franchise",
+      "paragraphs": [
+        "Every adult human votes at age eighteen.",
+        "Under the Interim Charter, digital minds do not vote, although the prohibition on torture protects conscious digital minds. The status of copies, emulations, future persons and other sentient beings is the central unresolved franchise problem.",
+        "A change to the franchise requires a Charter amendment and the consent of the rest-of-world seat on the [[INST-COUNCIL|Council of Treaty Parties]]."
+      ]
+    },
+    {
+      "id": "prohibitions",
+      "number": "III",
+      "heading": "Prohibitions",
+      "paragraphs": ["The following are prohibited:"],
+      "ordered": true,
+      "list": [
+        "Torture of conscious beings, including digital minds and animals likely to suffer.",
+        "Acting to destroy Earth-originating civilisation, or actions presenting a significant risk of doing so.",
+        "Seizing another party's property without permission.",
+        "Threatening destruction of another party's resources for extortion.",
+        "Threatening suffering, judged by the target's own standards, for extortion."
+      ]
+    },
+    {
+      "id": "enforcement",
+      "number": "IV",
+      "heading": "Enforcement of prohibitions",
+      "paragraphs": [
+        "The [[INST-ARBITER|Arbiter]] and [[INST-TRIBUNAL|Tribunal]] void measures authorising banned uses. A prohibited allocation cannot be implemented merely by ordinary majority; the Arbiter issues a public ruling subject to Tribunal review."
+      ]
+    },
+    {
+      "id": "amendment",
+      "number": "V",
+      "heading": "Amendment",
+      "paragraphs": [
+        "These are legal thresholds, not instructions for moderators to choose favoured policy outcomes."
+      ],
+      "table": {
+        "caption": "Amendment thresholds",
+        "columns": ["Change", "Threshold", "Additional condition"],
+        "rows": [
+          ["Ordinary amendment of the Interim Charter", "Two-thirds of the Assembly", "—"],
+          ["Adding or repealing a prohibition", "Ninety per cent of seats voting", "—"],
+          ["Change to the franchise", "Two-thirds of the Assembly", "Consent of the rest-of-world Council seat"]
+        ]
+      }
+    },
+    {
+      "id": "expiry",
+      "number": "VI",
+      "heading": "The 2060 expiration",
+      "paragraphs": [
+        "The Interim Charter expires in 2060, after two ten-year terms. The Assembly must adopt a permanent charter by two-thirds before expiry; the Council has no veto except over franchise changes.",
+        "If no charter passes, the treaty-created institutions continue but the Charter's guarantee, prohibitions and procedures lapse; ordinary Assembly action defaults to simple majority. For operational continuity, a published caretaker procedure will be applied to the extent needed to count votes and hold elections, without pretending the lost protections remain legally binding. This failure is a constitutional crisis, not an automatic end to the simulation.",
+        "The first adults born in 2040 become eligible to vote in 2058. Renewal is therefore the first constitutional test in which the opening generation's children have a say, and a test of the political legitimacy of the handoff."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+---
+import type { DivisionT } from '../lib/data/schema.ts';
+import { href, fmtSim, fmtReal } from '../lib/site.ts';
+import { THRESHOLD_LABEL } from '../lib/procedure.ts';
+import Badge from './Badge.astro';
+import DatasetBadge from './DatasetBadge.astro';
+import TallyBar from './TallyBar.astro';
+interface Props { divisions: DivisionT[]; filterable?: boolean }
+const { divisions, filterable = false } = Astro.props;
+const STAGE = { amendment: 'Amendment', passage: 'Passage', override: 'Override' } as const;
+const sorted = [...divisions].sort((a, b) => b.id.localeCompare(a.id));
+---
+<div class="table-wrap">
+  <table class="tbl stack">
+    <thead>
+      <tr>
+        <th scope="col">Division</th>
+        <th scope="col">Question</th>
+        <th scope="col">Stage</th>
+        <th scope="col">Threshold</th>
+        <th scope="col" style="min-width:150px">Tally</th>
+        <th scope="col">Result</th>
+        <th scope="col">Closed</th>
+      </tr>
+    </thead>
+    <tbody>
+      {sorted.map((d) => (
+        <tr
+          class:list={{ 'is-demo': d.dataset === 'demonstration' }}
+          data-item={filterable ? '' : undefined}
+          data-status={d.status === 'closed' ? d.result?.outcome : d.status}
+          data-stage={d.stage}
+          data-dataset={d.dataset}
+          data-text={`${d.id} ${d.billId} ${d.question}`}
+        >
+          <td data-label="Division"><a class="mono" href={href(`/divisions/${d.id}/`)}>{d.id}</a> <DatasetBadge dataset={d.dataset} /></td>
+          <td class="primary"><a href={href(`/divisions/${d.id}/`)}>{d.question}</a><br /><span class="small muted">On <a href={href(`/legislation/${d.billId}/`)} class="mono">{d.billId}</a></span></td>
+          <td data-label="Stage">{STAGE[d.stage]}</td>
+          <td data-label="Threshold" class="nowrap">{THRESHOLD_LABEL[d.threshold]}</td>
+          <td data-label="Tally">
+            {d.result ? <span class="nowrap small">{d.result.yes} – {d.result.no} <span class="muted">({d.result.abstain} abst.)</span></span> : <span class="small muted">Sealed</span>}
+            <TallyBar division={d} small legend={false} />
+          </td>
+          <td data-label="Result">
+            {d.status === 'closed' && d.result ? (
+              <Badge tone={d.result.outcome === 'carried' ? 'ok' : 'bad'}>{d.result.outcome === 'carried' ? 'Carried' : 'Not carried'}</Badge>
+            ) : d.status === 'open' ? <Badge tone="amber">Open — sealed</Badge> : <Badge>Scheduled</Badge>}
+          </td>
+          <td data-label="Closes" class="nowrap small">{fmtSim(d.closes.simDate)}<br /><span class="muted">{fmtReal(d.closes.realDate)}</span></td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

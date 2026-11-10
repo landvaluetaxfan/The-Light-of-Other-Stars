@@ -1,0 +1,14 @@
+[
+  { "id": "REG-01", "visibility": "public", "number": 1, "name": "North America", "population2040Billions": 0.41, "constituencySeats": 13 },
+  { "id": "REG-02", "visibility": "public", "number": 2, "name": "Mexico, Central America and Caribbean", "population2040Billions": 0.25, "constituencySeats": 8 },
+  { "id": "REG-03", "visibility": "public", "number": 3, "name": "South America", "population2040Billions": 0.46, "constituencySeats": 15 },
+  { "id": "REG-04", "visibility": "public", "number": 4, "name": "Europe", "population2040Billions": 0.55, "constituencySeats": 18 },
+  { "id": "REG-05", "visibility": "public", "number": 5, "name": "Northern Eurasia", "population2040Billions": 0.33, "constituencySeats": 11 },
+  { "id": "REG-06", "visibility": "public", "number": 6, "name": "Middle East and North Africa", "population2040Billions": 0.76, "constituencySeats": 25 },
+  { "id": "REG-07", "visibility": "public", "number": 7, "name": "West and Central Africa", "population2040Billions": 0.97, "constituencySeats": 32 },
+  { "id": "REG-08", "visibility": "public", "number": 8, "name": "East and Southern Africa", "population2040Billions": 0.78, "constituencySeats": 26 },
+  { "id": "REG-09", "visibility": "public", "number": 9, "name": "South Asia", "population2040Billions": 2.24, "constituencySeats": 73 },
+  { "id": "REG-10", "visibility": "public", "number": 10, "name": "Southeast Asia", "population2040Billions": 0.76, "constituencySeats": 25 },
+  { "id": "REG-11", "visibility": "public", "number": 11, "name": "East Asia", "population2040Billions": 1.6, "constituencySeats": 52 },
+  { "id": "REG-12", "visibility": "public", "number": 12, "name": "Oceania and Pacific", "population2040Billions": 0.05, "constituencySeats": 2 }
+]

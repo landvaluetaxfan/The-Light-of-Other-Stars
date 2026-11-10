@@ -1,0 +1,34 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import CompositionView from '../../components/CompositionView.astro';
+import OfficeholderTable from '../../components/OfficeholderTable.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, romanTerm } from '../../lib/site.ts';
+
+const s = getStore();
+const term = s.terms.find((t) => t.id === s.meta.currentTermId)!;
+const demoOffices = s.offices.filter((o) => o.dataset === 'demonstration');
+const demoMembers = s.members.filter((m) => m.dataset === 'demonstration' && !s.blocs.some((b) => b.holderId === m.id));
+---
+<BaseLayout title="Demonstration composition" section="assembly" demo crumbs={[{ label: 'Assembly', href: href('/assembly/') }, { label: 'Demonstration composition' }]} recordId="DEMO-COMP-T1" description="A hypothetical six-party Assembly used to test the seating diagram and bloc register.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Section 02 · Term {romanTerm(term.number)} · Demonstration</div>
+      <h1>Demonstration Assembly composition</h1>
+      <p class="lede">A hypothetical six-party Assembly of thirteen blocs, used to exercise the seating diagram, bloc register and roll calls. The canonical composition is shown on the <a href={href('/assembly/')}>Assembly page</a>.</p>
+    </div>
+    <div class="head-tools"><a class="btn" href={href('/assembly/')}>← Canonical Assembly</a></div>
+  </div>
+  <CompositionView termId={term.id} dataset="demonstration" />
+  <Panel title="Demonstration officeholders" flush>
+    <OfficeholderTable offices={demoOffices} termId={term.id} />
+  </Panel>
+  <Panel title="Other demonstration members" flush>
+    <ul class="reclist">
+      {demoMembers.map((m) => (
+        <li><a class="rl-title" href={href(`/assembly/members/${m.id}/`)}>{m.displayName}</a> <span class="badge demo">Demo</span><p class="rl-sum">{m.roles.join('; ')}</p></li>
+      ))}
+    </ul>
+  </Panel>
+</BaseLayout>

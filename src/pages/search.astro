@@ -1,0 +1,99 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { href } from '../lib/site.ts';
+---
+<BaseLayout title="Search" section="search" crumbs={[{ label: 'Search' }]} description="Search the public record of the World Assembly for Extrasolar Resources.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Search the public record</div>
+      <h1>Search</h1>
+      <p class="lede">Searches identifiers, titles and full text of bills, divisions, bulletins, documents, institutions, parties and press articles. Type a permanent identifier (e.g. <span class="mono">DOC-CHARTER</span>) to go straight to it.</p>
+    </div>
+  </div>
+  <div class="panel" id="search-app" data-index={href('/search-index.json')} data-base={href('')}>
+    <form class="filterbar" role="search" id="search-form" action={href('/search/')} method="get">
+      <div class="field grow"><label for="q">Search terms</label><input id="q" name="q" type="search" autocomplete="off" placeholder="e.g. reserve, Council delay, franchise, B-T1-004" /></div>
+      <div class="field"><label for="sk">Kind</label>
+        <select id="sk" name="kind">
+          <option value="">All kinds</option><option>Bill</option><option>Division</option><option>Bulletin</option><option>Document</option><option>Institution</option><option>Office</option><option>Party</option><option>Member</option><option>Election</option><option>Article</option><option>Publication</option>
+        </select>
+      </div>
+      <div class="field"><label for="sd">Record set</label>
+        <select id="sd" name="set"><option value="">All</option><option value="canonical">Canonical only</option><option value="demonstration">Demonstration only</option></select>
+      </div>
+      <button class="btn btn-primary" type="submit">Search</button>
+      <span class="filter-count" id="search-count" aria-live="polite"></span>
+    </form>
+    <ol class="reclist" id="search-results" style="list-style:none"></ol>
+    <noscript><p style="padding:10px 12px">Search requires JavaScript. Browse the <a href={href('/registry/records/')}>index of record identifiers</a> instead.</p></noscript>
+  </div>
+  <script>
+    type Entry = { id: string; k: string; t: string; p: string; d: number; x: string };
+    const app = document.getElementById('search-app')!;
+    const form = document.getElementById('search-form') as HTMLFormElement;
+    const q = document.getElementById('q') as HTMLInputElement;
+    const kind = document.getElementById('sk') as HTMLSelectElement;
+    const set = document.getElementById('sd') as HTMLSelectElement;
+    const out = document.getElementById('search-results')!;
+    const count = document.getElementById('search-count')!;
+    const base = app.dataset.base!.replace(/\/$/, '');
+    const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
+    let index: Entry[] = [];
+
+    function snippet(text: string, terms: string[]) {
+      const lower = text.toLowerCase();
+      const at = Math.max(0, ...terms.map((t) => lower.indexOf(t)).filter((i) => i >= 0).slice(0, 1));
+      const start = Math.max(0, at - 70);
+      let snip = (start > 0 ? '… ' : '') + text.slice(start, start + 220) + (text.length > start + 220 ? ' …' : '');
+      snip = esc(snip);
+      for (const t of terms) if (t.length > 1) snip = snip.replace(new RegExp(`(${t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})`, 'gi'), '<mark>$1</mark>');
+      return snip;
+    }
+
+    function run(push = true) {
+      const raw = q.value.trim();
+      const terms = raw.toLowerCase().split(/\s+/).filter(Boolean);
+      const params = new URLSearchParams();
+      if (raw) params.set('q', raw);
+      if (kind.value) params.set('kind', kind.value);
+      if (set.value) params.set('set', set.value);
+      if (push) history.replaceState(null, '', `${location.pathname}${params.toString() ? `?${params}` : ''}`);
+      if (!terms.length) { out.innerHTML = ''; count.textContent = `${index.length} records indexed`; return; }
+      const scored = index
+        .filter((e) => (!kind.value || e.k === kind.value) && (!set.value || (set.value === 'demonstration' ? e.d === 1 : e.d === 0)))
+        .map((e) => {
+          const id = e.id.toLowerCase(), t = e.t.toLowerCase(), x = e.x.toLowerCase();
+          let score = 0;
+          for (const term of terms) {
+            if (id === term) score += 100;
+            else if (id.includes(term)) score += 30;
+            if (t.includes(term)) score += 12;
+            else if (x.includes(term)) score += 3;
+            else if (!id.includes(term)) return { e, score: 0 };
+          }
+          return { e, score: score - e.d };
+        })
+        .filter((r) => r.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 60);
+      count.textContent = `${scored.length}${scored.length === 60 ? '+' : ''} result${scored.length === 1 ? '' : 's'}`;
+      out.innerHTML = scored.length
+        ? scored.map(({ e }) => `<li><div class="rl-meta"><span>${esc(e.k)}</span><span class="mono">${esc(e.id)}</span>${e.d ? '<span class="badge demo">Demo</span>' : ''}</div><a class="rl-title" href="${base}${e.p}">${esc(e.t)}</a>${e.x ? `<p class="rl-sum">${snippet(e.x, terms)}</p>` : ''}</li>`).join('')
+        : `<li><div class="empty"><span class="empty-code">NO RESULTS</span><p><strong>No records match “${esc(raw)}”.</strong></p><p>Try fewer words, or browse the <a href="${base}/registry/records/">index of identifiers</a>.</p></div></li>`;
+    }
+
+    const params = new URLSearchParams(location.search);
+    q.value = params.get('q') ?? '';
+    kind.value = params.get('kind') ?? '';
+    set.value = params.get('set') ?? '';
+    fetch(app.dataset.index!).then((r) => r.json()).then((data: Entry[]) => { index = data; run(false); });
+    form.addEventListener('submit', (ev) => { ev.preventDefault(); run(); });
+    q.addEventListener('input', () => run());
+    kind.addEventListener('change', () => run());
+    set.addEventListener('change', () => run());
+    q.focus();
+  </script>
+  <style>
+    #search-results mark { background: #f3e2a6; color: inherit; padding: 0 1px; }
+  </style>
+</BaseLayout>

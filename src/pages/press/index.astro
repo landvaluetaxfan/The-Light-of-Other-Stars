@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import PartyName from '../../components/PartyName.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, asset, fmtSim } from '../../lib/site.ts';
+
+const s = getStore();
+const pubs = [...s.publications].sort((a, b) => a.dataset.localeCompare(b.dataset) || a.name.localeCompare(b.name));
+const canon = pubs.filter((p) => p.dataset === 'canonical');
+const KIND = { newspaper: 'Newspaper', magazine: 'Magazine', newsletter: 'Newsletter', broadcaster: 'Broadcaster' } as const;
+const recent = [...s.articles].sort((a, b) => b.simDate.localeCompare(a.simDate) || a.id.localeCompare(b.id)).slice(0, 8);
+const pubOf = (id: string) => s.publications.find((p) => p.id === id)!;
+---
+<BaseLayout title="Press directory" section="press" crumbs={[{ label: 'Press directory' }]} description="Directory of player-operated newspapers, magazines, newsletters and broadcasters. Independent publications — not official communications.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">The press · Directory</div>
+      <h1>Press directory</h1>
+      <p class="lede">Any player may operate a newspaper, magazine, newsletter or broadcaster. Reporting influences voters according to its audience, credibility and relevance; publishing more often does not by itself produce a larger effect.</p>
+    </div>
+  </div>
+
+  <div class="notice" style="border-left-color:#8a7650;background:#f7f3ea;border-color:#d8ccb1">
+    <strong>Independent journalism is not official communication.</strong> Publications listed here are operated by players and speak only for themselves. Official notices, rulings and results are published by the Information Service in <a href={href('/bulletins/')}>Bulletins</a>, <a href={href('/legislation/')}>Legislation</a> and <a href={href('/divisions/')}>Divisions</a>. Listing in this directory implies no endorsement.
+  </div>
+
+  {canon.length === 0 && (
+    <EmptyState code="NO PLAYER PUBLICATIONS" title="No player-operated publications have been registered yet.">
+      <p>The titles below are <strong>demonstration publications</strong>, created to show how player publications will appear. Players wishing to register a title should contact the moderators; the publication's name, masthead, typography and brand colours are set in its public record.</p>
+    </EmptyState>
+  )}
+  <div style="height:14px"></div>
+
+  <Panel title="Registered publications" meta={`${pubs.length}`} flush>
+    <div class="table-wrap">
+      <table class="tbl stack">
+        <thead><tr><th scope="col" style="width:64px"><span class="sr-only">Logo</span></th><th scope="col">Publication</th><th scope="col">Type</th><th scope="col">Ownership</th><th scope="col">Affiliation</th><th scope="col" class="num">Articles</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          {pubs.map((p) => (
+            <tr class:list={{ 'is-demo': p.dataset === 'demonstration' }}>
+              <td><img src={asset(p.brand.logo)} alt="" width="48" height="48" style="display:block;border:1px solid var(--rule-2)" /></td>
+              <td class="primary"><a href={href(`/press/${p.slug}/`)}>{p.name}</a><div class="small" style="font-weight:400">{p.tagline}</div><div class="small muted" style="font-weight:400">{p.description}</div></td>
+              <td data-label="Type">{KIND[p.kind]}</td>
+              <td data-label="Owner" class="small">{p.ownerLabel}</td>
+              <td data-label="Affiliation" class="small">{p.affiliation === 'independent' ? 'Independent' : <>Party-affiliated: <PartyName id={p.affiliatedPartyId} /></>}</td>
+              <td data-label="Articles" class="num">{s.articles.filter((a) => a.publicationId === p.id).length}</td>
+              <td data-label="Status">{p.status === 'demonstration' ? <span class="badge demo">Demonstration</span> : <span class="badge tone-ok">{p.status}</span>}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </Panel>
+
+  <Panel title="Recent articles" flush>
+    <ul class="reclist">
+      {recent.map((a) => {
+        const p = pubOf(a.publicationId);
+        return (
+          <li>
+            <div class="rl-meta"><span><b>{p.name}</b></span><span>{a.section}</span><span>{fmtSim(a.simDate)}</span>{a.dataset === 'demonstration' && <span class="badge demo">Demo</span>}</div>
+            <a class="rl-title" href={href(`/press/${p.slug}/${a.slug}/`)}>{a.headline}</a>
+            <p class="rl-sum">{a.dek}</p>
+          </li>
+        );
+      })}
+    </ul>
+  </Panel>
+</BaseLayout>

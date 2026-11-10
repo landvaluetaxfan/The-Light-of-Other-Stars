@@ -1,0 +1,147 @@
+{
+  "$comment": "Public data contract v1.0.0 — generated from src/lib/data/schema.ts; do not edit by hand.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "visibility": {
+      "type": "string",
+      "const": "public"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "treaty",
+        "charter",
+        "rules",
+        "reference",
+        "guide"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "shortTitle": {
+      "type": "string",
+      "minLength": 1
+    },
+    "edition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "issuedBy": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sourceRef": {
+      "type": "string",
+      "minLength": 1
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sections": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+          },
+          "number": {
+            "default": "",
+            "type": "string"
+          },
+          "heading": {
+            "type": "string",
+            "minLength": 1
+          },
+          "paragraphs": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "list": {
+            "default": [],
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "ordered": {
+            "default": false,
+            "type": "boolean"
+          },
+          "table": {
+            "default": null,
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "caption": {
+                    "default": "",
+                    "type": "string"
+                  },
+                  "columns": {
+                    "minItems": 1,
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "rows": {
+                    "type": "array",
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "columns",
+                  "rows"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "heading"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "id",
+    "visibility",
+    "kind",
+    "title",
+    "shortTitle",
+    "edition",
+    "issuedBy",
+    "sourceRef",
+    "summary",
+    "sections"
+  ],
+  "additionalProperties": false
+}

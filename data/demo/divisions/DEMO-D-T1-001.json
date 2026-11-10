@@ -1,0 +1,124 @@
+{
+  "id": "DEMO-D-T1-001",
+  "visibility": "public",
+  "termId": "T1",
+  "billId": "DEMO-B-T1-001",
+  "amendmentId": null,
+  "stage": "passage",
+  "question": "That the First Term release be fixed at twelve per cent of the remaining pool.",
+  "threshold": "simple-majority",
+  "basis": "seats-voting",
+  "opens": {
+    "week": 3,
+    "simDate": "2040-06",
+    "realDate": "2026-12-15T18:00Z"
+  },
+  "closes": {
+    "week": 3,
+    "simDate": "2040-06",
+    "realDate": "2026-12-18T18:00Z"
+  },
+  "status": "closed",
+  "ballots": [
+    {
+      "blocId": "DEMO-BL-10",
+      "seats": 54,
+      "vote": "abstain",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-11",
+      "seats": 36,
+      "vote": "no",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-12",
+      "seats": 60,
+      "vote": "no",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-13",
+      "seats": 30,
+      "vote": "no",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-01",
+      "seats": 60,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-02",
+      "seats": 42,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-03",
+      "seats": 30,
+      "vote": "yes",
+      "castBy": "controller",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-04",
+      "seats": 60,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-05",
+      "seats": 48,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-06",
+      "seats": 56,
+      "vote": "no",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-07",
+      "seats": 40,
+      "vote": "no",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-08",
+      "seats": 50,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-09",
+      "seats": 34,
+      "vote": "yes",
+      "castBy": "proxy",
+      "proxyMemberId": "DEMO-M-HADAR"
+    }
+  ],
+  "result": {
+    "yes": 324,
+    "no": 222,
+    "abstain": 54,
+    "seatsVoting": 546,
+    "totalSeats": 600,
+    "required": 274,
+    "outcome": "carried"
+  }
+}

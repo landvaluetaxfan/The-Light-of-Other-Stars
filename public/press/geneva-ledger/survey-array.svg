@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-labelledby="t">
+  <title id="t">Radio telescope dishes beneath a field of stars</title>
+  <rect width="800" height="420" fill="#F6F1E6"/>
+  <g fill="#1C1A17">
+    <circle cx="80" cy="50" r="1.4"/><circle cx="140" cy="90" r="1"/><circle cx="210" cy="40" r="1.8"/><circle cx="300" cy="75" r="1"/><circle cx="380" cy="30" r="1.3"/><circle cx="460" cy="60" r="1"/><circle cx="530" cy="35" r="1.9"/><circle cx="610" cy="80" r="1.1"/><circle cx="690" cy="45" r="1.4"/><circle cx="740" cy="100" r="1"/><circle cx="250" cy="120" r="0.9"/><circle cx="560" cy="120" r="1"/><circle cx="420" cy="110" r="0.8"/>
+  </g>
+  <g fill="none" stroke="#1C1A17" stroke-width="0.5" opacity="0.5">
+    <path d="M0 300 H800 M0 306 H800 M0 312 H800 M0 318 H800 M0 324 H800 M0 330 H800 M0 336 H800 M0 342 H800 M0 348 H800 M0 354 H800 M0 360 H800"/>
+  </g>
+  <g fill="#F6F1E6" stroke="#1C1A17" stroke-width="1.4">
+    <g transform="translate(170 300)">
+      <path d="M-10 0 L0 -60 L10 0"/>
+      <path d="M-70 -110 Q0 -40 70 -110 Q0 -80 -70 -110z" transform="rotate(-18 0 -75)"/>
+      <path d="M0 -75 L22 -128" transform="rotate(-18 0 -75)"/>
+    </g>
+    <g transform="translate(400 300)">
+      <path d="M-12 0 L0 -70 L12 0"/>
+      <path d="M-84 -130 Q0 -46 84 -130 Q0 -94 -84 -130z" transform="rotate(-10 0 -88)"/>
+      <path d="M0 -88 L14 -150" transform="rotate(-10 0 -88)"/>
+    </g>
+    <g transform="translate(630 300)">
+      <path d="M-10 0 L0 -60 L10 0"/>
+      <path d="M-70 -110 Q0 -40 70 -110 Q0 -80 -70 -110z" transform="rotate(-24 0 -75)"/>
+      <path d="M0 -75 L22 -128" transform="rotate(-24 0 -75)"/>
+    </g>
+  </g>
+  <path d="M0 300 H800" stroke="#1C1A17" stroke-width="2"/>
+  <text x="400" y="400" text-anchor="middle" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#1C1A17">Survey instruments, after a design study</text>
+</svg>

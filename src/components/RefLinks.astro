@@ -1,0 +1,28 @@
+---
+/** "Related records" list built from a refs block and/or extra IDs. */
+import type { RefsT } from '../lib/data/schema.ts';
+import { getStore } from '../lib/data/load.ts';
+import { recordIndex, href } from '../lib/site.ts';
+import DatasetBadge from './DatasetBadge.astro';
+interface Props { refs?: RefsT; ids?: string[]; exclude?: string[] }
+const { refs, ids = [], exclude = [] } = Astro.props;
+const s = getStore();
+const idx = recordIndex(s);
+const all = [
+  ...ids,
+  ...(refs ? [...refs.bills, ...refs.divisions, ...refs.institutions, ...refs.events, ...refs.elections, ...refs.documents, ...refs.parties] : []),
+].filter((id, i, a) => a.indexOf(id) === i && !exclude.includes(id));
+const entries = all.map((id) => idx.get(id)).filter((e) => e !== undefined);
+---
+{entries.length ? (
+  <ul class="reclist">
+    {entries.map((e) => (
+      <li>
+        <div class="rl-meta"><span>{e.kind}</span><span class="mono">{e.id}</span><DatasetBadge dataset={e.dataset} /></div>
+        <a href={href(e.path)}>{e.label}</a>
+      </li>
+    ))}
+  </ul>
+) : (
+  <p class="muted" style="padding:8px 12px;margin:0">No related records.</p>
+)}

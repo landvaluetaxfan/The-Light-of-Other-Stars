@@ -1,0 +1,176 @@
+{
+  "$comment": "Public data contract v1.0.0 — generated from src/lib/data/schema.ts; do not edit by hand.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "visibility": {
+      "type": "string",
+      "const": "public"
+    },
+    "termId": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "authorized"
+      ]
+    },
+    "startingPool": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "fraction": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0.05,
+          "maximum": 0.25
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "releasedUnits": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "closingPool": {
+      "anyOf": [
+        {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sizeDecision": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "voted",
+            "default"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "sizeBillId": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "splitDecision": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "voted",
+            "default"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "splitBillId": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "channels": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "endowment": {
+              "type": "number",
+              "minimum": 0
+            },
+            "assembly": {
+              "type": "number",
+              "minimum": 0
+            },
+            "deferral": {
+              "type": "number",
+              "minimum": 0
+            },
+            "reserve": {
+              "type": "number",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "endowment",
+            "assembly",
+            "deferral",
+            "reserve"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "notes": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "required": [
+    "id",
+    "visibility",
+    "termId",
+    "status",
+    "startingPool",
+    "fraction",
+    "releasedUnits",
+    "closingPool",
+    "sizeDecision",
+    "sizeBillId",
+    "splitDecision",
+    "splitBillId",
+    "channels"
+  ],
+  "additionalProperties": false
+}

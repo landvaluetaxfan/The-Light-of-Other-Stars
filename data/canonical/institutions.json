@@ -1,0 +1,218 @@
+[
+  {
+    "id": "INST-ASSEMBLY",
+    "visibility": "public",
+    "name": "World Assembly for Extrasolar Resources",
+    "shortName": "The Assembly",
+    "kind": "legislature",
+    "seats": 600,
+    "parentId": null,
+    "summary": "The elected legislature that controls the legal release and designated use of the extrasolar resource pool. Each player holds a single bloc of party seats, capped at sixty, which votes as one.",
+    "composition": "600 seats at the outset: 300 constituency seats elected across twelve regions and 300 compensatory global-list seats. Constituency overhang may temporarily enlarge the chamber.",
+    "selection": "Elected between terms; the initial Assembly is seated by founding party assignment. List seats are allocated by largest remainder to parties with at least two per cent of the global vote.",
+    "powers": [
+      "Release between 5% and 25% of the remaining pool each term (default 10% if no proposal passes).",
+      "Divide each release among the Endowment, Assembly, Deferral and Reserve channels.",
+      "Authorise Assembly-channel projects, define conditions on released claims and establish reserves.",
+      "Enact lawful prohibitions (90% of seats voting) and amend the Interim Charter (two-thirds).",
+      "Override a Council or Commissioner delay by a two-thirds vote in Week 4.",
+      "Elect the Speaker, the Commissioner for Future Generations and the Commission on Long-Term Inquiry."
+    ],
+    "limits": [
+      "Does not run Earth governments, command national armed forces, take personal property or repeal the Grand Bargain.",
+      "Measures affecting protected Council matters may be vetoed by the seats entitled to do so.",
+      "Spending from the Reserve requires a two-thirds vote."
+    ],
+    "sourceRef": "World Bible v3.4 §§ 5, 12, 14–16"
+  },
+  {
+    "id": "INST-BUREAU",
+    "visibility": "public",
+    "name": "Assembly Bureau",
+    "shortName": "The Bureau",
+    "kind": "bureau",
+    "seats": null,
+    "parentId": "INST-ASSEMBLY",
+    "summary": "The Speaker and party-proportional deputies, who schedule debates and votes and administer approved releases.",
+    "composition": "The Speaker and deputies drawn from the parties in proportion to their seats.",
+    "selection": "The Assembly elects its Speaker at the start of every term; deputies are party-proportional.",
+    "powers": [
+      "Schedules debates and floor votes.",
+      "Receives proposed release sizes and four-channel splits and lists them for decision.",
+      "Administers approved releases."
+    ],
+    "limits": [
+      "Any properly filed measure not scheduled by the end of Week 2 is placed on the Week 3 agenda automatically.",
+      "Vote tallies are sealed from the Speaker and Bureau throughout the 72-hour window.",
+      "While serving, the Speaker transfers control of their voting bloc to the party's floor leader."
+    ],
+    "sourceRef": "World Bible v3.4 §§ 5, 12"
+  },
+  {
+    "id": "INST-INFOSERVICE",
+    "visibility": "public",
+    "name": "Assembly Information Service",
+    "shortName": "Information Service",
+    "kind": "office",
+    "seats": null,
+    "parentId": "INST-BUREAU",
+    "summary": "Publishes the public record of the Assembly and the treaty institutions: bills, divisions, bulletins, the resource ledger and constitutional documents. It has no legislative, adjudicative or electoral powers.",
+    "composition": "A records service; it does not hold seats.",
+    "selection": "Not applicable.",
+    "powers": [
+      "Publishes completed roll calls once a voting window closes.",
+      "Maintains permanent record identifiers and archival copies of public documents.",
+      "Maintains the press directory as a public listing; it does not edit or endorse publications."
+    ],
+    "limits": [
+      "Does not publish running tallies, private simulation data or unpublished world events.",
+      "The public ledger, rather than any single chat thread, is authoritative; the Service reproduces it."
+    ],
+    "sourceRef": "World Bible v3.4 §§ 12, VII (public information and audit trail)"
+  },
+  {
+    "id": "INST-COUNCIL",
+    "visibility": "public",
+    "name": "Council of Treaty Parties",
+    "shortName": "The Council",
+    "kind": "council",
+    "seats": 7,
+    "parentId": null,
+    "summary": "Seven appointed seats representing the institutions whose consent was needed to establish the treaty. The Council may delay an adopted measure once and holds entrenched vetoes over four protected subjects only.",
+    "composition": "United States; China; European Union; India; Frontier AI laboratories; Other middle powers; Rest of the world / Nairobi Group.",
+    "selection": "Moderators appoint players from applications. Holders serve until they resign or are replaced following a full inactive term.",
+    "powers": [
+      "Delay an adopted measure once with at least four votes, within 48 hours after a vote closes; the delay may be overridden by two-thirds of the Assembly in Week 4.",
+      "Entrenched veto over (1) seizure or restriction of a seat's established holdings — the affected seat; (2) changes to the Council's composition or powers — a majority; (3) armed forces or enforcement under Assembly command — a majority; (4) changes to who may vote — the rest-of-world seat.",
+      "Each member may issue one statement per term; the Council may collectively submit one proposal for an Assembly vote."
+    ],
+    "limits": [
+      "The Council does not set the Assembly's agenda.",
+      "The scope of a veto follows the treaty's wording; political disagreement does not enlarge it.",
+      "The Arbiter determines whether a measure falls within the protected list, subject to Tribunal review."
+    ],
+    "sourceRef": "World Bible v3.4 § 6"
+  },
+  {
+    "id": "INST-ARBITER",
+    "visibility": "public",
+    "name": "Office of the Treaty Arbiter",
+    "shortName": "The Arbiter",
+    "kind": "judicial",
+    "seats": null,
+    "parentId": null,
+    "summary": "The legal adjudicator operating under published rules and precedent. It classifies proposed measures under the protected-veto list and voids measures authorising banned uses.",
+    "composition": "An adjudicative office backed by a language model, operating under published rules and precedent.",
+    "selection": "Established by the treaty.",
+    "powers": [
+      "Classifies proposed measures under the Council's protected-veto list.",
+      "Issues public rulings on prohibited allocations; with the Tribunal, voids measures authorising banned uses.",
+      "Accepts eligible queries during Week 2."
+    ],
+    "limits": [
+      "Its decisions may be appealed to the Charter Review Tribunal.",
+      "It does not possess an unannounced vote, veto or independent political mandate."
+    ],
+    "sourceRef": "World Bible v3.4 §§ 6, 10; Glossary"
+  },
+  {
+    "id": "INST-TRIBUNAL",
+    "visibility": "public",
+    "name": "Charter Review Tribunal",
+    "shortName": "The Tribunal",
+    "kind": "judicial",
+    "seats": 5,
+    "parentId": null,
+    "summary": "Five members who review interpretations of the Interim Charter, prohibited uses, the Council's protected vetoes and rulings of the Arbiter.",
+    "composition": "Five members with staggered initial terms and two-term tenure thereafter.",
+    "selection": "Appointed by moderators from applicants. Members relinquish their Assembly blocs while serving.",
+    "powers": [
+      "Hears petitions from any Assembly bloc, Council seat or the Commissioner.",
+      "Decides by majority within one week.",
+      "Reviews Charter interpretations and Arbiter rulings."
+    ],
+    "limits": [
+      "Members may be removed for misconduct by a two-thirds Assembly vote."
+    ],
+    "sourceRef": "World Bible v3.4 § 7"
+  },
+  {
+    "id": "INST-COMMISSIONER",
+    "visibility": "public",
+    "name": "Office of the Commissioner for Future Generations",
+    "shortName": "The Commissioner",
+    "kind": "office",
+    "seats": 1,
+    "parentId": null,
+    "summary": "Represents people not yet born and protects resources held in reserve.",
+    "composition": "A single Commissioner.",
+    "selection": "Elected by the Assembly by simple majority each term. The Commissioner relinquishes their bloc.",
+    "powers": [
+      "May require an impact report before a vote.",
+      "May delay one measure per term."
+    ],
+    "limits": [
+      "A two-thirds Assembly vote overrides the delay; a single override suffices where the Council delays the same measure."
+    ],
+    "sourceRef": "World Bible v3.4 § 7"
+  },
+  {
+    "id": "INST-INQUIRY",
+    "visibility": "public",
+    "name": "Commission on Long-Term Inquiry",
+    "shortName": "The Commission",
+    "kind": "commission",
+    "seats": 7,
+    "parentId": null,
+    "summary": "Sets the questions examined by the publicly funded research programme, including consciousness, identity, long-term commitments and moral uncertainty.",
+    "composition": "Seven members. Every party holding at least one-tenth of Assembly seats is guaranteed a place. Members retain their legislative blocs.",
+    "selection": "Elected by the Assembly by simple majority.",
+    "powers": [
+      "Determines publicly funded inquiry priorities.",
+      "Findings appear in the next public world-state update."
+    ],
+    "limits": [],
+    "sourceRef": "World Bible v3.4 § 7"
+  },
+  {
+    "id": "INST-CLTV",
+    "visibility": "public",
+    "name": "Council on Long-Term Values",
+    "shortName": "Long-Term Values Council",
+    "kind": "advisory",
+    "seats": null,
+    "parentId": null,
+    "summary": "An advisory body of aligned superintelligent delegates representing different moral and philosophical traditions. It investigates difficult ethical questions and administers resources entrusted to it through the Deferral channel.",
+    "composition": "Aligned superintelligent delegates representing different traditions.",
+    "selection": "Constituted under the wider post-ASI settlement; receives only expressly delegated resource authority.",
+    "powers": [
+      "Advises on moral questions and the claims of future and digital populations.",
+      "Administers allocations made to the Deferral channel, within the scope of the delegation."
+    ],
+    "limits": [
+      "Its intellectual ability does not confer sovereignty over the Assembly.",
+      "It receives only expressly delegated resource authority."
+    ],
+    "sourceRef": "World Bible v3.4 §§ 3, 8"
+  },
+  {
+    "id": "INST-PRESS",
+    "visibility": "public",
+    "name": "The Press",
+    "shortName": "The Press",
+    "kind": "public-sphere",
+    "seats": null,
+    "parentId": null,
+    "summary": "Any player may operate a newspaper, newsletter, broadcaster or other publication. Reporting influences voters according to its audience, credibility and relevance.",
+    "composition": "Independent and party-affiliated publications operated by players.",
+    "selection": "Open to any player.",
+    "powers": [
+      "Publishes reporting that may affect simulated public opinion."
+    ],
+    "limits": [
+      "Publishing more frequently does not by itself produce a larger electoral effect.",
+      "Publications are not official communications of any treaty institution."
+    ],
+    "sourceRef": "World Bible v3.4 §§ 7, 18"
+  }
+]

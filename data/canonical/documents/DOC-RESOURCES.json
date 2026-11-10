@@ -1,0 +1,82 @@
+{
+  "id": "DOC-RESOURCES",
+  "visibility": "public",
+  "kind": "rules",
+  "title": "Releases and the Four Channels",
+  "shortTitle": "Releases and channels",
+  "edition": "First Term edition",
+  "issuedBy": "Assembly Bureau",
+  "sourceRef": "World Bible v3.4, §§ 14–16",
+  "summary": "How the pool is released each term, how releases divide among the four channels, what an Assembly project must specify, and how the public ledger tracks claims from authorisation to use.",
+  "sections": [
+    {
+      "id": "release-rule",
+      "number": "1",
+      "heading": "Releases and mathematical accounting",
+      "paragraphs": [
+        "The cosmic pool begins at 100 units. Each term the Assembly releases between 5% and 25% of the remainder; if no proposal passes, 10% is released.",
+        "If R is the remainder and p the fraction approved, the release is R × p and the next remainder is R × (1 − p). The same numerical ledger is maintained across terms.",
+        "Any bloc holding at least a tenth of the Assembly may propose a release size. A release specifies legally effective future claims, not instantaneous physical construction."
+      ]
+    },
+    {
+      "id": "channels",
+      "number": "2",
+      "heading": "The four channels",
+      "table": {
+        "caption": "Channels",
+        "columns": ["Channel", "Meaning"],
+        "rows": [
+          ["Endowment", "Equal shares to every adult human, individually used or traded"],
+          ["Assembly", "Specific collective projects voted by the legislature"],
+          ["Deferral", "Delegation to the Council on Long-Term Values of AI delegates"],
+          ["Reserve", "Held for people born after 2040; spending needs a two-thirds vote"]
+        ]
+      },
+      "paragraphs": [
+        "The Bureau lists proposed four-way splits. The Assembly votes yes or no on each; if several pass, the proposal with the most affirmative votes takes effect. If none passes, one-third each goes to Endowment, Assembly and Reserve; nothing goes to Deferral.",
+        "The Reserve is not an additional release from the unreleased pool: it is one of the four destinations for already released claims."
+      ]
+    },
+    {
+      "id": "projects",
+      "number": "3",
+      "heading": "Project specification",
+      "paragraphs": [
+        "Every Assembly project identifies:"
+      ],
+      "list": [
+        "a resource amount;",
+        "an end-use;",
+        "a reach classification — near (within the Milky Way) or far (beyond);",
+        "a beneficiary or steward;",
+        "a duration; and",
+        "its legal conditions."
+      ]
+    },
+    {
+      "id": "reallocation",
+      "number": "4",
+      "heading": "Reallocation of granted rights",
+      "paragraphs": [
+        "Reallocating an already granted right is legally distinct from allocating a fresh release, and may implicate property prohibitions or Council vetoes."
+      ]
+    },
+    {
+      "id": "ledger-stages",
+      "number": "5",
+      "heading": "Ledger stages",
+      "paragraphs": [
+        "A permit to launch probes or establish industry does not prove that industry has arrived. Simulated transit times, fabrication capacity and local resource conditions determine the pace of implementation. Near-star arrival times are measured in decades at roughly a tenth of light speed; remote galaxies remain many millions of years away.",
+        "The public ledger records each claim at authorisation and updates it separately as it advances:"
+      ],
+      "ordered": true,
+      "list": [
+        "Allocated — legally authorised.",
+        "Committed — missions or implementing bodies contracted and launched.",
+        "Reached — physically reached by the implementing mission.",
+        "Used — industrial settlement or realised use."
+      ]
+    }
+  ]
+}

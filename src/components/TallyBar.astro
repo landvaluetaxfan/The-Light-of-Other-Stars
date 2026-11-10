@@ -1,0 +1,31 @@
+---
+import type { DivisionT } from '../lib/data/schema.ts';
+import { VOTE_COLOR } from '../lib/site.ts';
+import { THRESHOLD_LABEL, BASIS_LABEL } from '../lib/procedure.ts';
+interface Props { division: DivisionT; small?: boolean; legend?: boolean }
+const { division: d, small = false, legend = true } = Astro.props;
+const r = d.result;
+---
+{r ? (
+  <div class="tally">
+    <div class:list={['tally-bar', { small }]} role="img" aria-label={`Yes ${r.yes}, No ${r.no}, Abstain ${r.abstain} of ${r.totalSeats} seats. ${r.required} affirmative seats required. ${r.outcome === 'carried' ? 'Carried' : 'Not carried'}.`}>
+      <span style={`width:${(r.yes / r.totalSeats) * 100}%;background:${VOTE_COLOR.yes}`}></span>
+      <span style={`width:${(r.no / r.totalSeats) * 100}%;background:${VOTE_COLOR.no}`}></span>
+      <span style={`width:${(r.abstain / r.totalSeats) * 100}%;background:${VOTE_COLOR.abstain}`}></span>
+      <i class="mark" style={`left:${(r.required / r.totalSeats) * 100}%`} title={`${r.required} required`}></i>
+    </div>
+    {legend && (
+      <div class="tally-legend">
+        <span><span class="swatch" style={`background:${VOTE_COLOR.yes}`}></span>Yes <b>{r.yes}</b></span>
+        <span><span class="swatch" style={`background:${VOTE_COLOR.no}`}></span>No <b>{r.no}</b></span>
+        <span><span class="swatch" style={`background:${VOTE_COLOR.abstain}`}></span>Abstain <b>{r.abstain}</b></span>
+        <span>▼ Required: <b>{r.required}</b> ({THRESHOLD_LABEL[d.threshold].toLowerCase()} {BASIS_LABEL[d.basis]})</span>
+      </div>
+    )}
+  </div>
+) : (
+  <div class="tally">
+    <div class:list={['tally-bar', { small }]} style="background:repeating-linear-gradient(135deg,#f7ecd2 0 6px,#efdfb5 6px 12px)" role="img" aria-label="Tally sealed until the voting window closes"></div>
+    {legend && <div class="tally-legend"><span>Tally sealed until the window closes.</span></div>}
+  </div>
+)}

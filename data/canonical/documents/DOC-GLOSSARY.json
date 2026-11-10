@@ -1,0 +1,42 @@
+{
+  "id": "DOC-GLOSSARY",
+  "visibility": "public",
+  "kind": "reference",
+  "title": "Glossary of Constitutional and Simulation Terms",
+  "shortTitle": "Glossary",
+  "edition": "Founding edition",
+  "issuedBy": "Assembly Information Service",
+  "sourceRef": "World Bible v3.4, Glossary",
+  "summary": "Definitions of the terms used throughout the public record.",
+  "sections": [
+    {
+      "id": "terms",
+      "number": "",
+      "heading": "Terms",
+      "table": {
+        "caption": "Glossary",
+        "columns": ["Term", "Meaning"],
+        "rows": [
+          ["Arbiter", "The LLM-backed legal adjudicator operating under published rules and precedent."],
+          ["Assembly", "The elected 600-seat legislature controlling the releases and uses of cosmic resources."],
+          ["Aster", "A frontier laboratory programme of self-expanding interstellar probes."],
+          ["Bloc", "A set of Assembly seats controlled and voted together by one player."],
+          ["Bureau", "The Speaker and proportional party deputies who administer floor business."],
+          ["Commission on Long-Term Inquiry", "The Assembly-selected seven-member research-priority body."],
+          ["Council of Treaty Parties", "Seven-seat protector of founding constitutional bargains and institutional holdings."],
+          ["Council on Long-Term Values", "Aligned superintelligent delegates deliberating on moral questions and administering Deferral allocations."],
+          ["Endowment", "Released resources assigned in equal individual claims."],
+          ["Grand Bargain", "The International Agreement on Advanced AI Governance (2039)."],
+          ["Interim Charter", "The temporary constitutional rules adopted for 2040–2060."],
+          ["Nairobi Group", "The negotiating bloc of states without their own Council seat."],
+          ["Pool", "Accessible extra-solar-system matter-energy rights, initially represented by 100 units."],
+          ["Release", "The fraction of the unallocated pool authorised in a term."],
+          ["Reserve", "Released rights held for generations born after 2040."],
+          ["Term", "One real month, representing ten years of simulated history."],
+          ["Tribunal", "The five-member Charter Review Tribunal reviewing legal decisions."],
+          ["World Engine", "The moderator-operated system producing coherent consequences of player decisions."]
+        ]
+      }
+    }
+  ]
+}

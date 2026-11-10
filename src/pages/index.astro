@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Panel from '../components/Panel.astro';
+import WeekCalendar from '../components/WeekCalendar.astro';
+import BulletinList from '../components/BulletinList.astro';
+import BillTable from '../components/BillTable.astro';
+import EmptyState from '../components/EmptyState.astro';
+import Hemicycle from '../components/Hemicycle.astro';
+import Badge from '../components/Badge.astro';
+import PartyName from '../components/PartyName.astro';
+import { getStore } from '../lib/data/load.ts';
+import { href, fmtSim, fmtUnits, romanTerm, sortBySimDesc, partiesInSeatingOrder, CHANNEL_LABEL, CHANNEL_COLOR, displayName } from '../lib/site.ts';
+import { WEEKS, RELEASE_MIN, RELEASE_MAX, RELEASE_DEFAULT } from '../lib/procedure.ts';
+
+const s = getStore();
+const canon = <T extends { dataset: string }>(l: T[]) => l.filter((x) => x.dataset === 'canonical');
+const term = s.terms.find((t) => t.id === s.meta.currentTermId)!;
+const week = WEEKS[s.meta.currentWeek - 1];
+const bulletins = sortBySimDesc(canon(s.events).filter((e) => e.kind !== 'historical-record')).slice(0, 6);
+const pending = canon(s.bills).filter((b) => b.termId === term.id && ['filed', 'scheduled', 'voting', 'delayed'].includes(b.status));
+const filedCount = canon(s.bills).filter((b) => b.termId === term.id).length;
+const comp = s.compositions.find((c) => c.termId === term.id && c.dataset === 'canonical');
+const parties = partiesInSeatingOrder(s);
+const releases = canon(s.releases);
+const authorized = releases.filter((r) => r.status === 'authorized');
+const pool = authorized.length ? authorized[authorized.length - 1].closingPool! : s.meta.pool.initialUnits;
+const currentRelease = releases.find((r) => r.termId === term.id);
+const channelTotals = { endowment: 0, assembly: 0, deferral: 0, reserve: 0 };
+for (const r of authorized) for (const k of Object.keys(channelTotals) as (keyof typeof channelTotals)[]) channelTotals[k] += r.channels![k];
+const released = s.meta.pool.initialUnits - pool;
+const offices = canon(s.offices);
+const keyOffices = ['OFF-SPEAKER', 'OFF-COMMISSIONER'].map((id) => offices.find((o) => o.id === id)!).filter(Boolean);
+const council = offices.filter((o) => o.institutionId === 'INST-COUNCIL');
+const tribunal = offices.filter((o) => o.institutionId === 'INST-TRIBUNAL');
+const inquiry = offices.filter((o) => o.institutionId === 'INST-INQUIRY');
+const holderFor = (o: (typeof offices)[number]) => o.holders.find((h) => h.termId === term.id);
+const filledCount = (list: typeof offices) => list.filter((o) => holderFor(o)?.status === 'serving').length;
+const demoBills = s.bills.filter((b) => b.dataset === 'demonstration').length;
+const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length;
+---
+<BaseLayout title="Overview" section="overview" description="Current state of the World Assembly for Extrasolar Resources: simulated date, term, latest bulletins, pending legislation, composition and the resource pool.">
+  <section class="earth-band" aria-labelledby="ov-h">
+    <div class="eb-inner">
+      <div class="eb-kicker">Public record · {fmtSim(s.meta.simulatedDate)} · Term {romanTerm(term.number)}, Week {s.meta.currentWeek}</div>
+      <h1 id="ov-h">The First Assembly is forming</h1>
+      <p>{s.meta.statusNote}</p>
+    </div>
+    <svg class="eb-art" viewBox="0 0 420 200" preserveAspectRatio="xMaxYMax slice" aria-hidden="true">
+      <defs>
+        <radialGradient id="ebg" cx="0.65" cy="1.25" r="0.95">
+          <stop offset="0.72" stop-color="#2b6474" stop-opacity="0" />
+          <stop offset="0.8" stop-color="#7cc2cc" stop-opacity="0.55" />
+          <stop offset="0.86" stop-color="#2b6474" stop-opacity="0" />
+        </radialGradient>
+        <linearGradient id="ebe" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#4f97a3" />
+          <stop offset="0.25" stop-color="#245766" />
+          <stop offset="1" stop-color="#0f2a35" />
+        </linearGradient>
+      </defs>
+      <rect width="420" height="200" fill="url(#ebg)" />
+      <ellipse cx="300" cy="330" rx="300" ry="190" fill="url(#ebe)" />
+      <ellipse cx="300" cy="330" rx="300" ry="190" fill="none" stroke="#cfeef2" stroke-width="1.4" opacity="0.85" />
+      <ellipse cx="290" cy="140" rx="170" ry="34" fill="none" stroke="#9fd0d8" stroke-width="0.8" stroke-dasharray="3 4" opacity="0.7" transform="rotate(-8 290 140)" />
+      <circle cx="140" cy="150" r="3.2" fill="#ffffff" />
+      <g fill="#ffffff" opacity="0.75"><circle cx="60" cy="30" r="1" /><circle cx="210" cy="22" r="1.3" /><circle cx="360" cy="40" r="0.9" /><circle cx="100" cy="90" r="0.8" /><circle cx="400" cy="90" r="1.1" /><circle cx="250" cy="70" r="0.7" /></g>
+    </svg>
+  </section>
+
+  <div class="stats" role="list" aria-label="Key figures">
+    <div class="stat" role="listitem"><div class="label">Simulated date</div><div class="value">{fmtSim(s.meta.simulatedDate)}</div><div class="sub">Week {s.meta.currentWeek} — {week.name}</div></div>
+    <div class="stat" role="listitem"><div class="label">Assembly term</div><div class="value">Term {romanTerm(term.number)}</div><div class="sub">{fmtSim(term.simStart)} – {fmtSim(term.simEnd)}</div></div>
+    <div class="stat" role="listitem"><div class="label">Pool remaining</div><div class="value">{fmtUnits(pool)}</div><div class="sub">of {s.meta.pool.initialUnits} units · {authorized.length ? `${fmtUnits(released)} released` : 'none released'}</div></div>
+    <div class="stat" role="listitem"><div class="label">Measures filed</div><div class="value">{filedCount}</div><div class="sub">{filedCount ? `${pending.length} pending` : 'Filing opens in Week 2'}</div></div>
+  </div>
+
+  <Panel title={`Term ${romanTerm(term.number)} calendar`} meta="One real month = ten simulated years" link={{ href: href('/registry/documents/DOC-RULES/'), label: ' · Rules of Procedure' }} flush>
+    <WeekCalendar current={s.meta.currentWeek} />
+  </Panel>
+
+  <div class="layout-main-side">
+    <div>
+      <Panel title="Latest bulletins" link={{ href: href('/bulletins/'), label: 'All bulletins →' }} flush>
+        <BulletinList events={bulletins} />
+      </Panel>
+
+      <Panel title="Pending legislation" meta={`Term ${romanTerm(term.number)}`} link={{ href: href('/legislation/'), label: ' · Legislation →' }} flush>
+        {pending.length ? (
+          <BillTable bills={pending} />
+        ) : (
+          <div class="panel-b">
+            <EmptyState code="REGISTER EMPTY" title="No measures have been filed for the First Term.">
+              <p>Bills and proposed prohibitions are filed in Week 2 — Deliberation. Anything properly filed but not scheduled by the end of Week 2 reaches the Week 3 floor automatically.</p>
+              <p><a href={href('/legislation/drafting/')}>Drafting guide and illustrative docket</a> · <a href={href('/legislation/?dataset=demonstration')}>Demonstration bills ({demoBills})</a></p>
+            </EmptyState>
+          </div>
+        )}
+      </Panel>
+
+      <Panel title="Questions before the Assembly" link={{ href: href('/bulletins/NT-T1-004/'), label: 'Full notice →' }} flush>
+        <ol class="reclist" style="list-style:decimal inside">
+          <li><span class="rl-title">Existing probe claims and the Aster dispute</span><p class="rl-sum">How strictly prior interstellar claims folded into the treaty should be protected.</p></li>
+          <li><span class="rl-title">The first resource release</span><p class="rl-sum">A release of {RELEASE_MIN * 100}–{RELEASE_MAX * 100}% of the pool (default {RELEASE_DEFAULT * 100}%), divided among four channels.</p></li>
+          <li><span class="rl-title">The digital franchise</span><p class="rl-sum">Petitions from digital persons and emulation families; change requires a Charter amendment and the rest-of-world seat's consent.</p></li>
+          <li><span class="rl-title">Preservation before arrival</span><p class="rl-sum">Conditional use instructions versus an enforceable blanket ban near potentially habitable worlds.</p></li>
+          <li><span class="rl-title">The mandate of the safeguarded intelligences</span><p class="rl-sum">Whether the Council on Long-Term Values should receive real discretion now.</p></li>
+        </ol>
+      </Panel>
+    </div>
+
+    <aside>
+      <Panel title="Government composition" link={{ href: href('/assembly/'), label: 'Assembly →' }}>
+        {comp ? (
+          <Hemicycle segments={parties.map((p) => { const a = comp.allocations.find((x) => x.partyId === p.id); return { key: p.id, label: p.abbreviation, color: p.color, count: a ? a.constituencySeats + a.listSeats : 0 }; }).filter((x) => x.count)} total={term.assemblySize} title="Assembly composition" desc="Seat composition of the Assembly; see the Assembly page for the full table." centerLabel={String(term.assemblySize)} />
+        ) : (
+          <>
+            <Hemicycle segments={[]} total={term.assemblySize} title="Assembly composition: pending" desc="All 600 seats are unassigned pending the founding party assignment." centerLabel="600" centerSub="seats — pending" legend={false} />
+            <p class="small" style="margin:6px 0 0">Seating by founding party assignment is <Badge tone="amber">Pending</Badge>. Six founding parties are provisionally described:</p>
+            <ul class="legend" style="justify-content:flex-start">
+              {parties.map((p) => <li><PartyName id={p.id} /></li>)}
+            </ul>
+          </>
+        )}
+      </Panel>
+
+      <Panel title="Officeholders" link={{ href: href('/assembly/#officeholders'), label: 'Details →' }} flush>
+        <table class="tbl">
+          <tbody>
+            {keyOffices.map((o) => {
+              const h = holderFor(o);
+              return (
+                <tr><th scope="row" style="font-weight:500">{o.title}</th><td>{h?.memberId ? displayName(s, h.memberId) : <Badge tone="amber">{h?.status ?? 'vacant'}</Badge>}</td></tr>
+              );
+            })}
+            <tr><th scope="row" style="font-weight:500">Council of Treaty Parties</th><td>{filledCount(council)} of {council.length} seats filled</td></tr>
+            <tr><th scope="row" style="font-weight:500">Charter Review Tribunal</th><td>{filledCount(tribunal)} of {tribunal.length} appointed</td></tr>
+            <tr><th scope="row" style="font-weight:500">Commission on Long-Term Inquiry</th><td>{filledCount(inquiry)} of {inquiry.length} elected</td></tr>
+          </tbody>
+        </table>
+      </Panel>
+
+      <Panel title="Resource pool" link={{ href: href('/registry/ledger/'), label: 'Ledger →' }}>
+        <dl class="kv" style="margin:-10px -12px 8px">
+          <dt>Initial pool</dt><dd>{fmtUnits(s.meta.pool.initialUnits)} units</dd>
+          <dt>Released to date</dt><dd>{fmtUnits(released)} units</dd>
+          <dt>Remaining</dt><dd><b>{fmtUnits(pool)}</b> units</dd>
+          <dt>Term {romanTerm(term.number)} release</dt><dd>{currentRelease?.status === 'authorized' ? `${fmtUnits(currentRelease.releasedUnits)} units` : <Badge tone="amber">Pending</Badge>}</dd>
+        </dl>
+        <div class="chbar" role="img" aria-label={released ? 'Released units by channel' : 'No units released'}>
+          {(Object.keys(channelTotals) as (keyof typeof channelTotals)[]).map((k) => (released ? <span style={`width:${(channelTotals[k] / released) * 100}%;background:${CHANNEL_COLOR[k]}`} title={`${CHANNEL_LABEL[k]} ${fmtUnits(channelTotals[k])}`}></span> : null))}
+        </div>
+        <ul class="legend" style="justify-content:flex-start">
+          {(Object.keys(channelTotals) as (keyof typeof channelTotals)[]).map((k) => (
+            <li><span class="swatch" style={`background:${CHANNEL_COLOR[k]}`}></span>{CHANNEL_LABEL[k]} {fmtUnits(channelTotals[k])}</li>
+          ))}
+        </ul>
+      </Panel>
+
+      <Panel title="Demonstration dataset">
+        <p class="small">Illustrative records exercise the portal before canonical business exists. They carry the <span class="badge demo">Demo</span> mark and are excluded from every figure above.</p>
+        <ul class="small" style="margin:0;padding-left:1.2em">
+          <li><a href={href('/assembly/demonstration/')}>Demonstration Assembly composition</a></li>
+          <li><a href={href('/legislation/?dataset=demonstration')}>{demoBills} demonstration bills</a></li>
+          <li><a href={href('/divisions/?dataset=demonstration')}>{demoDivs} demonstration divisions</a></li>
+          <li><a href={href('/press/')}>Demonstration publications</a></li>
+        </ul>
+      </Panel>
+    </aside>
+  </div>
+</BaseLayout>

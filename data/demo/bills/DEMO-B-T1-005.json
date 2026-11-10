@@ -1,0 +1,33 @@
+{
+  "id": "DEMO-B-T1-005",
+  "visibility": "public",
+  "termId": "T1",
+  "number": 5,
+  "title": "Register of Antecedent Probe Holdings Act",
+  "shortTitle": "Register of antecedent probe holdings",
+  "category": "administrative",
+  "threshold": "simple-majority",
+  "sponsorIds": ["DEMO-M-HADAR"],
+  "cosponsorIds": ["DEMO-M-DENEB"],
+  "filed": { "week": 2, "simDate": "2040-04", "realDate": "2026-12-11T09:00Z" },
+  "status": "voting",
+  "summary": "Directs the publication of a public register of interstellar probe holdings established before the Treaty, with their claimed boundaries, as an administrative clarification. Voting is open; the tally is sealed.",
+  "provisions": [
+    { "number": "1", "heading": "Register", "text": "The Assembly Information Service shall publish a Register of Antecedent Probe Holdings listing each interstellar mission and claim established before the Treaty, its operator, target systems and claimed boundaries." },
+    { "number": "2", "heading": "Submissions", "text": "Operators and Council seats may submit entries. Disputed boundaries are recorded as disputed and may be referred to the Arbiter." },
+    { "number": "3", "heading": "No change in rights", "text": "Registration neither creates, enlarges nor diminishes any holding." }
+  ],
+  "resource": null,
+  "amendments": [],
+  "history": [
+    { "simDate": "2040-04", "week": 2, "realDate": "2026-12-11T09:00Z", "action": "Filed.", "refId": null },
+    { "simDate": "2040-04", "week": 2, "realDate": "2026-12-13T23:59Z", "action": "Not scheduled by the Bureau by the end of Week 2; placed on the Week 3 agenda automatically.", "refId": null },
+    { "simDate": "2040-06", "week": 3, "realDate": "2026-12-16T18:00Z", "action": "Division opened. Tally sealed until the window closes.", "refId": "DEMO-D-T1-008" }
+  ],
+  "councilActions": [],
+  "rulings": [],
+  "divisionIds": ["DEMO-D-T1-008"],
+  "outcome": null,
+  "refs": { "events": ["DEMO-EV-08"], "institutions": ["INST-ARBITER"] },
+  "tags": ["probe-claims", "aster"]
+}

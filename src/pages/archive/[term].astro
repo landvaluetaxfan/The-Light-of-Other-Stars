@@ -1,0 +1,56 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import Badge from '../../components/Badge.astro';
+import BillTable from '../../components/BillTable.astro';
+import DivisionTable from '../../components/DivisionTable.astro';
+import BulletinList from '../../components/BulletinList.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import RecordTools from '../../components/RecordTools.astro';
+import WeekCalendar from '../../components/WeekCalendar.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, fmtSim, fmtUnits, romanTerm, sortBySimDesc } from '../../lib/site.ts';
+import type { TermT } from '../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  return getStore().terms.map((t) => ({ params: { term: t.id }, props: { t } }));
+}
+interface Props { t: TermT }
+const { t } = Astro.props;
+const s = getStore();
+const bills = s.bills.filter((b) => b.termId === t.id);
+const divisions = s.divisions.filter((d) => d.termId === t.id);
+const events = sortBySimDesc(s.events.filter((e) => e.termId === t.id));
+const elections = s.elections.filter((e) => e.termId === t.id);
+const releases = s.releases.filter((r) => r.termId === t.id);
+const isCurrent = t.id === s.meta.currentTermId;
+---
+<BaseLayout title={`Term ${romanTerm(t.number)} archive`} section="archive" recordId={t.id} crumbs={[{ label: 'Archive', href: href('/archive/') }, { label: `Term ${romanTerm(t.number)}` }]}>
+  <div class="page-head">
+    <div>
+      <div class="kicker">Term record · {fmtSim(t.simStart)} – {fmtSim(t.simEnd)}</div>
+      <h1>Term {romanTerm(t.number)} — {t.name}</h1>
+      <p class="lede">Assembly of {t.assemblySize} seats ({t.constituencySeats} constituency, {t.listSeats} list). <Badge tone={t.status === 'current' ? 'ok' : 'neutral'}>{t.status}</Badge></p>
+    </div>
+    <RecordTools id={t.id} />
+  </div>
+  {isCurrent && <Panel title="Calendar" meta={`Week ${s.meta.currentWeek} of 4`} flush><WeekCalendar current={s.meta.currentWeek} compact /></Panel>}
+  {t.notes.length > 0 && <Panel title="Notes"><ul style="margin:0;padding-left:1.2em">{t.notes.map((n) => <li>{n}</li>)}</ul></Panel>}
+  <Panel title="Measures" meta={`${bills.length}`} flush>
+    {bills.length ? <BillTable bills={bills} /> : <div class="panel-b"><EmptyState code="NO MEASURES" title="No measures recorded for this term." /></div>}
+  </Panel>
+  <Panel title="Divisions" meta={`${divisions.length}`} flush>
+    {divisions.length ? <DivisionTable divisions={divisions} /> : <div class="panel-b"><EmptyState code="NO DIVISIONS" title="No divisions recorded for this term." /></div>}
+  </Panel>
+  <div class="grid grid-2" style="align-items:start">
+    <Panel title="Elections" flush>
+      {elections.length ? <ul class="reclist">{elections.map((e) => <li><a href={href(`/registry/elections/${e.id}/`)}>{e.summary.split('.')[0]}</a> {e.dataset === 'demonstration' && <span class="badge demo">Demo</span>}<div class="small muted">{e.id} · {e.status}</div></li>)}</ul> : <div class="panel-b"><EmptyState code="NONE" title="No elections recorded." /></div>}
+    </Panel>
+    <Panel title="Resource releases" flush>
+      {releases.length ? <ul class="reclist">{releases.map((r) => <li><a href={href(`/registry/ledger/#${r.id}`)} class="mono">{r.id}</a> {r.dataset === 'demonstration' && <span class="badge demo">Demo</span>}<div class="small">{r.status === 'pending' ? 'Pending' : `${fmtUnits(r.releasedUnits)} units released; ${fmtUnits(r.closingPool)} remaining`}</div></li>)}</ul> : <div class="panel-b"><EmptyState code="NONE" title="No release recorded." /></div>}
+    </Panel>
+  </div>
+  <Panel title="Bulletins" meta={`${events.length}`} flush>
+    {events.length ? <BulletinList events={events} /> : <div class="panel-b"><EmptyState code="NO BULLETINS" title="No bulletins recorded for this term." /></div>}
+  </Panel>
+</BaseLayout>

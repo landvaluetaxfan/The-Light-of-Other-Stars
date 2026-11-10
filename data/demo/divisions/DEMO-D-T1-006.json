@@ -1,0 +1,124 @@
+{
+  "id": "DEMO-D-T1-006",
+  "visibility": "public",
+  "termId": "T1",
+  "billId": "DEMO-B-T1-004",
+  "amendmentId": null,
+  "stage": "override",
+  "question": "That the delay of the Near-System Survey and Preservation Act by the Council of Treaty Parties be overridden.",
+  "threshold": "two-thirds",
+  "basis": "seats-voting",
+  "opens": {
+    "week": 4,
+    "simDate": "2040-07",
+    "realDate": "2026-12-21T18:00Z"
+  },
+  "closes": {
+    "week": 4,
+    "simDate": "2040-07",
+    "realDate": "2026-12-23T18:00Z"
+  },
+  "status": "closed",
+  "ballots": [
+    {
+      "blocId": "DEMO-BL-10",
+      "seats": 54,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-11",
+      "seats": 36,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-12",
+      "seats": 60,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-13",
+      "seats": 30,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-01",
+      "seats": 60,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-02",
+      "seats": 42,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-03",
+      "seats": 30,
+      "vote": "yes",
+      "castBy": "controller",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-04",
+      "seats": 60,
+      "vote": "no",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-05",
+      "seats": 48,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-06",
+      "seats": 56,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-07",
+      "seats": 40,
+      "vote": "yes",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-08",
+      "seats": 50,
+      "vote": "no",
+      "castBy": "holder",
+      "proxyMemberId": null
+    },
+    {
+      "blocId": "DEMO-BL-09",
+      "seats": 34,
+      "vote": "no",
+      "castBy": "holder",
+      "proxyMemberId": null
+    }
+  ],
+  "result": {
+    "yes": 456,
+    "no": 144,
+    "abstain": 0,
+    "seatsVoting": 600,
+    "totalSeats": 600,
+    "required": 400,
+    "outcome": "carried"
+  }
+}

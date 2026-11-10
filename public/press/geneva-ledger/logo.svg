@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t">
+  <title id="t">The Geneva Ledger</title>
+  <rect width="120" height="120" fill="#F6F1E6"/>
+  <circle cx="60" cy="60" r="52" fill="none" stroke="#1C1A17" stroke-width="2"/>
+  <circle cx="60" cy="60" r="46" fill="none" stroke="#1C1A17" stroke-width="0.8"/>
+  <path d="M22 72 H98" stroke="#1C1A17" stroke-width="0.8"/>
+  <path d="M60 18 l3 9 h9 l-7 5.6 2.7 9 -7.7 -5.4 -7.7 5.4 2.7 -9 -7 -5.6 h9z" fill="#7C2323"/>
+  <text x="60" y="68" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="30" font-weight="700" fill="#1C1A17" letter-spacing="1">GL</text>
+  <text x="60" y="88" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="8" fill="#1C1A17" letter-spacing="2">MMXL</text>
+</svg>

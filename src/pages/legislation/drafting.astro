@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import Rich from '../../components/Rich.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href } from '../../lib/site.ts';
+import { inline } from '../../lib/richtext.ts';
+
+const s = getStore();
+const guide = s.documents.find((d) => d.id === 'DOC-POLICY-GUIDE')!;
+const checklist = guide.sections.find((x) => x.id === 'drafting-checklist')!;
+const catalogue = guide.sections.filter((x) => x.id.startsWith('cat-'));
+const packages = guide.sections.find((x) => x.id === 'packages')!;
+const docket = [
+  ['Resolution of initial release size and channel division', 'Any caucus or coalition able to file', 'Ordinary floor votes, Council scrutiny'],
+  ['Register of antecedent probe holdings', 'Council parties and affected operators', 'Administrative clarification; Arbiter review where disputed'],
+  ['Near-system survey and preservation mission', 'Stewardship and science coalition', 'Assembly-channel project; rights review'],
+  ['Report on digital political identity', 'Commission on Long-Term Inquiry', 'Inquiry priority and public finding'],
+  ['Proposal for long-term trusteeship', 'Delegationists and interested allies', 'Deferral channel allocation with conditions'],
+];
+---
+<BaseLayout title="Drafting guide" section="legislation" crumbs={[{ label: 'Legislation', href: href('/legislation/') }, { label: 'Drafting guide' }]} description="How to draft a measure for the Assembly: checklist, required motion particulars, the illustrative first-term docket and a searchable catalogue of policy ideas.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Section 03 · Reference for members</div>
+      <h1>Drafting a measure</h1>
+      <p class="lede">Orientation for members preparing filings. The World Bible and treaty text prevail over any shorthand here; the Policy and Legislative Ideas Guide is an inspiration document, not a source of new legal powers.</p>
+    </div>
+    <div class="head-tools"><a class="btn" href={href('/registry/documents/DOC-POLICY-GUIDE/')}>Full Policy Guide</a><a class="btn" href={href('/registry/documents/DOC-RULES/')}>Rules of Procedure</a></div>
+  </div>
+
+  <div class="grid grid-2" style="align-items:start">
+    <Panel title="Start with the actual decision">
+      <ol class="prose" style="font-size:14.5px;padding-left:1.3em;margin:0">
+        {checklist.list.map((li) => <li set:html={inline(li, s)} />)}
+      </ol>
+    </Panel>
+    <Panel title="Required particulars for an allocation motion" meta="Rules § 7 · Bible § 16">
+      <p>A motion for an ordinary Assembly allocation must specify:</p>
+      <table class="tbl">
+        <tbody>
+          <tr><th scope="row">Amount or share</th><td>Units of a channel, or a release percentage (5–25%)</td></tr>
+          <tr><th scope="row">Channel</th><td>Endowment, Assembly, Deferral or Reserve</td></tr>
+          <tr><th scope="row">Intended use</th><td>The end-use of the claims</td></tr>
+          <tr><th scope="row">Geographic reach</th><td>Near (within the Milky Way) or far (beyond)</td></tr>
+          <tr><th scope="row">Implementing actor</th><td>Beneficiary, steward or implementing body</td></tr>
+          <tr><th scope="row">Duration</th><td>How long the authority or restriction lasts</td></tr>
+          <tr><th scope="row">Conditions</th><td>Legal conditions, and conditions for success or failure</td></tr>
+        </tbody>
+      </table>
+      <p class="small muted" style="margin-top:8px">The validation rules of this register reject an Assembly project that omits any of these fields.</p>
+    </Panel>
+  </div>
+
+  <Panel title="Illustrative first-term docket" meta="World Bible, opening political situation" flush>
+    <div class="notice" style="margin:10px 12px">These are <strong>illustrative draft items</strong> from the World Bible, not filed business. They will appear in the bill register only if a member files them.</div>
+    <table class="tbl stack">
+      <thead><tr><th scope="col">Draft item</th><th scope="col">Potential sponsor</th><th scope="col">Possible route</th></tr></thead>
+      <tbody>{docket.map(([a, b, c]) => <tr><td class="primary">{a}</td><td data-label="Sponsor">{b}</td><td data-label="Route">{c}</td></tr>)}</tbody>
+    </table>
+  </Panel>
+
+  <div class="panel" data-filter>
+    <div class="panel-h"><h2>Catalogue of policy ideas</h2><span class="meta"><output data-count></output></span></div>
+    <form class="filterbar" onsubmit="return false" aria-label="Filter policy ideas">
+      <div class="field grow"><label for="c-q">Search ideas</label><input id="c-q" type="search" data-f="q" placeholder="e.g. reserve, sanctuary, franchise, copying…" /></div>
+      <div class="field"><label for="c-area">Area</label>
+        <select id="c-area" data-f="area"><option value="">All areas</option>{catalogue.map((c) => <option value={c.id}>{c.heading}</option>)}</select>
+      </div>
+      <button type="button" class="btn" data-reset>Reset</button>
+    </form>
+    <div class="table-wrap">
+      <table class="tbl stack">
+        <thead><tr><th scope="col">Idea</th><th scope="col">Instrument</th><th scope="col">Possible coalition</th><th scope="col">Pressure point</th></tr></thead>
+        {catalogue.map((c) => (
+          <tbody data-group>
+            <tr><th colspan="4" scope="colgroup" style="background:var(--sage-3);font-size:12px">{c.number} {c.heading}</th></tr>
+            {c.table!.rows.map((row) => (
+              <tr data-item data-area={c.id} data-text={row.join(' ')}>
+                <td class="primary">{row[0]}</td><td data-label="Instrument">{row[1]}</td><td data-label="Coalition">{row[2]}</td><td data-label="Pressure">{row[3]}</td>
+              </tr>
+            ))}
+          </tbody>
+        ))}
+      </table>
+    </div>
+    <div data-empty hidden style="padding:10px"><EmptyState code="NO MATCH" title="No ideas match this search." /></div>
+  </div>
+
+  <Panel title="Sample legislative packages">
+    <Rich paragraphs={packages.list} />
+  </Panel>
+  <script>import '../../scripts/filter.ts';</script>
+</BaseLayout>

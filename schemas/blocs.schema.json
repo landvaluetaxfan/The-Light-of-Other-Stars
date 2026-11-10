@@ -1,0 +1,66 @@
+{
+  "$comment": "Public data contract v1.0.0 — generated from src/lib/data/schema.ts; do not edit by hand.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "visibility": {
+      "type": "string",
+      "const": "public"
+    },
+    "termId": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "partyId": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "holderId": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "controllerId": {
+      "default": null,
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "controlNote": {
+      "default": "",
+      "type": "string"
+    },
+    "seats": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 60
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active",
+        "inactive",
+        "transferred"
+      ]
+    }
+  },
+  "required": [
+    "id",
+    "visibility",
+    "termId",
+    "partyId",
+    "holderId",
+    "seats",
+    "status"
+  ],
+  "additionalProperties": false
+}

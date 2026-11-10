@@ -1,0 +1,10 @@
+---
+import { getStore } from '../lib/data/load.ts';
+import { href } from '../lib/site.ts';
+interface Props { id: string | null; abbr?: boolean; link?: boolean }
+const { id, abbr = false, link = true } = Astro.props;
+const p = id ? getStore().parties.find((x) => x.id === id) : undefined;
+---
+{p ? (
+  <span class="nowrap"><span class="swatch" style={`background:${p.color}`} aria-hidden="true"></span>{link ? <a href={href(`/assembly/parties/${p.id}/`)}>{abbr ? p.abbreviation : p.name}</a> : (abbr ? p.abbreviation : p.name)}</span>
+) : <span class="muted">Independent / none</span>}

@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import CompositionView from '../../components/CompositionView.astro';
+import OfficeholderTable from '../../components/OfficeholderTable.astro';
+import PartyName from '../../components/PartyName.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, romanTerm, partiesInSeatingOrder, displayName } from '../../lib/site.ts';
+
+const s = getStore();
+const term = s.terms.find((t) => t.id === s.meta.currentTermId)!;
+const parties = partiesInSeatingOrder(s).filter((p) => p.dataset === 'canonical');
+const offices = s.offices.filter((o) => o.dataset === 'canonical');
+const assemblyOffices = offices.filter((o) => ['INST-BUREAU', 'INST-COMMISSIONER', 'INST-INQUIRY'].includes(o.institutionId));
+const institutions = s.institutions.filter((i) => i.dataset === 'canonical');
+---
+<BaseLayout title="Assembly" section="assembly" crumbs={[{ label: 'Assembly' }]} description="The 600-seat World Assembly for Extrasolar Resources: seating diagram, party composition, blocs, officeholders and treaty institutions.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Section 02 · Term {romanTerm(term.number)}</div>
+      <h1>World Assembly for Extrasolar Resources</h1>
+      <p class="lede">600 seats at the outset: 300 constituency seats elected across twelve regions and 300 compensatory global-list seats. Each player holds a single bloc of party seats, capped at sixty, which votes as one.</p>
+    </div>
+    <div class="head-tools"><a class="btn" href={href('/assembly/demonstration/')}>Demonstration composition</a></div>
+  </div>
+
+  <CompositionView termId={term.id} dataset="canonical" />
+
+  <Panel title="Founding parties" meta="Provisional labels — not prescribed party names" flush id="parties">
+    <div class="table-wrap">
+      <table class="tbl stack">
+        <thead><tr><th scope="col">Party</th><th scope="col">Core position</th><th scope="col">Internal disagreement</th><th scope="col">Four-party variant</th></tr></thead>
+        <tbody>
+          {parties.map((p) => (
+            <tr>
+              <td class="primary"><PartyName id={p.id} /> <span class="mono small muted">{p.abbreviation}</span></td>
+              <td data-label="Position">{p.corePosition}</td>
+              <td data-label="Division">{p.internalDivision}</td>
+              <td data-label="4-party" class="small">{p.fourPartyVariant.mergedIntoId ? <>Merged into <PartyName id={p.fourPartyVariant.mergedIntoId} /></> : 'Retained'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <p class="small muted" style="padding:6px 12px;margin:0">Six founding parties are used with forty or more players; otherwise four. After the first term players may transfer freely; a new party requires three members and a platform on all five policy axes. Parties falling below three members dissolve at the end of a term.</p>
+  </Panel>
+
+  <Panel title="Blocs and coalitions" id="blocs">
+    <p>Blocs are indivisible: each votes all-or-nothing. No player may control more than sixty seats. A player may appoint a party proxy before a vote opens; otherwise a non-voting bloc abstains. A bloc whose player does not vote through a full term passes to the next member on the party's list.</p>
+    <p class="muted small" style="margin:0">Formal coalition agreements, when published by the parties concerned, will be listed here. None has been registered.</p>
+  </Panel>
+
+  <Panel title="Assembly officeholders" meta={`Term ${romanTerm(term.number)}`} flush id="officeholders">
+    <OfficeholderTable offices={assemblyOffices} termId={term.id} />
+  </Panel>
+
+  <Panel title="Institutions established by the treaty" flush id="institutions">
+    <div class="panel-b">
+      <div class="tiles">
+        {institutions.map((i) => (
+          <a class="tile" href={href(`/registry/institutions/${i.id}/`)}>
+            <span class="t-title">{i.name}</span>
+            <span class="t-sub">{i.summary.length > 140 ? `${i.summary.slice(0, 137)}…` : i.summary}</span>
+            <span class="t-meta">{i.id}{i.seats ? ` · ${i.seats} seat${i.seats > 1 ? 's' : ''}` : ''}{i.parentId ? ` · under ${displayName(s, i.parentId)}` : ''}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </Panel>
+</BaseLayout>

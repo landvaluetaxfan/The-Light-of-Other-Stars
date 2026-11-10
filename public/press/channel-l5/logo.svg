@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-labelledby="t">
+  <title id="t">Channel L5</title>
+  <rect width="120" height="120" fill="#0C1B2E"/>
+  <circle cx="60" cy="60" r="44" fill="#E4572E"/>
+  <circle cx="60" cy="60" r="44" fill="none" stroke="#F3F5F8" stroke-width="3" stroke-dasharray="6 5"/>
+  <!-- L -->
+  <path d="M32 38 h12 v32 h18 v12 h-30z" fill="#F3F5F8"/>
+  <!-- 5 -->
+  <path d="M66 38 h24 v10 h-14 v6 h6 a14 14 0 0 1 0 28 h-16 v-10 h15 a4 4 0 0 0 0 -8 h-15z" fill="#0C1B2E"/>
+  <circle cx="98" cy="22" r="5" fill="#F3F5F8"/>
+</svg>

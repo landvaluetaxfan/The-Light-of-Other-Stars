@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import Badge from '../../components/Badge.astro';
+import RecordTools from '../../components/RecordTools.astro';
+import TallyBar from '../../components/TallyBar.astro';
+import Hemicycle from '../../components/Hemicycle.astro';
+import PartyName from '../../components/PartyName.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, fmtSim, fmtReal, fmtPct, VOTE_COLOR, displayName, partiesInSeatingOrder, romanTerm } from '../../lib/site.ts';
+import { THRESHOLD_LABEL, BASIS_LABEL } from '../../lib/procedure.ts';
+import type { DivisionT } from '../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  return getStore().divisions.map((d) => ({ params: { id: d.id }, props: { division: d } }));
+}
+interface Props { division: DivisionT }
+const { division: d } = Astro.props;
+const s = getStore();
+const term = s.terms.find((t) => t.id === d.termId)!;
+const bill = s.bills.find((b) => b.id === d.billId)!;
+const amendment = d.amendmentId ? bill.amendments.find((a) => a.id === d.amendmentId) : null;
+const parties = partiesInSeatingOrder(s);
+const pIndex = (id: string) => parties.findIndex((p) => p.id === id);
+const rows = d.ballots
+  .map((x) => ({ x, bloc: s.blocs.find((b) => b.id === x.blocId)! }))
+  .sort((a, b) => pIndex(a.bloc.partyId) - pIndex(b.bloc.partyId) || b.x.seats - a.x.seats);
+const r = d.result;
+const STAGE = { amendment: 'Amendment', passage: 'Passage', override: 'Override' } as const;
+const CAST = { holder: 'Holder', controller: 'Floor leader', proxy: 'Party proxy', 'not-cast': 'Not cast' } as const;
+const segments = rows.map(({ x, bloc }) => {
+  const p = parties.find((pp) => pp.id === bloc.partyId)!;
+  return { key: x.blocId, label: `${displayName(s, bloc.holderId)} (${p.abbreviation}) — ${x.vote}${x.castBy === 'not-cast' ? ', not cast' : ''}`, color: VOTE_COLOR[x.vote], count: x.seats, hatch: x.castBy === 'not-cast' };
+});
+const byParty = parties
+  .map((p) => {
+    const mine = rows.filter((rw) => rw.bloc.partyId === p.id);
+    const t = { yes: 0, no: 0, abstain: 0 };
+    for (const rw of mine) t[rw.x.vote] += rw.x.seats;
+    return { p, t, n: mine.length };
+  })
+  .filter((x) => x.n);
+const base = r ? (d.basis === 'seats-voting' ? r.seatsVoting : r.totalSeats) : 0;
+const demo = d.dataset === 'demonstration';
+---
+<BaseLayout title={`Division ${d.id}`} section="divisions" demo={demo} recordId={d.id} description={d.question} crumbs={[{ label: 'Divisions', href: href('/divisions/') }, { label: d.id }]}>
+  <div class="page-head">
+    <div>
+      <div class="kicker">Division · {STAGE[d.stage]} · Term {romanTerm(term.number)}, Week {d.closes.week}</div>
+      <h1>{d.question}</h1>
+      <p class="lede">On <a href={href(`/legislation/${bill.id}/`)}>{bill.title}</a>{amendment && <> — <a href={href(`/legislation/${bill.id}/#${amendment.id}`)}>Amendment {amendment.number}</a></>}</p>
+      <p style="margin:6px 0 0">
+        {r ? <Badge tone={r.outcome === 'carried' ? 'ok' : 'bad'}>{r.outcome === 'carried' ? 'Carried' : 'Not carried'}</Badge> : <Badge tone="amber">{d.status === 'open' ? 'Voting open — tally sealed' : 'Scheduled'}</Badge>}
+        {' '}<Badge tone="steel">{THRESHOLD_LABEL[d.threshold]}</Badge>
+      </p>
+    </div>
+    <RecordTools id={d.id} />
+  </div>
+
+  {!r ? (
+    <>
+      <div class="notice sealed" role="status">
+        <strong>{d.status === 'open' ? 'Voting is open. The tally is sealed.' : 'This division has not yet opened.'}</strong>
+        The window {d.status === 'open' ? 'closes' : 'is scheduled to close'} at {fmtReal(d.closes.realDate)} (simulated {fmtSim(d.closes.simDate)}). No running count, partial ballots or bloc positions are published while the window is open — they are concealed from all participants, including the Speaker and Bureau. The complete roll call will be published on this page when voting ends.
+      </div>
+      <Panel title="Roll call">
+        <EmptyState code="TALLY SEALED" title="The roll call will be published when the window closes.">
+          <p>Proxies must be filed before a vote opens; blocs that do not vote are recorded as abstaining.</p>
+        </EmptyState>
+        <TallyBar division={d} />
+      </Panel>
+    </>
+  ) : (
+    <div class="layout-main-side">
+      <div>
+        <Panel title="Result" tone="teal">
+          <div class="stats" style="margin-bottom:10px">
+            <div class="stat"><div class="label">Yes</div><div class="value" style={`color:${VOTE_COLOR.yes}`}>{r.yes}</div><div class="sub">seats</div></div>
+            <div class="stat"><div class="label">No</div><div class="value" style={`color:${VOTE_COLOR.no}`}>{r.no}</div><div class="sub">seats</div></div>
+            <div class="stat"><div class="label">Abstain</div><div class="value" style="color:var(--ink-2)">{r.abstain}</div><div class="sub">incl. not cast</div></div>
+            <div class="stat"><div class="label">Required</div><div class="value">{r.required}</div><div class="sub">of {base} {d.basis === 'seats-voting' ? 'voting' : 'seats'}</div></div>
+          </div>
+          <TallyBar division={d} />
+          <p style="margin:10px 0 0">
+            <strong>{r.outcome === 'carried' ? 'Carried.' : 'Not carried.'}</strong> {r.yes} affirmative seats {r.outcome === 'carried' ? 'met' : 'fell short of'} the {r.required} required — {THRESHOLD_LABEL[d.threshold].toLowerCase()} {BASIS_LABEL[d.basis]}, being {r.seatsVoting} seats voting of {r.totalSeats}. Yes share of seats voting: {r.seatsVoting ? fmtPct(r.yes / r.seatsVoting) : '—'}.
+          </p>
+        </Panel>
+
+        <Panel title="Division diagram" meta="Each seat coloured by its bloc's vote">
+          <Hemicycle segments={segments} total={r.totalSeats} title={`Division ${d.id}: seats by vote`} desc={`Yes ${r.yes}, No ${r.no}, Abstain ${r.abstain}. Seats grouped by bloc in party order; bloc-by-bloc figures follow in the roll-call table.`} centerLabel={`${r.yes}–${r.no}`} centerSub={r.outcome === 'carried' ? 'carried' : 'not carried'} legend={false} />
+          <ul class="legend">
+            <li><span class="swatch" style={`background:${VOTE_COLOR.yes}`}></span>Yes</li>
+            <li><span class="swatch" style={`background:${VOTE_COLOR.no}`}></span>No</li>
+            <li><span class="swatch" style={`background:${VOTE_COLOR.abstain}`}></span>Abstain</li>
+            <li><span class="swatch" style="background:repeating-linear-gradient(45deg,#d9dedb 0 2px,#8d9995 2px 4px)"></span>Not cast (abstains)</li>
+          </ul>
+        </Panel>
+
+        <Panel title="Roll call by bloc" meta={`${rows.length} blocs`} flush id="roll-call">
+          <div class="table-wrap">
+            <table class="tbl stack">
+              <caption>Every seated bloc's recorded position, with seat weight and who cast the ballot.</caption>
+              <thead><tr><th scope="col">Bloc</th><th scope="col">Holder</th><th scope="col">Party</th><th scope="col" class="num">Seats</th><th scope="col">Vote</th><th scope="col">Cast by</th></tr></thead>
+              <tbody>
+                {rows.map(({ x, bloc }) => (
+                  <tr>
+                    <td data-label="Bloc" class="mono">{x.blocId}</td>
+                    <td class="primary"><a href={href(`/assembly/members/${bloc.holderId}/`)}>{displayName(s, bloc.holderId)}</a></td>
+                    <td data-label="Party"><PartyName id={bloc.partyId} abbr /></td>
+                    <td data-label="Seats" class="num">{x.seats}</td>
+                    <td data-label="Vote"><b style={`color:${VOTE_COLOR[x.vote]}`}>{x.vote.toUpperCase()}</b></td>
+                    <td data-label="Cast by" class="small">{CAST[x.castBy]}{x.proxyMemberId && <> — <a href={href(`/assembly/members/${x.proxyMemberId}/`)}>{displayName(s, x.proxyMemberId)}</a></>}{x.castBy === 'controller' && bloc.controllerId && <> — {displayName(s, bloc.controllerId)}</>}</td>
+                  </tr>
+                ))}
+              </tbody>
+              <tfoot>
+                <tr><th scope="row" colspan="3">Totals</th><td class="num">{r.totalSeats}</td><td colspan="2">Yes {r.yes} · No {r.no} · Abstain {r.abstain}</td></tr>
+              </tfoot>
+            </table>
+          </div>
+        </Panel>
+      </div>
+      <aside>
+        <Panel title="Record particulars" flush>
+          <dl class="kv">
+            <dt>Identifier</dt><dd class="mono">{d.id}</dd>
+            <dt>Measure</dt><dd><a href={href(`/legislation/${bill.id}/`)} class="mono">{bill.id}</a></dd>
+            {amendment && <><dt>Amendment</dt><dd>No. {amendment.number}</dd></>}
+            <dt>Stage</dt><dd>{STAGE[d.stage]}</dd>
+            <dt>Threshold</dt><dd>{THRESHOLD_LABEL[d.threshold]}</dd>
+            <dt>Basis</dt><dd>{BASIS_LABEL[d.basis]}</dd>
+            <dt>Opened</dt><dd>{fmtSim(d.opens.simDate)} · Wk {d.opens.week}<br /><span class="small muted">{fmtReal(d.opens.realDate)}</span></dd>
+            <dt>Closed</dt><dd>{fmtSim(d.closes.simDate)} · Wk {d.closes.week}<br /><span class="small muted">{fmtReal(d.closes.realDate)}</span></dd>
+            <dt>Term</dt><dd><a href={href(`/archive/${term.id}/`)}>{term.name}</a></dd>
+          </dl>
+        </Panel>
+        <Panel title="By party" flush>
+          <table class="tbl">
+            <thead><tr><th scope="col">Party</th><th scope="col" class="num">Y</th><th scope="col" class="num">N</th><th scope="col" class="num">A</th></tr></thead>
+            <tbody>
+              {byParty.map(({ p, t }) => (
+                <tr><td><PartyName id={p.id} abbr /></td><td class="num">{t.yes}</td><td class="num">{t.no}</td><td class="num">{t.abstain}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </Panel>
+        <Panel title="Other divisions on this measure" flush>
+          <ul class="reclist">
+            {bill.divisionIds.filter((x) => x !== d.id).map((x) => <li><a class="mono" href={href(`/divisions/${x}/`)}>{x}</a></li>)}
+            {bill.divisionIds.length === 1 && <li class="muted small">None.</li>}
+          </ul>
+        </Panel>
+      </aside>
+    </div>
+  )}
+</BaseLayout>

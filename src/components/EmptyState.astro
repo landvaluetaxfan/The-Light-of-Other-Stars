@@ -1,0 +1,10 @@
+---
+/** A deliberate empty state: says what is absent, why, and when it will appear. */
+interface Props { code?: string; title: string }
+const { code = 'NO RECORDS', title } = Astro.props;
+---
+<div class="empty" role="status">
+  <span class="empty-code">{code}</span>
+  <p><strong>{title}</strong></p>
+  <slot />
+</div>
