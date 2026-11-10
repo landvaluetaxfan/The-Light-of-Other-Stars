@@ -10,13 +10,13 @@ import Badge from '../components/Badge.astro';
 import PartyName from '../components/PartyName.astro';
 import { getStore } from '../lib/data/load.ts';
 import { href, fmtSim, fmtUnits, romanTerm, sortBySimDesc, partiesInSeatingOrder, CHANNEL_LABEL, CHANNEL_COLOR, displayName } from '../lib/site.ts';
-import { WEEKS, RELEASE_MIN, RELEASE_MAX, RELEASE_DEFAULT } from '../lib/procedure.ts';
+import { WEEKS } from '../lib/procedure.ts';
 
 const s = getStore();
 const canon = <T extends { dataset: string }>(l: T[]) => l.filter((x) => x.dataset === 'canonical');
 const term = s.terms.find((t) => t.id === s.meta.currentTermId)!;
 const week = WEEKS[s.meta.currentWeek - 1];
-const bulletins = sortBySimDesc(canon(s.events).filter((e) => e.kind !== 'historical-record')).slice(0, 6);
+const bulletins = sortBySimDesc(canon(s.events)).slice(0, 6);
 const pending = canon(s.bills).filter((b) => b.termId === term.id && ['filed', 'scheduled', 'voting', 'delayed'].includes(b.status));
 const filedCount = canon(s.bills).filter((b) => b.termId === term.id).length;
 const comp = s.compositions.find((c) => c.termId === term.id && c.dataset === 'canonical');
@@ -81,7 +81,13 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
   <div class="layout-main-side">
     <div>
       <Panel title="Latest bulletins" link={{ href: href('/bulletins/'), label: 'All bulletins →' }} flush>
-        <BulletinList events={bulletins} />
+        {bulletins.length ? <BulletinList events={bulletins} /> : (
+          <div class="panel-b">
+            <EmptyState code="NO BULLETINS" title="No bulletins have been issued.">
+              <p>Official notices, world events, rulings and election bulletins will appear here as they are published.</p>
+            </EmptyState>
+          </div>
+        )}
       </Panel>
 
       <Panel title="Pending legislation" meta={`Term ${romanTerm(term.number)}`} link={{ href: href('/legislation/'), label: ' · Legislation →' }} flush>
@@ -97,15 +103,6 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
         )}
       </Panel>
 
-      <Panel title="Questions before the Assembly" link={{ href: href('/bulletins/NT-T1-004/'), label: 'Full notice →' }} flush>
-        <ol class="reclist" style="list-style:decimal inside">
-          <li><span class="rl-title">Existing probe claims and the Aster dispute</span><p class="rl-sum">How strictly prior interstellar claims folded into the treaty should be protected.</p></li>
-          <li><span class="rl-title">The first resource release</span><p class="rl-sum">A release of {RELEASE_MIN * 100}–{RELEASE_MAX * 100}% of the pool (default {RELEASE_DEFAULT * 100}%), divided among four channels.</p></li>
-          <li><span class="rl-title">The digital franchise</span><p class="rl-sum">Petitions from digital persons and emulation families; change requires a Charter amendment and the rest-of-world seat's consent.</p></li>
-          <li><span class="rl-title">Preservation before arrival</span><p class="rl-sum">Conditional use instructions versus an enforceable blanket ban near potentially habitable worlds.</p></li>
-          <li><span class="rl-title">The mandate of the safeguarded intelligences</span><p class="rl-sum">Whether the Council on Long-Term Values should receive real discretion now.</p></li>
-        </ol>
-      </Panel>
     </div>
 
     <aside>

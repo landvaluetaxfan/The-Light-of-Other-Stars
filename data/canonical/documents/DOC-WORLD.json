@@ -28,13 +28,37 @@
       ],
       "table": {
         "caption": "Functions and boundaries of authority, March 2040",
-        "columns": ["Function", "Typical work", "Boundary of authority"],
+        "columns": [
+          "Function",
+          "Typical work",
+          "Boundary of authority"
+        ],
         "rows": [
-          ["Personal representatives", "Negotiate, forecast, organise information and advise individuals; some act as long-term fiduciaries", "Human principals retain the right to direct or dismiss them, subject to law"],
-          ["Scientific and verification systems", "Propose theories, validate designs, cross-check safety cases, investigate consciousness", "Findings are evidence, not legislation; uncertainty and disagreement must be reported"],
-          ["Industrial coordinators", "Operate robotics, power networks, factories, supply chains and orbital construction", "Cannot convert legal claims into unauthorised territorial or coercive control"],
-          ["Security and treaty systems", "Monitor restricted compute, inspect strategic changes, enforce the security settlement", "Existing mandates are binding; unilateral expansion of authority is prohibited"],
-          ["Long-term values delegates", "Study moral questions and the claims of future and digital populations", "The Council on Long-Term Values receives only expressly delegated resource authority"]
+          [
+            "Personal representatives",
+            "Negotiate, forecast, organise information and advise individuals; some act as long-term fiduciaries",
+            "Human principals retain the right to direct or dismiss them, subject to law"
+          ],
+          [
+            "Scientific and verification systems",
+            "Propose theories, validate designs, cross-check safety cases, investigate consciousness",
+            "Findings are evidence, not legislation; uncertainty and disagreement must be reported"
+          ],
+          [
+            "Industrial coordinators",
+            "Operate robotics, power networks, factories, supply chains and orbital construction",
+            "Cannot convert legal claims into unauthorised territorial or coercive control"
+          ],
+          [
+            "Security and treaty systems",
+            "Monitor restricted compute, inspect strategic changes, enforce the security settlement",
+            "Existing mandates are binding; unilateral expansion of authority is prohibited"
+          ],
+          [
+            "Long-term values delegates",
+            "Study moral questions and the claims of future and digital populations",
+            "The Council on Long-Term Values receives only expressly delegated resource authority"
+          ]
         ]
       }
     },
@@ -98,8 +122,45 @@
       "number": "8",
       "heading": "Chronology",
       "paragraphs": [
-        "This is an invented chronology, not a prediction. See the historical records: [[HR-2029-SETTLEMENT-FAILURE]], [[HR-2031-VIENNA-ACCORDS]], [[HR-2034-LUNAR-WORKS]], [[HR-2037-ASTER-CLAIMS]], [[HR-2038-GENEVA-TALKS]], [[HR-2039-GRAND-BARGAIN]] and [[HR-2040-HANDOFF]]."
-      ]
+        "This is an invented chronology, not a prediction."
+      ],
+      "table": {
+        "caption": "Scenario history, 2027–2040",
+        "columns": [
+          "Period",
+          "Event"
+        ],
+        "rows": [
+          [
+            "2027–2028",
+            "Agentic AI transforms work and intensifies demands for oversight. Jon Ossoff wins the November 2028 US presidential election."
+          ],
+          [
+            "March 2029",
+            "The Settlement Failure: an autonomous payments system exceeds its authorised limits, disrupting interbank settlement and port logistics on three continents for four days."
+          ],
+          [
+            "2029–2031",
+            "President Ossoff and Xi Jinping negotiate the Vienna Accords on Advanced Computing, subjecting the largest training runs to international inspection."
+          ],
+          [
+            "2031–2034",
+            "Automated research and robotics advance rapidly; the first self-expanding lunar industrial works begin production in 2034."
+          ],
+          [
+            "2035–2038",
+            "Robotic production and guaranteed incomes reshape employment. Competing probe programmes, including the Aster programme, create overlapping claims; Geneva negotiations begin in 2038."
+          ],
+          [
+            "2039",
+            "The Grand Bargain places powerful AI systems within a verified constitutional framework and limits unilateral military control."
+          ],
+          [
+            "2040",
+            "A carefully governed handoff to aligned superintelligence. The Treaty on Extrasolar Resource Governance is signed at Geneva in March, creating the Assembly, the Council and the Interim Charter."
+          ]
+        ]
+      }
     }
   ]
 }

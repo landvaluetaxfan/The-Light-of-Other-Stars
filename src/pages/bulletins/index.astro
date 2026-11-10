@@ -18,6 +18,9 @@ const kinds = [...new Set(s.events.map((e) => e.kind))];
       <p class="lede">World events, official notices, election bulletins, Council statements, legal rulings, research reports and historical records, in simulated chronological order. Events are published only once they have occurred in the simulation.</p>
     </div>
   </div>
+  {s.events.every((e) => e.dataset !== 'canonical') && (
+    <div class="notice"><strong>No official bulletins have been issued.</strong> Notices, world events, rulings and election bulletins will be listed here as they are published. Records marked <span class="badge demo">Demo</span> are examples only.</div>
+  )}
   <div class="layout-side-main">
     <aside>
       <section class="panel">
