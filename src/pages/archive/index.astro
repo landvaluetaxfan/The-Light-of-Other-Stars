@@ -2,13 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Panel from '../../components/Panel.astro';
 import Badge from '../../components/Badge.astro';
-import BulletinList from '../../components/BulletinList.astro';
 import { getStore } from '../../lib/data/load.ts';
-import { href, fmtSim, romanTerm, sortBySimDesc } from '../../lib/site.ts';
+import { href, fmtSim, romanTerm } from '../../lib/site.ts';
 
 const s = getStore();
 const terms = [...s.terms].sort((a, b) => a.number - b.number);
-const historical = sortBySimDesc(s.events.filter((e) => e.kind === 'historical-record')).reverse();
 const count = (termId: string, ds: string) => ({
   bills: s.bills.filter((b) => b.termId === termId && b.dataset === ds).length,
   divisions: s.divisions.filter((d) => d.termId === termId && d.dataset === ds).length,
@@ -44,8 +42,5 @@ const TONE = { current: 'ok', scheduled: 'neutral', concluded: 'steel' } as cons
         })}
       </tbody>
     </table>
-  </Panel>
-  <Panel title="Before the treaty" meta="Historical records, 2029–2040" flush>
-    <BulletinList events={historical} />
   </Panel>
 </BaseLayout>

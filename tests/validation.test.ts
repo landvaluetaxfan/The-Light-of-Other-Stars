@@ -24,14 +24,13 @@ test('duplicate IDs are rejected', () => {
 
 test('demonstration records must carry the DEMO- prefix, canonical records must not', () => {
   const s = fresh();
-  s.events.push({ ...s.events.find((e) => e.dataset === 'canonical')!, id: 'NT-T1-999', dataset: 'demonstration' });
+  s.events.push({ ...structuredClone(s.events[0]), id: 'NT-T1-999', dataset: 'demonstration' });
   has(errorsOf(s), 'DEMO- ID prefix');
 });
 
 test('canonical records may not reference demonstration records', () => {
   const s = fresh();
-  const e = s.events.find((x) => x.dataset === 'canonical')!;
-  e.refs.bills.push('DEMO-B-T1-001');
+  s.events.push({ ...structuredClone(s.events[0]), id: 'NT-T1-998', dataset: 'canonical', body: ['Test.'], summary: 'Test.', refs: { ...structuredClone(s.events[0].refs), bills: ['DEMO-B-T1-001'] } });
   has(errorsOf(s), 'canonical record may not reference demonstration record');
 });
 
@@ -142,7 +141,8 @@ test('allocations may not exceed their channel', () => {
 
 test('canonical bulletins may not be dated after the current simulated date', () => {
   const s = fresh();
-  s.events.find((e) => e.dataset === 'canonical')!.simDate = '2041-01';
+  const blank = { bills: [], divisions: [], institutions: [], events: [], elections: [], documents: [], parties: [] };
+  s.events.push({ ...structuredClone(s.events[0]), id: 'NT-T1-997', dataset: 'canonical', simDate: '2041-01', body: ['Test.'], summary: 'Test.', refs: blank });
   has(errorsOf(s), 'unpublished events may not be released');
 });
 
