@@ -1,0 +1,42 @@
+[
+  {
+    "id": "T1",
+    "visibility": "public",
+    "number": 1,
+    "name": "First Term",
+    "simStart": "2040-03",
+    "simEnd": "2050-02",
+    "realStart": null,
+    "realEnd": null,
+    "status": "current",
+    "assemblySize": 600,
+    "constituencySeats": 300,
+    "listSeats": 300,
+    "partyVariant": null,
+    "notes": [
+      "The initial Assembly is seated using the founding party assignment rather than a popular election (World Bible §12).",
+      "Whether four or six founding parties are used depends on final participation: six with forty or more players, otherwise four (§13). The variant will be recorded here once confirmed.",
+      "One real month represents ten years of simulated history. Every action carries both a real deadline and a simulated effective date."
+    ]
+  },
+  {
+    "id": "T2",
+    "visibility": "public",
+    "number": 2,
+    "name": "Second Term",
+    "simStart": "2050-03",
+    "simEnd": "2060-02",
+    "realStart": null,
+    "realEnd": null,
+    "status": "scheduled",
+    "assemblySize": 600,
+    "constituencySeats": 300,
+    "listSeats": 300,
+    "partyVariant": null,
+    "notes": [
+      "Seats for the Second Term are determined by the general election held between terms, effective from Week 1.",
+      "The Interim Charter expires in 2060, after two ten-year terms. A permanent charter must be adopted by two-thirds before expiry (§11).",
+      "Assembly size may exceed 600 if constituency overhang arises; the figure shown is the base size."
+    ]
+  }
+]

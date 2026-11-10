@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DatasetBadge from '../../components/DatasetBadge.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, recordIndex } from '../../lib/site.ts';
+
+const s = getStore();
+const entries = [...recordIndex(s).values()].sort((a, b) => a.kind.localeCompare(b.kind) || a.id.localeCompare(b.id, 'en', { numeric: true }));
+const kinds = [...new Set(entries.map((e) => e.kind))];
+---
+<BaseLayout title="Index of record identifiers" section="registry" crumbs={[{ label: 'Registry', href: href('/registry/') }, { label: 'Identifier index' }]} description="Every permanent record identifier published by the Information Service, with its permanent address.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Registry · Permanent identifiers</div>
+      <h1>Index of record identifiers</h1>
+      <p class="lede">Every record published by the Information Service has a permanent identifier and a permanent address. Identifiers are never reused. Demonstration identifiers begin with <span class="mono">DEMO-</span>.</p>
+    </div>
+  </div>
+  <div class="panel" data-filter>
+    <div class="panel-h"><h2>Identifiers</h2><span class="meta"><output data-count>{entries.length} records</output></span></div>
+    <form class="filterbar" onsubmit="return false" aria-label="Filter identifiers">
+      <div class="field grow"><label for="r-q">Find identifier or title</label><input id="r-q" type="search" data-f="q" placeholder="e.g. B-T1, OFF-CTP, Charter…" /></div>
+      <div class="field"><label for="r-k">Kind</label><select id="r-k" data-f="kind"><option value="">All kinds</option>{kinds.map((k) => <option value={k.toLowerCase().replace(/\s+/g, '-')}>{k}</option>)}</select></div>
+      <div class="field"><label for="r-ds">Record set</label><select id="r-ds" data-f="dataset"><option value="">All</option><option value="canonical">Canonical</option><option value="demonstration">Demonstration</option></select></div>
+      <button type="button" class="btn" data-reset>Reset</button>
+    </form>
+    <div class="table-wrap">
+      <table class="tbl stack">
+        <thead><tr><th scope="col">Identifier</th><th scope="col">Kind</th><th scope="col">Title</th><th scope="col">Permanent address</th></tr></thead>
+        <tbody>
+          {entries.map((e) => (
+            <tr data-item data-kind={e.kind.toLowerCase().replace(/\s+/g, '-')} data-dataset={e.dataset} data-text={`${e.id} ${e.label} ${e.kind}`} class:list={{ 'is-demo': e.dataset === 'demonstration' }}>
+              <td class="primary mono">{e.id} <DatasetBadge dataset={e.dataset} /></td>
+              <td data-label="Kind">{e.kind}</td>
+              <td data-label="Title"><a href={href(e.path)}>{e.label}</a></td>
+              <td data-label="Address" class="mono small muted">{e.path}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+    <div data-empty hidden style="padding:10px"><EmptyState code="NO MATCH" title="No identifier matches." /></div>
+  </div>
+  <script>import '../../scripts/filter.ts';</script>
+</BaseLayout>

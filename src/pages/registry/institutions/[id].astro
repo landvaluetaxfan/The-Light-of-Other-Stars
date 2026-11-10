@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Panel from '../../../components/Panel.astro';
+import RecordTools from '../../../components/RecordTools.astro';
+import OfficeholderTable from '../../../components/OfficeholderTable.astro';
+import BulletinList from '../../../components/BulletinList.astro';
+import EmptyState from '../../../components/EmptyState.astro';
+import { getStore } from '../../../lib/data/load.ts';
+import { href, displayName, sortBySimDesc } from '../../../lib/site.ts';
+import type { InstitutionT } from '../../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  return getStore().institutions.map((i) => ({ params: { id: i.id }, props: { inst: i } }));
+}
+interface Props { inst: InstitutionT }
+const { inst: i } = Astro.props;
+const s = getStore();
+const term = s.meta.currentTermId;
+const offices = s.offices.filter((o) => o.institutionId === i.id).sort((a, b) => a.dataset.localeCompare(b.dataset));
+const children = s.institutions.filter((x) => x.parentId === i.id);
+const officeIds = new Set(offices.map((o) => o.id));
+const events = sortBySimDesc(s.events.filter((e) => e.issuerId === i.id || (e.issuerId && officeIds.has(e.issuerId)) || e.refs.institutions.includes(i.id)));
+const docs = s.documents.filter((d) => d.dataset === 'canonical' && d.sections.some((sec) => [...sec.paragraphs, ...sec.list].some((p) => p.includes(`[[${i.id}`))));
+const actions = s.bills.flatMap((b) => [
+  ...b.councilActions.filter((c) => i.id === 'INST-COUNCIL' && c.officeIds.length).map((c) => ({ b, id: c.id, label: `Council ${c.kind}` })),
+  ...b.rulings.filter((r) => r.institutionId === i.id).map((r) => ({ b, id: r.id, label: 'Ruling' })),
+]);
+---
+<BaseLayout title={i.name} section="registry" recordId={i.id} description={i.summary} crumbs={[{ label: 'Registry', href: href('/registry/') }, { label: 'Institutions' }, { label: i.shortName }]}>
+  <div class="page-head">
+    <div>
+      <div class="kicker">Institutional record · {i.kind}{i.parentId ? ` · part of ${displayName(s, i.parentId)}` : ''}</div>
+      <h1>{i.name}</h1>
+      <p class="lede">{i.summary}</p>
+    </div>
+    <RecordTools id={i.id} />
+  </div>
+  <div class="layout-main-side">
+    <div>
+      <div class="grid grid-2" style="align-items:start">
+        <Panel title="Powers">
+          <ul style="margin:0;padding-left:1.2em">{i.powers.map((p) => <li>{p}</li>)}</ul>
+        </Panel>
+        <Panel title="Limits">
+          {i.limits.length ? <ul style="margin:0;padding-left:1.2em">{i.limits.map((p) => <li>{p}</li>)}</ul> : <p class="muted">No specific limits are recorded beyond the Charter.</p>}
+        </Panel>
+      </div>
+      <Panel title="Seats and officeholders" meta={offices.length ? `${offices.length} offices` : undefined} flush id="offices">
+        {offices.length ? <OfficeholderTable offices={offices} termId={term} showInstitution={false} /> : <div class="panel-b"><EmptyState code="NO OFFICES" title="This institution has no individually held offices on the public record." /></div>}
+      </Panel>
+      {actions.length > 0 && (
+        <Panel title="Actions on measures" flush>
+          <ul class="reclist">
+            {actions.map((a) => <li><div class="rl-meta"><span class="mono">{a.id}</span><span>{a.label}</span>{a.b.dataset === 'demonstration' && <span class="badge demo">Demo</span>}</div><a href={href(`/legislation/${a.b.id}/#${a.id}`)}>{a.b.title}</a></li>)}
+          </ul>
+        </Panel>
+      )}
+      <Panel title="Bulletins and statements" flush>
+        {events.length ? <BulletinList events={events} summaries={false} /> : <div class="panel-b"><EmptyState code="NO BULLETINS" title="No bulletins issued by or concerning this institution." /></div>}
+      </Panel>
+    </div>
+    <aside>
+      <Panel title="Particulars" flush>
+        <dl class="kv">
+          <dt>Identifier</dt><dd class="mono">{i.id}</dd>
+          <dt>Kind</dt><dd>{i.kind}</dd>
+          {i.seats && <><dt>Seats</dt><dd>{i.seats}</dd></>}
+          <dt>Composition</dt><dd>{i.composition}</dd>
+          <dt>Selection</dt><dd>{i.selection}</dd>
+          <dt>Basis</dt><dd>{i.sourceRef}</dd>
+        </dl>
+      </Panel>
+      {children.length > 0 && (
+        <Panel title="Subsidiary bodies" flush>
+          <ul class="reclist">{children.map((c) => <li><a href={href(`/registry/institutions/${c.id}/`)}>{c.name}</a></li>)}</ul>
+        </Panel>
+      )}
+      {i.parentId && (
+        <Panel title="Part of" flush><ul class="reclist"><li><a href={href(`/registry/institutions/${i.parentId}/`)}>{displayName(s, i.parentId)}</a></li></ul></Panel>
+      )}
+      <Panel title="Referenced in" flush>
+        {docs.length ? <ul class="reclist">{docs.map((d) => <li><a href={href(`/registry/documents/${d.id}/`)}>{d.shortTitle}</a></li>)}</ul> : <p class="muted small" style="padding:8px 12px;margin:0">—</p>}
+      </Panel>
+    </aside>
+  </div>
+</BaseLayout>

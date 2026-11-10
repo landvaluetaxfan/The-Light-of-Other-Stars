@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Panel from '../../../components/Panel.astro';
+import BillTable from '../../../components/BillTable.astro';
+import EmptyState from '../../../components/EmptyState.astro';
+import PartyName from '../../../components/PartyName.astro';
+import Badge from '../../../components/Badge.astro';
+import RecordTools from '../../../components/RecordTools.astro';
+import { getStore } from '../../../lib/data/load.ts';
+import { href, displayName, VOTE_COLOR } from '../../../lib/site.ts';
+import type { MemberT } from '../../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  return getStore().members.map((m) => ({ params: { id: m.id }, props: { member: m } }));
+}
+interface Props { member: MemberT }
+const { member: m } = Astro.props;
+const s = getStore();
+const blocs = s.blocs.filter((b) => b.holderId === m.id || b.controllerId === m.id);
+const offices = s.offices.flatMap((o) => o.holders.filter((h) => h.memberId === m.id).map((h) => ({ o, h })));
+const bills = s.bills.filter((b) => b.sponsorIds.includes(m.id) || b.cosponsorIds.includes(m.id));
+const blocIds = new Set(blocs.map((b) => b.id));
+const ballots = s.divisions.flatMap((d) => d.ballots.filter((x) => blocIds.has(x.blocId) || x.proxyMemberId === m.id).map((x) => ({ d, x })));
+const demo = m.dataset === 'demonstration';
+const CAST = { holder: 'Holder', controller: 'Floor leader (controller)', proxy: 'Party proxy', 'not-cast': 'Not cast — abstained' } as const;
+---
+<BaseLayout title={m.displayName} section="assembly" demo={demo} crumbs={[{ label: 'Assembly', href: href('/assembly/') }, { label: 'Members' }, { label: m.displayName }]} recordId={m.id}>
+  <div class="page-head">
+    <div>
+      <div class="kicker">Member record</div>
+      <h1>{m.displayName}</h1>
+      <p class="lede"><PartyName id={m.partyId} />{m.roles.length > 0 && <> · {m.roles.join(' · ')}</>}</p>
+    </div>
+    <RecordTools id={m.id} />
+  </div>
+  <div class="layout-main-side">
+    <div>
+      {m.publicProfile && <Panel title="Public profile"><p>{m.publicProfile}</p></Panel>}
+      <Panel title="Blocs held or controlled" flush>
+        {blocs.length ? (
+          <table class="tbl">
+            <thead><tr><th scope="col">Bloc</th><th scope="col">Term</th><th scope="col" class="num">Seats</th><th scope="col">Relationship</th></tr></thead>
+            <tbody>
+              {blocs.map((b) => (
+                <tr id={b.id}>
+                  <td class="mono">{b.id}</td><td>{b.termId}</td><td class="num">{b.seats}</td>
+                  <td class="small">{b.holderId === m.id ? (b.controllerId ? `Holder; controlled by ${displayName(s, b.controllerId)}` : 'Holder') : `Controls on behalf of ${displayName(s, b.holderId)}`}{b.controlNote && <div class="muted">{b.controlNote}</div>}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : <div class="panel-b"><EmptyState code="NO BLOC" title="This member holds no bloc." /></div>}
+      </Panel>
+      <Panel title="Roll-call record" meta="Closed divisions only" flush>
+        {ballots.length ? (
+          <table class="tbl stack">
+            <thead><tr><th scope="col">Division</th><th scope="col">Bloc</th><th scope="col">Vote</th><th scope="col" class="num">Seats</th><th scope="col">Cast by</th></tr></thead>
+            <tbody>
+              {ballots.map(({ d, x }) => (
+                <tr>
+                  <td class="primary"><a class="mono" href={href(`/divisions/${d.id}/`)}>{d.id}</a><div class="small" style="font-weight:400">{d.question}</div></td>
+                  <td data-label="Bloc" class="mono">{x.blocId}</td>
+                  <td data-label="Vote"><b style={`color:${VOTE_COLOR[x.vote]}`}>{x.vote.toUpperCase()}</b></td>
+                  <td data-label="Seats" class="num">{x.seats}</td>
+                  <td data-label="Cast by" class="small">{CAST[x.castBy]}{x.proxyMemberId && <> — {displayName(s, x.proxyMemberId)}</>}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : <div class="panel-b"><EmptyState code="NO BALLOTS" title="No published ballots for this member." /></div>}
+      </Panel>
+      <Panel title="Measures sponsored or co-sponsored" flush>
+        {bills.length ? <BillTable bills={bills} /> : <div class="panel-b"><EmptyState code="NO MEASURES" title="No measures sponsored." /></div>}
+      </Panel>
+    </div>
+    <aside>
+      <Panel title="Particulars" flush>
+        <dl class="kv">
+          <dt>Identifier</dt><dd class="mono">{m.id}</dd>
+          <dt>Party</dt><dd><PartyName id={m.partyId} /></dd>
+          <dt>Since</dt><dd>{m.sinceTermId}</dd>
+          <dt>Record set</dt><dd>{demo ? <span class="badge demo">Demonstration</span> : <span class="badge canon">Canonical</span>}</dd>
+        </dl>
+      </Panel>
+      <Panel title="Offices" flush>
+        {offices.length ? (
+          <ul class="reclist">{offices.map(({ o, h }) => <li><a href={href(`/registry/institutions/${o.institutionId}/#${o.id}`)}>{o.title}</a> <Badge tone={h.status === 'serving' ? 'ok' : 'neutral'}>{h.status}</Badge><div class="small muted">{h.termId}</div></li>)}</ul>
+        ) : <p class="muted small" style="padding:8px 12px;margin:0">No offices held.</p>}
+      </Panel>
+    </aside>
+  </div>
+</BaseLayout>

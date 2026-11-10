@@ -1,0 +1,124 @@
+---
+import type { Dataset } from '../lib/data/schema.ts';
+import { getStore } from '../lib/data/load.ts';
+import { href, partiesInSeatingOrder, fmtPct } from '../lib/site.ts';
+import Hemicycle from './Hemicycle.astro';
+import Panel from './Panel.astro';
+import EmptyState from './EmptyState.astro';
+import PartyName from './PartyName.astro';
+interface Props { termId: string; dataset: Dataset }
+const { termId, dataset } = Astro.props;
+const s = getStore();
+const term = s.terms.find((t) => t.id === termId)!;
+const comp = s.compositions.find((c) => c.termId === termId && c.dataset === dataset);
+const parties = partiesInSeatingOrder(s);
+const rows = comp
+  ? parties
+      .map((p) => {
+        const a = comp.allocations.find((x) => x.partyId === p.id);
+        return a ? { party: p, cons: a.constituencySeats, list: a.listSeats, total: a.constituencySeats + a.listSeats } : null;
+      })
+      .filter((r) => r !== null)
+  : [];
+const blocs = s.blocs
+  .filter((b) => b.termId === termId && b.dataset === dataset)
+  .sort((a, b) => (parties.findIndex((p) => p.id === a.partyId) - parties.findIndex((p) => p.id === b.partyId)) || b.seats - a.seats);
+const majority = Math.floor(term.assemblySize / 2) + 1;
+const segments = rows.map((r) => ({ key: r.party.id, label: r.party.name, color: r.party.color, count: r.total }));
+const largest = rows.length ? Math.max(...rows.map((r) => r.total)) : 0;
+---
+<div class="grid grid-2" style="align-items:start">
+  <Panel title="Seating diagram" meta={`${term.assemblySize} seats · majority of all seats ${majority}`}>
+    {comp ? (
+      <Hemicycle
+        segments={segments}
+        total={term.assemblySize}
+        title={`Seating of the Assembly, ${term.name}`}
+        desc={rows.map((r) => `${r.party.name} ${r.total} seats`).join('; ') + '. Full figures in the table that follows.'}
+        centerLabel={String(term.assemblySize)}
+        centerSub="seats"
+      />
+    ) : (
+      <>
+        <Hemicycle
+          segments={[]}
+          total={term.assemblySize}
+          title={`Seating of the Assembly, ${term.name}: pending`}
+          desc={`All ${term.assemblySize} seats are shown unassigned because the founding party assignment has not been published.`}
+          centerLabel={String(term.assemblySize)}
+          centerSub="seats — assignment pending"
+          emptyLabel="Pending assignment"
+        />
+        <p class="small muted" style="margin-top:8px;text-align:center">300 constituency seats in twelve regions · 300 compensatory list seats</p>
+      </>
+    )}
+    <p class="small muted" style="margin:8px 0 0">Seating order on the diagram is administrative and implies no ideological placement. Ordinary passage requires a simple majority of <em>seats voting</em>, so the figure needed on any division depends on abstentions.</p>
+  </Panel>
+  <Panel title="Party composition" meta={comp ? `As of ${comp.asOf}` : 'Pending'} flush>
+    {comp ? (
+      <div class="table-wrap">
+        <table class="tbl">
+          <caption>Seats by party and tier. The diagram's data in tabular form.</caption>
+          <thead>
+            <tr><th scope="col">Party</th><th scope="col" class="num">Const.</th><th scope="col" class="num">List</th><th scope="col" class="num">Total</th><th scope="col" class="num">Share</th></tr>
+          </thead>
+          <tbody>
+            {rows.map((r) => (
+              <tr>
+                <th scope="row" style="font-weight:500"><PartyName id={r.party.id} />{r.total === largest && <span class="small muted"> (largest)</span>}</th>
+                <td class="num">{r.cons}</td>
+                <td class="num">{r.list}</td>
+                <td class="num"><b>{r.total}</b></td>
+                <td class="num">{fmtPct(r.total / term.assemblySize)}</td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr><th scope="row">Total</th><td class="num">{rows.reduce((a, r) => a + r.cons, 0)}</td><td class="num">{rows.reduce((a, r) => a + r.list, 0)}</td><td class="num">{term.assemblySize}</td><td class="num">100.0%</td></tr>
+          </tfoot>
+        </table>
+      </div>
+    ) : (
+      <div class="panel-b">
+        <EmptyState code="COMPOSITION PENDING" title="The founding party assignment has not been published.">
+          <p>The initial Assembly is seated by founding party assignment, not by popular election. Seat totals, bloc holders and the seating diagram will appear here once the assignment is final. See the <a href={href('/registry/elections/EL-T1-FOUNDING/')}>founding assignment record</a>.</p>
+          {dataset === 'canonical' && <p><a href={href('/assembly/demonstration/')}>View a demonstration composition</a> to see how this page will present seated parties and blocs.</p>}
+        </EmptyState>
+      </div>
+    )}
+  </Panel>
+</div>
+
+<Panel title="Bloc register" meta={blocs.length ? `${blocs.length} blocs · each capped at 60 seats` : undefined} flush>
+  {blocs.length ? (
+    <div class="table-wrap">
+      <table class="tbl stack">
+        <thead>
+          <tr><th scope="col">Bloc</th><th scope="col">Holder</th><th scope="col">Party</th><th scope="col" class="num">Seats</th><th scope="col">Control</th><th scope="col">Status</th></tr>
+        </thead>
+        <tbody>
+          {blocs.map((b) => {
+            const holder = s.members.find((m) => m.id === b.holderId);
+            const ctrl = b.controllerId ? s.members.find((m) => m.id === b.controllerId) : null;
+            return (
+              <tr id={b.id}>
+                <td data-label="Bloc"><span class="mono">{b.id}</span></td>
+                <td class="primary"><a href={href(`/assembly/members/${b.holderId}/`)}>{holder?.displayName}</a></td>
+                <td data-label="Party"><PartyName id={b.partyId} /></td>
+                <td data-label="Seats" class="num">{b.seats}</td>
+                <td data-label="Control" class="small">{ctrl ? <>Voted by <a href={href(`/assembly/members/${ctrl.id}/`)}>{ctrl.displayName}</a></> : 'Holder'}</td>
+                <td data-label="Status" class="small">{b.status}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <div class="panel-b">
+      <EmptyState code="NO BLOCS SEATED" title="No blocs have been seated for this term.">
+        <p>Each player ordinarily controls one indivisible party bloc of up to sixty seats. Bloc holders are published with the composition.</p>
+      </EmptyState>
+    </div>
+  )}
+</Panel>

@@ -1,0 +1,156 @@
+[
+  {
+    "id": "DEMO-M-ALTAIR",
+    "visibility": "public",
+    "displayName": "Delegate Altair",
+    "partyId": "PTY-COLLECTIVISTS",
+    "sinceTermId": "T1",
+    "roles": [
+      "Party leader"
+    ],
+    "publicProfile": "Demonstration bloc holder for the Collectivists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-BELLATRIX",
+    "visibility": "public",
+    "displayName": "Delegate Bellatrix",
+    "partyId": "PTY-COLLECTIVISTS",
+    "sinceTermId": "T1",
+    "roles": [],
+    "publicProfile": "Demonstration bloc holder for the Collectivists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-CAPELLA",
+    "visibility": "public",
+    "displayName": "Delegate Capella",
+    "partyId": "PTY-COLLECTIVISTS",
+    "sinceTermId": "T1",
+    "roles": [
+      "Speaker of the Assembly"
+    ],
+    "publicProfile": "Demonstration bloc holder for the Collectivists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-DENEB",
+    "visibility": "public",
+    "displayName": "Delegate Deneb",
+    "partyId": "PTY-PROPRIETARIANS",
+    "sinceTermId": "T1",
+    "roles": [
+      "Party leader"
+    ],
+    "publicProfile": "Demonstration bloc holder for the Proprietarians. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-ELECTRA",
+    "visibility": "public",
+    "displayName": "Delegate Electra",
+    "partyId": "PTY-PROPRIETARIANS",
+    "sinceTermId": "T1",
+    "roles": [],
+    "publicProfile": "Demonstration bloc holder for the Proprietarians. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-FOMALHAUT",
+    "visibility": "public",
+    "displayName": "Delegate Fomalhaut",
+    "partyId": "PTY-CONSERVATIONISTS",
+    "sinceTermId": "T1",
+    "roles": [
+      "Party leader"
+    ],
+    "publicProfile": "Demonstration bloc holder for the Conservationists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-GACRUX",
+    "visibility": "public",
+    "displayName": "Delegate Gacrux",
+    "partyId": "PTY-CONSERVATIONISTS",
+    "sinceTermId": "T1",
+    "roles": [],
+    "publicProfile": "Demonstration bloc holder for the Conservationists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-HADAR",
+    "visibility": "public",
+    "displayName": "Delegate Hadar",
+    "partyId": "PTY-EXPANSIONISTS",
+    "sinceTermId": "T1",
+    "roles": [
+      "Party leader"
+    ],
+    "publicProfile": "Demonstration bloc holder for the Expansionists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-IZAR",
+    "visibility": "public",
+    "displayName": "Delegate Izar",
+    "partyId": "PTY-EXPANSIONISTS",
+    "sinceTermId": "T1",
+    "roles": [],
+    "publicProfile": "Demonstration bloc holder for the Expansionists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-KOCHAB",
+    "visibility": "public",
+    "displayName": "Delegate Kochab",
+    "partyId": "PTY-UNIVERSALISTS",
+    "sinceTermId": "T1",
+    "roles": [
+      "Party leader"
+    ],
+    "publicProfile": "Demonstration bloc holder for the Universalists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-LESATH",
+    "visibility": "public",
+    "displayName": "Delegate Lesath",
+    "partyId": "PTY-UNIVERSALISTS",
+    "sinceTermId": "T1",
+    "roles": [],
+    "publicProfile": "Demonstration bloc holder for the Universalists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-MIRACH",
+    "visibility": "public",
+    "displayName": "Delegate Mirach",
+    "partyId": "PTY-DELEGATIONISTS",
+    "sinceTermId": "T1",
+    "roles": [
+      "Party leader"
+    ],
+    "publicProfile": "Demonstration bloc holder for the Delegationists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-NUNKI",
+    "visibility": "public",
+    "displayName": "Delegate Nunki",
+    "partyId": "PTY-DELEGATIONISTS",
+    "sinceTermId": "T1",
+    "roles": [],
+    "publicProfile": "Demonstration bloc holder for the Delegationists. A fictional placeholder used to test the record system; not a player."
+  },
+  {
+    "id": "DEMO-M-RIGEL",
+    "visibility": "public",
+    "displayName": "Delegate Rigel",
+    "partyId": "PTY-COLLECTIVISTS",
+    "sinceTermId": "T1",
+    "roles": [
+      "Collectivist floor leader",
+      "Controls the Speaker’s bloc while the Speaker serves"
+    ],
+    "publicProfile": "Demonstration floor leader holding no bloc of their own. A fictional placeholder; not a player."
+  },
+  {
+    "id": "DEMO-M-SIRIUS",
+    "visibility": "public",
+    "displayName": "Delegate Sirius",
+    "partyId": "PTY-UNIVERSALISTS",
+    "sinceTermId": "T1",
+    "roles": [
+      "Commissioner for Future Generations"
+    ],
+    "publicProfile": "Demonstration Commissioner, who relinquished their bloc on election. A fictional placeholder; not a player."
+  }
+]

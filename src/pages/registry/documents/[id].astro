@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Panel from '../../../components/Panel.astro';
+import RecordTools from '../../../components/RecordTools.astro';
+import { getStore } from '../../../lib/data/load.ts';
+import { href } from '../../../lib/site.ts';
+import { inline, blocks } from '../../../lib/richtext.ts';
+import type { DocumentT } from '../../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  return getStore().documents.map((d) => ({ params: { id: d.id }, props: { doc: d } }));
+}
+interface Props { doc: DocumentT }
+const { doc: d } = Astro.props;
+const s = getStore();
+const KIND = { treaty: 'Treaty', charter: 'Constitutional document', rules: 'Rules', reference: 'Reference', guide: 'Guide' } as const;
+const others = s.documents.filter((x) => x.id !== d.id && x.dataset === d.dataset);
+---
+<BaseLayout title={d.shortTitle} section="registry" recordId={d.id} demo={d.dataset === 'demonstration'} description={d.summary} crumbs={[{ label: 'Registry', href: href('/registry/') }, { label: 'Documents' }, { label: d.shortTitle }]}>
+  <div class="page-head">
+    <div>
+      <div class="kicker">{KIND[d.kind]} · {d.edition}</div>
+      <h1>{d.title}</h1>
+      <p class="lede">{d.summary}</p>
+    </div>
+    <RecordTools id={d.id} />
+  </div>
+  <div class="layout-side-main">
+    <aside class="no-print">
+      <Panel title="Contents" flush>
+        <ol class="reclist" style="font-size:13px">
+          {d.sections.map((sec) => <li style="padding:4px 12px"><a href={`#${sec.id}`}>{sec.number && <span class="mono small muted">{sec.number} </span>}{sec.heading}</a></li>)}
+        </ol>
+      </Panel>
+      <Panel title="Particulars" flush>
+        <dl class="kv">
+          <dt>Identifier</dt><dd class="mono">{d.id}</dd>
+          <dt>Issued by</dt><dd>{d.issuedBy}</dd>
+          <dt>Edition</dt><dd>{d.edition}</dd>
+          <dt>Source</dt><dd>{d.sourceRef}</dd>
+        </dl>
+      </Panel>
+      <Panel title="Other documents" flush>
+        <ul class="reclist" style="font-size:13px">{others.map((o) => <li style="padding:4px 12px"><a href={href(`/registry/documents/${o.id}/`)}>{o.shortTitle}</a></li>)}</ul>
+      </Panel>
+    </aside>
+    <article class="panel">
+      <div class="panel-h"><h2>{d.shortTitle}</h2><span class="meta mono">{d.id}</span></div>
+      <div class="panel-b prose" style="max-width:none">
+        {d.sections.map((sec) => (
+          <section class="doc-section" id={sec.id}>
+            <h2>{sec.number && <span class="secno">{sec.number}</span>}<span>{sec.heading}</span></h2>
+            {sec.paragraphs.length > 0 && <Fragment set:html={blocks(sec.paragraphs, s)} />}
+            {sec.list.length > 0 && (sec.ordered ? <ol>{sec.list.map((li) => <li set:html={inline(li, s)} />)}</ol> : <ul>{sec.list.map((li) => <li set:html={inline(li, s)} />)}</ul>)}
+            {sec.table && (
+              <div class="table-wrap">
+                <table class="tbl">
+                  {sec.table.caption && <caption>{sec.table.caption}</caption>}
+                  <thead><tr>{sec.table.columns.map((c) => <th scope="col">{c}</th>)}</tr></thead>
+                  <tbody>{sec.table.rows.map((row) => <tr>{row.map((cell, ci) => (ci === 0 ? <th scope="row" style="font-weight:500" set:html={inline(cell, s)} /> : <td set:html={inline(cell, s)} />))}</tr>)}</tbody>
+                </table>
+              </div>
+            )}
+          </section>
+        ))}
+      </div>
+    </article>
+  </div>
+</BaseLayout>

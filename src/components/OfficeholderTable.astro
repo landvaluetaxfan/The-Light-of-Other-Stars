@@ -1,0 +1,42 @@
+---
+import type { OfficeT } from '../lib/data/schema.ts';
+import { getStore } from '../lib/data/load.ts';
+import { href, displayName, fmtSim } from '../lib/site.ts';
+import Badge from './Badge.astro';
+import DatasetBadge from './DatasetBadge.astro';
+interface Props { offices: OfficeT[]; termId: string; showInstitution?: boolean }
+const { offices, termId, showInstitution = true } = Astro.props;
+const s = getStore();
+const TONE = { serving: 'ok', vacant: 'neutral', pending: 'amber', concluded: 'neutral' } as const;
+---
+<div class="table-wrap">
+  <table class="tbl stack">
+    <thead>
+      <tr>
+        <th scope="col">Office</th>
+        {showInstitution && <th scope="col">Institution</th>}
+        <th scope="col">Holder</th>
+        <th scope="col">Selection</th>
+        <th scope="col">Bloc</th>
+      </tr>
+    </thead>
+    <tbody>
+      {offices.map((o) => {
+        const h = o.holders.find((x) => x.termId === termId);
+        return (
+          <tr id={o.id} class:list={{ 'is-demo': o.dataset === 'demonstration' }}>
+            <td class="primary">{o.title} <DatasetBadge dataset={o.dataset} />{o.publicStance && <div class="small muted" style="font-weight:400">{o.publicStance}</div>}</td>
+            {showInstitution && <td data-label="Institution"><a href={href(`/registry/institutions/${o.institutionId}/`)}>{displayName(s, o.institutionId)}</a></td>}
+            <td data-label="Holder">
+              {h?.memberId ? <a href={href(`/assembly/members/${h.memberId}/`)}>{displayName(s, h.memberId)}</a> : <Badge tone={TONE[h?.status ?? 'vacant']}>{h?.status ?? 'vacant'}</Badge>}
+              {h?.from && <span class="small muted"> since {fmtSim(h.from)}</span>}
+              {h?.note && <div class="small muted">{h.note}</div>}
+            </td>
+            <td data-label="Selection" class="small">{o.selection}</td>
+            <td data-label="Bloc" class="small">{o.relinquishesBloc ? 'Relinquished while serving' : 'Retained'}</td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,584 @@
+{
+  "$comment": "Public data contract v1.0.0 — generated from src/lib/data/schema.ts; do not edit by hand.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "visibility": {
+      "type": "string",
+      "const": "public"
+    },
+    "termId": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "number": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "shortTitle": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "release-size",
+        "channel-split",
+        "assembly-project",
+        "deferral-allocation",
+        "reserve-expenditure",
+        "prohibition",
+        "charter-amendment",
+        "franchise-amendment",
+        "council-proposal",
+        "administrative"
+      ]
+    },
+    "threshold": {
+      "type": "string",
+      "enum": [
+        "simple-majority",
+        "two-thirds",
+        "ninety-percent"
+      ]
+    },
+    "sponsorIds": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+      }
+    },
+    "cosponsorIds": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+      }
+    },
+    "filed": {
+      "type": "object",
+      "properties": {
+        "week": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4
+        },
+        "simDate": {
+          "type": "string",
+          "pattern": "^\\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\\d|3[01]))?)?$"
+        },
+        "realDate": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}(:\\d{2})?Z)?$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "week",
+        "simDate",
+        "realDate"
+      ],
+      "additionalProperties": false
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "filed",
+        "scheduled",
+        "voting",
+        "passed",
+        "not-passed",
+        "delayed",
+        "vetoed",
+        "override-carried",
+        "override-failed",
+        "enacted",
+        "voided",
+        "withdrawn"
+      ]
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    },
+    "provisions": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "number": {
+            "type": "string",
+            "minLength": 1
+          },
+          "heading": {
+            "default": "",
+            "type": "string"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "number",
+          "text"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "resource": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "releaseFraction": {
+              "type": "number",
+              "minimum": 0.05,
+              "maximum": 0.25
+            },
+            "channelSplitPercent": {
+              "type": "object",
+              "properties": {
+                "endowment": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "assembly": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "deferral": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "reserve": {
+                  "type": "number",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "endowment",
+                "assembly",
+                "deferral",
+                "reserve"
+              ],
+              "additionalProperties": false
+            },
+            "units": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "channel": {
+              "type": "string",
+              "enum": [
+                "endowment",
+                "assembly",
+                "deferral",
+                "reserve"
+              ]
+            },
+            "reach": {
+              "type": "string",
+              "enum": [
+                "near",
+                "far",
+                "mixed",
+                "not-applicable"
+              ]
+            },
+            "implementingActor": {
+              "type": "string"
+            },
+            "beneficiaries": {
+              "type": "string"
+            },
+            "duration": {
+              "type": "string"
+            },
+            "conditions": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "amendments": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          },
+          "number": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 9007199254740991
+          },
+          "sponsorIds": {
+            "minItems": 1,
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+            }
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "proposed",
+              "adopted",
+              "rejected",
+              "withdrawn"
+            ]
+          },
+          "divisionId": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "number",
+          "sponsorIds",
+          "summary",
+          "text",
+          "status",
+          "divisionId"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "history": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "simDate": {
+            "type": "string",
+            "pattern": "^\\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\\d|3[01]))?)?$"
+          },
+          "week": {
+            "anyOf": [
+              {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 4
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "realDate": {
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}(:\\d{2})?Z)?$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "action": {
+            "type": "string",
+            "minLength": 1
+          },
+          "refId": {
+            "default": null,
+            "anyOf": [
+              {
+                "type": "string",
+                "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "simDate",
+          "week",
+          "realDate",
+          "action"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "councilActions": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          },
+          "kind": {
+            "type": "string",
+            "enum": [
+              "delay",
+              "veto",
+              "statement",
+              "no-action"
+            ]
+          },
+          "officeIds": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+            }
+          },
+          "simDate": {
+            "type": "string",
+            "pattern": "^\\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\\d|3[01]))?)?$"
+          },
+          "week": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 4
+          },
+          "basis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "officeIds",
+          "simDate",
+          "week",
+          "basis",
+          "text"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "rulings": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          },
+          "institutionId": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          },
+          "simDate": {
+            "type": "string",
+            "pattern": "^\\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\\d|3[01]))?)?$"
+          },
+          "question": {
+            "type": "string",
+            "minLength": 1
+          },
+          "holding": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "id",
+          "institutionId",
+          "simDate",
+          "question",
+          "holding"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "divisionIds": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+      }
+    },
+    "outcome": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "summary": {
+              "type": "string",
+              "minLength": 1
+            },
+            "allocationIds": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+              }
+            }
+          },
+          "required": [
+            "summary"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "refs": {
+      "default": {
+        "bills": [],
+        "divisions": [],
+        "institutions": [],
+        "events": [],
+        "elections": [],
+        "documents": [],
+        "parties": []
+      },
+      "type": "object",
+      "properties": {
+        "bills": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          }
+        },
+        "divisions": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          }
+        },
+        "institutions": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          }
+        },
+        "events": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          }
+        },
+        "elections": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          }
+        },
+        "documents": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          }
+        },
+        "parties": {
+          "default": [],
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "tags": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+      }
+    }
+  },
+  "required": [
+    "id",
+    "visibility",
+    "termId",
+    "number",
+    "title",
+    "shortTitle",
+    "category",
+    "threshold",
+    "sponsorIds",
+    "filed",
+    "status",
+    "summary",
+    "provisions",
+    "resource",
+    "history",
+    "outcome"
+  ],
+  "additionalProperties": false
+}

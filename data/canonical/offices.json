@@ -1,0 +1,442 @@
+[
+  {
+    "id": "OFF-SPEAKER",
+    "visibility": "public",
+    "institutionId": "INST-BUREAU",
+    "title": "Speaker of the Assembly",
+    "selection": "Elected by the Assembly at the start of every term (Week 1).",
+    "tenure": "One term.",
+    "relinquishesBloc": false,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Election scheduled for Week 1 — Formation. While serving, the Speaker transfers control of their bloc to the party floor leader."
+      }
+    ]
+  },
+  {
+    "id": "OFF-DEPUTY-SPEAKERS",
+    "visibility": "public",
+    "institutionId": "INST-BUREAU",
+    "title": "Deputy Speakers (party-proportional)",
+    "selection": "Drawn from the parties in proportion to their seats when the Bureau is formed.",
+    "tenure": "One term.",
+    "relinquishesBloc": false,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Bureau formation scheduled for Week 1."
+      }
+    ]
+  },
+  {
+    "id": "OFF-CTP-US",
+    "visibility": "public",
+    "institutionId": "INST-COUNCIL",
+    "title": "Council seat: United States",
+    "selection": "Appointed by moderators from applications; supplied with a confidential institutional brief that is not published.",
+    "tenure": "Until resignation or replacement following a full inactive term.",
+    "relinquishesBloc": false,
+    "publicStance": "Initial stance: Early releases; protection of existing probe claims.",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-CTP-CN",
+    "visibility": "public",
+    "institutionId": "INST-COUNCIL",
+    "title": "Council seat: China",
+    "selection": "Appointed by moderators from applications; supplied with a confidential institutional brief that is not published.",
+    "tenure": "Until resignation or replacement following a full inactive term.",
+    "relinquishesBloc": false,
+    "publicStance": "Initial stance: Early releases; secure independent exploration capacity.",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-CTP-EU",
+    "visibility": "public",
+    "institutionId": "INST-COUNCIL",
+    "title": "Council seat: European Union",
+    "selection": "Appointed by moderators from applications; supplied with a confidential institutional brief that is not published.",
+    "tenure": "Until resignation or replacement following a full inactive term.",
+    "relinquishesBloc": false,
+    "publicStance": "Initial stance: Deliberation and intergenerational reserves.",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-CTP-IN",
+    "visibility": "public",
+    "institutionId": "INST-COUNCIL",
+    "title": "Council seat: India",
+    "selection": "Appointed by moderators from applications; supplied with a confidential institutional brief that is not published.",
+    "tenure": "Until resignation or replacement following a full inactive term.",
+    "relinquishesBloc": false,
+    "publicStance": "Initial stance: Broad franchise and slower release.",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-CTP-LABS",
+    "visibility": "public",
+    "institutionId": "INST-COUNCIL",
+    "title": "Council seat: Frontier AI laboratories",
+    "selection": "Appointed by moderators from applications; supplied with a confidential institutional brief that is not published.",
+    "tenure": "Until resignation or replacement following a full inactive term.",
+    "relinquishesBloc": false,
+    "publicStance": "Initial stance: Probe continuity and digital-mind recognition.",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-CTP-MIDDLE",
+    "visibility": "public",
+    "institutionId": "INST-COUNCIL",
+    "title": "Council seat: Other middle powers",
+    "selection": "Appointed by moderators from applications; supplied with a confidential institutional brief that is not published.",
+    "tenure": "Until resignation or replacement following a full inactive term.",
+    "relinquishesBloc": false,
+    "publicStance": "Initial stance: Safeguards against unilateral domination.",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-CTP-ROW",
+    "visibility": "public",
+    "institutionId": "INST-COUNCIL",
+    "title": "Council seat: Rest of the world / Nairobi Group",
+    "selection": "Appointed by moderators from applications; supplied with a confidential institutional brief that is not published.",
+    "tenure": "Until resignation or replacement following a full inactive term.",
+    "relinquishesBloc": false,
+    "publicStance": "Initial stance: Franchise guarantees and equal political standing.",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-TRIBUNAL-1",
+    "visibility": "public",
+    "institutionId": "INST-TRIBUNAL",
+    "title": "Tribunal member, seat 1",
+    "selection": "Appointed by moderators from applicants.",
+    "tenure": "Two terms, with staggered initial appointments.",
+    "relinquishesBloc": true,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-TRIBUNAL-2",
+    "visibility": "public",
+    "institutionId": "INST-TRIBUNAL",
+    "title": "Tribunal member, seat 2",
+    "selection": "Appointed by moderators from applicants.",
+    "tenure": "Two terms, with staggered initial appointments.",
+    "relinquishesBloc": true,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-TRIBUNAL-3",
+    "visibility": "public",
+    "institutionId": "INST-TRIBUNAL",
+    "title": "Tribunal member, seat 3",
+    "selection": "Appointed by moderators from applicants.",
+    "tenure": "Two terms, with staggered initial appointments.",
+    "relinquishesBloc": true,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-TRIBUNAL-4",
+    "visibility": "public",
+    "institutionId": "INST-TRIBUNAL",
+    "title": "Tribunal member, seat 4",
+    "selection": "Appointed by moderators from applicants.",
+    "tenure": "Two terms, with staggered initial appointments.",
+    "relinquishesBloc": true,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-TRIBUNAL-5",
+    "visibility": "public",
+    "institutionId": "INST-TRIBUNAL",
+    "title": "Tribunal member, seat 5",
+    "selection": "Appointed by moderators from applicants.",
+    "tenure": "Two terms, with staggered initial appointments.",
+    "relinquishesBloc": true,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Appointment pending."
+      }
+    ]
+  },
+  {
+    "id": "OFF-COMMISSIONER",
+    "visibility": "public",
+    "institutionId": "INST-COMMISSIONER",
+    "title": "Commissioner for Future Generations",
+    "selection": "Elected by the Assembly by simple majority each term.",
+    "tenure": "One term.",
+    "relinquishesBloc": true,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Nominations open in Week 1 — Formation."
+      }
+    ]
+  },
+  {
+    "id": "OFF-INQUIRY-1",
+    "visibility": "public",
+    "institutionId": "INST-INQUIRY",
+    "title": "Commission member, place 1",
+    "selection": "Elected by the Assembly; every party holding at least one-tenth of the seats is guaranteed a place.",
+    "tenure": "One term.",
+    "relinquishesBloc": false,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Nominations open in Week 1 — Formation."
+      }
+    ]
+  },
+  {
+    "id": "OFF-INQUIRY-2",
+    "visibility": "public",
+    "institutionId": "INST-INQUIRY",
+    "title": "Commission member, place 2",
+    "selection": "Elected by the Assembly; every party holding at least one-tenth of the seats is guaranteed a place.",
+    "tenure": "One term.",
+    "relinquishesBloc": false,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Nominations open in Week 1 — Formation."
+      }
+    ]
+  },
+  {
+    "id": "OFF-INQUIRY-3",
+    "visibility": "public",
+    "institutionId": "INST-INQUIRY",
+    "title": "Commission member, place 3",
+    "selection": "Elected by the Assembly; every party holding at least one-tenth of the seats is guaranteed a place.",
+    "tenure": "One term.",
+    "relinquishesBloc": false,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Nominations open in Week 1 — Formation."
+      }
+    ]
+  },
+  {
+    "id": "OFF-INQUIRY-4",
+    "visibility": "public",
+    "institutionId": "INST-INQUIRY",
+    "title": "Commission member, place 4",
+    "selection": "Elected by the Assembly; every party holding at least one-tenth of the seats is guaranteed a place.",
+    "tenure": "One term.",
+    "relinquishesBloc": false,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Nominations open in Week 1 — Formation."
+      }
+    ]
+  },
+  {
+    "id": "OFF-INQUIRY-5",
+    "visibility": "public",
+    "institutionId": "INST-INQUIRY",
+    "title": "Commission member, place 5",
+    "selection": "Elected by the Assembly; every party holding at least one-tenth of the seats is guaranteed a place.",
+    "tenure": "One term.",
+    "relinquishesBloc": false,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Nominations open in Week 1 — Formation."
+      }
+    ]
+  },
+  {
+    "id": "OFF-INQUIRY-6",
+    "visibility": "public",
+    "institutionId": "INST-INQUIRY",
+    "title": "Commission member, place 6",
+    "selection": "Elected by the Assembly; every party holding at least one-tenth of the seats is guaranteed a place.",
+    "tenure": "One term.",
+    "relinquishesBloc": false,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Nominations open in Week 1 — Formation."
+      }
+    ]
+  },
+  {
+    "id": "OFF-INQUIRY-7",
+    "visibility": "public",
+    "institutionId": "INST-INQUIRY",
+    "title": "Commission member, place 7",
+    "selection": "Elected by the Assembly; every party holding at least one-tenth of the seats is guaranteed a place.",
+    "tenure": "One term.",
+    "relinquishesBloc": false,
+    "publicStance": "",
+    "holders": [
+      {
+        "termId": "T1",
+        "memberId": null,
+        "status": "pending",
+        "from": null,
+        "to": null,
+        "note": "Nominations open in Week 1 — Formation."
+      }
+    ]
+  }
+]

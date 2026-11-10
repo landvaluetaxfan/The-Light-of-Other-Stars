@@ -1,0 +1,62 @@
+---
+import PressLayout from '../../../layouts/PressLayout.astro';
+import { getStore } from '../../../lib/data/load.ts';
+import { href, asset, fmtSim, recordIndex } from '../../../lib/site.ts';
+import { blocks } from '../../../lib/richtext.ts';
+import type { ArticleT, PublicationT } from '../../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  const s = getStore();
+  return s.articles.map((a) => {
+    const pub = s.publications.find((p) => p.id === a.publicationId)!;
+    return { params: { pub: pub.slug, article: a.slug }, props: { pub, article: a } };
+  });
+}
+interface Props { pub: PublicationT; article: ArticleT }
+const { pub, article: a } = Astro.props;
+const s = getStore();
+const idx = recordIndex(s);
+const r = a.refs;
+const cited = [...new Set([...r.bills, ...r.divisions, ...r.institutions, ...r.events, ...r.elections, ...r.documents, ...r.parties])].map((id) => idx.get(id)!).filter(Boolean);
+const others = s.articles.filter((x) => x.publicationId === pub.id && x.id !== a.id).sort((x, y) => y.simDate.localeCompare(x.simDate));
+const KINDS = { report: 'Report', analysis: 'Analysis', opinion: 'Opinion', interview: 'Interview', bulletin: 'Bulletin' } as const;
+---
+<PressLayout pub={pub} title={a.headline} description={a.dek} compact>
+  <article class="p-article">
+    <header class="p-head">
+      <div class="p-kicker">{a.section} · {KINDS[a.kind]} {pub.status === 'demonstration' && <span class="p-demo-tag">DEMONSTRATION ARTICLE</span>}</div>
+      <h1>{a.headline}</h1>
+      <p class="dek">{a.dek}</p>
+      <p class="p-byline">By {a.byline.join(' and ')} · <time>{fmtSim(a.simDate)}</time> (simulated date)</p>
+    </header>
+    {a.kind === 'opinion' && <p class="p-byline" style="border:1px solid var(--p-rule);padding:6px 10px">Opinion: the views expressed are the author's own.</p>}
+    {a.illustration && (
+      <figure class="p-figure">
+        <img src={asset(a.illustration.src)} alt={a.illustration.alt} width="800" height="420" />
+        <figcaption>{a.illustration.caption} <span class="credit">{a.illustration.credit}</span></figcaption>
+      </figure>
+    )}
+    <div class="p-body" set:html={blocks(a.body, s)} />
+
+    {cited.length > 0 && (
+      <aside class="p-cited" aria-labelledby="cited-h">
+        <h2 id="cited-h">Official records cited — World Assembly Information Service</h2>
+        <ul>
+          {cited.map((e) => (
+            <li><span class="mono">{e.id}</span><a href={href(e.path)}>{e.label}</a>{e.dataset === 'demonstration' && <span class="p-demo-tag" style="margin-left:6px">DEMO</span>}</li>
+          ))}
+        </ul>
+        <p>These links lead to the public record. The record, not this article, is authoritative.</p>
+      </aside>
+    )}
+
+    {others.length > 0 && (
+      <section class="p-more" aria-labelledby="more-h">
+        <h2 id="more-h">More from {pub.name}</h2>
+        <ul class="p-list">
+          {others.map((o) => <li><span class="meta">{fmtSim(o.simDate)} · {o.section}</span><br /><a class="h" href={href(`/press/${pub.slug}/${o.slug}/`)}>{o.headline}</a></li>)}
+        </ul>
+      </section>
+    )}
+  </article>
+</PressLayout>

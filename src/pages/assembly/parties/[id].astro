@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Panel from '../../../components/Panel.astro';
+import BillTable from '../../../components/BillTable.astro';
+import EmptyState from '../../../components/EmptyState.astro';
+import PartyName from '../../../components/PartyName.astro';
+import DatasetBadge from '../../../components/DatasetBadge.astro';
+import Badge from '../../../components/Badge.astro';
+import RecordTools from '../../../components/RecordTools.astro';
+import { getStore } from '../../../lib/data/load.ts';
+import { href, VOTE_COLOR } from '../../../lib/site.ts';
+import type { PartyT } from '../../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  return getStore().parties.map((p) => ({ params: { id: p.id }, props: { party: p } }));
+}
+interface Props { party: PartyT }
+const { party: p } = Astro.props;
+const s = getStore();
+const comps = s.compositions.map((c) => ({ c, a: c.allocations.find((x) => x.partyId === p.id) })).filter((x) => x.a);
+const blocs = s.blocs.filter((b) => b.partyId === p.id);
+const members = s.members.filter((m) => m.partyId === p.id);
+const memberIds = new Set(members.map((m) => m.id));
+const bills = s.bills.filter((b) => b.sponsorIds.some((id) => memberIds.has(id)));
+const blocIds = new Set(blocs.map((b) => b.id));
+const votes = s.divisions
+  .filter((d) => d.status === 'closed' && d.ballots.some((x) => blocIds.has(x.blocId)))
+  .map((d) => {
+    const mine = d.ballots.filter((x) => blocIds.has(x.blocId));
+    const t = { yes: 0, no: 0, abstain: 0 };
+    for (const b of mine) t[b.vote] += b.seats;
+    const unanimous = new Set(mine.map((b) => b.vote)).size === 1;
+    return { d, t, unanimous };
+  });
+const pubs = s.publications.filter((x) => x.affiliatedPartyId === p.id);
+---
+<BaseLayout title={p.name} section="assembly" crumbs={[{ label: 'Assembly', href: href('/assembly/') }, { label: 'Parties', href: href('/assembly/#parties') }, { label: p.name }]} recordId={p.id}>
+  <div class="page-head">
+    <div>
+      <div class="kicker">Party record · {p.founding ? 'Founding party' : 'Party'}</div>
+      <h1><span class="swatch" style={`background:${p.color};width:18px;height:18px;vertical-align:-2px`}></span>{p.name}</h1>
+      <p class="lede">{p.summary}</p>
+    </div>
+    <RecordTools id={p.id} />
+  </div>
+  <div class="layout-main-side">
+    <div>
+      {p.labelStatus === 'provisional' && (
+        <div class="notice">"{p.name}" is a <strong>provisional description</strong> of a founding organisation, not a prescribed permanent party name. Parties are expected to rename, reorganise, split or merge through play.</div>
+      )}
+      <Panel title="Seats by term" flush>
+        {comps.length ? (
+          <table class="tbl">
+            <thead><tr><th scope="col">Composition</th><th scope="col">Term</th><th scope="col" class="num">Const.</th><th scope="col" class="num">List</th><th scope="col" class="num">Total</th></tr></thead>
+            <tbody>
+              {comps.map(({ c, a }) => (
+                <tr class:list={{ 'is-demo': c.dataset === 'demonstration' }}>
+                  <td><a class="mono" href={href(c.dataset === 'demonstration' ? '/assembly/demonstration/' : '/assembly/')}>{c.id}</a> <DatasetBadge dataset={c.dataset} /></td>
+                  <td>{c.termId}</td>
+                  <td class="num">{a!.constituencySeats}</td><td class="num">{a!.listSeats}</td><td class="num"><b>{a!.constituencySeats + a!.listSeats}</b></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <div class="panel-b"><EmptyState code="NO SEATS RECORDED" title="No seat allocation has been published for this party." /></div>
+        )}
+      </Panel>
+      <Panel title="Blocs" flush>
+        {blocs.length ? (
+          <table class="tbl stack">
+            <thead><tr><th scope="col">Bloc</th><th scope="col">Holder</th><th scope="col">Term</th><th scope="col" class="num">Seats</th></tr></thead>
+            <tbody>
+              {blocs.map((b) => (
+                <tr class:list={{ 'is-demo': b.dataset === 'demonstration' }}>
+                  <td data-label="Bloc" class="mono">{b.id} <DatasetBadge dataset={b.dataset} /></td>
+                  <td class="primary"><a href={href(`/assembly/members/${b.holderId}/`)}>{s.members.find((m) => m.id === b.holderId)?.displayName}</a></td>
+                  <td data-label="Term">{b.termId}</td>
+                  <td data-label="Seats" class="num">{b.seats}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <div class="panel-b"><EmptyState code="NO BLOCS" title="No blocs are registered to this party." /></div>
+        )}
+      </Panel>
+      <Panel title="Voting record" meta="Seat-weighted, closed divisions only" flush>
+        {votes.length ? (
+          <table class="tbl stack">
+            <thead><tr><th scope="col">Division</th><th scope="col" class="num">Yes</th><th scope="col" class="num">No</th><th scope="col" class="num">Abst.</th><th scope="col">Cohesion</th></tr></thead>
+            <tbody>
+              {votes.map(({ d, t, unanimous }) => (
+                <tr class:list={{ 'is-demo': d.dataset === 'demonstration' }}>
+                  <td class="primary"><a class="mono" href={href(`/divisions/${d.id}/`)}>{d.id}</a> <DatasetBadge dataset={d.dataset} /><div class="small" style="font-weight:400">{d.question}</div></td>
+                  <td data-label="Yes" class="num" style={t.yes ? `color:${VOTE_COLOR.yes};font-weight:600` : ''}>{t.yes}</td>
+                  <td data-label="No" class="num" style={t.no ? `color:${VOTE_COLOR.no};font-weight:600` : ''}>{t.no}</td>
+                  <td data-label="Abstain" class="num">{t.abstain}</td>
+                  <td data-label="Cohesion">{unanimous ? <Badge tone="ok">United</Badge> : <Badge tone="amber">Split</Badge>}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <div class="panel-b"><EmptyState code="NO DIVISIONS" title="No closed divisions involve this party's blocs." /></div>
+        )}
+      </Panel>
+      <Panel title="Measures sponsored by party members" flush>
+        {bills.length ? <BillTable bills={bills} /> : <div class="panel-b"><EmptyState code="NO MEASURES" title="No measures sponsored by members of this party." /></div>}
+      </Panel>
+    </div>
+    <aside>
+      <Panel title="Particulars" flush>
+        <dl class="kv">
+          <dt>Identifier</dt><dd class="mono">{p.id}</dd>
+          <dt>Abbreviation</dt><dd>{p.abbreviation}</dd>
+          <dt>Label</dt><dd>{p.labelStatus === 'provisional' ? 'Provisional' : 'Adopted'}</dd>
+          <dt>Status</dt><dd>{p.status}</dd>
+          <dt>Colour</dt><dd><span class="swatch" style={`background:${p.color}`}></span><span class="mono">{p.color}</span></dd>
+          <dt>Core position</dt><dd>{p.corePosition}</dd>
+          <dt>Internal divide</dt><dd>{p.internalDivision}</dd>
+          <dt>Four-party variant</dt><dd>{p.fourPartyVariant.note}</dd>
+        </dl>
+      </Panel>
+      <Panel title="Members" flush>
+        {members.length ? (
+          <ul class="reclist">{members.map((m) => <li><a href={href(`/assembly/members/${m.id}/`)}>{m.displayName}</a> <DatasetBadge dataset={m.dataset} />{m.roles.length > 0 && <div class="small muted">{m.roles.join('; ')}</div>}</li>)}</ul>
+        ) : <p class="muted small" style="padding:8px 12px;margin:0">No members published.</p>}
+      </Panel>
+      <Panel title="Affiliated publications" flush>
+        {pubs.length ? (
+          <ul class="reclist">{pubs.map((x) => <li><a href={href(`/press/${x.slug}/`)}>{x.name}</a> <DatasetBadge dataset={x.dataset} /></li>)}</ul>
+        ) : <p class="muted small" style="padding:8px 12px;margin:0">None registered.</p>}
+      </Panel>
+      {p.fourPartyVariant.mergedIntoId && <p class="small">In the four-party variant: merged into <PartyName id={p.fourPartyVariant.mergedIntoId} />.</p>}
+    </aside>
+  </div>
+</BaseLayout>

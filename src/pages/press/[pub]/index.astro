@@ -1,0 +1,106 @@
+---
+import PressLayout from '../../../layouts/PressLayout.astro';
+import { getStore } from '../../../lib/data/load.ts';
+import { href, asset, fmtSim } from '../../../lib/site.ts';
+import type { PublicationT } from '../../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  return getStore().publications.map((p) => ({ params: { pub: p.slug }, props: { pub: p } }));
+}
+interface Props { pub: PublicationT }
+const { pub } = Astro.props;
+const s = getStore();
+const articles = s.articles.filter((a) => a.publicationId === pub.id).sort((a, b) => b.simDate.localeCompare(a.simDate) || b.id.localeCompare(a.id));
+const [lead, ...rest] = articles;
+const url = (slug: string) => href(`/press/${pub.slug}/${slug}/`);
+const party = pub.affiliatedPartyId ? s.parties.find((p) => p.id === pub.affiliatedPartyId) : null;
+const KIND = { newspaper: 'Newspaper', magazine: 'Magazine', newsletter: 'Newsletter', broadcaster: 'Broadcaster' } as const;
+---
+<PressLayout pub={pub} title="Home">
+  {articles.length === 0 && <p>No articles have been published yet.</p>}
+
+  {pub.brand.theme === 'broadsheet' && lead && (
+    <>
+      <div class="bs-front">
+        <article class="bs-lead">
+          <div class="p-kicker">{lead.section}</div>
+          <h2><a href={url(lead.slug)}>{lead.headline}</a></h2>
+          <p class="dek" style="font-style:italic;font-size:1.1em">{lead.dek}</p>
+          <p class="p-byline">By {lead.byline.join(' and ')} · {fmtSim(lead.simDate)} {pub.status === 'demonstration' && <span class="p-demo-tag">DEMO</span>}</p>
+          {lead.illustration && <figure class="p-figure"><img src={asset(lead.illustration.src)} alt={lead.illustration.alt} width="800" height="420" /><figcaption>{lead.illustration.caption} <span class="credit">{lead.illustration.credit}</span></figcaption></figure>}
+          <p><a href={url(lead.slug)}>Continue reading →</a></p>
+        </article>
+        <div class="bs-col">
+          {rest.map((a) => (
+            <article>
+              <div class="p-kicker">{a.section}</div>
+              <h3><a href={url(a.slug)}>{a.headline}</a></h3>
+              <p style="margin:0 0 4px">{a.dek}</p>
+              <p class="p-byline" style="margin:0">{fmtSim(a.simDate)}</p>
+            </article>
+          ))}
+          <section class="p-about">
+            <div class="bs-section-h" style="margin-top:0">About {pub.name}</div>
+            <p>{pub.description}</p>
+            <dl>
+              <dt>Editorial stance</dt><dd>{pub.editorialStance}</dd>
+              <dt>Ownership</dt><dd>{pub.ownerLabel}</dd>
+            </dl>
+          </section>
+        </div>
+      </div>
+    </>
+  )}
+
+  {pub.brand.theme === 'broadcast' && (
+    <>
+      <div class="bc-grid">
+        {articles.map((a, i) => (
+          <article class="bc-card">
+            {a.illustration && <div class="bc-img"><img src={asset(a.illustration.src)} alt={a.illustration.alt} width="800" height="400" /></div>}
+            <div class="bc-c">
+              <span class="bc-sec">{a.section}</span>
+              {i === 0 ? <h2><a href={url(a.slug)}>{a.headline}</a></h2> : <h3><a href={url(a.slug)}>{a.headline}</a></h3>}
+              <p style="margin:0 0 6px">{a.dek}</p>
+              <p class="p-byline" style="margin:0">{fmtSim(a.simDate)} · {a.byline.join(', ')} {pub.status === 'demonstration' && <span class="p-demo-tag">DEMO</span>}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+      <section class="p-about" style="margin-top:22px;max-width:720px">
+        <h2 style="font-family:var(--p-display);font-weight:800;text-transform:uppercase;font-size:15px;letter-spacing:.08em">About {pub.name}</h2>
+        <p>{pub.description}</p>
+        <dl><dt>Editorial stance</dt><dd>{pub.editorialStance}</dd><dt>Ownership</dt><dd>{pub.ownerLabel}</dd></dl>
+      </section>
+    </>
+  )}
+
+  {pub.brand.theme === 'editorial' && (
+    <>
+      <p class="p-about" style="text-align:center;max-width:640px;margin:0 auto 10px">{pub.description}{party && <> Published with the support of the <a href={href(`/assembly/parties/${party.id}/`)}>{party.name}</a>.</>}</p>
+      <ul class="ed-list">
+        {articles.map((a) => (
+          <li>
+            <div class="ed-img">{a.illustration && <img src={asset(a.illustration.src)} alt={a.illustration.alt} width="360" height="270" />}</div>
+            <div>
+              <div class="p-kicker">{a.section} · {a.kind}</div>
+              <h2><a href={url(a.slug)}>{a.headline}</a></h2>
+              <p class="dek">{a.dek}</p>
+              <p class="p-byline" style="margin:0">{a.byline.join(', ')} · {fmtSim(a.simDate)} {pub.status === 'demonstration' && <span class="p-demo-tag">DEMO</span>}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </>
+  )}
+
+  <section class="p-more" aria-labelledby="archive-h">
+    <h2 id="archive-h">Archive</h2>
+    <ul class="p-list">
+      {articles.map((a) => (
+        <li><span class="meta">{fmtSim(a.simDate)} · {a.section}</span><br /><a class="h" href={url(a.slug)}>{a.headline}</a></li>
+      ))}
+    </ul>
+    <p class="p-byline" style="margin-top:10px">{KIND[pub.kind]} · founded {fmtSim(pub.founded)} · {pub.affiliation === 'independent' ? 'independent' : `affiliated with the ${party?.name}`}</p>
+  </section>
+</PressLayout>

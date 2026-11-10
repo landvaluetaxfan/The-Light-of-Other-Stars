@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href } from '../../lib/site.ts';
+const s = getStore();
+---
+<BaseLayout title="About the Information Service" section="about" crumbs={[{ label: 'About' }]}>
+  <div class="page-head">
+    <div>
+      <div class="kicker">About</div>
+      <h1>About the Information Service</h1>
+      <p class="lede">The public information and parliamentary records portal of the World Assembly for Extrasolar Resources.</p>
+    </div>
+  </div>
+  <div class="layout-main-side">
+    <div>
+      <Panel title="What this service is">
+        <div class="prose" style="max-width:none">
+          <p><em>The Light of Other Stars</em> is a persistent, player-driven political simulation set in 2040 and beyond, after the emergence of aligned artificial superintelligence. One real month is one term, representing ten years in the setting. This portal is the in-world public record of the treaty institutions.</p>
+          <p>The Information Service publishes records; it does not decide anything. It does not conduct votes, compute election results or adjudicate disputes. Those happen through the simulation's own procedures; the Service reproduces their public outcomes.</p>
+          <p>The World Bible (v3.4) and the Policy and Legislative Ideas Guide are authoritative for institutional names, procedures and history. Where information is not yet available — the composition of the first Assembly, the holders of offices, filed bills — the portal says so deliberately rather than inventing a record.</p>
+        </div>
+      </Panel>
+      <Panel title="Publication conventions">
+        <ul style="margin:0;padding-left:1.2em">
+          <li><strong>Sealed tallies.</strong> While a 72-hour voting window is open, only the fact that it is open and its closing time are published. The complete roll call follows when it closes.</li>
+          <li><strong>Permanent identifiers.</strong> Every record has an identifier and address that never change. See the <a href={href('/registry/records/')}>index of identifiers</a>.</li>
+          <li><strong>Private data.</strong> Hidden voter preferences, electorate weights, moderator and Council briefs, private objectives and unreleased events are never published. The <a href={href('/about/data-contract/')}>public data contract</a> describes how this is enforced.</li>
+          <li><strong>Demonstration records.</strong> Identifiers beginning <span class="mono">DEMO-</span> mark illustrative test material, shown with a hatched band and excluded from all official totals.</li>
+          <li><strong>The press.</strong> Publications in the <a href={href('/press/')}>press directory</a> are operated by players and are not official communications.</li>
+        </ul>
+      </Panel>
+    </div>
+    <aside>
+      <Panel title="Current record set" flush>
+        <dl class="kv">
+          <dt>Contract</dt><dd>v{s.meta.contractVersion}</dd>
+          <dt>Updated</dt><dd>{s.meta.updatedAt}</dd>
+          <dt>Sim. date</dt><dd>{s.meta.simulatedDate}</dd>
+          <dt>Term</dt><dd>{s.meta.currentTermId}, week {s.meta.currentWeek}</dd>
+        </dl>
+      </Panel>
+      <Panel title="See also" flush>
+        <ul class="reclist">
+          <li><a href={href('/about/data-contract/')}>Public data contract</a></li>
+          <li><a href={href('/registry/documents/DOC-WORLD/')}>The world of 2040</a></li>
+          <li><a href={href('/registry/documents/DOC-GLOSSARY/')}>Glossary</a></li>
+        </ul>
+      </Panel>
+    </aside>
+  </div>
+</BaseLayout>

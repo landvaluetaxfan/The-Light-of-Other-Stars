@@ -1,0 +1,160 @@
+---
+import '@fontsource/ibm-plex-sans/400.css';
+import '@fontsource/ibm-plex-sans/400-italic.css';
+import '@fontsource/ibm-plex-sans/500.css';
+import '@fontsource/ibm-plex-sans/600.css';
+import '@fontsource/ibm-plex-mono/400.css';
+import '@fontsource/ibm-plex-mono/500.css';
+import '@fontsource-variable/source-serif-4/index.css';
+import '../styles/global.css';
+import Emblem from '../components/Emblem.astro';
+import DemoBand from '../components/DemoBand.astro';
+import { getStore } from '../lib/data/load.ts';
+import { href, fmtSim, romanTerm, SITE_TITLE } from '../lib/site.ts';
+import { WEEKS } from '../lib/procedure.ts';
+import { plain } from '../lib/richtext.ts';
+
+export type Section = 'overview' | 'assembly' | 'legislation' | 'divisions' | 'bulletins' | 'registry' | 'press' | 'search' | 'about' | 'archive';
+
+interface Props {
+  title: string;
+  description?: string;
+  section?: Section;
+  crumbs?: { label: string; href?: string }[];
+  recordId?: string;
+  demo?: boolean;
+}
+const { title, description, section, crumbs = [], recordId, demo = false } = Astro.props;
+const s = getStore();
+const term = s.terms.find((t) => t.id === s.meta.currentTermId)!;
+const week = WEEKS[s.meta.currentWeek - 1];
+const nav: { key: Section; label: string; path: string; n: string }[] = [
+  { key: 'overview', label: 'Overview', path: '/', n: '01' },
+  { key: 'assembly', label: 'Assembly', path: '/assembly/', n: '02' },
+  { key: 'legislation', label: 'Legislation', path: '/legislation/', n: '03' },
+  { key: 'divisions', label: 'Divisions', path: '/divisions/', n: '04' },
+  { key: 'bulletins', label: 'Bulletins', path: '/bulletins/', n: '05' },
+  { key: 'registry', label: 'Registry', path: '/registry/', n: '06' },
+];
+const fullTitle = title === 'Overview' ? SITE_TITLE : `${title} — World Assembly Information Service`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const desc = plain(description ?? 'Public information and parliamentary records of the World Assembly for Extrasolar Resources.');
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={desc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={href('/favicon.svg')} />
+    <meta name="theme-color" content="#1d4f59" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={desc} />
+    {recordId && <meta name="dc.identifier" content={recordId} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="gov-strip">
+      <div class="wrap">
+        <span class="gs-org">Public information service of the World Assembly for Extrasolar Resources · Treaty on Extrasolar Resource Governance, Geneva 2040</span>
+        <span class="state" aria-label="Current simulation state">
+          Sim. date <b>{fmtSim(s.meta.simulatedDate)}</b> · Term <b>{romanTerm(term.number)}</b> · Week <b>{s.meta.currentWeek}</b> {week.name}
+        </span>
+      </div>
+    </div>
+    <header class="masthead">
+      <div class="wrap">
+        <a class="brand" href={href('/')}>
+          <Emblem />
+          <span class="brand-text">
+            <span class="brand-org">World Assembly for Extrasolar Resources</span>
+            <span class="brand-name">Information Service <span>· Public Records</span></span>
+          </span>
+        </a>
+        <form class="site-search" role="search" action={href('/search/')} method="get">
+          <label class="sr-only" for="q-top">Search records</label>
+          <input id="q-top" name="q" type="search" placeholder="Search records, IDs, bills…" autocomplete="off" />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </header>
+    <nav class="section-nav" aria-label="Sections">
+      <div class="wrap">
+        <ul>
+          {nav.map((n) => (
+            <li>
+              <a href={href(n.path)} aria-current={section === n.key ? 'page' : undefined}><span class="nav-num">{n.n}</span>{n.label}</a>
+            </li>
+          ))}
+          <li class="press-tab"><a href={href('/press/')} aria-current={section === 'press' ? 'page' : undefined} title="Independent publications — not official communications">Press</a></li>
+          <li class="search-tab"><a href={href('/search/')} aria-current={section === 'search' ? 'page' : undefined}>Search</a></li>
+        </ul>
+      </div>
+    </nav>
+    {crumbs.length > 0 && (
+      <nav class="crumbs" aria-label="Breadcrumb">
+        <div class="wrap">
+          <ol>
+            <li><a href={href('/')}>Home</a></li>
+            {crumbs.map((c, i) => (
+              <li>{c.href && i < crumbs.length - 1 ? <a href={c.href}>{c.label}</a> : <span aria-current={i === crumbs.length - 1 ? 'page' : undefined}>{c.label}</span>}</li>
+            ))}
+          </ol>
+          {recordId && <span class="crumb-id">Record {recordId}</span>}
+        </div>
+      </nav>
+    )}
+    <main id="main">
+      <div class="wrap">
+        <div class="print-only small">
+          World Assembly for Extrasolar Resources — Information Service · {recordId ? `Record ${recordId} · ` : ''}{canonical} · Simulated date {fmtSim(s.meta.simulatedDate)}
+        </div>
+        {demo && <DemoBand />}
+        <slot />
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="cols">
+          <div>
+            <h2>About this service</h2>
+            <p>The Information Service publishes the public record of the treaty institutions. It does not conduct votes; roll calls are published when each voting window closes.</p>
+            <p><a href={href('/about/')}>About the Information Service</a></p>
+          </div>
+          <div>
+            <h2>Records</h2>
+            <ul>
+              <li><a href={href('/registry/records/')}>Index of record identifiers</a></li>
+              <li><a href={href('/archive/')}>Archive by term</a></li>
+              <li><a href={href('/registry/ledger/')}>Resource ledger</a></li>
+              <li><a href={href('/registry/elections/')}>Election history</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Constitution</h2>
+            <ul>
+              <li><a href={href('/registry/documents/DOC-TREATY/')}>Treaty (summary)</a></li>
+              <li><a href={href('/registry/documents/DOC-CHARTER/')}>Interim Charter</a></li>
+              <li><a href={href('/registry/documents/DOC-RULES/')}>Rules of Procedure</a></li>
+              <li><a href={href('/registry/documents/DOC-GLOSSARY/')}>Glossary</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Open data</h2>
+            <ul>
+              <li><a href={href('/about/data-contract/')}>Public data contract</a></li>
+              <li><a href={href('/data/canonical.json')}>Canonical records (JSON)</a></li>
+              <li><a href={href('/data/demonstration.json')}>Demonstration records (JSON)</a></li>
+              <li><a href={href('/press/')}>Press directory</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="colophon">
+          <em>The Light of Other Stars</em> is a persistent, player-driven political simulation. This portal and every institution, record and publication on it are fictional and exist within the simulation. Records marked DEMO- are demonstration material and form no part of the canonical record. Data contract v{s.meta.contractVersion} · record set updated {s.meta.updatedAt}.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

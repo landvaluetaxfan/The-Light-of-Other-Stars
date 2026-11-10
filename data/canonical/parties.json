@@ -1,0 +1,56 @@
+[
+  {
+    "id": "PTY-COLLECTIVISTS", "visibility": "public", "name": "Collectivists", "abbreviation": "COL",
+    "labelStatus": "provisional", "status": "founding", "founding": true,
+    "color": "#A8433A", "inkColor": "#FFFFFF", "seatingOrder": 1,
+    "corePosition": "Collective Assembly decisions over the use of released resources.",
+    "internalDivision": "How future generations acquire power.",
+    "fourPartyVariant": { "mergedIntoId": null, "note": "Retained in the four-party variant, absorbing the Universalists." },
+    "summary": "A founding organisation favouring allocation through collective decisions of the Assembly rather than individual endowment or delegation."
+  },
+  {
+    "id": "PTY-UNIVERSALISTS", "visibility": "public", "name": "Universalists", "abbreviation": "UNI",
+    "labelStatus": "provisional", "status": "founding", "founding": true,
+    "color": "#6B4E9B", "inkColor": "#FFFFFF", "seatingOrder": 2,
+    "corePosition": "Protect future and digital persons.",
+    "internalDivision": "Limits on copying and the creation of new minds.",
+    "fourPartyVariant": { "mergedIntoId": "PTY-COLLECTIVISTS", "note": "Merged into the Collectivists when fewer than forty players participate." },
+    "summary": "A founding organisation pressing for the standing of future people and digital persons in the allocation of cosmic resources."
+  },
+  {
+    "id": "PTY-DELEGATIONISTS", "visibility": "public", "name": "Delegationists", "abbreviation": "DEL",
+    "labelStatus": "provisional", "status": "founding", "founding": true,
+    "color": "#2F7F86", "inkColor": "#FFFFFF", "seatingOrder": 3,
+    "corePosition": "Delegate to the Council on Long-Term Values.",
+    "internalDivision": "Whose values define its delegates.",
+    "fourPartyVariant": { "mergedIntoId": null, "note": "Retained in both variants." },
+    "summary": "A founding organisation favouring delegation of released resources to the aligned delegates of the Council on Long-Term Values."
+  },
+  {
+    "id": "PTY-CONSERVATIONISTS", "visibility": "public", "name": "Conservationists", "abbreviation": "CON",
+    "labelStatus": "provisional", "status": "founding", "founding": true,
+    "color": "#3E7A47", "inkColor": "#FFFFFF", "seatingOrder": 4,
+    "corePosition": "Settle the Milky Way; preserve what lies beyond.",
+    "internalDivision": "Whether any far settlement is justified.",
+    "fourPartyVariant": { "mergedIntoId": null, "note": "Retained in the four-party variant, absorbing the Expansionists." },
+    "summary": "A founding organisation favouring settlement within the galaxy while preserving resources beyond it."
+  },
+  {
+    "id": "PTY-PROPRIETARIANS", "visibility": "public", "name": "Proprietarians", "abbreviation": "PRO",
+    "labelStatus": "provisional", "status": "founding", "founding": true,
+    "color": "#B8862B", "inkColor": "#1B1A17", "seatingOrder": 5,
+    "corePosition": "Equal transferable personal endowments.",
+    "internalDivision": "Immediate sales versus waiting periods.",
+    "fourPartyVariant": { "mergedIntoId": null, "note": "Retained in both variants." },
+    "summary": "A founding organisation favouring equal, individually held and transferable claims on released resources."
+  },
+  {
+    "id": "PTY-EXPANSIONISTS", "visibility": "public", "name": "Expansionists", "abbreviation": "EXP",
+    "labelStatus": "provisional", "status": "founding", "founding": true,
+    "color": "#27457A", "inkColor": "#FFFFFF", "seatingOrder": 6,
+    "corePosition": "Settle all reachable space.",
+    "internalDivision": "Acceptable risk and pace.",
+    "fourPartyVariant": { "mergedIntoId": "PTY-CONSERVATIONISTS", "note": "Merged into the Conservationists when fewer than forty players participate." },
+    "summary": "A founding organisation favouring settlement of all reachable space, divided over how much risk and speed are acceptable."
+  }
+]

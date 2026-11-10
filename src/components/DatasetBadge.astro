@@ -1,0 +1,10 @@
+---
+import type { Dataset } from '../lib/data/schema.ts';
+interface Props { dataset: Dataset; showCanonical?: boolean }
+const { dataset, showCanonical = false } = Astro.props;
+---
+{dataset === 'demonstration' ? (
+  <span class="badge demo" title="Demonstration record — not canonical">Demo</span>
+) : showCanonical ? (
+  <span class="badge canon" title="Part of the canonical public record">Canonical</span>
+) : null}

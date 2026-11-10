@@ -1,0 +1,8 @@
+---
+import { blocks } from '../lib/richtext.ts';
+import { getStore } from '../lib/data/load.ts';
+interface Props { paragraphs: string[]; class?: string; headingTag?: string }
+const { paragraphs, class: cls = 'prose', headingTag = 'h3' } = Astro.props;
+const html = blocks(paragraphs, getStore(), headingTag);
+---
+<div class={cls} set:html={html} />

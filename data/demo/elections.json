@@ -1,0 +1,57 @@
+[
+  {
+    "id": "DEMO-EL-T1",
+    "visibility": "public",
+    "termId": "T1",
+    "kind": "founding-assignment",
+    "simDate": "2040-03",
+    "status": "certified",
+    "summary": "Demonstration seating of a hypothetical six-party First Term Assembly, used to test the seating diagram and roll-call records.",
+    "method": "Hypothetical founding assignment. No vote shares exist for a founding assignment.",
+    "compositionId": "DEMO-COMP-T1",
+    "results": {
+      "turnoutPercent": null,
+      "parties": [
+        {
+          "partyId": "PTY-COLLECTIVISTS",
+          "voteSharePercent": null,
+          "constituencySeats": 68,
+          "listSeats": 64
+        },
+        {
+          "partyId": "PTY-UNIVERSALISTS",
+          "voteSharePercent": null,
+          "constituencySeats": 44,
+          "listSeats": 46
+        },
+        {
+          "partyId": "PTY-DELEGATIONISTS",
+          "voteSharePercent": null,
+          "constituencySeats": 42,
+          "listSeats": 48
+        },
+        {
+          "partyId": "PTY-CONSERVATIONISTS",
+          "voteSharePercent": null,
+          "constituencySeats": 48,
+          "listSeats": 48
+        },
+        {
+          "partyId": "PTY-PROPRIETARIANS",
+          "voteSharePercent": null,
+          "constituencySeats": 57,
+          "listSeats": 51
+        },
+        {
+          "partyId": "PTY-EXPANSIONISTS",
+          "voteSharePercent": null,
+          "constituencySeats": 41,
+          "listSeats": 43
+        }
+      ]
+    },
+    "notes": [
+      "These figures are invented for testing and are not the composition of the Assembly."
+    ]
+  }
+]

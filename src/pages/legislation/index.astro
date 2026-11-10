@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import BillTable from '../../components/BillTable.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, BILL_STATUS, BILL_CATEGORY, romanTerm } from '../../lib/site.ts';
+import { THRESHOLD_LABEL, CATEGORY_THRESHOLD } from '../../lib/procedure.ts';
+
+const s = getStore();
+const term = s.terms.find((t) => t.id === s.meta.currentTermId)!;
+const canonCount = s.bills.filter((b) => b.dataset === 'canonical').length;
+const statuses = [...new Set(s.bills.map((b) => b.status))];
+const categories = [...new Set(s.bills.map((b) => b.category))];
+const terms = s.terms;
+---
+<BaseLayout title="Legislation" section="legislation" crumbs={[{ label: 'Legislation' }]} description="Searchable register of bills, amendments, proposed prohibitions and Charter amendments before the World Assembly.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Section 03 · Bill register</div>
+      <h1>Legislation</h1>
+      <p class="lede">Every measure filed with the Assembly carries a permanent record with its full text, amendments, divisions, Council and legal actions, and its outcome in the resource ledger.</p>
+    </div>
+    <div class="head-tools"><a class="btn" href={href('/legislation/drafting/')}>Drafting guide</a></div>
+  </div>
+
+  {canonCount === 0 && (
+    <div class="notice">
+      <strong>Canonical register: no measures filed.</strong> Filing for Term {romanTerm(term.number)} opens in Week 2 — Deliberation. The register below currently contains only demonstration records, each marked <span class="badge demo">Demo</span>.
+    </div>
+  )}
+
+  <div class="panel" data-filter>
+    <div class="panel-h"><h2>Register of measures</h2><span class="meta"><output data-count>{s.bills.length} records</output></span></div>
+    <form class="filterbar" onsubmit="return false" aria-label="Filter measures">
+      <div class="field grow"><label for="f-q">Search</label><input id="f-q" type="search" data-f="q" placeholder="Title, ID, sponsor, keyword…" /></div>
+      <div class="field"><label for="f-status">Status</label>
+        <select id="f-status" data-f="status"><option value="">All statuses</option>{statuses.map((x) => <option value={x}>{BILL_STATUS[x].label}</option>)}</select>
+      </div>
+      <div class="field"><label for="f-cat">Category</label>
+        <select id="f-cat" data-f="category"><option value="">All categories</option>{categories.map((x) => <option value={x}>{BILL_CATEGORY[x]}</option>)}</select>
+      </div>
+      <div class="field"><label for="f-term">Term</label>
+        <select id="f-term" data-f="term"><option value="">All terms</option>{terms.map((t) => <option value={t.id.toLowerCase()}>{t.name}</option>)}</select>
+      </div>
+      <div class="field"><label for="f-ds">Record set</label>
+        <select id="f-ds" data-f="dataset"><option value="">Canonical and demonstration</option><option value="canonical">Canonical only</option><option value="demonstration">Demonstration only</option></select>
+      </div>
+      <button type="button" class="btn" data-reset>Reset</button>
+    </form>
+    {s.bills.length ? <BillTable bills={s.bills} filterable /> : null}
+    <div data-empty hidden style="padding:10px">
+      <EmptyState code="NO MATCH" title="No measures match these filters.">
+        <p>{canonCount === 0 ? 'No canonical measures have been filed yet. ' : ''}Clear the filters to see the full register.</p>
+      </EmptyState>
+    </div>
+  </div>
+
+  <Panel title="Thresholds by category" meta="World Bible §§ 10, 12, 15" flush>
+    <table class="tbl">
+      <thead><tr><th scope="col">Category</th><th scope="col">Passage threshold</th></tr></thead>
+      <tbody>
+        {Object.entries(CATEGORY_THRESHOLD).map(([k, v]) => (
+          <tr><td>{BILL_CATEGORY[k as keyof typeof BILL_CATEGORY]}</td><td>{THRESHOLD_LABEL[v]}{k === 'franchise-amendment' ? ' + rest-of-world Council consent' : ''}</td></tr>
+        ))}
+      </tbody>
+    </table>
+  </Panel>
+  <script>import '../../scripts/filter.ts';</script>
+</BaseLayout>

@@ -1,0 +1,70 @@
+{
+  "$comment": "Public data contract v1.0.0 — generated from src/lib/data/schema.ts; do not edit by hand.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "visibility": {
+      "type": "string",
+      "const": "public"
+    },
+    "contractVersion": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}(T\\d{2}:\\d{2}(:\\d{2})?Z)?$"
+    },
+    "simulatedDate": {
+      "type": "string",
+      "pattern": "^\\d{4}(-(0[1-9]|1[0-2])(-(0[1-9]|[12]\\d|3[01]))?)?$"
+    },
+    "currentTermId": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "currentWeek": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "formation",
+        "deliberation",
+        "voting",
+        "settlement",
+        "interregnum"
+      ]
+    },
+    "pool": {
+      "type": "object",
+      "properties": {
+        "initialUnits": {
+          "type": "number",
+          "const": 100
+        }
+      },
+      "required": [
+        "initialUnits"
+      ],
+      "additionalProperties": false
+    },
+    "statusNote": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "visibility",
+    "contractVersion",
+    "updatedAt",
+    "simulatedDate",
+    "currentTermId",
+    "currentWeek",
+    "phase",
+    "pool",
+    "statusNote"
+  ],
+  "additionalProperties": false
+}

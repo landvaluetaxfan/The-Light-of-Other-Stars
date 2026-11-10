@@ -1,0 +1,68 @@
+{
+  "id": "DOC-COUNCIL",
+  "visibility": "public",
+  "kind": "rules",
+  "title": "Council of Treaty Parties: Seats and Protected Matters",
+  "shortTitle": "Council seats and vetoes",
+  "edition": "Founding composition",
+  "issuedBy": "Treaty on Extrasolar Resource Governance",
+  "sourceRef": "World Bible v3.4, § 6",
+  "summary": "The seven founding seats, their published initial stances and interests, the suspensive delay, and the four entrenched vetoes.",
+  "sections": [
+    {
+      "id": "seats",
+      "number": "1",
+      "heading": "The seven seats",
+      "paragraphs": [
+        "The seats represent institutions rather than their holders' personal convictions. Moderators appoint players from applications and supply each with a confidential brief describing the institution's interests; those briefs are not published. A future expansion of laboratory representation would require an announced constitutional rule; the starting Council has seven seats."
+      ],
+      "table": {
+        "caption": "Founding seats and published interests",
+        "columns": ["Seat", "Initial stance", "Published interests"],
+        "rows": [
+          ["United States", "Early releases; protection of existing probe claims", "An early, large release to retain leadership against competing probe programmes, while preserving recognised holdings and strategic autonomy."],
+          ["China", "Early releases; secure independent exploration capacity", "An early release, equal treatment of Chinese industrial claims, continued national probe capability and protection against Western monopoly."],
+          ["European Union", "Deliberation and intergenerational reserves", "Slower releases, substantial future-generation reserves and durable safeguards against irreversible commitments."],
+          ["India", "Broad franchise and slower release", "A broad electorate, protection for future people and slower release until institutions gain legitimacy."],
+          ["Frontier AI laboratories", "Probe continuity and digital-mind recognition", "Continued operation of the Aster programme and competing probes; safeguards against disproportionate restrictions on digital minds."],
+          ["Other middle powers", "Safeguards against unilateral domination", "Protection against capture of cosmic resources by the two largest powers. Includes Japan, Russia and Gulf states."],
+          ["Rest of the world / Nairobi Group", "Franchise guarantees and equal political standing", "A meaningful voice for states without an individual Council seat, and veto protection over who may vote."]
+        ]
+      }
+    },
+    {
+      "id": "delay",
+      "number": "2",
+      "heading": "Suspensive delay",
+      "paragraphs": [
+        "Four Council members may delay an adopted measure once. A delay is a suspensive power, not a veto: it may be overridden by a two-thirds Assembly vote in Week 4. The Council does not set the Assembly's agenda."
+      ]
+    },
+    {
+      "id": "vetoes",
+      "number": "3",
+      "heading": "Entrenched vetoes",
+      "paragraphs": [
+        "Permanent vetoes are limited to four protected subjects. The [[INST-ARBITER|Office of the Treaty Arbiter]] classifies proposed measures under the list; its decisions may be appealed to the [[INST-TRIBUNAL|Charter Review Tribunal]]. The scope of a veto follows the treaty's wording; political disagreement does not enlarge it."
+      ],
+      "table": {
+        "caption": "Protected subjects",
+        "columns": ["Protected subject", "Who may veto"],
+        "rows": [
+          ["Seizure or restriction of a Council seat's existing holdings", "The affected seat alone"],
+          ["Change to the Council's size, composition or powers", "A Council majority"],
+          ["Creation of armed forces or enforcement under Assembly command", "A Council majority"],
+          ["Change to the franchise / who may vote", "The rest-of-world seat alone"]
+        ]
+      }
+    },
+    {
+      "id": "statements",
+      "number": "4",
+      "heading": "Statements and proposals",
+      "paragraphs": [
+        "Each member may issue one statement per term. The Council may collectively submit one proposal for an Assembly vote."
+      ]
+    }
+  ]
+}

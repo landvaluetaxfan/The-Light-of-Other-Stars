@@ -1,0 +1,24 @@
+{
+  "id": "DEMO-D-T1-008",
+  "visibility": "public",
+  "termId": "T1",
+  "billId": "DEMO-B-T1-005",
+  "amendmentId": null,
+  "stage": "passage",
+  "question": "That the Register of Antecedent Probe Holdings Bill be passed.",
+  "threshold": "simple-majority",
+  "basis": "seats-voting",
+  "opens": {
+    "week": 3,
+    "simDate": "2040-06",
+    "realDate": "2026-12-16T18:00Z"
+  },
+  "closes": {
+    "week": 3,
+    "simDate": "2040-06",
+    "realDate": "2026-12-19T18:00Z"
+  },
+  "status": "open",
+  "ballots": [],
+  "result": null
+}

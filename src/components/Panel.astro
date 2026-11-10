@@ -1,0 +1,28 @@
+---
+interface Props {
+  title: string;
+  meta?: string;
+  link?: { href: string; label: string };
+  flush?: boolean;
+  tone?: 'teal';
+  id?: string;
+  headingLevel?: 2 | 3;
+}
+const { title, meta, link, flush = false, tone, id, headingLevel = 2 } = Astro.props;
+const H = headingLevel === 2 ? 'h2' : 'h3';
+const hid = id ? `${id}-h` : undefined;
+---
+<section class:list={['panel', tone]} id={id} aria-labelledby={hid}>
+  <div class="panel-h">
+    <H id={hid}>{title}</H>
+    {(meta || link) && (
+      <span class="meta">
+        {meta}
+        {link && <a href={link.href}>{link.label}</a>}
+      </span>
+    )}
+  </div>
+  <div class:list={['panel-b', { flush }]}>
+    <slot />
+  </div>
+</section>

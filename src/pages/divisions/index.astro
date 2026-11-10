@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DivisionTable from '../../components/DivisionTable.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href } from '../../lib/site.ts';
+
+const s = getStore();
+const canonCount = s.divisions.filter((d) => d.dataset === 'canonical').length;
+const openCount = s.divisions.filter((d) => d.status === 'open').length;
+---
+<BaseLayout title="Divisions" section="divisions" crumbs={[{ label: 'Divisions' }]} description="Public roll-call voting records of the World Assembly: every bloc's position, seat weight, abstentions, proxies, thresholds and results.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Section 04 · Roll-call register</div>
+      <h1>Divisions</h1>
+      <p class="lede">The Information Service does not conduct votes. When a voting window closes, the complete roll call is published here: each bloc's position and seat weight, abstentions, proxies, the threshold applied and the final seat-weighted result.</p>
+    </div>
+  </div>
+
+  <div class="grid grid-3">
+    <div class="notice" style="margin:0"><strong>Sealed tallies.</strong> Floor votes run for 72 hours. Running totals are concealed from all participants, including the Speaker and Bureau, until the window closes.</div>
+    <div class="notice" style="margin:0"><strong>Seats voting.</strong> Ordinary measures pass by a simple majority of seats voting; abstentions are excluded. A bloc that does not vote abstains unless a party proxy was filed before the vote opened.</div>
+    <div class="notice" style="margin:0"><strong>Thresholds.</strong> Overrides of a Council delay require two-thirds; new or repealed prohibitions require ninety per cent of seats voting. <a href={href('/registry/documents/DOC-RULES/#thresholds')}>All thresholds</a></div>
+  </div>
+  <div style="height:14px"></div>
+
+  {canonCount === 0 && (
+    <div class="notice"><strong>Canonical register: no divisions held.</strong> The first floor votes of the First Term take place in Week 3. {openCount ? `${openCount} demonstration division is shown as open, to illustrate the sealed-tally convention.` : ''}</div>
+  )}
+
+  <div class="panel" data-filter>
+    <div class="panel-h"><h2>Register of divisions</h2><span class="meta"><output data-count>{s.divisions.length} records</output></span></div>
+    <form class="filterbar" onsubmit="return false" aria-label="Filter divisions">
+      <div class="field grow"><label for="d-q">Search</label><input id="d-q" type="search" data-f="q" placeholder="Question, division or bill ID…" /></div>
+      <div class="field"><label for="d-st">Result</label>
+        <select id="d-st" data-f="status"><option value="">All</option><option value="carried">Carried</option><option value="not-carried">Not carried</option><option value="open">Open (sealed)</option></select>
+      </div>
+      <div class="field"><label for="d-stage">Stage</label>
+        <select id="d-stage" data-f="stage"><option value="">All stages</option><option value="passage">Passage</option><option value="amendment">Amendment</option><option value="override">Override</option></select>
+      </div>
+      <div class="field"><label for="d-ds">Record set</label>
+        <select id="d-ds" data-f="dataset"><option value="">Canonical and demonstration</option><option value="canonical">Canonical only</option><option value="demonstration">Demonstration only</option></select>
+      </div>
+      <button type="button" class="btn" data-reset>Reset</button>
+    </form>
+    <DivisionTable divisions={s.divisions} filterable />
+    <div data-empty hidden style="padding:10px"><EmptyState code="NO MATCH" title="No divisions match these filters." /></div>
+  </div>
+  <script>import '../../scripts/filter.ts';</script>
+</BaseLayout>

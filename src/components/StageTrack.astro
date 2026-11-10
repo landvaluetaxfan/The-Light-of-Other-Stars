@@ -1,0 +1,42 @@
+---
+import { STAGE_LABEL } from '../lib/site.ts';
+interface Props { stage: keyof typeof STAGE_LABEL }
+const { stage } = Astro.props;
+const order = Object.keys(STAGE_LABEL) as (keyof typeof STAGE_LABEL)[];
+const at = order.indexOf(stage);
+---
+<ol class="stagetrack" aria-label={`Ledger stage: ${STAGE_LABEL[stage]}`}>
+  {order.map((k, i) => <li class:list={{ done: i <= at, now: i === at }}>{STAGE_LABEL[k]}</li>)}
+</ol>
+<style>
+  .stagetrack {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+  }
+  .stagetrack li {
+    flex: 1;
+    padding: 2px 6px;
+    border: 1px solid var(--rule-2);
+    border-left-width: 0;
+    background: var(--panel-tint);
+    color: var(--muted);
+    text-align: center;
+    white-space: nowrap;
+  }
+  .stagetrack li:first-child {
+    border-left-width: 1px;
+  }
+  .stagetrack li.done {
+    background: var(--sage-3);
+    color: var(--ink-2);
+  }
+  .stagetrack li.now {
+    background: linear-gradient(180deg, #3a8592, #286672);
+    color: #fff;
+    font-weight: 600;
+    border-color: #1d4f59;
+  }
+</style>

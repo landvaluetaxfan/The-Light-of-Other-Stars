@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" role="img" aria-labelledby="t d">
+  <title id="t">The first release, by channel</title>
+  <desc id="d">A pool of 100 units. 12 are released: 4.2 Endowment, 3.6 Assembly, 0.6 Deferral, 3.6 Reserve. 88 remain.</desc>
+  <rect width="800" height="400" fill="#0C1B2E"/>
+  <text x="40" y="58" font-family="Arial Black, Arial, sans-serif" font-weight="900" font-size="30" fill="#F3F5F8">100 UNITS</text>
+  <text x="40" y="84" font-family="Arial, sans-serif" font-size="15" fill="#9FB0C4">The treaty pool, before the first release</text>
+  <rect x="40" y="110" width="720" height="44" fill="#22344D"/>
+  <rect x="40" y="110" width="86.4" height="44" fill="#E4572E"/>
+  <text x="136" y="139" font-family="Arial, sans-serif" font-size="15" fill="#F3F5F8">12 released · 88 remain</text>
+  <g font-family="Arial, sans-serif" font-size="15" fill="#F3F5F8">
+    <rect x="40" y="200" width="252" height="40" fill="#F3F5F8"/>
+    <rect x="292" y="200" width="216" height="40" fill="#F4A259"/>
+    <rect x="508" y="200" width="36" height="40" fill="#8E9AAF"/>
+    <rect x="544" y="200" width="216" height="40" fill="#5BC0BE"/>
+    <text x="40" y="270">Endowment 4.2</text>
+    <text x="292" y="270">Assembly 3.6</text>
+    <text x="490" y="296">Deferral 0.6</text>
+    <text x="544" y="270">Reserve 3.6</text>
+  </g>
+  <path d="M40 160 L40 196 M126 160 L760 196" stroke="#E4572E" stroke-width="1.5" fill="none"/>
+  <text x="40" y="360" font-family="Arial, sans-serif" font-size="13" fill="#9FB0C4">Demonstration figures. Units are legal claims, not shipments.</text>
+</svg>

@@ -1,0 +1,108 @@
+{
+  "$comment": "Public data contract v1.0.0 — generated from src/lib/data/schema.ts; do not edit by hand.",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+    },
+    "visibility": {
+      "type": "string",
+      "const": "public"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "abbreviation": {
+      "type": "string",
+      "pattern": "^[A-Z]{2,5}$"
+    },
+    "labelStatus": {
+      "type": "string",
+      "enum": [
+        "provisional",
+        "adopted"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "founding",
+        "active",
+        "dissolved"
+      ]
+    },
+    "founding": {
+      "type": "boolean"
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "inkColor": {
+      "type": "string",
+      "pattern": "^#[0-9A-Fa-f]{6}$"
+    },
+    "seatingOrder": {
+      "type": "integer",
+      "minimum": -9007199254740991,
+      "maximum": 9007199254740991
+    },
+    "corePosition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "internalDivision": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fourPartyVariant": {
+      "type": "object",
+      "properties": {
+        "mergedIntoId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^(DEMO-)?[A-Z][A-Z0-9]*(-[A-Z0-9]+)*$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "mergedIntoId",
+        "note"
+      ],
+      "additionalProperties": false
+    },
+    "summary": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "id",
+    "visibility",
+    "name",
+    "abbreviation",
+    "labelStatus",
+    "status",
+    "founding",
+    "color",
+    "inkColor",
+    "seatingOrder",
+    "corePosition",
+    "internalDivision",
+    "fourPartyVariant",
+    "summary"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,57 @@
+{
+  "id": "DOC-SCORECARD",
+  "visibility": "public",
+  "kind": "reference",
+  "title": "Public Scorecard and Audit Trail",
+  "shortTitle": "Scorecard and audit trail",
+  "edition": "Founding edition",
+  "issuedBy": "Assembly Information Service",
+  "sourceRef": "World Bible v3.4, Part VII",
+  "summary": "What is published at the end of every term, and the five public indicators.",
+  "sections": [
+    {
+      "id": "end-of-term",
+      "number": "1",
+      "heading": "End-of-term publication",
+      "paragraphs": [
+        "Each term concludes with: a release ledger (starting pool, release fraction, released units, four-channel split, closing pool); a bill and vote register; a Council action register; legal rulings and appeals; enacted uses; a chronicle of world events; and a scorecard.",
+        "Private goals remain private to their holders, but aggregated party progress is public."
+      ]
+    },
+    {
+      "id": "indicators",
+      "number": "2",
+      "heading": "The five indicators",
+      "paragraphs": [
+        "These indicators are not a single ethical score. A party can succeed at private objectives while worsening the collective scorecard."
+      ],
+      "table": {
+        "caption": "Public indicators",
+        "columns": ["Indicator", "Operational meaning"],
+        "rows": [
+          ["Welfare", "Share of the human population at or above the Charter baseline"],
+          ["Prohibitions", "Violations of bans found by the Tribunal"],
+          ["Breadth", "Share of voter groups whose highest priority received some resources"],
+          ["Public goods", "Assembly projects backed by most voter families"],
+          ["Future", "Reserve size and institutional standing of later generations"]
+        ]
+      }
+    },
+    {
+      "id": "status",
+      "number": "3",
+      "heading": "Current status",
+      "paragraphs": [
+        "No scorecard has yet been published. The first scorecard will be issued in Week 4 of the First Term."
+      ]
+    },
+    {
+      "id": "closure",
+      "number": "4",
+      "heading": "Closure of the simulation",
+      "paragraphs": [
+        "The simulation has no mandatory final turn. With advance notice, moderators may close it and publish an epilogue grounded in the public ledger, the institutions that survived, and the accumulated physical and moral consequences of past choices."
+      ]
+    }
+  ]
+}

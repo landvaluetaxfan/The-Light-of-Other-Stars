@@ -1,0 +1,7 @@
+---
+interface Props { text?: string }
+const { text } = Astro.props;
+---
+<div class="demo-band" role="note">
+  <strong>Demonstration record</strong> — {text ?? 'illustrative test data used to exercise the record system. It is not part of the canonical record, no player holds the positions shown, and it is excluded from all official totals.'}
+</div>

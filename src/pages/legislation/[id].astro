@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import Badge from '../../components/Badge.astro';
+import RecordTools from '../../components/RecordTools.astro';
+import TallyBar from '../../components/TallyBar.astro';
+import RefLinks from '../../components/RefLinks.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import StageTrack from '../../components/StageTrack.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, fmtSim, fmtReal, fmtUnits, fmtPct, BILL_STATUS, BILL_CATEGORY, CHANNEL_LABEL, REACH_LABEL, displayName, recordIndex, romanTerm } from '../../lib/site.ts';
+import { inline } from '../../lib/richtext.ts';
+import { THRESHOLD_LABEL } from '../../lib/procedure.ts';
+import type { BillT } from '../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  return getStore().bills.map((b) => ({ params: { id: b.id }, props: { bill: b } }));
+}
+interface Props { bill: BillT }
+const { bill: b } = Astro.props;
+const s = getStore();
+const idx = recordIndex(s);
+const term = s.terms.find((t) => t.id === b.termId)!;
+const st = BILL_STATUS[b.status];
+const divisions = b.divisionIds.map((id) => s.divisions.find((d) => d.id === id)!).filter(Boolean);
+const allocations = (b.outcome?.allocationIds ?? []).map((id) => s.allocations.find((a) => a.id === id)!).filter(Boolean);
+const demo = b.dataset === 'demonstration';
+const STAGE = { amendment: 'Amendment', passage: 'Passage', override: 'Override' } as const;
+const r = b.resource;
+const link = (id: string, label?: string) => {
+  const e = idx.get(id);
+  return e ? `<a href="${href(e.path)}">${label ?? e.label}</a>` : id;
+};
+---
+<BaseLayout title={`${b.id}: ${b.shortTitle}`} section="legislation" demo={demo} recordId={b.id} description={b.summary} crumbs={[{ label: 'Legislation', href: href('/legislation/') }, { label: `Term ${romanTerm(term.number)}`, href: href(`/archive/${term.id}/`) }, { label: b.id }]}>
+  <div class="page-head">
+    <div>
+      <div class="kicker">Assembly measure · Term {romanTerm(term.number)} · No. {b.number} · {BILL_CATEGORY[b.category]}</div>
+      <h1>{b.title}</h1>
+      <p class="lede" set:html={inline(b.summary, s)} />
+      <p style="margin:6px 0 0"><Badge tone={st.tone}>{st.label}</Badge> <Badge tone="steel">{THRESHOLD_LABEL[b.threshold]}</Badge></p>
+    </div>
+    <RecordTools id={b.id} />
+  </div>
+
+  {b.status === 'voting' && (
+    <div class="notice sealed" role="status"><strong>Voting open — tally sealed.</strong> The running count is concealed from everyone, including the Speaker and Bureau, until the window closes. The complete roll call will then be published on the division record.</div>
+  )}
+
+  <div class="layout-main-side">
+    <div>
+      <Panel title="Full text" meta={`${b.provisions.length} provision${b.provisions.length === 1 ? '' : 's'}`} id="text">
+        <div class="prose" style="max-width:none">
+          {b.provisions.map((p) => (
+            <div class="provision" id={`p${p.number}`}>
+              <span class="pno">§ {p.number}</span>
+              <div>{p.heading && <span class="phead">{p.heading}</span>}<span set:html={inline(p.text, s)} /></div>
+            </div>
+          ))}
+        </div>
+      </Panel>
+
+      <Panel title="Amendments" meta={b.amendments.length ? `${b.amendments.length}` : 'None'} flush id="amendments">
+        {b.amendments.length ? (
+          <ul class="reclist">
+            {b.amendments.map((a) => (
+              <li id={a.id}>
+                <div class="rl-meta"><span class="mono">{a.id}</span><span>Amendment {a.number}</span><span>by {a.sponsorIds.map((x) => displayName(s, x)).join(', ')}</span>
+                  <Badge tone={a.status === 'adopted' ? 'ok' : a.status === 'rejected' ? 'bad' : 'neutral'}>{a.status}</Badge>
+                </div>
+                <div class="rl-title">{a.summary}</div>
+                <p class="rl-sum" style="font-family:var(--font-doc);font-size:14.5px">{a.text}</p>
+                {a.divisionId && <p class="small" style="margin:2px 0 0">Division: <a class="mono" href={href(`/divisions/${a.divisionId}/`)}>{a.divisionId}</a></p>}
+              </li>
+            ))}
+          </ul>
+        ) : <p class="muted small" style="padding:8px 12px;margin:0">No amendments were filed.</p>}
+      </Panel>
+
+      <Panel title="Divisions" flush id="divisions">
+        {divisions.length ? (
+          <ul class="reclist">
+            {divisions.map((d) => (
+              <li>
+                <div class="rl-meta"><a class="mono" href={href(`/divisions/${d.id}/`)}>{d.id}</a><span>{STAGE[d.stage]}</span><span>{THRESHOLD_LABEL[d.threshold]}</span><span>Week {d.closes.week} · closes {fmtReal(d.closes.realDate)}</span>
+                  {d.status === 'closed' && d.result ? <Badge tone={d.result.outcome === 'carried' ? 'ok' : 'bad'}>{d.result.outcome === 'carried' ? 'Carried' : 'Not carried'}</Badge> : <Badge tone="amber">Open — sealed</Badge>}
+                </div>
+                <a class="rl-title" href={href(`/divisions/${d.id}/`)}>{d.question}</a>
+                <TallyBar division={d} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div class="panel-b"><EmptyState code="NOT YET VOTED" title="No division has been held on this measure." /></div>
+        )}
+      </Panel>
+
+      <Panel title="Council and legal actions" flush id="actions">
+        {b.councilActions.length || b.rulings.length ? (
+          <ul class="reclist">
+            {b.councilActions.map((c) => (
+              <li id={c.id}>
+                <div class="rl-meta"><span class="mono">{c.id}</span><span>Council of Treaty Parties</span><span>{fmtSim(c.simDate)} · Week {c.week}</span><Badge tone={c.kind === 'veto' ? 'bad' : c.kind === 'delay' ? 'amber' : 'neutral'}>{c.kind}</Badge></div>
+                <div class="rl-title">{c.kind === 'delay' ? 'Suspensive delay' : c.kind === 'veto' ? 'Entrenched veto' : 'Statement'} — seats: <span set:html={c.officeIds.map((id) => link(id, displayName(s, id).replace('Council seat: ', ''))).join(', ')} /></div>
+                <p class="rl-sum">{c.text}</p>
+                <p class="rl-sum small muted">{c.basis}</p>
+              </li>
+            ))}
+            {b.rulings.map((r) => (
+              <li id={r.id}>
+                <div class="rl-meta"><span class="mono">{r.id}</span><span set:html={link(r.institutionId)} /><span>{fmtSim(r.simDate)}</span><Badge tone="steel">Ruling</Badge></div>
+                <div class="rl-title">{r.question}</div>
+                <p class="rl-sum">{r.holding}</p>
+              </li>
+            ))}
+          </ul>
+        ) : <p class="muted small" style="padding:8px 12px;margin:0">No Council action, Arbiter classification or Tribunal ruling is recorded.</p>}
+      </Panel>
+
+      <Panel title="Legislative history" flush id="history">
+        <ol class="timeline">
+          {b.history.map((h) => (
+            <li>
+              <div class="tl-when">{fmtSim(h.simDate)}{h.week && ` · Wk ${h.week}`}<small>{fmtReal(h.realDate)}</small></div>
+              <div><span set:html={inline(h.action, s)} />{h.refId && <> <span class="small" set:html={link(h.refId, `[${h.refId}]`)} /></>}</div>
+            </li>
+          ))}
+        </ol>
+      </Panel>
+
+      <Panel title="Implementation outcome" flush id="outcome">
+        {b.outcome ? (
+          <div>
+            <p style="padding:8px 12px 0" set:html={inline(b.outcome.summary, s)} />
+            {allocations.length > 0 && (
+              <div class="table-wrap">
+                <table class="tbl stack">
+                  <thead><tr><th scope="col">Ledger entry</th><th scope="col">Channel</th><th scope="col" class="num">Units</th><th scope="col">Reach</th><th scope="col" style="min-width:260px">Stage</th></tr></thead>
+                  <tbody>
+                    {allocations.map((a) => (
+                      <tr>
+                        <td class="primary"><a href={href(`/registry/ledger/#${a.id}`)}>{a.title}</a><div class="mono small muted" style="font-weight:400">{a.id}</div></td>
+                        <td data-label="Channel">{CHANNEL_LABEL[a.channel]}</td>
+                        <td data-label="Units" class="num">{fmtUnits(a.units)}</td>
+                        <td data-label="Reach" class="small">{REACH_LABEL[a.reach]}</td>
+                        <td data-label="Stage"><StageTrack stage={a.stage} /></td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </div>
+        ) : (
+          <div class="panel-b"><EmptyState code="NO OUTCOME" title={['not-passed', 'voided', 'withdrawn', 'vetoed'].includes(b.status) ? 'This measure did not take effect.' : 'No implementation outcome has been recorded yet.'}>
+            <p>Enacted measures are entered in the public resource ledger after legal review; consequences are reported in the following term.</p>
+          </EmptyState></div>
+        )}
+      </Panel>
+    </div>
+
+    <aside>
+      <Panel title="Record particulars" flush>
+        <dl class="kv">
+          <dt>Identifier</dt><dd class="mono">{b.id}</dd>
+          <dt>Term</dt><dd><a href={href(`/archive/${term.id}/`)}>{term.name}</a></dd>
+          <dt>Number</dt><dd>{b.number}</dd>
+          <dt>Category</dt><dd>{BILL_CATEGORY[b.category]}</dd>
+          <dt>Threshold</dt><dd>{THRESHOLD_LABEL[b.threshold]}</dd>
+          <dt>Status</dt><dd>{st.label}</dd>
+          <dt>Sponsor</dt><dd set:html={b.sponsorIds.map((id) => link(id)).join(', ')} />
+          {b.cosponsorIds.length > 0 && <><dt>Co-sponsors</dt><dd set:html={b.cosponsorIds.map((id) => link(id)).join(', ')} /></>}
+          <dt>Filed</dt><dd>{fmtSim(b.filed.simDate)}, Week {b.filed.week}<br /><span class="small muted">{fmtReal(b.filed.realDate)}</span></dd>
+          {r?.releaseFraction !== undefined && <><dt>Release</dt><dd>{fmtPct(r.releaseFraction)} of remaining pool</dd></>}
+          {r?.channelSplitPercent && <><dt>Split</dt><dd>E {r.channelSplitPercent.endowment} · A {r.channelSplitPercent.assembly} · D {r.channelSplitPercent.deferral} · R {r.channelSplitPercent.reserve} (%)</dd></>}
+          {r?.units !== undefined && <><dt>Units</dt><dd>{fmtUnits(r.units)}</dd></>}
+          {r?.channel && <><dt>Channel</dt><dd>{CHANNEL_LABEL[r.channel]}</dd></>}
+          {r?.reach && <><dt>Reach</dt><dd>{REACH_LABEL[r.reach]}</dd></>}
+          {r?.implementingActor && <><dt>Implementer</dt><dd>{r.implementingActor}</dd></>}
+          {r?.beneficiaries && <><dt>Beneficiaries</dt><dd>{r.beneficiaries}</dd></>}
+          {r?.duration && <><dt>Duration</dt><dd>{r.duration}</dd></>}
+        </dl>
+        {r?.conditions && (
+          <div class="panel-b" style="border-top:1px solid var(--rule)"><span class="small muted">CONDITIONS</span><ul class="small" style="margin:4px 0 0;padding-left:1.2em">{r.conditions.map((c) => <li>{c}</li>)}</ul></div>
+        )}
+      </Panel>
+      <Panel title="Related records" flush>
+        <RefLinks refs={b.refs} />
+      </Panel>
+      {b.tags.length > 0 && (
+        <Panel title="Subjects">
+          {b.tags.map((t) => <a class="badge tone-neutral" style="margin:0 4px 4px 0;text-transform:none" href={href(`/legislation/?q=${t}`)}>{t}</a>)}
+        </Panel>
+      )}
+    </aside>
+  </div>
+</BaseLayout>

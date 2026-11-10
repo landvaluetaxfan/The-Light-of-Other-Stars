@@ -1,0 +1,21 @@
+[
+  {
+    "id": "REL-T1",
+    "visibility": "public",
+    "termId": "T1",
+    "status": "pending",
+    "startingPool": 100,
+    "fraction": null,
+    "releasedUnits": null,
+    "closingPool": null,
+    "sizeDecision": null,
+    "sizeBillId": null,
+    "splitDecision": null,
+    "splitBillId": null,
+    "channels": null,
+    "notes": [
+      "The First Term release has not been decided. Release-size and channel-split proposals are filed in Week 2 and voted in Week 3.",
+      "If no size proposal passes, 10% of the pool (10.0000 units) is released by default. If no split passes, the release divides equally among Endowment, Assembly and Reserve, with nothing to Deferral."
+    ]
+  }
+]

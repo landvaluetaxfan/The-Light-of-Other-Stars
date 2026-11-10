@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, fmtUnits } from '../../lib/site.ts';
+
+const s = getStore();
+const docs = s.documents.filter((d) => d.dataset === 'canonical');
+const groups: { kind: string; title: string }[] = [
+  { kind: 'treaty', title: 'Treaty' },
+  { kind: 'charter', title: 'Constitutional documents' },
+  { kind: 'rules', title: 'Rules and procedure' },
+  { kind: 'reference', title: 'Reference' },
+  { kind: 'guide', title: 'Guides' },
+];
+const institutions = s.institutions.filter((i) => i.dataset === 'canonical');
+const elections = s.elections.filter((e) => e.dataset === 'canonical');
+const rel = s.releases.filter((r) => r.dataset === 'canonical');
+const lastAuth = rel.filter((r) => r.status === 'authorized').at(-1);
+const total = [...s.terms, ...s.parties, ...s.members, ...s.blocs, ...s.institutions, ...s.offices, ...s.bills, ...s.divisions, ...s.events, ...s.elections, ...s.releases, ...s.allocations, ...s.documents, ...s.publications, ...s.articles].length;
+---
+<BaseLayout title="Registry" section="registry" crumbs={[{ label: 'Registry' }]} description="The treaty, constitutional documents, institutional records, election history and the public resource-allocation ledger.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Section 06 · Records of the treaty order</div>
+      <h1>Registry</h1>
+      <p class="lede">The treaty, the Interim Charter and rules of procedure; records of each treaty institution; election history; and the public ledger of resource releases and allocations.</p>
+    </div>
+    <div class="head-tools"><a class="btn" href={href('/registry/records/')}>Index of identifiers</a></div>
+  </div>
+
+  <div class="layout-main-side">
+    <div>
+      {groups.map((g) => {
+        const list = docs.filter((d) => d.kind === g.kind);
+        return list.length ? (
+          <Panel title={g.title} meta={`${list.length}`}>
+            <div class="tiles">
+              {list.map((d) => (
+                <a class="tile" href={href(`/registry/documents/${d.id}/`)}>
+                  <span class="t-title">{d.shortTitle}</span>
+                  <span class="t-sub">{d.summary.length > 150 ? `${d.summary.slice(0, 147)}…` : d.summary}</span>
+                  <span class="t-meta">{d.id} · {d.edition}</span>
+                </a>
+              ))}
+            </div>
+          </Panel>
+        ) : null;
+      })}
+      <Panel title="Institutional records" meta={`${institutions.length}`} flush>
+        <table class="tbl stack">
+          <thead><tr><th scope="col">Institution</th><th scope="col">Kind</th><th scope="col" class="num">Seats</th><th scope="col">Basis</th></tr></thead>
+          <tbody>
+            {institutions.map((i) => (
+              <tr>
+                <td class="primary"><a href={href(`/registry/institutions/${i.id}/`)}>{i.name}</a><div class="mono small muted" style="font-weight:400">{i.id}</div></td>
+                <td data-label="Kind">{i.kind}</td>
+                <td data-label="Seats" class="num">{i.seats ?? '—'}</td>
+                <td data-label="Basis" class="small">{i.sourceRef}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </Panel>
+    </div>
+    <aside>
+      <Panel title="Resource ledger" link={{ href: href('/registry/ledger/'), label: 'Open →' }}>
+        <dl class="kv" style="margin:-10px -12px">
+          <dt>Pool remaining</dt><dd><b>{fmtUnits(lastAuth?.closingPool ?? s.meta.pool.initialUnits)}</b> units</dd>
+          <dt>Releases authorised</dt><dd>{rel.filter((r) => r.status === 'authorized').length}</dd>
+          <dt>Pending</dt><dd>{rel.filter((r) => r.status === 'pending').map((r) => r.termId).join(', ') || '—'}</dd>
+        </dl>
+      </Panel>
+      <Panel title="Election history" link={{ href: href('/registry/elections/'), label: 'Open →' }} flush>
+        <ul class="reclist">
+          {elections.map((e) => <li><a href={href(`/registry/elections/${e.id}/`)}>{e.summary.split('.')[0]}</a><div class="small muted">{e.id} · {e.status}</div></li>)}
+        </ul>
+      </Panel>
+      <Panel title="Archive" link={{ href: href('/archive/'), label: 'Open →' }}>
+        <p class="small" style="margin:0">Term-by-term archive of every bill, division, bulletin and ledger entry. {total} public records in all.</p>
+      </Panel>
+      <Panel title="Open data">
+        <ul class="small" style="margin:0;padding-left:1.2em">
+          <li><a href={href('/about/data-contract/')}>Public data contract</a></li>
+          <li><a href={href('/data/canonical.json')}>canonical.json</a></li>
+          <li><a href={href('/data/demonstration.json')}>demonstration.json</a></li>
+        </ul>
+      </Panel>
+    </aside>
+  </div>
+</BaseLayout>

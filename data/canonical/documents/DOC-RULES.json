@@ -1,0 +1,105 @@
+{
+  "id": "DOC-RULES",
+  "visibility": "public",
+  "kind": "rules",
+  "title": "Rules of Procedure: Terms, Voting and the Council",
+  "shortTitle": "Rules of Procedure",
+  "edition": "First Term edition",
+  "issuedBy": "Assembly Bureau",
+  "sourceRef": "World Bible v3.4, §§ 5–7, 12, 14",
+  "summary": "The monthly political cycle, voting thresholds, sealed tallies, proxies, scheduling guarantees, Council delays and vetoes, and the path from motion to enforceable claim.",
+  "sections": [
+    {
+      "id": "term-cycle",
+      "number": "1",
+      "heading": "One month, ten years",
+      "paragraphs": [
+        "One real month is one term, representing ten years in the setting. The game is asynchronous; every action is recorded with both a real deadline and a simulated effective date. Political debate occurs through the official website and Discord; the public ledger, rather than any single chat thread, is authoritative."
+      ],
+      "table": {
+        "caption": "The four weeks of a term",
+        "columns": ["Week", "Required actions and deadlines"],
+        "rows": [
+          ["1 — Formation", "Election results; seating the Assembly; Speaker election and Bureau formation; nominations for Commissioner and Commission on Long-Term Inquiry."],
+          ["2 — Deliberation", "Bill and prohibition filings; caucus bargaining; public briefs and petitions; the Arbiter accepts eligible queries."],
+          ["3 — Voting", "Votes open for 72 hours with totals sealed. The Council then receives a 48-hour window to delay or exercise a protected veto."],
+          ["4 — Settlement", "First 48 hours for delay overrides; resources and goal accounting; simulated events, public scorecard and noisy polls; next election campaign."]
+        ]
+      }
+    },
+    {
+      "id": "thresholds",
+      "number": "2",
+      "heading": "Voting thresholds",
+      "paragraphs": [
+        "Ordinary passage is a simple majority of seats voting, excluding abstentions. Bloc votes are all-or-nothing."
+      ],
+      "table": {
+        "caption": "Thresholds",
+        "columns": ["Action", "Rule"],
+        "rows": [
+          ["Ordinary measures and release allocations", "Simple majority of seats voting (abstentions excluded)"],
+          ["Override of a Council or Commissioner delay", "Two-thirds, in Week 4"],
+          ["New or repealed prohibition", "Ninety per cent of seats voting"],
+          ["Interim Charter amendment; permanent charter", "Two-thirds of the Assembly"],
+          ["Franchise change", "Two-thirds, plus consent of the rest-of-world Council seat"],
+          ["Spending from the Reserve", "Two-thirds"],
+          ["Removal of a Tribunal member for misconduct", "Two-thirds"]
+        ]
+      }
+    },
+    {
+      "id": "sealed",
+      "number": "3",
+      "heading": "Sealed tallies and publication",
+      "paragraphs": [
+        "Votes remain sealed throughout their 72-hour window, including from the Speaker and Bureau. When the window closes, the complete roll call is published: each bloc's position and seat weight, abstentions, proxies, the threshold and the final seat-weighted result."
+      ]
+    },
+    {
+      "id": "blocs",
+      "number": "4",
+      "heading": "Blocs, proxies and inactivity",
+      "list": [
+        "Each player ordinarily controls one indivisible party bloc. A player may never control more than sixty seats.",
+        "A player may appoint a party proxy; the designation must be filed before the vote opens. Otherwise a non-voting bloc abstains.",
+        "A bloc whose player does not vote through a full term passes to the next member on the party's list in the next term.",
+        "While serving, the Speaker transfers control of their voting bloc to the party's floor leader. Tribunal members and the Commissioner relinquish their blocs; Commission members keep theirs."
+      ]
+    },
+    {
+      "id": "scheduling",
+      "number": "5",
+      "heading": "Scheduling guarantee",
+      "paragraphs": [
+        "A measure filed on time must not be suppressed by agenda inaction. Anything the Bureau has failed to schedule by the end of Week 2 automatically reaches the Week 3 floor."
+      ]
+    },
+    {
+      "id": "council",
+      "number": "6",
+      "heading": "Council delays and vetoes",
+      "paragraphs": [
+        "If an ordinary measure passes, the Council may delay it once with at least four votes. A delay is a suspensive power, not a veto; it can be overridden by a two-thirds Assembly vote in Week 4. One override also suffices if the Commissioner for Future Generations delays the same measure.",
+        "The Council's entrenched vetoes apply only to the four protected matters set out in [[DOC-COUNCIL|Council Seats and Protected Matters]]. The Arbiter determines whether a measure falls within the list, subject to Tribunal review."
+      ]
+    },
+    {
+      "id": "first-action",
+      "number": "7",
+      "heading": "Filing a motion for an allocation",
+      "paragraphs": [
+        "A member seeking an ordinary Assembly allocation must write a motion specifying the requested resource amount or share, the channel, the intended use, the geographic reach, the implementing actor, and conditions for success or failure.",
+        "After the Week 3 vote and any Council action or override, the enacted decision becomes an entry in the public resource ledger following legal review. The following term reports its administrative, political and — where travel times permit — physical consequences. Passing a bill does not teleport probes to their destinations."
+      ]
+    },
+    {
+      "id": "not-authorised",
+      "number": "8",
+      "heading": "Actions not yet authorised",
+      "paragraphs": [
+        "Resolutions without binding legal effect and general information-request powers are not yet authorised as separate gameplay actions. They are a possible future procedural amendment, not part of the founding rules."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EmptyState from '../components/EmptyState.astro';
+import { href } from '../lib/site.ts';
+---
+<BaseLayout title="Record not found" crumbs={[{ label: 'Not found' }]}>
+  <div class="page-head"><div><div class="kicker">Error 404</div><h1>No record at this address</h1></div></div>
+  <EmptyState code="404 · ADDRESS NOT ISSUED" title="The Information Service has not issued a record at this address.">
+    <p>Permanent addresses are never withdrawn, so this address was probably mistyped. Try the <a href={href('/search/')}>search</a> or the <a href={href('/registry/records/')}>index of record identifiers</a>, or return to the <a href={href('/')}>overview</a>.</p>
+  </EmptyState>
+</BaseLayout>

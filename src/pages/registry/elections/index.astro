@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Panel from '../../../components/Panel.astro';
+import Badge from '../../../components/Badge.astro';
+import DatasetBadge from '../../../components/DatasetBadge.astro';
+import { getStore } from '../../../lib/data/load.ts';
+import { href, fmtSim, displayName } from '../../../lib/site.ts';
+
+const s = getStore();
+const elections = [...s.elections].sort((a, b) => a.dataset.localeCompare(b.dataset) || a.simDate.localeCompare(b.simDate));
+const regions = s.regions.filter((r) => r.dataset === 'canonical').sort((a, b) => a.number - b.number);
+const KIND = { 'founding-assignment': 'Founding assignment', general: 'General election', 'by-election': 'By-election' } as const;
+const TONE = { scheduled: 'neutral', pending: 'amber', certified: 'ok' } as const;
+---
+<BaseLayout title="Election history" section="registry" crumbs={[{ label: 'Registry', href: href('/registry/') }, { label: 'Elections' }]} description="Election history and the twelve electoral regions of the World Assembly.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Registry · Elections</div>
+      <h1>Election history</h1>
+      <p class="lede">Elections occur between terms and take effect at Week 1 of the next term. Results are computed by the published model; the narrative does not override the counted results. See <a href={href('/registry/documents/DOC-ELECTORAL/')}>Electoral System and Regions</a>.</p>
+    </div>
+  </div>
+  <Panel title="Elections" flush>
+    <table class="tbl stack">
+      <thead><tr><th scope="col">Record</th><th scope="col">Election</th><th scope="col">Seats effective</th><th scope="col">Date</th><th scope="col">Status</th></tr></thead>
+      <tbody>
+        {elections.map((e) => (
+          <tr class:list={{ 'is-demo': e.dataset === 'demonstration' }}>
+            <td data-label="Record"><a class="mono" href={href(`/registry/elections/${e.id}/`)}>{e.id}</a> <DatasetBadge dataset={e.dataset} /></td>
+            <td class="primary"><a href={href(`/registry/elections/${e.id}/`)}>{KIND[e.kind]}</a><div class="small" style="font-weight:400">{e.summary}</div></td>
+            <td data-label="Term">{displayName(s, e.termId)}</td>
+            <td data-label="Date">{fmtSim(e.simDate)}</td>
+            <td data-label="Status"><Badge tone={TONE[e.status]}>{e.status}</Badge></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </Panel>
+  <Panel title="Electoral regions" meta="300 constituency seats · 9.16 billion people (scenario estimate)" flush id="regions">
+    <div class="table-wrap"><table class="tbl">
+      <thead><tr><th scope="col" class="num">No.</th><th scope="col">Region</th><th scope="col" class="num">Population 2040 (bn)</th><th scope="col" class="num">Constituency seats</th><th scope="col" style="width:30%">Share of constituency seats</th></tr></thead>
+      <tbody>
+        {regions.map((r) => (
+          <tr id={r.id}>
+            <td class="num">{r.number}</td><td>{r.name}</td><td class="num">{r.population2040Billions.toFixed(2)}</td><td class="num">{r.constituencySeats}</td>
+            <td><div class="chbar" style="height:10px;background:var(--panel-tint)" role="img" aria-label={`${((r.constituencySeats / 300) * 100).toFixed(1)} per cent`}><span style={`width:${(r.constituencySeats / 73) * 100}%;background:var(--steel)`}></span></div></td>
+          </tr>
+        ))}
+      </tbody>
+      <tfoot><tr><th scope="row" colspan="2">Total</th><td class="num">{regions.reduce((a, r) => a + r.population2040Billions, 0).toFixed(2)}</td><td class="num">{regions.reduce((a, r) => a + r.constituencySeats, 0)}</td><td></td></tr></tfoot>
+    </table></div>
+    <p class="small muted" style="padding:6px 12px;margin:0">Bars are scaled to the largest region. Antarctica is excluded. A further 300 compensatory list seats are allocated globally.</p>
+  </Panel>
+</BaseLayout>

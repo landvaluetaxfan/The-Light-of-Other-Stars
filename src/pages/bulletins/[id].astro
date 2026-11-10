@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import Rich from '../../components/Rich.astro';
+import RecordTools from '../../components/RecordTools.astro';
+import RefLinks from '../../components/RefLinks.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, fmtSim, fmtReal, EVENT_KIND, displayName, sortBySimDesc, urlFor } from '../../lib/site.ts';
+import { plain } from '../../lib/richtext.ts';
+import type { EventT } from '../../lib/data/schema.ts';
+
+export function getStaticPaths() {
+  return getStore().events.map((e) => ({ params: { id: e.id }, props: { event: e } }));
+}
+interface Props { event: EventT }
+const { event: e } = Astro.props;
+const s = getStore();
+const sameSet = sortBySimDesc(s.events.filter((x) => x.dataset === e.dataset)).reverse();
+const i = sameSet.findIndex((x) => x.id === e.id);
+const prev = sameSet[i - 1];
+const next = sameSet[i + 1];
+const mentionedBy = [...s.bills.filter((b) => b.refs.events.includes(e.id)).map((b) => b.id), ...s.articles.filter((a) => a.refs.events.includes(e.id)).map((a) => a.id)];
+---
+<BaseLayout title={e.title} section="bulletins" demo={e.dataset === 'demonstration'} recordId={e.id} description={e.summary} crumbs={[{ label: 'Bulletins', href: href('/bulletins/') }, { label: e.id }]}>
+  <div class="page-head">
+    <div>
+      <div class="kicker">{EVENT_KIND[e.kind]} · {fmtSim(e.simDate)}{e.week ? ` · Week ${e.week}` : ''}</div>
+      <h1>{e.title}</h1>
+      <p class="lede">{plain(e.summary)}</p>
+    </div>
+    <RecordTools id={e.id} />
+  </div>
+  <div class="layout-main-side">
+    <div>
+      <Panel title={EVENT_KIND[e.kind]} meta={e.issuerId ? `Issued by ${displayName(s, e.issuerId)}` : e.issuerLabel}>
+        <Rich paragraphs={e.body} />
+        {e.sourceRef && <p class="small muted" style="margin-top:12px;border-top:1px solid var(--rule);padding-top:6px">Source: {e.sourceRef}</p>}
+      </Panel>
+      <nav class="grid grid-2" aria-label="Adjacent bulletins">
+        <div>{prev && <a class="tile" href={href(`/bulletins/${prev.id}/`)}><span class="t-meta">← Earlier · {fmtSim(prev.simDate)}</span><span class="t-title">{prev.title}</span></a>}</div>
+        <div>{next && <a class="tile" href={href(`/bulletins/${next.id}/`)} style="text-align:right"><span class="t-meta">Later · {fmtSim(next.simDate)} →</span><span class="t-title">{next.title}</span></a>}</div>
+      </nav>
+    </div>
+    <aside>
+      <Panel title="Record particulars" flush>
+        <dl class="kv">
+          <dt>Identifier</dt><dd class="mono">{e.id}</dd>
+          <dt>Type</dt><dd>{EVENT_KIND[e.kind]}</dd>
+          <dt>Simulated date</dt><dd>{fmtSim(e.simDate)}</dd>
+          {e.realDate && <><dt>Published</dt><dd>{fmtReal(e.realDate)}</dd></>}
+          <dt>Term</dt><dd>{e.termId ? <a href={href(`/archive/${e.termId}/`)}>{displayName(s, e.termId)}</a> : 'Before the treaty'}</dd>
+          {e.issuerId && <><dt>Issuer</dt><dd><a href={urlFor(s, e.issuerId)}>{displayName(s, e.issuerId)}</a></dd></>}
+        </dl>
+      </Panel>
+      <Panel title="Related records" flush>
+        <RefLinks refs={e.refs} ids={mentionedBy} />
+      </Panel>
+    </aside>
+  </div>
+</BaseLayout>

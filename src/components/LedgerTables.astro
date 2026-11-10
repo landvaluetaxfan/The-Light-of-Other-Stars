@@ -1,0 +1,81 @@
+---
+import type { Dataset } from '../lib/data/schema.ts';
+import { getStore } from '../lib/data/load.ts';
+import { href, fmtUnits, fmtPct, fmtSim, CHANNEL_LABEL, CHANNEL_COLOR, REACH_LABEL, displayName } from '../lib/site.ts';
+import Panel from './Panel.astro';
+import Badge from './Badge.astro';
+import EmptyState from './EmptyState.astro';
+import StageTrack from './StageTrack.astro';
+interface Props { dataset: Dataset }
+const { dataset } = Astro.props;
+const s = getStore();
+const term = (id: string) => s.terms.find((t) => t.id === id)!;
+const releases = s.releases.filter((r) => r.dataset === dataset).sort((a, b) => term(a.termId).number - term(b.termId).number);
+const allocations = s.allocations.filter((a) => a.dataset === dataset);
+const channels = ['endowment', 'assembly', 'deferral', 'reserve'] as const;
+const DEC = { voted: 'Voted', default: 'Default rule' } as const;
+---
+<Panel title="Release ledger" meta="Starting pool × fraction = released; remainder carried forward" flush>
+  <div class="table-wrap">
+    <table class="tbl">
+      <thead>
+        <tr><th scope="col">Release</th><th scope="col">Term</th><th scope="col" class="num">Starting pool</th><th scope="col" class="num">Fraction</th><th scope="col" class="num">Released</th><th scope="col" class="num">Closing pool</th>{channels.map((c) => <th scope="col" class="num">{CHANNEL_LABEL[c]}</th>)}<th scope="col">Decision</th></tr>
+      </thead>
+      <tbody>
+        {releases.map((r) => (
+          <tr id={r.id}>
+            <td class="mono">{r.id}</td>
+            <td><a href={href(`/archive/${r.termId}/`)}>{term(r.termId).name}</a></td>
+            <td class="num">{fmtUnits(r.startingPool)}</td>
+            <td class="num">{r.fraction === null ? '—' : fmtPct(r.fraction, 2)}</td>
+            <td class="num">{fmtUnits(r.releasedUnits)}</td>
+            <td class="num"><b>{fmtUnits(r.closingPool)}</b></td>
+            {channels.map((c) => <td class="num">{r.channels ? fmtUnits(r.channels[c]) : '—'}</td>)}
+            <td class="small">
+              {r.status === 'pending' ? <Badge tone="amber">Pending</Badge> : (
+                <>Size: {DEC[r.sizeDecision!]}{r.sizeBillId && <> (<a class="mono" href={href(`/legislation/${r.sizeBillId}/`)}>{r.sizeBillId}</a>)</>}<br />Split: {DEC[r.splitDecision!]}{r.splitBillId && <> (<a class="mono" href={href(`/legislation/${r.splitBillId}/`)}>{r.splitBillId}</a>)</>}</>
+              )}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  {releases.map((r) => r.notes.length > 0 && <ul class="small muted" style="margin:6px 12px 8px;padding-left:1.2em">{r.notes.map((n) => <li>{n}</li>)}</ul>)}
+  {releases.filter((r) => r.channels).map((r) => (
+    <div class="panel-b" style="border-top:1px solid var(--rule)">
+      <div class="small muted" style="margin-bottom:4px">{r.id} by channel</div>
+      <div class="chbar" role="img" aria-label={channels.map((c) => `${CHANNEL_LABEL[c]} ${fmtUnits(r.channels![c])}`).join(', ')}>
+        {channels.map((c) => <span style={`width:${(r.channels![c] / r.releasedUnits!) * 100}%;background:${CHANNEL_COLOR[c]}`} title={`${CHANNEL_LABEL[c]} ${fmtUnits(r.channels![c])}`}></span>)}
+      </div>
+      <ul class="legend" style="justify-content:flex-start">{channels.map((c) => <li><span class="swatch" style={`background:${CHANNEL_COLOR[c]}`}></span>{CHANNEL_LABEL[c]} {fmtUnits(r.channels![c])}</li>)}</ul>
+    </div>
+  ))}
+</Panel>
+
+<Panel title="Allocations and implementation" meta="Allocated → committed → reached → used" flush>
+  {allocations.length ? (
+    <div class="table-wrap">
+      <table class="tbl stack">
+        <thead><tr><th scope="col">Entry</th><th scope="col">Channel</th><th scope="col" class="num">Units</th><th scope="col">Reach</th><th scope="col">Steward</th><th scope="col">Authority</th><th scope="col" style="min-width:250px">Stage</th></tr></thead>
+        <tbody>
+          {allocations.map((a) => (
+            <tr id={a.id}>
+              <td class="primary">{a.title}<div class="mono small muted" style="font-weight:400">{a.id} · {a.releaseId}</div></td>
+              <td data-label="Channel"><span class="swatch" style={`background:${CHANNEL_COLOR[a.channel]}`}></span>{CHANNEL_LABEL[a.channel]}</td>
+              <td data-label="Units" class="num">{fmtUnits(a.units)}</td>
+              <td data-label="Reach" class="small">{REACH_LABEL[a.reach]}</td>
+              <td data-label="Steward" class="small">{a.steward}</td>
+              <td data-label="Authority">{a.billId ? <a class="mono" href={href(`/legislation/${a.billId}/`)} title={displayName(s, a.billId)}>{a.billId}</a> : '—'}</td>
+              <td data-label="Stage"><StageTrack stage={a.stage} /><div class="small muted">{a.stageHistory.map((h) => `${h.stage} ${fmtSim(h.simDate)}`).join(' · ')}</div></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  ) : (
+    <div class="panel-b"><EmptyState code="NO ALLOCATIONS" title="No allocations have been entered in this ledger.">
+      <p>Allocations are entered after a release is authorised and legal review is complete.</p>
+    </EmptyState></div>
+  )}
+</Panel>

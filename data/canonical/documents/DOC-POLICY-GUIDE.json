@@ -1,0 +1,209 @@
+{
+  "id": "DOC-POLICY-GUIDE",
+  "visibility": "public",
+  "kind": "guide",
+  "title": "Policy and Legislative Ideas Guide",
+  "shortTitle": "Policy ideas guide",
+  "edition": "First edition · November 2026 · Companion to World Bible v3.4",
+  "issuedBy": "The Light of Other Stars (public companion)",
+  "sourceRef": "Policy and Legislative Ideas Guide, first edition",
+  "summary": "A sourcebook for turning the setting's arguments into concrete legislation, bargains, campaigns and research proposals. It is an inspiration document, not a source of new legal powers, and no entry commits any institution to an outcome.",
+  "sections": [
+    {
+      "id": "purpose",
+      "number": "1",
+      "heading": "Purpose and scope",
+      "paragraphs": [
+        "This guide is not a party manifesto, a model bill book or a prescribed progression. The Assembly governs the release and use of defined extrasolar resource claims. It does not possess general authority over Earth's governments, the domestic economy, or the security system established by the Grand Bargain; proposals affecting those subjects may need the relevant outside institution's consent.",
+        "Where a legal route is uncertain, consult the [[INST-ARBITER|Office of the Treaty Arbiter]] and, if disputed, the [[INST-TRIBUNAL|Charter Review Tribunal]]. The World Bible and controlling treaty text prevail over any shorthand in this guide."
+      ]
+    },
+    {
+      "id": "drafting-checklist",
+      "number": "2",
+      "heading": "Start with the actual decision",
+      "ordered": true,
+      "list": [
+        "*What resource claim or treaty rule would change?* Define a release percentage, a channel share, a project, a prohibition, a franchise amendment, or a charter procedure.",
+        "*Who receives authority or a claim?* Name beneficiaries, custodians, deadlines and obligations, rather than just an abstract objective.",
+        "*What is the strongest objection?* Identify affected people, future generations, digital minds, existing claimants or preservation interests.",
+        "*What is the legal route?* Ordinary vote, enhanced threshold, Council delay or entrenched veto, Tribunal review, or action beyond Assembly jurisdiction.",
+        "*What happens ten years later?* Give the World Engine measurable consequences and unresolved risks without prescribing the election result."
+      ]
+    },
+    {
+      "id": "constraints",
+      "number": "3",
+      "heading": "Voting and institutional constraints at a glance",
+      "table": {
+        "caption": "Working rules (orientation only)",
+        "columns": ["Action", "Working rule"],
+        "rows": [
+          ["Ordinary measures and release allocations", "Simple majority of seats voting, subject to procedural review and permissible Council delay"],
+          ["Override of a permitted delay", "Two-thirds"],
+          ["New or changed prohibitions", "90 per cent"],
+          ["Permanent charter / general charter amendment", "Two-thirds, with special thresholds where the charter specifies"],
+          ["Protected Council powers and certain holdings", "Entrenched Council veto may apply"],
+          ["Change in voting franchise", "Additional consent from the designated Council seat"],
+          ["Non-binding resolutions and general information requests", "Not yet separately authorised as player actions"]
+        ]
+      }
+    },
+    {
+      "id": "cat-timing",
+      "number": "4.1",
+      "heading": "Timing and division of the cosmic pool",
+      "table": {
+        "caption": "",
+        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "rows": [
+          ["Early-release compact", "A high lawful release percentage for a fixed term, with evaluation after the first decade", "Expansionists, industrial constituencies", "Premature irreversible commitments and claimant capture"],
+          ["Slow-release settlement", "A low lawful release percentage with a timetable for fresh review", "Stewards, future-generation advocates", "Opportunity cost for would-be settlers; delayed benefits"],
+          ["Balanced four-channel settlement", "A split combining endowments, public projects, AI deferral and reserve", "Cross-family coalition", "May satisfy few groups strongly; details matter"],
+          ["Crisis-adjusted release formula", "A future charter rule changing release rates after defined safety or verification events", "Institutional reformers", "Needs a credible trigger and anti-manipulation protections"],
+          ["Reserve-first guarantee", "An unusually large share of the next release to the Reserve", "Intergenerational stewards", "Constrains current claimants; may create trustee disputes"],
+          ["Conditional deferral", "A defined portion to the Council on Long-Term Values with published review criteria", "Delegationists, cautious builders", "Who defines satisfaction, exit and accountability?"]
+        ]
+      }
+    },
+    {
+      "id": "cat-ownership",
+      "number": "4.2",
+      "heading": "Ownership, endowment and markets",
+      "table": {
+        "caption": "",
+        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "rows": [
+          ["Universal individual endowments", "Equal portions to eligible adults through the Endowment channel", "Holders, egalitarian blocs", "Tradeability, identity verification and distribution mechanics"],
+          ["Voluntary endowment pooling", "Opt-in shared trusts from privately held claims", "Community Holders and Builders", "Consent, exit rights and minority governance"],
+          ["Anti-concentration conditions", "Conditions on publicly awarded project claims, not on vested private rights", "Small-claim constituencies", "Property protections and Council veto risk"],
+          ["Inheritance and emulation claims", "How an Assembly-managed allocation recognises beneficiaries when copies exist", "Emulation Families", "Personhood and franchise rules are not settled"],
+          ["Claims registry", "A treaty-scope transparent registry of releases, beneficiaries and obligations", "Traders, oversight coalitions", "Privacy and auditability of ownership"],
+          ["Cooling-off proposal", "A charter-level condition on transfer of newly issued endowments", "Waiting-Period Holders", "May limit alienability; distinguish existing rights"]
+        ]
+      }
+    },
+    {
+      "id": "cat-preservation",
+      "number": "4.3",
+      "heading": "Preservation, settlement and exploration",
+      "table": {
+        "caption": "",
+        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "rows": [
+          ["Stellar sanctuary programme", "Public-project resources to preserve designated uninhabited systems", "Stewards and science coalitions", "Scope, enforcement and displaced settlement ambitions"],
+          ["Milky Way settlement priority", "An early share to near-galactic missions with explicit limits on farther claims", "Near-Space Settlers", "Does it prejudge claims beyond the Milky Way?"],
+          ["Frontier survey before settlement", "Probes and scientific assessment before authorising transformation", "Researchers and cautious settlers", "Delay and evidence standards"],
+          ["First-contact contingency", "Rules for pausing treaty-financed development if life or civilisation is detected", "Ethics and security coalitions", "Who certifies detection and imposes a pause?"],
+          ["Autonomous settlement franchises", "Seed funding conditioned on local self-government after arrival", "Frontier Pioneers", "Long-delayed communication and enforcement"],
+          ["Minimal-footprint engineering", "Habitat strategies reducing irreversible conversion of environments", "Stewards, technologists", "Feasibility uncertain in new environments"],
+          ["Long-distance claim escrow", "Distant claims held unexercised pending a later decision", "Deferrers and trustees", "Future decision authority and opportunity costs"]
+        ]
+      }
+    },
+    {
+      "id": "cat-persons",
+      "number": "4.4",
+      "heading": "Digital persons and future generations",
+      "table": {
+        "caption": "",
+        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "rows": [
+          ["Digital-mind impact report", "An impact assessment for a specific project involving possible digital welfare", "Inclusionists", "Research cannot settle every philosophical dispute"],
+          ["Protected digital habitats", "Secure computing habitats with explicit welfare safeguards", "Digital Rights Advocates", "Legal beneficiaries; safeguards against forced copying"],
+          ["Copying governance experiment", "Study of identity, copy rights and continuity", "Emulation Families", "Identity disagreements remain profound"],
+          ["Future-generation reserve stewardship", "Reporting rules for trustees of reserved allocations", "Intergenerational Stewards", "Representing unborn people without claiming to read their values"],
+          ["Franchise reform proposal", "A carefully defined constitutional amendment on non-human voters", "Universalists", "Special threshold and Council consent"],
+          ["Youth cohort representation inquiry", "Study of the perspectives of new generations", "Youth Cohort", "Distinguish consultation from immediate franchise change"]
+        ]
+      }
+    },
+    {
+      "id": "cat-inquiry",
+      "number": "4.5",
+      "heading": "Superintelligence, moral inquiry and research",
+      "table": {
+        "caption": "",
+        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "rows": [
+          ["Plural moral inquiry endowment", "Several independent value-research institutions", "Deferrers, Builders", "Allocation need not imply moral agreement"],
+          ["Adversarial verification programme", "Independent review of key superintelligent claims", "Verification Hawks", "Security boundaries, audit access and interpretability"],
+          ["Delegation with revocation rules", "What a bounded delegated release allows the Council on Long-Term Values to decide", "Delegationists", "Irreversible expenditures cannot always be clawed back"],
+          ["Consciousness research mission", "Experiments and philosophical work on digital and biological welfare", "Sentience Advocates", "No outcome should be prejudged"],
+          ["Scientific openness covenant", "Publication and access obligations on funded research", "Research Funders", "Sensitive findings and commercial incentives"],
+          ["Value-divergence monitoring", "Study of cases where personal AI representatives diverge from user-reported preferences", "Public trust coalitions", "Privacy, autonomy and non-manipulation"]
+        ]
+      }
+    },
+    {
+      "id": "cat-constitution",
+      "number": "4.6",
+      "heading": "Constitutional design and legitimacy",
+      "table": {
+        "caption": "",
+        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "rows": [
+          ["Permanent Charter compromise", "A replacement for the Interim Charter before 2060", "Any broad coalition", "Two-thirds threshold and entrenched interests"],
+          ["Clear lapse procedures", "A transition procedure if the permanent charter fails", "Institutional continuity caucuses", "Avoid creating a unilateral emergency sovereign"],
+          ["Tribunal precedent publication", "Reliable access to published Arbiter and Tribunal rulings", "Legal reformers", "Protect legitimate confidential submissions"],
+          ["Commissioner safeguards", "Clarify reporting obligations and delay procedure", "Intergenerational advocates", "Do not silently expand veto powers"],
+          ["Institutional review after two terms", "A scheduled evaluation built into the permanent charter", "Moderates and constitutionalists", "Review machinery can become a bargaining weapon"],
+          ["Council reform bargain", "Council changes paired with protections for affected seats", "Cross-regional coalition", "Council power changes face an entrenched veto"]
+        ]
+      }
+    },
+    {
+      "id": "cat-distribution",
+      "number": "4.7",
+      "heading": "Distribution, diplomacy and public projects",
+      "table": {
+        "caption": "",
+        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "rows": [
+          ["Global research commons", "Treaty-scope shared instruments and scientific infrastructure", "Public Works Builders", "Allocation across regions and beneficiaries"],
+          ["Regional access fund", "Projects widening access to extrasolar programmes for under-represented regions", "Regional Commons", "Jurisdiction and fair eligibility"],
+          ["Interstellar communications archive", "Durable records and information sharing for long-travel missions", "Researchers, Heritage Protectors", "Authenticity, consent and extreme timescales"],
+          ["Open industrial seed library", "Publicly governed designs for replicating industrial systems", "Builders and frontier groups", "Misuse risks; meaning of open access"],
+          ["Preserve-and-settle exchange", "A settlement allocation traded for stronger sanctuary protections", "Settlers with Stewards", "Both sides need enforceable terms"],
+          ["Compensation for prior probes", "Negotiated exchange rather than uncompensated seizure", "Frontier AI laboratories", "Property restrictions and Council veto"]
+        ]
+      }
+    },
+    {
+      "id": "cat-culture",
+      "number": "4.8",
+      "heading": "Culture, identity and long horizons",
+      "table": {
+        "caption": "",
+        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "rows": [
+          ["Cultural preservation endowment", "Long-term conservation of records, languages and traditions", "Heritage Protectors", "Who speaks for a culture?"],
+          ["Voluntary human-scale settlements", "Communities choosing less automation and slower change", "Community and autonomy groups", "Participation must remain voluntary"],
+          ["Multisubstrate civil society pilot", "Institutions where biological and digital participants collaborate", "Inclusionists, Builders", "Representation and recognition remain contested"],
+          ["Long-view ethics prizes", "Research grants on duties to distant descendants", "Philosophers' Bloc", "Avoid predetermined endorsement"],
+          ["Protected quiet regions", "Defined locations set aside for observation and non-interference", "Observers' Bloc", "Distinguishing observation from indirect influence"],
+          ["Reversible development experiments", "Projects toward technologies enabling restoration", "Cautious settlers", "Some changes may be irreversible regardless"]
+        ]
+      }
+    },
+    {
+      "id": "packages",
+      "number": "5",
+      "heading": "Three sample legislative packages",
+      "list": [
+        "*The first-release grand bargain.* A middle-sized release pairs individual endowments with a publicly funded survey network, a future-generation reserve and a narrowly defined AI inquiry allocation. Trade-off: many stakeholders gain a foothold, each receiving less than it might prefer.",
+        "*Preservation for participation.* A sanctuary designation combined with a limited settlement franchise and public scientific access. Trade-off: settlers secure a pathway to action while conservation advocates accept some development.",
+        "*The constitutional bridge.* A permanent-charter proposal clarifying expiry procedures, Tribunal review, delegation limits and the franchise process without pre-deciding digital enfranchisement. Trade-off: preserves disagreement while making institutions workable."
+      ]
+    },
+    {
+      "id": "campaign",
+      "number": "6",
+      "heading": "Using the guide in a campaign",
+      "paragraphs": [
+        "Choose a goal that reflects your party's priorities; identify a second group that might support it for different reasons; draft the least ambitious instrument that accomplishes the actual objective; and write down the legal uncertainty. A bill that cannot be implemented is not automatically a useful dramatic gesture.",
+        "This guide contains proposals, not predictions. Whether a policy succeeds depends on the enacted text, the scenario state and the transparent adjudication process described in the Operations Manual."
+      ]
+    }
+  ]
+}

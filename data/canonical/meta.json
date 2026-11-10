@@ -1,0 +1,11 @@
+{
+  "visibility": "public",
+  "contractVersion": "1.0.0",
+  "updatedAt": "2026-11-10",
+  "simulatedDate": "2040-03",
+  "currentTermId": "T1",
+  "currentWeek": 1,
+  "phase": "formation",
+  "pool": { "initialUnits": 100 },
+  "statusNote": "The Treaty on Extrasolar Resource Governance has been signed at Geneva. The first Assembly is being seated under the founding party assignment. No officeholders have yet been elected or appointed, no measures have been filed, and the first release has not been apportioned."
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "id": "DEMO-COMP-T1",
+    "visibility": "public",
+    "termId": "T1",
+    "source": "founding-assignment",
+    "electionId": "DEMO-EL-T1",
+    "asOf": "2040-03",
+    "allocations": [
+      {
+        "partyId": "PTY-COLLECTIVISTS",
+        "constituencySeats": 68,
+        "listSeats": 64
+      },
+      {
+        "partyId": "PTY-UNIVERSALISTS",
+        "constituencySeats": 44,
+        "listSeats": 46
+      },
+      {
+        "partyId": "PTY-DELEGATIONISTS",
+        "constituencySeats": 42,
+        "listSeats": 48
+      },
+      {
+        "partyId": "PTY-CONSERVATIONISTS",
+        "constituencySeats": 48,
+        "listSeats": 48
+      },
+      {
+        "partyId": "PTY-PROPRIETARIANS",
+        "constituencySeats": 57,
+        "listSeats": 51
+      },
+      {
+        "partyId": "PTY-EXPANSIONISTS",
+        "constituencySeats": 41,
+        "listSeats": 43
+      }
+    ]
+  }
+]

@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Panel from '../../components/Panel.astro';
+import * as Contract from '../../../docs/PUBLIC_DATA_CONTRACT.md';
+import { href } from '../../lib/site.ts';
+import { collectionNames } from '../../lib/data/schema.ts';
+---
+<BaseLayout title="Public data contract" section="about" crumbs={[{ label: 'About', href: href('/about/') }, { label: 'Public data contract' }]} description="The contract governing records that a simulation engine may publish to the Information Service.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Open data · Publishing interface</div>
+      <h1>Public data contract</h1>
+      <p class="lede">What may be published, in what form, and what is validated before any record reaches this site.</p>
+    </div>
+  </div>
+  <div class="layout-main-side">
+    <article class="panel"><div class="panel-b prose contract" style="max-width:none"><Contract.Content /></div></article>
+    <aside>
+      <Panel title="Machine-readable schemas" flush>
+        <ul class="reclist">
+          <li><a href={href('/data/schema/meta.json')} class="mono">meta.json</a></li>
+          {collectionNames.map((c) => <li><a href={href(`/data/schema/${c}.json`)} class="mono">{c}.json</a></li>)}
+        </ul>
+      </Panel>
+      <Panel title="Exports" flush>
+        <ul class="reclist">
+          <li><a href={href('/data/canonical.json')}>canonical.json</a></li>
+          <li><a href={href('/data/demonstration.json')}>demonstration.json</a></li>
+          <li><a href={href('/search-index.json')}>search-index.json</a></li>
+        </ul>
+      </Panel>
+    </aside>
+  </div>
+  <style is:global>
+    .contract table { display: block; overflow-x: auto; border-collapse: collapse; width: 100%; font-family: var(--font-ui); font-size: 13px; margin: 8px 0 14px; }
+    .contract th, .contract td { border: 1px solid var(--rule); padding: 4px 8px; text-align: left; vertical-align: top; }
+    .contract th { background: var(--panel-tint); }
+    .contract pre { max-width: 100%; background: #f4f6f3; border: 1px solid var(--rule-2); padding: 8px 10px; overflow-x: auto; font-size: 12.5px; line-height: 1.4; }
+    .contract code { font-family: var(--font-mono); font-size: 0.86em; }
+    .contract h2 { font-size: 17px; border-top: 1px solid var(--rule); padding-top: 12px; margin-top: 18px; }
+    .contract h1 { display: none; }
+    .contract hr { display: none; }
+  </style>
+</BaseLayout>

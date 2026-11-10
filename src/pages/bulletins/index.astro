@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BulletinList from '../../components/BulletinList.astro';
+import EmptyState from '../../components/EmptyState.astro';
+import { getStore } from '../../lib/data/load.ts';
+import { href, sortBySimDesc, EVENT_KIND } from '../../lib/site.ts';
+
+const s = getStore();
+const events = sortBySimDesc(s.events);
+const years = [...new Set(events.map((e) => e.simDate.slice(0, 4)))];
+const kinds = [...new Set(s.events.map((e) => e.kind))];
+---
+<BaseLayout title="Bulletins" section="bulletins" crumbs={[{ label: 'Bulletins' }]} description="Chronological world events, official notices, election bulletins, research reports and announcements.">
+  <div class="page-head">
+    <div>
+      <div class="kicker">Section 05 · Chronicle</div>
+      <h1>Bulletins</h1>
+      <p class="lede">World events, official notices, election bulletins, Council statements, legal rulings, research reports and historical records, in simulated chronological order. Events are published only once they have occurred in the simulation.</p>
+    </div>
+  </div>
+  <div class="layout-side-main">
+    <aside>
+      <section class="panel">
+        <div class="panel-h"><h2>Archive by year</h2></div>
+        <ul class="reclist">
+          {years.map((y) => <li><a href={`#y${y}`}>{y}</a> <span class="small muted">({events.filter((e) => e.simDate.startsWith(y)).length})</span></li>)}
+        </ul>
+      </section>
+      <section class="panel">
+        <div class="panel-h"><h2>Archive by term</h2></div>
+        <ul class="reclist">
+          {s.terms.map((t) => <li><a href={href(`/archive/${t.id}/`)}>{t.name}</a></li>)}
+          <li><a href={href('/archive/')}>All terms</a></li>
+        </ul>
+      </section>
+    </aside>
+    <div class="panel" data-filter>
+      <div class="panel-h"><h2>All bulletins</h2><span class="meta"><output data-count>{events.length} records</output></span></div>
+      <form class="filterbar" onsubmit="return false" aria-label="Filter bulletins">
+        <div class="field grow"><label for="b-q">Search</label><input id="b-q" type="search" data-f="q" placeholder="Title, summary, ID…" /></div>
+        <div class="field"><label for="b-kind">Type</label>
+          <select id="b-kind" data-f="kind"><option value="">All types</option>{kinds.map((k) => <option value={k}>{EVENT_KIND[k]}</option>)}</select>
+        </div>
+        <div class="field"><label for="b-ds">Record set</label>
+          <select id="b-ds" data-f="dataset"><option value="">Canonical and demonstration</option><option value="canonical">Canonical only</option><option value="demonstration">Demonstration only</option></select>
+        </div>
+        <button type="button" class="btn" data-reset>Reset</button>
+      </form>
+      {years.map((y) => (
+        <section data-group id={`y${y}`} style="scroll-margin-top:8px">
+          <h2 style="margin:0;padding:5px 12px;font-size:12px;background:var(--sage-3);border-bottom:1px solid var(--rule);font-family:var(--font-mono)">{y}</h2>
+          <BulletinList events={events.filter((e) => e.simDate.startsWith(y))} filterable />
+        </section>
+      ))}
+      <div data-empty hidden style="padding:10px"><EmptyState code="NO MATCH" title="No bulletins match these filters." /></div>
+    </div>
+  </div>
+  <script>import '../../scripts/filter.ts';</script>
+</BaseLayout>

@@ -1,0 +1,90 @@
+{
+  "id": "DOC-TREATY",
+  "visibility": "public",
+  "kind": "treaty",
+  "title": "Treaty on Extrasolar Resource Governance — Consolidated Summary of Provisions",
+  "shortTitle": "Treaty (consolidated summary)",
+  "edition": "Signed at Geneva, March 2040 · Summary edition 1",
+  "issuedBy": "Assembly Information Service",
+  "sourceRef": "World Bible v3.4, Parts I–II and V",
+  "summary": "A consolidated summary of the treaty that establishes the World Assembly for Extrasolar Resources and the Council of Treaty Parties. Where this summary and the controlling text differ, the controlling text prevails.",
+  "sections": [
+    {
+      "id": "purpose",
+      "number": "1",
+      "heading": "Subject and purpose",
+      "paragraphs": [
+        "The Treaty on Extrasolar Resource Governance, signed at Geneva in March 2040, establishes institutions to administer rights to accessible resources beyond the solar system.",
+        "The treaty responds to a straightforward danger. An interstellar probe carrying autonomous, self-replicating industry could establish irreversible claims long before rival missions arrived. Governments and laboratories that might otherwise compete to launch first accepted common rules because an uncontrolled race threatened every participant."
+      ]
+    },
+    {
+      "id": "pool",
+      "number": "2",
+      "heading": "The resource pool",
+      "paragraphs": [
+        "Rights to accessible extrasolar resources are represented as a pool of 100 units. A unit is a legal claim on resources that may be reached or used in the future, not material that can be shipped to Earth today. Much of the pool lies millions of light-years away.",
+        "Releases specify legally effective future claims, not instantaneous physical construction. The rules for releases and channels are set out in [[DOC-RESOURCES|Releases and the Four Channels]]."
+      ]
+    },
+    {
+      "id": "institutions",
+      "number": "3",
+      "heading": "Institutions established",
+      "paragraphs": [
+        "The treaty establishes the [[INST-ASSEMBLY|World Assembly for Extrasolar Resources]] and the [[INST-COUNCIL|Council of Treaty Parties]], together with the constitutional and advisory offices below."
+      ],
+      "table": {
+        "caption": "Treaty institutions and offices",
+        "columns": ["Institution", "Selection", "Principal power"],
+        "rows": [
+          ["World Assembly for Extrasolar Resources (600 seats)", "300 constituency seats in twelve regions; 300 compensatory list seats", "Releases and allocates the pool; enacts prohibitions and Charter amendments"],
+          ["Council of Treaty Parties (7 seats)", "Appointed seats representing founding institutions", "One suspensive delay per measure; four entrenched vetoes"],
+          ["Office of the Treaty Arbiter", "Established by treaty", "Classifies measures under the protected-veto list; rules on prohibited uses"],
+          ["Charter Review Tribunal (5)", "Appointed by moderators", "Reviews Charter interpretations and Arbiter rulings"],
+          ["Commissioner for Future Generations", "Assembly simple majority", "Requires an impact report; delays one measure per term"],
+          ["Commission on Long-Term Inquiry (7)", "Assembly simple majority", "Sets publicly funded inquiry priorities"],
+          ["The press", "Any player", "Publishes reporting that may affect simulated public opinion"]
+        ]
+      }
+    },
+    {
+      "id": "jurisdiction",
+      "number": "4",
+      "heading": "Jurisdiction",
+      "paragraphs": [
+        "The treaty does not replace national governments or the United Nations. Its jurisdiction is specific: the allocation, stewardship and legally authorised uses of accessible extrasolar resources. National law, the Grand Bargain and international AI oversight continue alongside it.",
+        "The Assembly may define conditions on released claims, authorise projects, establish reserves, allocate through the four channels and enact lawful prohibitions. It does not automatically run Earth governments, command existing national armed forces, take personal property or repeal the Grand Bargain."
+      ]
+    },
+    {
+      "id": "grand-bargain",
+      "number": "5",
+      "heading": "Relationship to the Grand Bargain",
+      "paragraphs": [
+        "The Grand Bargain — formally, the International Agreement on Advanced AI Governance — gives safeguarded artificial systems extensive operational powers but does not settle how cosmic resources should be used. Superintelligences may advise, verify and enforce authorised commitments; the Assembly and Council make the allocation decisions assigned to them.",
+        "Strategic systems can block an explicitly prohibited military or computational action. They cannot simply veto an Assembly project because a model forecasts that it is unwise. An enforceable ban requires a treaty basis, a published determination and the available review process.",
+        "Where the Grand Bargain and the treaty touch the same action, the operations manual maintains a jurisdictional record for review. Neither instrument is assumed automatically to supersede the other."
+      ]
+    },
+    {
+      "id": "geneva-settlements",
+      "number": "6",
+      "heading": "The Geneva settlements",
+      "paragraphs": [
+        "Five disputes at Geneva shaped the treaty. Their resolutions are recorded here for reference."
+      ],
+      "table": {
+        "caption": "Disputes at Geneva and their resolution",
+        "columns": ["Question", "Positions", "Resolution"],
+        "rows": [
+          ["Who decides?", "US and Chinese negotiators favoured a council of powers controlling computing and space industry; the Nairobi Group, India and European delegates demanded a directly elected chamber.", "A 600-seat Assembly alongside a Council with defined delaying and veto powers."],
+          ["Who counts?", "Laboratories sought rights for digital minds; opponents feared copies could outnumber biological voters almost instantaneously.", "Protection against torture guaranteed; the franchise postponed; the Nairobi Group given a veto over changes to who may vote."],
+          ["How quickly should claims be released?", "Early movers wanted vast near-term allocations; stewards demanded that most choices be postponed.", "Releases of 5–25% of the remaining pool per term, with a default of 10%."],
+          ["What do we owe later generations?", "Whether only current adults may decide the entire accessible universe.", "The Reserve channel and the Commissioner for Future Generations."],
+          ["When must the agreement be reconsidered?", "Whether the founding bargain should be permanent.", "The Interim Charter expires in 2060."]
+        ]
+      }
+    }
+  ]
+}

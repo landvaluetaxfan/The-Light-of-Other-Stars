@@ -1,0 +1,33 @@
+[
+  {
+    "id": "EL-T1-FOUNDING",
+    "visibility": "public",
+    "termId": "T1",
+    "kind": "founding-assignment",
+    "simDate": "2040-03",
+    "status": "pending",
+    "summary": "Seating of the initial Assembly by founding party assignment. No popular vote is held for the First Term.",
+    "method": "Players are placed into four or six founding parties through a private intake process managed outside the public record; players have four days to request reassignment. Seats are then apportioned to party blocs, each capped at sixty seats.",
+    "compositionId": null,
+    "results": null,
+    "notes": [
+      "Results will be published here once the founding assignment is final.",
+      "No vote shares exist for a founding assignment."
+    ]
+  },
+  {
+    "id": "EL-T2-GENERAL",
+    "visibility": "public",
+    "termId": "T2",
+    "kind": "general",
+    "simDate": "2050-03",
+    "status": "scheduled",
+    "summary": "General election for the Second Term, held between terms and effective from Week 1 of the Second Term.",
+    "method": "Each of the twelve regions is divided into single-seat constituencies; the leading party in each wins the seat. A global tier of 300 list seats adjusts party totals toward their share of the worldwide vote by the largest-remainder method; parties need two per cent of the global vote to qualify. Overhang seats are retained and enlarge the Assembly for that term.",
+    "compositionId": null,
+    "results": null,
+    "notes": [
+      "Results are computed by the published model, not narrated. Moderators may explain the main causes of changes in support without revealing hidden model parameters."
+    ]
+  }
+]
