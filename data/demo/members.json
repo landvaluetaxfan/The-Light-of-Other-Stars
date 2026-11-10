@@ -141,16 +141,5 @@
       "Controls the Speaker’s bloc while the Speaker serves"
     ],
     "publicProfile": "Demonstration floor leader holding no bloc of their own. A fictional placeholder; not a player."
-  },
-  {
-    "id": "DEMO-M-SIRIUS",
-    "visibility": "public",
-    "displayName": "Delegate Sirius",
-    "partyId": "PTY-UNIVERSALISTS",
-    "sinceTermId": "T1",
-    "roles": [
-      "Commissioner for Future Generations"
-    ],
-    "publicProfile": "Demonstration Commissioner, who relinquished their bloc on election. A fictional placeholder; not a player."
   }
 ]

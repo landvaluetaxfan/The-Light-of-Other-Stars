@@ -5,16 +5,22 @@
     "termId": "T1",
     "status": "authorized",
     "startingPool": 100,
-    "fraction": 0.12,
-    "releasedUnits": 12,
-    "closingPool": 88,
-    "sizeDecision": "voted",
-    "sizeBillId": "DEMO-B-T1-001",
-    "splitDecision": "voted",
-    "splitBillId": "DEMO-B-T1-002",
-    "channels": { "endowment": 4.2, "assembly": 3.6, "deferral": 0.6, "reserve": 3.6 },
+    "fraction": 0.1,
+    "releasedUnits": 10,
+    "closingPool": 90,
+    "sizeDecision": "default",
+    "sizeBillId": null,
+    "splitDecision": "default",
+    "splitBillId": null,
+    "channels": {
+      "endowment": 3.3333,
+      "assembly": 3.3334,
+      "deferral": 0,
+      "reserve": 3.3333
+    },
     "notes": [
-      "Hypothetical First Term release used to test the ledger. Not the canonical release, which is pending."
+      "Hypothetical First Term release used to test the ledger. Not the canonical release, which is pending.",
+      "Shows the default rules: no release-size proposal passed, so 10% was released; no channel split passed, so the release divided equally among Endowment, Assembly and Reserve, with nothing to Deferral."
     ]
   }
 ]

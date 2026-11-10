@@ -75,8 +75,8 @@ All public content lives in `data/`. Read **[docs/PUBLIC_DATA_CONTRACT.md](docs/
 ### Canonical and demonstration records
 
 * `data/canonical/` is the record of the simulation. Canonical records may not use the `DEMO-` prefix or link to demonstration records.
-* `data/demo/` holds illustrative records that exercise the site before real business exists: a hypothetical six-party composition, six bills, eight divisions, a ledger entry and three demonstration publications. They are shown with a hatched **Demonstration** band, carry `DEMO-` IDs, and are excluded from every official figure.
-* To retire the demonstration set, delete `data/demo/` and `public/press/{geneva-ledger,channel-l5,afterlight}/`, then rebuild.
+* `data/demo/` holds one worked example of each record type, to exercise the site and to serve as templates (for people or for an AI assistant) when writing real records: a hypothetical six-party composition with its blocs, one bill with an amendment, Council delay, Arbiter ruling and override (three divisions), one bulletin, one default-rule release with one allocation, one office holder, and one publication with one article. They are shown with a hatched **Demonstration** band, carry `DEMO-` IDs, and are excluded from every official figure.
+* To retire the demonstration set, delete `data/demo/` and `public/press/geneva-ledger/`, then rebuild.
 
 ### Never publish private data
 

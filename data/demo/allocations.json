@@ -1,61 +1,25 @@
 [
   {
-    "id": "DEMO-AL-T1-01",
-    "visibility": "public",
-    "releaseId": "DEMO-REL-T1",
-    "channel": "endowment",
-    "title": "Universal adult endowment, first issue",
-    "units": 4.2,
-    "billId": "DEMO-B-T1-002",
-    "reach": "not-applicable",
-    "steward": "Endowment registry — equal individual claims to every adult human",
-    "stage": "allocated",
-    "stageHistory": [{ "stage": "allocated", "simDate": "2040-07" }],
-    "description": "Equal individual claims issued to every adult human, individually used or traded."
-  },
-  {
     "id": "DEMO-AL-T1-02",
     "visibility": "public",
     "releaseId": "DEMO-REL-T1",
     "channel": "assembly",
     "title": "Near-System Survey and Preservation Programme",
     "units": 0.8,
-    "billId": "DEMO-B-T1-004",
+    "billId": "DEMO-B-T1-001",
     "reach": "near",
     "steward": "Public survey consortium chartered under the Act",
     "stage": "committed",
     "stageHistory": [
-      { "stage": "allocated", "simDate": "2040-07" },
-      { "stage": "committed", "simDate": "2041" }
+      {
+        "stage": "allocated",
+        "simDate": "2040-07"
+      },
+      {
+        "stage": "committed",
+        "simDate": "2041"
+      }
     ],
     "description": "Non-invasive survey missions and observatories for nearby candidate systems, with conditional preservation zones pending survey."
-  },
-  {
-    "id": "DEMO-AL-T1-03",
-    "visibility": "public",
-    "releaseId": "DEMO-REL-T1",
-    "channel": "deferral",
-    "title": "Delegation to the Council on Long-Term Values",
-    "units": 0.6,
-    "billId": "DEMO-B-T1-002",
-    "reach": "not-applicable",
-    "steward": "Council on Long-Term Values",
-    "stage": "allocated",
-    "stageHistory": [{ "stage": "allocated", "simDate": "2040-07" }],
-    "description": "Delegated resources administered by the Council on Long-Term Values, which reports before the close of the Second Term."
-  },
-  {
-    "id": "DEMO-AL-T1-04",
-    "visibility": "public",
-    "releaseId": "DEMO-REL-T1",
-    "channel": "reserve",
-    "title": "Reserve for generations born after 2040",
-    "units": 3.6,
-    "billId": "DEMO-B-T1-002",
-    "reach": "not-applicable",
-    "steward": "Held under the Interim Charter; spending requires two-thirds",
-    "stage": "allocated",
-    "stageHistory": [{ "stage": "allocated", "simDate": "2040-07" }],
-    "description": "Released claims held for people born after 2040."
   }
 ]

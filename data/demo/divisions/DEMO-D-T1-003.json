@@ -2,56 +2,56 @@
   "id": "DEMO-D-T1-003",
   "visibility": "public",
   "termId": "T1",
-  "billId": "DEMO-B-T1-003",
+  "billId": "DEMO-B-T1-001",
   "amendmentId": null,
-  "stage": "passage",
-  "question": "That the First Term release be divided according to Split B (50 / 30 / 0 / 20).",
-  "threshold": "simple-majority",
+  "stage": "override",
+  "question": "That the delay of the Near-System Survey and Preservation Act by the Council of Treaty Parties be overridden.",
+  "threshold": "two-thirds",
   "basis": "seats-voting",
   "opens": {
-    "week": 3,
-    "simDate": "2040-06",
-    "realDate": "2026-12-15T18:00Z"
+    "week": 4,
+    "simDate": "2040-07",
+    "realDate": "2026-12-21T18:00Z"
   },
   "closes": {
-    "week": 3,
-    "simDate": "2040-06",
-    "realDate": "2026-12-18T18:00Z"
+    "week": 4,
+    "simDate": "2040-07",
+    "realDate": "2026-12-23T18:00Z"
   },
   "status": "closed",
   "ballots": [
     {
       "blocId": "DEMO-BL-10",
       "seats": 54,
-      "vote": "no",
+      "vote": "yes",
       "castBy": "holder",
       "proxyMemberId": null
     },
     {
       "blocId": "DEMO-BL-11",
       "seats": 36,
-      "vote": "no",
+      "vote": "yes",
       "castBy": "holder",
       "proxyMemberId": null
     },
     {
       "blocId": "DEMO-BL-12",
       "seats": 60,
-      "vote": "no",
+      "vote": "yes",
       "castBy": "holder",
       "proxyMemberId": null
     },
     {
       "blocId": "DEMO-BL-13",
       "seats": 30,
-      "vote": "no",
+      "vote": "yes",
       "castBy": "holder",
       "proxyMemberId": null
     },
     {
       "blocId": "DEMO-BL-01",
       "seats": 60,
-      "vote": "no",
+      "vote": "yes",
       "castBy": "holder",
       "proxyMemberId": null
     },
@@ -65,14 +65,14 @@
     {
       "blocId": "DEMO-BL-03",
       "seats": 30,
-      "vote": "abstain",
+      "vote": "yes",
       "castBy": "controller",
       "proxyMemberId": null
     },
     {
       "blocId": "DEMO-BL-04",
       "seats": 60,
-      "vote": "yes",
+      "vote": "no",
       "castBy": "holder",
       "proxyMemberId": null
     },
@@ -86,39 +86,39 @@
     {
       "blocId": "DEMO-BL-06",
       "seats": 56,
-      "vote": "no",
+      "vote": "yes",
       "castBy": "holder",
       "proxyMemberId": null
     },
     {
       "blocId": "DEMO-BL-07",
       "seats": 40,
-      "vote": "no",
+      "vote": "yes",
       "castBy": "holder",
       "proxyMemberId": null
     },
     {
       "blocId": "DEMO-BL-08",
       "seats": 50,
-      "vote": "yes",
+      "vote": "no",
       "castBy": "holder",
       "proxyMemberId": null
     },
     {
       "blocId": "DEMO-BL-09",
       "seats": 34,
-      "vote": "yes",
+      "vote": "no",
       "castBy": "holder",
       "proxyMemberId": null
     }
   ],
   "result": {
-    "yes": 234,
-    "no": 336,
-    "abstain": 30,
-    "seatsVoting": 570,
+    "yes": 456,
+    "no": 144,
+    "abstain": 0,
+    "seatsVoting": 600,
     "totalSeats": 600,
-    "required": 286,
-    "outcome": "not-carried"
+    "required": 400,
+    "outcome": "carried"
   }
 }
