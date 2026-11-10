@@ -23,6 +23,7 @@ Safety comes from the existing pipeline: every commit to `main` is validated, an
 4. **Repository permissions:**
    * **Contents:** Read and write
    * **Actions:** Read-only
+   * **Checks:** Read-only, if your token page lists it (lets the GPT read validation results; the repository is public, so this usually works without it).
    * (Metadata: Read-only is added automatically.)
 5. Generate and copy the token. Keep it private: anyone with it can change the repository.
 

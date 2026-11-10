@@ -7,7 +7,10 @@ import { loadFromDirectory } from '../src/lib/data/load.ts';
 import { collectionNames } from '../src/lib/data/schema.ts';
 
 const root = path.resolve(process.argv[2] ?? 'data');
-const { store, errors } = loadFromDirectory(root);
+const result = loadFromDirectory(root);
+const { store } = result;
+// Report paths relative to the repository (e.g. data/canonical/meta.json), not the machine.
+const errors = result.errors.map((e) => e.split(process.cwd() + path.sep).join('').replace(/\\/g, '/'));
 
 if (!store) {
   console.error(`✗ Public data failed validation — ${errors.length} error(s):\n`);
