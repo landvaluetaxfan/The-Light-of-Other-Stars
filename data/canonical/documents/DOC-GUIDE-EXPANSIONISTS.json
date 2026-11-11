@@ -1,0 +1,183 @@
+{
+  "id": "DOC-GUIDE-EXPANSIONISTS",
+  "visibility": "public",
+  "kind": "guide",
+  "title": "Player Guide: the Expansionists",
+  "shortTitle": "Guide: Expansionists",
+  "edition": "Orientation edition · November 2026",
+  "issuedBy": "Assembly Information Service — orientation for prospective players",
+  "sourceRef": "World Bible v3.4, § 13 and opening situation; Policy and Legislative Ideas Guide",
+  "summary": "An introduction for prospective players to the Expansionists, a provisional founding party: Everything within reach is a place to live.",
+  "sections": [
+    {
+      "id": "at-a-glance",
+      "number": "1",
+      "heading": "At a glance",
+      "table": {
+        "caption": "",
+        "columns": [
+          "Item",
+          "Detail"
+        ],
+        "rows": [
+          [
+            "Party",
+            "[[PTY-EXPANSIONISTS|Expansionists]] (EXP) — provisional founding label"
+          ],
+          [
+            "Core position",
+            "Settle all reachable space."
+          ],
+          [
+            "Internal divide",
+            "Acceptable risk and pace."
+          ],
+          [
+            "Four-party version",
+            "Merges into the Conservationists when fewer than forty players take part."
+          ],
+          [
+            "In one line",
+            "*Everything within reach is a place to live.*"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "stands",
+      "number": "2",
+      "heading": "What the party stands for",
+      "paragraphs": [
+        "The Expansionists want human and post-human civilisation to settle all reachable space — the Milky Way and beyond. They favour early, legally certain claims for missions, industrial seeds and settlements, and resist moratoria and prohibitions of unclear scope.",
+        "Their case is abundance and opportunity: every year of delay forgoes a vast amount of value, and a civilisation that spreads is hard to destroy. Their opponents point to irreversible harms, shared risks and premature claims on what later generations should decide."
+      ]
+    },
+    {
+      "id": "divide",
+      "number": "3",
+      "heading": "The internal divide",
+      "paragraphs": [
+        "Every founding party contains a disagreement capable of producing real factions. For the Expansionists it is: *Acceptable risk and pace*. You may find yourself on either side — and your private goals may pull you towards both."
+      ],
+      "list": [
+        "**Fast expansionists.** Accept higher exploratory risk for speed; early releases and first-possession rights.",
+        "**Staged expansionists.** Expansion at the pace capacity, safety and evidence allow; measurable milestones over slogans."
+      ]
+    },
+    {
+      "id": "axes",
+      "number": "4",
+      "heading": "On the five axes",
+      "paragraphs": [
+        "Every party is placed on the five public axes. This is a reading of the founding platform; where it says *open*, the party has not settled the question and its members may."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Axis",
+          "Founding tendency"
+        ],
+        "rows": [
+          [
+            "Reach",
+            "Settlement of all reachable space — the defining commitment"
+          ],
+          [
+            "Timing",
+            "Leans to early release; pace is the internal divide"
+          ],
+          [
+            "Prohibitions",
+            "Leans narrow"
+          ],
+          [
+            "Allocation",
+            "Open"
+          ],
+          [
+            "Franchise",
+            "Open"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "voters",
+      "number": "5",
+      "heading": "Voters to court",
+      "paragraphs": [
+        "Voter groups whose public aims overlap with the platform. None is affiliated to any party; each judges parties by its own priorities and can endorse, withhold, split or bargain. See the [[DOC-GUIDE-INTEREST-GROUPS|guide to the sixty interest groups]].",
+        "**Likely friction.** Wilderness Advocates, Ecological Guardians, Cautious Neighbors and Reflection First all oppose distant irreversible commitments."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Family",
+          "Groups with overlapping aims"
+        ],
+        "rows": [
+          [
+            "Settlers",
+            "Frontier Pioneers, Probe Lobbyists, Homestead Migrants, Industrial Expanders, Planetary Colonists, Risk Acceptors, Legacy Builders, Claim-First Loyalists, Speed Pragmatists, Rapid Distributors"
+          ],
+          [
+            "Holders",
+            "Private Ventures — entrepreneurs combining resource rights with industry"
+          ],
+          [
+            "Builders",
+            "Infrastructure Planners — for coherent investment sequences"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "opening",
+      "number": "6",
+      "heading": "The opening controversies",
+      "paragraphs": [
+        "Five disputes are on the table when the First Assembly meets. They are pressures, not scripts — parties may reshape them or ignore them. What is likely at stake for this party:"
+      ],
+      "list": [
+        "The Aster dispute and other probe claims are central: legal certainty for launched missions.",
+        "A larger first release.",
+        "Resisting broad advance bans in “preservation before arrival”."
+      ]
+    },
+    {
+      "id": "ideas",
+      "number": "7",
+      "heading": "Ideas to build on",
+      "paragraphs": [
+        "Entries from the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]] that fit the platform. Each needs a resource amount, channel, use, reach, implementing actor and success conditions before it is a bill — see the [[DOC-RULES|Rules of Procedure]]."
+      ],
+      "list": [
+        "*Early-release compact*",
+        "*Autonomous settlement franchises*",
+        "*Open industrial seed library*",
+        "*Compensation for prior probes*",
+        "*Preserve-and-settle exchange*",
+        "*Reversible development experiments*"
+      ]
+    },
+    {
+      "id": "membership",
+      "heading": "Playing a member",
+      "paragraphs": [
+        "Each player ordinarily controls one indivisible bloc of party seats (at most sixty), which votes yes, no or abstain as a whole. You also receive two or three private yes/no goals drawn from the Expansionists goal bundles — deliberately including goals on *both* sides of the party’s internal divide — and may redraw once before the first term. Goals are scored only from verifiable public actions.",
+        "Losing a bloc does not remove you from play. Members can seek the Speakership or a bureau post, Council seats, judicial appointments, Commission membership, or write for the press.",
+        "The label “Expansionists” is provisional. It is a description of a founding organisation, not a permanent party name and not one of the six voter families. Players are expected to rename, reorganise, split or merge parties through play. After the first term members may transfer freely; a new party needs three members and a platform on all five axes, and a party that falls below three members dissolves at the end of the term.",
+        "You may ask for a different founding party: requests are considered alongside party balance, and there are four days to request a reassignment after the initial placement."
+      ],
+      "number": "8"
+    },
+    {
+      "id": "sources",
+      "heading": "Sources and limits of this guide",
+      "paragraphs": [
+        "Drawn from the World Bible v3.4 (§ 13 and the opening situation), the [[DOC-ELECTORATE|Public Electorate Reference]] and the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]]. Where this guide reads a position into the founding platform — the axis readings and the lists of overlapping voter groups — it is orientation, not a rule or a promise of support. No voter group is affiliated automatically with any party, and a promise to a group is not a guarantee of its votes."
+      ],
+      "number": "9"
+    }
+  ]
+}

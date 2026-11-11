@@ -1,0 +1,183 @@
+{
+  "id": "DOC-GUIDE-COLLECTIVISTS",
+  "visibility": "public",
+  "kind": "guide",
+  "title": "Player Guide: the Collectivists",
+  "shortTitle": "Guide: Collectivists",
+  "edition": "Orientation edition · November 2026",
+  "issuedBy": "Assembly Information Service — orientation for prospective players",
+  "sourceRef": "World Bible v3.4, § 13 and opening situation; Policy and Legislative Ideas Guide",
+  "summary": "An introduction for prospective players to the Collectivists, a provisional founding party: The future should be built together, by the people’s elected Assembly.",
+  "sections": [
+    {
+      "id": "at-a-glance",
+      "number": "1",
+      "heading": "At a glance",
+      "table": {
+        "caption": "",
+        "columns": [
+          "Item",
+          "Detail"
+        ],
+        "rows": [
+          [
+            "Party",
+            "[[PTY-COLLECTIVISTS|Collectivists]] (COL) — provisional founding label"
+          ],
+          [
+            "Core position",
+            "Collective Assembly decisions over the use of released resources."
+          ],
+          [
+            "Internal divide",
+            "How future generations acquire power."
+          ],
+          [
+            "Four-party version",
+            "Retained; absorbs the Universalists when fewer than forty players take part."
+          ],
+          [
+            "In one line",
+            "*The future should be built together, by the people’s elected Assembly.*"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "stands",
+      "number": "2",
+      "heading": "What the party stands for",
+      "paragraphs": [
+        "The Collectivists hold that cosmic resources are a common inheritance and that the Assembly — not markets of individual shares, and not machine trustees — is the legitimate place to decide what they are used for. Their natural instrument is the *Assembly channel*: specific collective projects authorised by a vote of the legislature, such as survey networks, relays, research commons and settlement programmes.",
+        "Their case is democratic legitimacy and public goods: shared infrastructure that no individual holder would build alone, decided in public and recorded in the ledger. Their opponents ask whether a majority in one decade should bind everyone else’s share of the stars."
+      ]
+    },
+    {
+      "id": "divide",
+      "number": "3",
+      "heading": "The internal divide",
+      "paragraphs": [
+        "Every founding party contains a disagreement capable of producing real factions. For the Collectivists it is: *How future generations acquire power*. You may find yourself on either side — and your private goals may pull you towards both."
+      ],
+      "list": [
+        "**Present-majority collectivists.** The living electorate, through the Assembly, should decide. Future generations acquire power when they are born and enfranchised.",
+        "**Trustee collectivists.** Collective decisions must also speak for those not yet born — through the *Reserve* channel, the [[INST-COMMISSIONER|Commissioner for Future Generations]], or new representative devices — and so may need to restrain today’s majority."
+      ]
+    },
+    {
+      "id": "axes",
+      "number": "4",
+      "heading": "On the five axes",
+      "paragraphs": [
+        "Every party is placed on the five public axes. This is a reading of the founding platform; where it says *open*, the party has not settled the question and its members may."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Axis",
+          "Founding tendency"
+        ],
+        "rows": [
+          [
+            "Allocation",
+            "Legislative decision — the defining commitment"
+          ],
+          [
+            "Timing",
+            "Contested; tied to how future generations are represented"
+          ],
+          [
+            "Franchise",
+            "Contested — the internal divide runs through it"
+          ],
+          [
+            "Reach",
+            "Open; decided project by project"
+          ],
+          [
+            "Prohibitions",
+            "Open"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "voters",
+      "number": "5",
+      "heading": "Voters to court",
+      "paragraphs": [
+        "Voter groups whose public aims overlap with the platform. None is affiliated to any party; each judges parties by its own priorities and can endorse, withhold, split or bargain. See the [[DOC-GUIDE-INTEREST-GROUPS|guide to the sixty interest groups]].",
+        "**Likely friction.** Anti-Pooling Holders, Open-Exchange Holders and Council Delegators all reject, for different reasons, the idea that the legislature should decide most uses."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Family",
+          "Groups with overlapping aims"
+        ],
+        "rows": [
+          [
+            "Builders",
+            "Public Works Builders, Shared-Sky Advocates, Civic Councils, Regional Commons, Infrastructure Planners, Assembly Loyalists"
+          ],
+          [
+            "Inclusionists",
+            "Later-Generation Advocates, Youth Cohort — on the trustee side of the divide"
+          ],
+          [
+            "Stewards",
+            "Intergenerational Stewards — where common projects take the form of reserves"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "opening",
+      "number": "6",
+      "heading": "The opening controversies",
+      "paragraphs": [
+        "Five disputes are on the table when the First Assembly meets. They are pressures, not scripts — parties may reshape them or ignore them. What is likely at stake for this party:"
+      ],
+      "list": [
+        "The size of the Assembly channel in the first release split is the party’s central test.",
+        "A collective survey-and-preservation project is the kind of Assembly-channel measure the founding design anticipates.",
+        "Trustee collectivists will care how far a Reserve share and the Commissioner’s delay power can stand in for the unborn."
+      ]
+    },
+    {
+      "id": "ideas",
+      "number": "7",
+      "heading": "Ideas to build on",
+      "paragraphs": [
+        "Entries from the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]] that fit the platform. Each needs a resource amount, channel, use, reach, implementing actor and success conditions before it is a bill — see the [[DOC-RULES|Rules of Procedure]]."
+      ],
+      "list": [
+        "*Global research commons*",
+        "*Regional access fund*",
+        "*Interstellar communications archive*",
+        "*Open industrial seed library*",
+        "*Balanced four-channel settlement*",
+        "*Future-generation reserve stewardship*"
+      ]
+    },
+    {
+      "id": "membership",
+      "heading": "Playing a member",
+      "paragraphs": [
+        "Each player ordinarily controls one indivisible bloc of party seats (at most sixty), which votes yes, no or abstain as a whole. You also receive two or three private yes/no goals drawn from the Collectivists goal bundles — deliberately including goals on *both* sides of the party’s internal divide — and may redraw once before the first term. Goals are scored only from verifiable public actions.",
+        "Losing a bloc does not remove you from play. Members can seek the Speakership or a bureau post, Council seats, judicial appointments, Commission membership, or write for the press.",
+        "The label “Collectivists” is provisional. It is a description of a founding organisation, not a permanent party name and not one of the six voter families. Players are expected to rename, reorganise, split or merge parties through play. After the first term members may transfer freely; a new party needs three members and a platform on all five axes, and a party that falls below three members dissolves at the end of the term.",
+        "You may ask for a different founding party: requests are considered alongside party balance, and there are four days to request a reassignment after the initial placement."
+      ],
+      "number": "8"
+    },
+    {
+      "id": "sources",
+      "heading": "Sources and limits of this guide",
+      "paragraphs": [
+        "Drawn from the World Bible v3.4 (§ 13 and the opening situation), the [[DOC-ELECTORATE|Public Electorate Reference]] and the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]]. Where this guide reads a position into the founding platform — the axis readings and the lists of overlapping voter groups — it is orientation, not a rule or a promise of support. No voter group is affiliated automatically with any party, and a promise to a group is not a guarantee of its votes."
+      ],
+      "number": "9"
+    }
+  ]
+}

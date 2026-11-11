@@ -1,0 +1,183 @@
+{
+  "id": "DOC-GUIDE-CONSERVATIONISTS",
+  "visibility": "public",
+  "kind": "guide",
+  "title": "Player Guide: the Conservationists",
+  "shortTitle": "Guide: Conservationists",
+  "edition": "Orientation edition · November 2026",
+  "issuedBy": "Assembly Information Service — orientation for prospective players",
+  "sourceRef": "World Bible v3.4, § 13 and opening situation; Policy and Legislative Ideas Guide",
+  "summary": "An introduction for prospective players to the Conservationists, a provisional founding party: A home among the stars — and a universe left wild.",
+  "sections": [
+    {
+      "id": "at-a-glance",
+      "number": "1",
+      "heading": "At a glance",
+      "table": {
+        "caption": "",
+        "columns": [
+          "Item",
+          "Detail"
+        ],
+        "rows": [
+          [
+            "Party",
+            "[[PTY-CONSERVATIONISTS|Conservationists]] (CON) — provisional founding label"
+          ],
+          [
+            "Core position",
+            "Settle the Milky Way; preserve what lies beyond."
+          ],
+          [
+            "Internal divide",
+            "Whether any far settlement is justified."
+          ],
+          [
+            "Four-party version",
+            "Retained; absorbs the Expansionists when fewer than forty players take part."
+          ],
+          [
+            "In one line",
+            "*A home among the stars — and a universe left wild.*"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "stands",
+      "number": "2",
+      "heading": "What the party stands for",
+      "paragraphs": [
+        "The Conservationists accept human settlement within our own galaxy but want what lies beyond the Milky Way preserved. Their instruments are sanctuaries, preservation covenants, surveys before transformation and limits on distant, irreversible commitments.",
+        "Their case is option value and humility: once a galaxy is converted it cannot be unconverted, and later, better-informed generations deserve a say. Their opponents call it stranding the most valuable resources in existence."
+      ]
+    },
+    {
+      "id": "divide",
+      "number": "3",
+      "heading": "The internal divide",
+      "paragraphs": [
+        "Every founding party contains a disagreement capable of producing real factions. For the Conservationists it is: *Whether any far settlement is justified*. You may find yourself on either side — and your private goals may pull you towards both."
+      ],
+      "list": [
+        "**Near-settlement conservationists.** Some carefully staged far settlement may be justified later, under scientific triggers and sunset reviews.",
+        "**Strict preservationists.** No far settlement is justified; the line at the edge of the galaxy should be firm and permanent."
+      ]
+    },
+    {
+      "id": "axes",
+      "number": "4",
+      "heading": "On the five axes",
+      "paragraphs": [
+        "Every party is placed on the five public axes. This is a reading of the founding platform; where it says *open*, the party has not settled the question and its members may."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Axis",
+          "Founding tendency"
+        ],
+        "rows": [
+          [
+            "Reach",
+            "Preservation beyond the Milky Way; settlement within it — the defining commitment"
+          ],
+          [
+            "Timing",
+            "Leans to reflection before irreversible acts"
+          ],
+          [
+            "Prohibitions",
+            "Contested: binding bans versus monitored, conditional limits"
+          ],
+          [
+            "Allocation",
+            "Open"
+          ],
+          [
+            "Franchise",
+            "Open"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "voters",
+      "number": "5",
+      "heading": "Voters to court",
+      "paragraphs": [
+        "Voter groups whose public aims overlap with the platform. None is affiliated to any party; each judges parties by its own priorities and can endorse, withhold, split or bargain. See the [[DOC-GUIDE-INTEREST-GROUPS|guide to the sixty interest groups]].",
+        "**Likely friction.** Industrial Expanders, Claim-First Loyalists and Risk Acceptors resist broad advance prohibitions and moratoria."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Family",
+          "Groups with overlapping aims"
+        ],
+        "rows": [
+          [
+            "Stewards",
+            "Preserve Keepers, Near-Space Settlers, Wilderness Advocates, Ecological Guardians, Heritage Protectors, Observers’ Bloc, Minimal-Footprint Colonists, Intergenerational Stewards, Slow Settlers"
+          ],
+          [
+            "Settlers",
+            "Planetary Colonists and Speed Pragmatists — for in-galaxy settlement"
+          ],
+          [
+            "Deferrers",
+            "Uncertainty Hedgers, Reflection First"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "opening",
+      "number": "6",
+      "heading": "The opening controversies",
+      "paragraphs": [
+        "Five disputes are on the table when the First Assembly meets. They are pressures, not scripts — parties may reshape them or ignore them. What is likely at stake for this party:"
+      ],
+      "list": [
+        "“Preservation before arrival” is the party’s home ground, and tests the difference between a conditional use instruction and a 90-per-cent prohibition.",
+        "Probe claims near protected sites may trigger the Council veto.",
+        "A smaller first release keeps more options open."
+      ]
+    },
+    {
+      "id": "ideas",
+      "number": "7",
+      "heading": "Ideas to build on",
+      "paragraphs": [
+        "Entries from the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]] that fit the platform. Each needs a resource amount, channel, use, reach, implementing actor and success conditions before it is a bill — see the [[DOC-RULES|Rules of Procedure]]."
+      ],
+      "list": [
+        "*Stellar sanctuary program*",
+        "*Milky Way settlement priority*",
+        "*Frontier survey before settlement*",
+        "*Long-distance claim escrow*",
+        "*Minimal-footprint engineering*",
+        "*Preserve-and-settle exchange*"
+      ]
+    },
+    {
+      "id": "membership",
+      "heading": "Playing a member",
+      "paragraphs": [
+        "Each player ordinarily controls one indivisible bloc of party seats (at most sixty), which votes yes, no or abstain as a whole. You also receive two or three private yes/no goals drawn from the Conservationists goal bundles — deliberately including goals on *both* sides of the party’s internal divide — and may redraw once before the first term. Goals are scored only from verifiable public actions.",
+        "Losing a bloc does not remove you from play. Members can seek the Speakership or a bureau post, Council seats, judicial appointments, Commission membership, or write for the press.",
+        "The label “Conservationists” is provisional. It is a description of a founding organisation, not a permanent party name and not one of the six voter families. Players are expected to rename, reorganise, split or merge parties through play. After the first term members may transfer freely; a new party needs three members and a platform on all five axes, and a party that falls below three members dissolves at the end of the term.",
+        "You may ask for a different founding party: requests are considered alongside party balance, and there are four days to request a reassignment after the initial placement."
+      ],
+      "number": "8"
+    },
+    {
+      "id": "sources",
+      "heading": "Sources and limits of this guide",
+      "paragraphs": [
+        "Drawn from the World Bible v3.4 (§ 13 and the opening situation), the [[DOC-ELECTORATE|Public Electorate Reference]] and the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]]. Where this guide reads a position into the founding platform — the axis readings and the lists of overlapping voter groups — it is orientation, not a rule or a promise of support. No voter group is affiliated automatically with any party, and a promise to a group is not a guarantee of its votes."
+      ],
+      "number": "9"
+    }
+  ]
+}

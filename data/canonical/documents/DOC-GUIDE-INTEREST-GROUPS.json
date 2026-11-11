@@ -1,0 +1,477 @@
+{
+  "id": "DOC-GUIDE-INTEREST-GROUPS",
+  "visibility": "public",
+  "kind": "guide",
+  "title": "Player Guide: the Sixty Interest Groups",
+  "shortTitle": "Guide: the sixty interest groups",
+  "edition": "Orientation edition · November 2026",
+  "issuedBy": "Assembly Information Service — orientation for prospective players",
+  "sourceRef": "World Bible v3.4, § 17 and Appendix B",
+  "summary": "An introduction for prospective players to the electorate: six voter families, sixty publicly described groups, and the five axes on which they judge parties.",
+  "sections": [
+    {
+      "id": "electorate",
+      "number": "1",
+      "heading": "Who votes",
+      "paragraphs": [
+        "The world’s adult human population — about 9.16 billion people in 2040 — votes in twelve regions for the 600-seat Assembly: 300 constituency seats and 300 global-list seats that bring each party’s total close to its share of the world vote (a party needs two per cent to qualify).",
+        "The electorate is modelled as **sixty voter groups in six families**. Every family appears in every region, in different proportions. Groups are simulated actors with standing profiles, budgets and consistent histories; they are not invented on the spot to reward or punish anyone.",
+        "Almost every voter has a powerful AI adviser. That improves factual understanding but leaves value differences intact — misleading persuasion, unequal access and strategic voting are still real."
+      ]
+    },
+    {
+      "id": "axes",
+      "number": "2",
+      "heading": "The five axes",
+      "paragraphs": [
+        "Every group has a position on each axis and gives each axis a different weight. A party is scored by how close it is to a group on the axes that group cares about most."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Axis",
+          "From … to"
+        ],
+        "rows": [
+          [
+            "Allocation",
+            "Individual ownership · legislative decision · AI delegation"
+          ],
+          [
+            "Timing",
+            "Early release · reflection"
+          ],
+          [
+            "Franchise",
+            "Living adults · broader inclusion"
+          ],
+          [
+            "Reach",
+            "Preservation · settlement"
+          ],
+          [
+            "Prohibitions",
+            "Narrow · extensive"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "families",
+      "number": "3",
+      "heading": "The six families",
+      "paragraphs": [
+        "Families describe recurring political motivations, not classes of people, and they are **not** the founding parties. A party can draw on several families, and two groups in one family can disagree on nearly every practical bill."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Family",
+          "Principal tendency",
+          "What binds it",
+          "What divides it"
+        ],
+        "rows": [
+          [
+            "Settlers",
+            "Claim, settlement and early action",
+            "New frontiers and the benefits of expansion",
+            "Speed, territorial priority, acceptable risks and who receives claims"
+          ],
+          [
+            "Stewards",
+            "Protection and conservation",
+            "Protection of places, ecosystems and options",
+            "Permanent bans versus limited, carefully monitored settlement"
+          ],
+          [
+            "Holders",
+            "Individual title and trading",
+            "Control over individualised resource claims",
+            "Free markets versus family, community and waiting-period restrictions"
+          ],
+          [
+            "Builders",
+            "Public goods and common projects",
+            "Shared projects and pooled investment",
+            "Technocratic planning versus participatory control"
+          ],
+          [
+            "Inclusionists",
+            "Future and digital persons and an enlarged franchise",
+            "Recognition of excluded or uncertain interests",
+            "Which minds or future persons deserve representation, and on what terms"
+          ],
+          [
+            "Deferrers",
+            "Delay and delegation for reflection",
+            "Avoiding irreversible errors under moral uncertainty",
+            "Human deliberation versus delegated AI inquiry and authority"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "settlers",
+      "number": "4",
+      "heading": "Settlers — claim, settlement and early action",
+      "paragraphs": [
+        "*Divided over:* speed, territorial priority, acceptable risks and who receives claims."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Group",
+          "Public aims"
+        ],
+        "rows": [
+          [
+            "Frontier Pioneers",
+            "Would-be founders of distant autonomous settlements. Demand early site access and meaningful self-government; resist indefinite moratoria."
+          ],
+          [
+            "Probe Lobbyists",
+            "Manufacturers, engineers and investors tied to interstellar mission chains. Favour legal certainty for launched missions; can switch parties over compensation and safety standards."
+          ],
+          [
+            "Homestead Migrants",
+            "Households seeking independent titles in newly accessible systems. Support individually transferable claims but oppose concentration by incumbent firms."
+          ],
+          [
+            "Industrial Expanders",
+            "Operators and beneficiaries of self-reproducing industrial capacity. Favour early allocation to industrial seeds and infrastructure; resist prohibitions with unclear scope."
+          ],
+          [
+            "Planetary Colonists",
+            "People seeking long-duration settlements on planetary surfaces. Demand habitable-site protections, safe terraforming and stable local law."
+          ],
+          [
+            "Risk Acceptors",
+            "People who value ambitious experiments and fast exploration. Tolerate higher exploratory risks but object to concealed external harms and coercion."
+          ],
+          [
+            "Legacy Builders",
+            "Families and communities seeking projects that last for generations. Support durable endowments and visible works; may back reserves linked to named future beneficiaries."
+          ],
+          [
+            "Claim-First Loyalists",
+            "Partisans of early missions and first-possession doctrines. Defend prior claims and could mobilise against retroactive curtailments."
+          ],
+          [
+            "Speed Pragmatists",
+            "Supporters of technically feasible, staged expansion. Value deployment schedules and measurable results; abandon slogans unsupported by capacity."
+          ],
+          [
+            "Rapid Distributors",
+            "Advocates of putting released claims into use promptly. Support fast releases but split between individual distribution and common development."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "stewards",
+      "number": "5",
+      "heading": "Stewards — protection and conservation",
+      "paragraphs": [
+        "*Divided over:* permanent bans versus limited, carefully monitored settlement."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Group",
+          "Public aims"
+        ],
+        "rows": [
+          [
+            "Preserve Keepers",
+            "Administrators and supporters of protected cosmic environments. Want binding sanctuaries and penalties for destruction; insist on clear boundaries."
+          ],
+          [
+            "Near-Space Settlers",
+            "People favouring modest exploration near Earth and nearby stars. Accept regulated settlement but oppose distant irreversible commitments."
+          ],
+          [
+            "Wilderness Advocates",
+            "Believers in the intrinsic value of unmodified environments. Defend unvisited systems from industrial conversion, even where no human would be harmed."
+          ],
+          [
+            "Ecological Guardians",
+            "Researchers and campaigners concerned with alien or emergent ecologies. Require precautionary surveys before engineering potentially living worlds."
+          ],
+          [
+            "Cautious Neighbors",
+            "Communities worried that others’ expansion imposes shared risks. Prioritise externality controls, consultation and enforceable liability."
+          ],
+          [
+            "Heritage Protectors",
+            "Associations defending historic places, artefacts and inherited landscapes. Prefer preservation covenants; object to projects that erase culturally important records."
+          ],
+          [
+            "Observers’ Bloc",
+            "Scientists and contemplative groups preferring study before intervention. Support observatories and non-invasive missions; can back long-term restraint."
+          ],
+          [
+            "Minimal-Footprint Colonists",
+            "Settlers committed to low-impact human presence. Support habitation where footprints are limited and monitored."
+          ],
+          [
+            "Intergenerational Stewards",
+            "Advocates for the option value of untouched resources. Favour reserves and periodic review over irreversible present-day decisions."
+          ],
+          [
+            "Slow Settlers",
+            "Advocates of expansion conditional on accumulated knowledge. Can support eventual settlement if scientific triggers and sunset reviews are credible."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "holders",
+      "number": "6",
+      "heading": "Holders — individual title and trading",
+      "paragraphs": [
+        "*Divided over:* free markets versus family, community and waiting-period restrictions."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Group",
+          "Public aims"
+        ],
+        "rows": [
+          [
+            "Equal-Share Traders",
+            "People whose central concern is universal initial ownership. Want equal, enforceable shares; resist privileged allocations to incumbents."
+          ],
+          [
+            "Open-Exchange Holders",
+            "Owners who regard liquid trading as essential to autonomy. Oppose transfer restrictions; favour transparent competitive markets."
+          ],
+          [
+            "Kin Holders",
+            "Households managing shares through families and descendants. Demand reliable inheritance, guardianship and protection against fraud."
+          ],
+          [
+            "Share Speculators",
+            "Investors accepting risk in future resource claims. Favour liquid markets, predictable titles and disclosure; react strongly to retroactive changes."
+          ],
+          [
+            "Community Holders",
+            "Cooperatives and local associations pooling individual endowments. Support voluntary collective title; oppose compulsory collectivisation."
+          ],
+          [
+            "Private Ventures",
+            "Entrepreneurs combining resource rights with industrial projects. Favour stable contracts and entrepreneurial access over monopoly concessions."
+          ],
+          [
+            "Pledge Givers",
+            "People who commit their shares to charitable or moral causes. Demand robust trusts and commitments enforceable beyond a holder’s lifetime."
+          ],
+          [
+            "Waiting-Period Holders",
+            "Supporters of temporary limits on immediate sale. Favour cooling-off periods and anti-manipulation rules without permanent paternalism."
+          ],
+          [
+            "Anti-Pooling Holders",
+            "Critics of compulsory pooled institutions. Resist mandatory trusts and legislative diversion of individual rights."
+          ],
+          [
+            "Direct-Use Holders",
+            "People wanting to use their own shares for concrete projects. Want accessible project tools; dislike systems where only large companies can build."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "builders",
+      "number": "7",
+      "heading": "Builders — public goods and common projects",
+      "paragraphs": [
+        "*Divided over:* technocratic planning versus participatory control."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Group",
+          "Public aims"
+        ],
+        "rows": [
+          [
+            "Public Works Builders",
+            "Coalitions favouring shared interstellar infrastructure. Back relays, surveys and common utilities funded through Assembly projects."
+          ],
+          [
+            "Research Funders",
+            "Supporters of openly tested science. Want independent verification and publication rather than corporate capture."
+          ],
+          [
+            "Shared-Sky Advocates",
+            "People who see cosmic resources as a common inheritance. Favour broad public benefit; disagree on central planning versus community control."
+          ],
+          [
+            "Moral Project Funders",
+            "Donors and organisers prioritising ethical objectives. Back projects justified by welfare or rights rather than sheer output."
+          ],
+          [
+            "Long-Term Trustees",
+            "Supporters of fiduciary institutions that endure for centuries. Want auditability, trustee-removal rules and protection from political raids."
+          ],
+          [
+            "Civic Councils",
+            "Local and regional democratic institutions seeking a role in implementation. Demand participation, fiscal transparency and local autonomy."
+          ],
+          [
+            "Regional Commons",
+            "Coalitions worried that powerful regions monopolise common investment. Push geographic fairness across the twelve regions."
+          ],
+          [
+            "Infrastructure Planners",
+            "Logistics, energy and engineering communities. Prefer coherent sequences of investment over symbolic announcements."
+          ],
+          [
+            "Mutual Benefit Pools",
+            "Associations coordinating cross-group public goods. Support bargains with measurable benefits to several constituencies."
+          ],
+          [
+            "Assembly Loyalists",
+            "Voters who identify common projects with parliamentary legitimacy. Defend Assembly authority; oppose informal Council or corporate substitutes."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "inclusionists",
+      "number": "8",
+      "heading": "Inclusionists — future and digital persons and an enlarged franchise",
+      "paragraphs": [
+        "*Divided over:* which minds or future persons deserve representation, and on what terms."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Group",
+          "Public aims"
+        ],
+        "rows": [
+          [
+            "Later-Generation Advocates",
+            "Supporters of political consideration for people not yet born. Demand reserved resources and limits on irreversible depletion."
+          ],
+          [
+            "Digital Rights Advocates",
+            "Campaigners for persistent artificial persons. Press for due process, protection from deletion and recognition beyond property law."
+          ],
+          [
+            "Emulation Families",
+            "Kin and partners of uploaded or copied persons. Defend continuity of marriage, inheritance and family status across substrates."
+          ],
+          [
+            "Agent Operators",
+            "People responsible for persistent agents. Seek clear duties and safeguards; divided over operators’ versus agents’ rights."
+          ],
+          [
+            "Youth Cohort",
+            "Young and soon-to-be-enfranchised people worried about inherited commitments. Demand generational accountability and ways to revise earlier settlements."
+          ],
+          [
+            "Universal Franchise",
+            "Maximal advocates of political inclusion. Support broad voting eligibility but must answer duplication and identity verification."
+          ],
+          [
+            "Sentience Advocates",
+            "Campaigners for potentially conscious animals and AIs. Prefer precautionary welfare protection where consciousness is uncertain."
+          ],
+          [
+            "Copy-Limit Reformers",
+            "People concerned with the rights and electoral effects of replication. Support limits or safeguards on copying; disagree over consent and identity."
+          ],
+          [
+            "Representation Reformers",
+            "Electoral designers seeking institutions beyond territorial suffrage. Explore chambers, trustees or weighted representation."
+          ],
+          [
+            "Cautious Inclusionists",
+            "Reformers wanting evidence before wholesale franchise change. Support welfare rights first and reviewable enfranchisement later."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "deferrers",
+      "number": "9",
+      "heading": "Deferrers — delay and delegation for reflection",
+      "paragraphs": [
+        "*Divided over:* human deliberation versus delegated AI inquiry and authority."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Group",
+          "Public aims"
+        ],
+        "rows": [
+          [
+            "Reflection First",
+            "Voters who put moral deliberation before irreversible action. Favour smaller early releases and serious inquiry commitments."
+          ],
+          [
+            "Council Delegators",
+            "Supporters of deliberation by aligned AI delegates. Want transparent delegation and appeal routes, not unlimited machine sovereignty."
+          ],
+          [
+            "Moral Realists",
+            "People who believe correct moral answers may be discoverable. Fund rigorous moral research and update as evidence improves."
+          ],
+          [
+            "Research Patrons",
+            "Financiers of long-term foundational inquiry. Back science that reduces uncertainty before cosmic-scale spending."
+          ],
+          [
+            "Wait-and-See Centrists",
+            "Uncommitted voters suspicious of rapid institutional commitments. Prefer reversible pilots and clear reporting."
+          ],
+          [
+            "Philosophers’ Bloc",
+            "Academic and public communities in normative debate. Demand pluralistic argument; resist treating forecasts as moral verdicts."
+          ],
+          [
+            "Verification Hawks",
+            "Citizens sceptical of unverifiable AI guarantees. Back independent audits, constrained delegation and adversarial safety reviews."
+          ],
+          [
+            "Slow Constitutionalists",
+            "Supporters of durable constitutional procedure. Favour high thresholds, staged amendments and protection against deadline crises."
+          ],
+          [
+            "Arbiter Reliants",
+            "People who rely on consistent legal administration. Value precedent and transparent adjudication; distrust personalised exceptions."
+          ],
+          [
+            "Uncertainty Hedgers",
+            "Groups prioritising resilience across very different futures. Prefer diversified investments and reserves over one irreversible bet."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "behaviour",
+      "number": "10",
+      "heading": "How groups behave",
+      "list": [
+        "Support moves with enacted policy, welfare and legal conditions, world events, press coverage and organised advocacy.",
+        "Groups can endorse, withhold support, split, bargain or change priorities when the world changes — but not without a reason such as new leadership, incentives or evidence.",
+        "Close scores split a group’s support between parties; regions draw on different mixtures of groups, so a regional campaign is a different campaign.",
+        "Moderators publish noisy *family-level* polling each term. Each party may commission two *subgroup* polls per term.",
+        "A promise to a family is not a guarantee of its votes."
+      ]
+    },
+    {
+      "id": "not-published",
+      "number": "11",
+      "heading": "What is not published",
+      "paragraphs": [
+        "The groups’ salience weights, loyalty, turnout, regional weights and the simulation’s random draws stay in the moderators’ model. Strategy should be intelligible from public information, not reverse-engineered from hidden numbers. These descriptions are segments of a simulated electorate, not real organisations, and none is affiliated automatically with any party. See also the [[DOC-ELECTORATE|Public Electorate Reference]] and the six party guides."
+      ]
+    }
+  ]
+}

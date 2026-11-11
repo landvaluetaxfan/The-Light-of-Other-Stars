@@ -1,0 +1,179 @@
+{
+  "id": "DOC-GUIDE-DELEGATIONISTS",
+  "visibility": "public",
+  "kind": "guide",
+  "title": "Player Guide: the Delegationists",
+  "shortTitle": "Guide: Delegationists",
+  "edition": "Orientation edition · November 2026",
+  "issuedBy": "Assembly Information Service — orientation for prospective players",
+  "sourceRef": "World Bible v3.4, § 13 and opening situation; Policy and Legislative Ideas Guide",
+  "summary": "An introduction for prospective players to the Delegationists, a provisional founding party: Let wisdom, not haste, decide what cannot be undone.",
+  "sections": [
+    {
+      "id": "at-a-glance",
+      "number": "1",
+      "heading": "At a glance",
+      "table": {
+        "caption": "",
+        "columns": [
+          "Item",
+          "Detail"
+        ],
+        "rows": [
+          [
+            "Party",
+            "[[PTY-DELEGATIONISTS|Delegationists]] (DEL) — provisional founding label"
+          ],
+          [
+            "Core position",
+            "Delegate to the Council on Long-Term Values."
+          ],
+          [
+            "Internal divide",
+            "Whose values define its delegates."
+          ],
+          [
+            "Four-party version",
+            "Retained in both the four- and six-party versions."
+          ],
+          [
+            "In one line",
+            "*Let wisdom, not haste, decide what cannot be undone.*"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "stands",
+      "number": "2",
+      "heading": "What the party stands for",
+      "paragraphs": [
+        "The Delegationists want a meaningful share of released resources placed with the [[INST-CLTV|Council on Long-Term Values]] — aligned superintelligent delegates who deliberate on moral questions — through the *Deferral* channel. Their case is that questions on this scale deserve more careful reflection than a ten-year electoral cycle can give.",
+        "Their opponents insist that democratic institutions must learn to govern before handing the future to machine trustees, and ask who is accountable when a delegated decision cannot be reversed."
+      ]
+    },
+    {
+      "id": "divide",
+      "number": "3",
+      "heading": "The internal divide",
+      "paragraphs": [
+        "Every founding party contains a disagreement capable of producing real factions. For the Delegationists it is: *Whose values define its delegates*. You may find yourself on either side — and your private goals may pull you towards both."
+      ],
+      "list": [
+        "**Broad-mandate delegationists.** Give the Council real discretion now, with its values drawn as widely as possible.",
+        "**Accountable delegationists.** Delegate only bounded, revocable shares, and fight over *whose* values the delegates represent and how they are audited."
+      ]
+    },
+    {
+      "id": "axes",
+      "number": "4",
+      "heading": "On the five axes",
+      "paragraphs": [
+        "Every party is placed on the five public axes. This is a reading of the founding platform; where it says *open*, the party has not settled the question and its members may."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Axis",
+          "Founding tendency"
+        ],
+        "rows": [
+          [
+            "Allocation",
+            "AI delegation — the defining commitment"
+          ],
+          [
+            "Timing",
+            "Leans to reflection before irreversible action"
+          ],
+          [
+            "Franchise",
+            "Open"
+          ],
+          [
+            "Reach",
+            "Open — deferred to the Council’s deliberation"
+          ],
+          [
+            "Prohibitions",
+            "Open"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "voters",
+      "number": "5",
+      "heading": "Voters to court",
+      "paragraphs": [
+        "Voter groups whose public aims overlap with the platform. None is affiliated to any party; each judges parties by its own priorities and can endorse, withhold, split or bargain. See the [[DOC-GUIDE-INTEREST-GROUPS|guide to the sixty interest groups]].",
+        "**Likely friction.** Assembly Loyalists and Civic Councils defend parliamentary authority; Verification Hawks back only constrained delegation with independent audit."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Family",
+          "Groups with overlapping aims"
+        ],
+        "rows": [
+          [
+            "Deferrers",
+            "Reflection First, Council Delegators, Moral Realists, Research Patrons, Philosophers’ Bloc, Uncertainty Hedgers — and, on the accountable side, Verification Hawks and Arbiter Reliants"
+          ],
+          [
+            "Builders",
+            "Long-Term Trustees"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "opening",
+      "number": "6",
+      "heading": "The opening controversies",
+      "paragraphs": [
+        "Five disputes are on the table when the First Assembly meets. They are pressures, not scripts — parties may reshape them or ignore them. What is likely at stake for this party:"
+      ],
+      "list": [
+        "“The mandate of the safeguarded intelligences” is the party’s home ground; the founding docket anticipates a Deferral allocation with conditions.",
+        "The Deferral share is zero by default — it only grows if a split passes.",
+        "A smaller first release suits reflection."
+      ]
+    },
+    {
+      "id": "ideas",
+      "number": "7",
+      "heading": "Ideas to build on",
+      "paragraphs": [
+        "Entries from the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]] that fit the platform. Each needs a resource amount, channel, use, reach, implementing actor and success conditions before it is a bill — see the [[DOC-RULES|Rules of Procedure]]."
+      ],
+      "list": [
+        "*Conditional deferral*",
+        "*Delegation with revocation rules*",
+        "*Plural moral inquiry endowment*",
+        "*Adversarial verification program*",
+        "*Value-divergence monitoring*",
+        "*Slow-release settlement*"
+      ]
+    },
+    {
+      "id": "membership",
+      "heading": "Playing a member",
+      "paragraphs": [
+        "Each player ordinarily controls one indivisible bloc of party seats (at most sixty), which votes yes, no or abstain as a whole. You also receive two or three private yes/no goals drawn from the Delegationists goal bundles — deliberately including goals on *both* sides of the party’s internal divide — and may redraw once before the first term. Goals are scored only from verifiable public actions.",
+        "Losing a bloc does not remove you from play. Members can seek the Speakership or a bureau post, Council seats, judicial appointments, Commission membership, or write for the press.",
+        "The label “Delegationists” is provisional. It is a description of a founding organisation, not a permanent party name and not one of the six voter families. Players are expected to rename, reorganise, split or merge parties through play. After the first term members may transfer freely; a new party needs three members and a platform on all five axes, and a party that falls below three members dissolves at the end of the term.",
+        "You may ask for a different founding party: requests are considered alongside party balance, and there are four days to request a reassignment after the initial placement."
+      ],
+      "number": "8"
+    },
+    {
+      "id": "sources",
+      "heading": "Sources and limits of this guide",
+      "paragraphs": [
+        "Drawn from the World Bible v3.4 (§ 13 and the opening situation), the [[DOC-ELECTORATE|Public Electorate Reference]] and the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]]. Where this guide reads a position into the founding platform — the axis readings and the lists of overlapping voter groups — it is orientation, not a rule or a promise of support. No voter group is affiliated automatically with any party, and a promise to a group is not a guarantee of its votes."
+      ],
+      "number": "9"
+    }
+  ]
+}
