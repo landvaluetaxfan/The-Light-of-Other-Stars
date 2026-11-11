@@ -1,0 +1,183 @@
+{
+  "id": "DOC-GUIDE-UNIVERSALISTS",
+  "visibility": "public",
+  "kind": "guide",
+  "title": "Player Guide: the Universalists",
+  "shortTitle": "Guide: Universalists",
+  "edition": "Orientation edition · November 2026",
+  "issuedBy": "Assembly Information Service — orientation for prospective players",
+  "sourceRef": "World Bible v3.4, § 13 and opening situation; Policy and Legislative Ideas Guide",
+  "summary": "An introduction for prospective players to the Universalists, a provisional founding party: The future belongs to everyone who will live in it.",
+  "sections": [
+    {
+      "id": "at-a-glance",
+      "number": "1",
+      "heading": "At a glance",
+      "table": {
+        "caption": "",
+        "columns": [
+          "Item",
+          "Detail"
+        ],
+        "rows": [
+          [
+            "Party",
+            "[[PTY-UNIVERSALISTS|Universalists]] (UNI) — provisional founding label"
+          ],
+          [
+            "Core position",
+            "Protect future and digital persons."
+          ],
+          [
+            "Internal divide",
+            "Limits on copying and the creation of new minds."
+          ],
+          [
+            "Four-party version",
+            "Merges into the Collectivists when fewer than forty players take part."
+          ],
+          [
+            "In one line",
+            "*The future belongs to everyone who will live in it.*"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "stands",
+      "number": "2",
+      "heading": "What the party stands for",
+      "paragraphs": [
+        "The Universalists press for the standing of those the founding settlement leaves out: people not yet born, persistent digital persons, emulations and possibly conscious animals and AIs. Their instruments include the *Reserve* channel, welfare protections, protected digital habitats and, ultimately, a franchise amendment.",
+        "Their case is moral inclusion: the Interim Charter gives the vote to living adult humans, but almost everyone affected by these decisions is not one. Their opponents warn that unlimited copying could overwhelm a franchise and that nobody can speak for the unborn."
+      ]
+    },
+    {
+      "id": "divide",
+      "number": "3",
+      "heading": "The internal divide",
+      "paragraphs": [
+        "Every founding party contains a disagreement capable of producing real factions. For the Universalists it is: *Limits on copying and the creation of new minds*. You may find yourself on either side — and your private goals may pull you towards both."
+      ],
+      "list": [
+        "**Open-inclusion universalists.** New minds deserve rights and representation as they come into being; limits on copying risk becoming limits on persons.",
+        "**Copy-limit universalists.** Without safeguards on duplication and the creation of new minds, enfranchisement could undermine both democracy and the rights of the copies themselves."
+      ]
+    },
+    {
+      "id": "axes",
+      "number": "4",
+      "heading": "On the five axes",
+      "paragraphs": [
+        "Every party is placed on the five public axes. This is a reading of the founding platform; where it says *open*, the party has not settled the question and its members may."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Axis",
+          "Founding tendency"
+        ],
+        "rows": [
+          [
+            "Franchise",
+            "Broader inclusion — the defining commitment"
+          ],
+          [
+            "Timing",
+            "Leans to reflection, protecting later generations"
+          ],
+          [
+            "Prohibitions",
+            "Leans extensive where welfare is at stake"
+          ],
+          [
+            "Allocation",
+            "Open"
+          ],
+          [
+            "Reach",
+            "Open"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "voters",
+      "number": "5",
+      "heading": "Voters to court",
+      "paragraphs": [
+        "Voter groups whose public aims overlap with the platform. None is affiliated to any party; each judges parties by its own priorities and can endorse, withhold, split or bargain. See the [[DOC-GUIDE-INTEREST-GROUPS|guide to the sixty interest groups]].",
+        "**Likely friction.** Equal-Share Traders and other Holders worry that new claimants dilute existing shares; Verification Hawks distrust unverifiable claims about digital minds."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Family",
+          "Groups with overlapping aims"
+        ],
+        "rows": [
+          [
+            "Inclusionists",
+            "Later-Generation Advocates, Digital Rights Advocates, Emulation Families, Agent Operators, Youth Cohort, Universal Franchise, Sentience Advocates, Copy-Limit Reformers, Representation Reformers, Cautious Inclusionists"
+          ],
+          [
+            "Builders",
+            "Moral Project Funders"
+          ],
+          [
+            "Stewards",
+            "Intergenerational Stewards"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "opening",
+      "number": "6",
+      "heading": "The opening controversies",
+      "paragraphs": [
+        "Five disputes are on the table when the First Assembly meets. They are pressures, not scripts — parties may reshape them or ignore them. What is likely at stake for this party:"
+      ],
+      "list": [
+        "The digital franchise is the party’s home ground: it needs a charter amendment at the specified threshold plus consent from the designated Council seat.",
+        "The Reserve share of the first release.",
+        "The Commission’s report on digital political identity."
+      ]
+    },
+    {
+      "id": "ideas",
+      "number": "7",
+      "heading": "Ideas to build on",
+      "paragraphs": [
+        "Entries from the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]] that fit the platform. Each needs a resource amount, channel, use, reach, implementing actor and success conditions before it is a bill — see the [[DOC-RULES|Rules of Procedure]]."
+      ],
+      "list": [
+        "*Franchise reform proposal*",
+        "*Digital-mind impact report*",
+        "*Protected digital habitats*",
+        "*Copying governance experiment*",
+        "*Consciousness research mission*",
+        "*Youth cohort representation inquiry*"
+      ]
+    },
+    {
+      "id": "membership",
+      "heading": "Playing a member",
+      "paragraphs": [
+        "Each player ordinarily controls one indivisible bloc of party seats (at most sixty), which votes yes, no or abstain as a whole. You also receive two or three private yes/no goals drawn from the Universalists goal bundles — deliberately including goals on *both* sides of the party’s internal divide — and may redraw once before the first term. Goals are scored only from verifiable public actions.",
+        "Losing a bloc does not remove you from play. Members can seek the Speakership or a bureau post, Council seats, judicial appointments, Commission membership, or write for the press.",
+        "The label “Universalists” is provisional. It is a description of a founding organisation, not a permanent party name and not one of the six voter families. Players are expected to rename, reorganise, split or merge parties through play. After the first term members may transfer freely; a new party needs three members and a platform on all five axes, and a party that falls below three members dissolves at the end of the term.",
+        "You may ask for a different founding party: requests are considered alongside party balance, and there are four days to request a reassignment after the initial placement."
+      ],
+      "number": "8"
+    },
+    {
+      "id": "sources",
+      "heading": "Sources and limits of this guide",
+      "paragraphs": [
+        "Drawn from the World Bible v3.4 (§ 13 and the opening situation), the [[DOC-ELECTORATE|Public Electorate Reference]] and the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]]. Where this guide reads a position into the founding platform — the axis readings and the lists of overlapping voter groups — it is orientation, not a rule or a promise of support. No voter group is affiliated automatically with any party, and a promise to a group is not a guarantee of its votes."
+      ],
+      "number": "9"
+    }
+  ]
+}

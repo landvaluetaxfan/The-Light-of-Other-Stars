@@ -1,0 +1,183 @@
+{
+  "id": "DOC-GUIDE-PROPRIETARIANS",
+  "visibility": "public",
+  "kind": "guide",
+  "title": "Player Guide: the Proprietarians",
+  "shortTitle": "Guide: Proprietarians",
+  "edition": "Orientation edition · November 2026",
+  "issuedBy": "Assembly Information Service — orientation for prospective players",
+  "sourceRef": "World Bible v3.4, § 13 and opening situation; Policy and Legislative Ideas Guide",
+  "summary": "An introduction for prospective players to the Proprietarians, a provisional founding party: Every adult an equal owner of the future.",
+  "sections": [
+    {
+      "id": "at-a-glance",
+      "number": "1",
+      "heading": "At a glance",
+      "table": {
+        "caption": "",
+        "columns": [
+          "Item",
+          "Detail"
+        ],
+        "rows": [
+          [
+            "Party",
+            "[[PTY-PROPRIETARIANS|Proprietarians]] (PRO) — provisional founding label"
+          ],
+          [
+            "Core position",
+            "Equal transferable personal endowments."
+          ],
+          [
+            "Internal divide",
+            "Immediate sales versus waiting periods."
+          ],
+          [
+            "Four-party version",
+            "Retained in both the four- and six-party versions."
+          ],
+          [
+            "In one line",
+            "*Every adult an equal owner of the future.*"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "stands",
+      "number": "2",
+      "heading": "What the party stands for",
+      "paragraphs": [
+        "The Proprietarians want released resources assigned in equal, individually held and legally enforceable claims to every adult human — the *Endowment* channel. Each holder then decides for themselves: use the claim, pool it voluntarily with others, give it to a cause, or trade it.",
+        "Their case is equality and autonomy: no planner, legislature or machine trustee decides for you. Their opponents warn of concentration, manipulation and people selling a share of the future for a fraction of its worth."
+      ]
+    },
+    {
+      "id": "divide",
+      "number": "3",
+      "heading": "The internal divide",
+      "paragraphs": [
+        "Every founding party contains a disagreement capable of producing real factions. For the Proprietarians it is: *Immediate sales versus waiting periods*. You may find yourself on either side — and your private goals may pull you towards both."
+      ],
+      "list": [
+        "**Free-transfer proprietarians.** A claim you cannot sell is not fully yours. Liquid, open markets are part of autonomy.",
+        "**Waiting-period proprietarians.** Newly issued endowments should carry cooling-off periods and anti-manipulation rules, so that ownership is not captured by the fastest buyers — without permanent paternalism."
+      ]
+    },
+    {
+      "id": "axes",
+      "number": "4",
+      "heading": "On the five axes",
+      "paragraphs": [
+        "Every party is placed on the five public axes. This is a reading of the founding platform; where it says *open*, the party has not settled the question and its members may."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Axis",
+          "Founding tendency"
+        ],
+        "rows": [
+          [
+            "Allocation",
+            "Individual ownership — the defining commitment"
+          ],
+          [
+            "Timing",
+            "Contested — the internal divide is about timing of sale"
+          ],
+          [
+            "Franchise",
+            "Leans to living adults, the recipients of endowments"
+          ],
+          [
+            "Reach",
+            "Open; holders decide individually"
+          ],
+          [
+            "Prohibitions",
+            "Leans narrow, protective of property"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "voters",
+      "number": "5",
+      "heading": "Voters to court",
+      "paragraphs": [
+        "Voter groups whose public aims overlap with the platform. None is affiliated to any party; each judges parties by its own priorities and can endorse, withhold, split or bargain. See the [[DOC-GUIDE-INTEREST-GROUPS|guide to the sixty interest groups]].",
+        "**Likely friction.** Assembly Loyalists, Council Delegators and Later-Generation Advocates each want released claims kept out of individual hands."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Family",
+          "Groups with overlapping aims"
+        ],
+        "rows": [
+          [
+            "Holders",
+            "Equal-Share Traders, Open-Exchange Holders, Kin Holders, Share Speculators, Community Holders, Private Ventures, Pledge Givers, Waiting-Period Holders, Anti-Pooling Holders, Direct-Use Holders"
+          ],
+          [
+            "Settlers",
+            "Homestead Migrants — who want independent titles but oppose concentration by incumbent firms"
+          ],
+          [
+            "Inclusionists",
+            "Emulation Families — on inheritance across substrates"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "opening",
+      "number": "6",
+      "heading": "The opening controversies",
+      "paragraphs": [
+        "Five disputes are on the table when the First Assembly meets. They are pressures, not scripts — parties may reshape them or ignore them. What is likely at stake for this party:"
+      ],
+      "list": [
+        "The size of the Endowment share in the first release split.",
+        "Identity verification and the digital franchise decide who counts as an “adult recipient”.",
+        "Probe-claim disputes test respect for prior property."
+      ]
+    },
+    {
+      "id": "ideas",
+      "number": "7",
+      "heading": "Ideas to build on",
+      "paragraphs": [
+        "Entries from the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]] that fit the platform. Each needs a resource amount, channel, use, reach, implementing actor and success conditions before it is a bill — see the [[DOC-RULES|Rules of Procedure]]."
+      ],
+      "list": [
+        "*Universal individual endowments*",
+        "*Voluntary endowment pooling*",
+        "*Claims registry*",
+        "*Cooling-off proposal*",
+        "*Inheritance and emulation claims*",
+        "*Anti-concentration conditions*"
+      ]
+    },
+    {
+      "id": "membership",
+      "heading": "Playing a member",
+      "paragraphs": [
+        "Each player ordinarily controls one indivisible bloc of party seats (at most sixty), which votes yes, no or abstain as a whole. You also receive two or three private yes/no goals drawn from the Proprietarians goal bundles — deliberately including goals on *both* sides of the party’s internal divide — and may redraw once before the first term. Goals are scored only from verifiable public actions.",
+        "Losing a bloc does not remove you from play. Members can seek the Speakership or a bureau post, Council seats, judicial appointments, Commission membership, or write for the press.",
+        "The label “Proprietarians” is provisional. It is a description of a founding organisation, not a permanent party name and not one of the six voter families. Players are expected to rename, reorganise, split or merge parties through play. After the first term members may transfer freely; a new party needs three members and a platform on all five axes, and a party that falls below three members dissolves at the end of the term.",
+        "You may ask for a different founding party: requests are considered alongside party balance, and there are four days to request a reassignment after the initial placement."
+      ],
+      "number": "8"
+    },
+    {
+      "id": "sources",
+      "heading": "Sources and limits of this guide",
+      "paragraphs": [
+        "Drawn from the World Bible v3.4 (§ 13 and the opening situation), the [[DOC-ELECTORATE|Public Electorate Reference]] and the [[DOC-POLICY-GUIDE|Policy and Legislative Ideas Guide]]. Where this guide reads a position into the founding platform — the axis readings and the lists of overlapping voter groups — it is orientation, not a rule or a promise of support. No voter group is affiliated automatically with any party, and a promise to a group is not a guarantee of its votes."
+      ],
+      "number": "9"
+    }
+  ]
+}

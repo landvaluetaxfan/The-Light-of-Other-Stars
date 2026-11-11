@@ -6,6 +6,7 @@ import { getStore } from '../../../lib/data/load.ts';
 import { href } from '../../../lib/site.ts';
 import { inline, blocks } from '../../../lib/richtext.ts';
 import type { DocumentT } from '../../../lib/data/schema.ts';
+import { guidePdf } from '../../../lib/guides.ts';
 
 export function getStaticPaths() {
   return getStore().documents.map((d) => ({ params: { id: d.id }, props: { doc: d } }));
@@ -14,14 +15,20 @@ interface Props { doc: DocumentT }
 const { doc: d } = Astro.props;
 const s = getStore();
 const KIND = { treaty: 'Treaty', charter: 'Constitutional document', rules: 'Rules', reference: 'Reference', guide: 'Guide' } as const;
+const pdf = guidePdf(d.id);
 const others = s.documents.filter((x) => x.id !== d.id && x.dataset === d.dataset);
 ---
 <BaseLayout title={d.shortTitle} section="registry" recordId={d.id} demo={d.dataset === 'demonstration'} description={d.summary} crumbs={[{ label: 'Registry', href: href('/registry/') }, { label: 'Documents' }, { label: d.shortTitle }]}>
+  <script is:inline>
+    // ?print=1 (used when printing the guide PDFs) gives a clean handout without link annotations.
+    if (new URLSearchParams(location.search).has('print')) document.documentElement.classList.add('handout');
+  </script>
   <div class="page-head">
     <div>
       <div class="kicker">{KIND[d.kind]} · {d.edition}</div>
       <h1>{d.title}</h1>
-      <p class="lede">{d.summary}</p>
+      <p class="lede" set:html={inline(d.summary, s)} />
+      {pdf && <p class="no-print" style="margin:6px 0 0"><a class="btn" href={pdf} download>Download PDF</a></p>}
     </div>
     <RecordTools id={d.id} />
   </div>
@@ -38,6 +45,7 @@ const others = s.documents.filter((x) => x.id !== d.id && x.dataset === d.datase
           <dt>Issued by</dt><dd>{d.issuedBy}</dd>
           <dt>Edition</dt><dd>{d.edition}</dd>
           <dt>Source</dt><dd>{d.sourceRef}</dd>
+          {pdf && <><dt>PDF</dt><dd><a href={pdf} download>{d.id.toLowerCase()}.pdf</a></dd></>}
         </dl>
       </Panel>
       <Panel title="Other documents" flush>

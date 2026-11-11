@@ -11,6 +11,7 @@ import PartyName from '../components/PartyName.astro';
 import { getStore } from '../lib/data/load.ts';
 import { href, fmtSim, fmtUnits, romanTerm, sortBySimDesc, partiesInSeatingOrder, CHANNEL_LABEL, CHANNEL_COLOR, displayName } from '../lib/site.ts';
 import { WEEKS } from '../lib/procedure.ts';
+import { playerGuides } from '../lib/guides.ts';
 
 const s = getStore();
 const canon = <T extends { dataset: string }>(l: T[]) => l.filter((x) => x.dataset === 'canonical');
@@ -35,6 +36,7 @@ const tribunal = offices.filter((o) => o.institutionId === 'INST-TRIBUNAL');
 const inquiry = offices.filter((o) => o.institutionId === 'INST-INQUIRY');
 const holderFor = (o: (typeof offices)[number]) => o.holders.find((h) => h.termId === term.id);
 const filledCount = (list: typeof offices) => list.filter((o) => holderFor(o)?.status === 'serving').length;
+const guides = playerGuides(s);
 const demoBills = s.bills.filter((b) => b.dataset === 'demonstration').length;
 const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length;
 ---
@@ -73,6 +75,21 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
     <div class="stat" role="listitem"><div class="label">Pool remaining</div><div class="value">{fmtUnits(pool)}</div><div class="sub">of {s.meta.pool.initialUnits} units · {authorized.length ? `${fmtUnits(released)} released` : 'none released'}</div></div>
     <div class="stat" role="listitem"><div class="label">Measures filed</div><div class="value">{filedCount}</div><div class="sub">{filedCount ? `${pending.length} pending` : 'Filing opens in Week 2'}</div></div>
   </div>
+
+  {guides.length > 0 && (
+    <Panel title="Joining the simulation? Player guides" meta="One guide per founding party, and one on the electorate">
+      <p class="small" style="margin:0 0 10px">Short introductions for prospective players. Party labels are provisional — you may ask for a different party, and parties can be renamed, split or merged in play.</p>
+      <ul class="guide-grid">
+        {guides.map((g) => (
+          <li class="guide-card" style={`--guide-color:${g.party?.color ?? 'var(--steel)'}`}>
+            <h3><a href={g.url}>{g.party ? g.party.name : g.doc.shortTitle.replace(/^Guide: /, '').replace(/^./, (c) => c.toUpperCase())}</a></h3>
+            <p>{g.party ? g.party.corePosition : 'Six voter families, sixty groups and the five axes on which they judge parties.'}</p>
+            <div class="guide-links"><a href={g.url}>Read online</a>{g.pdf && <a href={g.pdf} download>PDF</a>}</div>
+          </li>
+        ))}
+      </ul>
+    </Panel>
+  )}
 
   <Panel title={`Term ${romanTerm(term.number)} calendar`} meta="One real month = ten simulated years" link={{ href: href('/registry/documents/DOC-RULES/'), label: ' · Rules of Procedure' }} flush>
     <WeekCalendar current={s.meta.currentWeek} />

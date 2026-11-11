@@ -104,6 +104,19 @@ Hidden voter preferences, electorate weights, moderator briefs, confidential Cou
 
 After any change: `npm run validate && npm run build`.
 
+## Player guides
+
+Seven orientation guides for prospective players — one per founding party and one on the sixty interest groups — are document records `data/canonical/documents/DOC-GUIDE-*.json`. They appear on the Overview page and in the Registry, and each has a printable PDF in `public/guides/`.
+
+The PDFs are generated, not hand-made. After editing a guide (by hand or through the ChatGPT clerk), regenerate them locally and commit the result; until then the site serves the previous PDF:
+
+```bash
+npm run build
+npm run guides:pdf
+```
+
+`guides:pdf` prints each guide page with a local Chrome or Edge (set `BROWSER` to choose one).
+
 ## Publishing with ChatGPT
 
 A Custom GPT can publish records by committing to this repository through the GitHub API, with CI validating every commit before it deploys. Setup files and a step-by-step guide are in [`docs/chatgpt/`](docs/chatgpt/README.md).
