@@ -1,0 +1,34 @@
+openapi: 3.1.0
+info:
+  title: Assembly Records Reader
+  description: >
+    Reads any file of the landvaluetaxfan/The-Light-of-Other-Stars repository exactly as
+    it is at a given commit. Use the commit SHA from getBranchHead (not "main") so the
+    content is never stale.
+  version: 1.0.0
+servers:
+  - url: https://raw.githubusercontent.com
+paths:
+  /landvaluetaxfan/The-Light-of-Other-Stars/{commit_sha}/{path}:
+    get:
+      operationId: readFile
+      summary: Read a repository file as text, e.g. data/canonical/meta.json
+      parameters:
+        - name: commit_sha
+          in: path
+          required: true
+          schema: { type: string }
+          description: Commit SHA from getBranchHead.
+        - name: path
+          in: path
+          required: true
+          schema: { type: string }
+          description: Repository-relative path. Slashes are allowed and must not be encoded.
+      responses:
+        '200':
+          description: The file contents.
+          content:
+            text/plain:
+              schema: { type: string }
+        '404':
+          description: No such file at that commit.

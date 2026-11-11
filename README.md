@@ -104,6 +104,10 @@ Hidden voter preferences, electorate weights, moderator briefs, confidential Cou
 
 After any change: `npm run validate && npm run build`.
 
+## Publishing with ChatGPT
+
+A Custom GPT can publish records by committing to this repository through the GitHub API, with CI validating every commit before it deploys. Setup files and a step-by-step guide are in [`docs/chatgpt/`](docs/chatgpt/README.md).
+
 ## Design system
 
 Retro government software with restrained early-2000s optimism: off-white paper, mineral greys, sage, steel blue and dark teal; compact IBM Plex type with Source Serif for official documents; thin rules, dense tables, subtle bevels and a single glossy masthead gradient. Record identifiers are always visible in monospace. Mobile layouts re-flow rather than shrink: section navigation becomes a two-row button grid, record tables become labelled cards, and record particulars move above the text. Official documents and records have print styles.

@@ -7,11 +7,20 @@ import { loadFromDirectory } from '../src/lib/data/load.ts';
 import { collectionNames } from '../src/lib/data/schema.ts';
 
 const root = path.resolve(process.argv[2] ?? 'data');
-const { store, errors } = loadFromDirectory(root);
+const result = loadFromDirectory(root);
+const { store } = result;
+// Report paths relative to the repository (e.g. data/canonical/meta.json), not the machine.
+const errors = result.errors.map((e) => e.split(process.cwd() + path.sep).join('').replace(/\\/g, '/'));
 
 if (!store) {
   console.error(`✗ Public data failed validation — ${errors.length} error(s):\n`);
   for (const e of errors) console.error(`  • ${e}`);
+  if (process.env.GITHUB_ACTIONS) {
+    // Workflow commands become check-run annotations, readable through the GitHub API
+    // (getCheckRunErrors), so publishing tools can see exactly why a commit was rejected.
+    const esc = (s: string) => s.replace(/%/g, '%25').replace(/\r/g, '%0D').replace(/\n/g, '%0A');
+    console.log(`::error title=Data validation failed (${errors.length})::${esc(errors.join('\n'))}`);
+  }
   process.exit(1);
 }
 
