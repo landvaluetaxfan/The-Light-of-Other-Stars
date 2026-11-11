@@ -1413,6 +1413,28 @@ a.reflink[data-demo='true'] {
    Print — official documents
    --------------------------------------------------------------------- */
 /* Player guides on the overview page */
+.bible-callout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin: 0 0 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--steel-2);
+  border-radius: var(--radius);
+  background: var(--steel-3);
+}
+.bible-callout > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.bible-links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
 .guide-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));

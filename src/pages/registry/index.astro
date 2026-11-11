@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Panel from '../../components/Panel.astro';
 import { getStore } from '../../lib/data/load.ts';
 import { href, fmtUnits } from '../../lib/site.ts';
+import { WORLD_BIBLE } from '../../lib/guides.ts';
 
 const s = getStore();
 const docs = s.documents.filter((d) => d.dataset === 'canonical');
@@ -26,7 +27,7 @@ const total = [...s.terms, ...s.parties, ...s.members, ...s.blocs, ...s.institut
       <h1>Registry</h1>
       <p class="lede">The treaty, the Interim Charter and rules of procedure; records of each treaty institution; election history; and the public ledger of resource releases and allocations.</p>
     </div>
-    <div class="head-tools"><a class="btn" href={href('/registry/records/')}>Index of identifiers</a></div>
+    <div class="head-tools"><a class="btn" href={WORLD_BIBLE.url} target="_blank" rel="noopener">{WORLD_BIBLE.title} (PDF)</a> <a class="btn" href={href('/registry/records/')}>Index of identifiers</a></div>
   </div>
 
   <div class="layout-main-side">
