@@ -11,7 +11,7 @@ import PartyName from '../components/PartyName.astro';
 import { getStore } from '../lib/data/load.ts';
 import { href, fmtSim, fmtUnits, romanTerm, sortBySimDesc, partiesInSeatingOrder, CHANNEL_LABEL, CHANNEL_COLOR, displayName } from '../lib/site.ts';
 import { WEEKS } from '../lib/procedure.ts';
-import { playerGuides } from '../lib/guides.ts';
+import { playerGuides, WORLD_BIBLE } from '../lib/guides.ts';
 
 const s = getStore();
 const canon = <T extends { dataset: string }>(l: T[]) => l.filter((x) => x.dataset === 'canonical');
@@ -79,6 +79,13 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
   {guides.length > 0 && (
     <Panel title="Joining the simulation? Player guides" meta="One guide per founding party, and one on the electorate">
       <p class="small" style="margin:0 0 10px">Short introductions for prospective players. Party labels are provisional — you may ask for a different party, and parties can be renamed, split or merged in play.</p>
+      <div class="bible-callout">
+        <div>
+          <b>Start here: the {WORLD_BIBLE.title}</b>
+          <span class="small">{WORLD_BIBLE.description}</span>
+        </div>
+        <span class="bible-links"><a class="btn" href={WORLD_BIBLE.url} target="_blank" rel="noopener">Read the PDF</a> <a href={WORLD_BIBLE.url} download class="small">Download ({WORLD_BIBLE.size})</a></span>
+      </div>
       <ul class="guide-grid">
         {guides.map((g) => (
           <li class="guide-card" style={`--guide-color:${g.party?.color ?? 'var(--steel)'}`}>
