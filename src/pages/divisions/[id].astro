@@ -66,7 +66,6 @@ const demo = d.dataset === 'demonstration';
       </div>
       <Panel title="Roll call">
         <EmptyState code="TALLY SEALED" title="The roll call will be published when the window closes.">
-          <p>Proxies must be filed before a vote opens; blocs that do not vote are recorded as abstaining.</p>
         </EmptyState>
         <TallyBar division={d} />
       </Panel>
@@ -87,7 +86,7 @@ const demo = d.dataset === 'demonstration';
           </p>
         </Panel>
 
-        <Panel title="Division diagram" meta="Each seat coloured by its bloc's vote">
+        <Panel title="Division diagram">
           <Hemicycle segments={segments} total={r.totalSeats} title={`Division ${d.id}: seats by vote`} desc={`Yes ${r.yes}, No ${r.no}, Abstain ${r.abstain}. Seats grouped by bloc in party order; bloc-by-bloc figures follow in the roll-call table.`} centerLabel={`${r.yes}–${r.no}`} centerSub={r.outcome === 'carried' ? 'carried' : 'not carried'} legend={false} />
           <ul class="legend">
             <li><span class="swatch" style={`background:${VOTE_COLOR.yes}`}></span>Yes</li>

@@ -53,7 +53,6 @@ const res = e.results ? parties.map((p) => ({ p, r: e.results!.parties.find((x) 
         ) : (
           <div class="panel-b">
             <EmptyState code={e.status === 'scheduled' ? 'ELECTION SCHEDULED' : 'RESULTS PENDING'} title={e.status === 'scheduled' ? 'This election has not yet been held.' : 'Results have not yet been certified.'}>
-              <p>Results are published only once certified. They are computed by the published electoral model and are never narrated in advance.</p>
             </EmptyState>
           </div>
         )}

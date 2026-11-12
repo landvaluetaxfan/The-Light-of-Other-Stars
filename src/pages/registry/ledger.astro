@@ -17,7 +17,6 @@ const remaining = lastAuth?.closingPool ?? s.meta.pool.initialUnits;
     <div>
       <div class="kicker">Registry · Public resource-allocation ledger</div>
       <h1>Resource ledger</h1>
-      <p class="lede">The pool of 100 units represents legal claims on accessible resources beyond the solar system. Each term the Assembly releases between {RELEASE_MIN * 100}% and {RELEASE_MAX * 100}% of the remainder ({RELEASE_DEFAULT * 100}% by default) and divides it among four channels. Every claim is tracked from authorisation to realised use.</p>
     </div>
   </div>
 
@@ -31,7 +30,7 @@ const remaining = lastAuth?.closingPool ?? s.meta.pool.initialUnits;
   <h2 style="margin-top:4px">Canonical ledger</h2>
   <LedgerTables dataset="canonical" />
 
-  <Panel title="Release calculator" meta="Illustrative — computed from the published rule, not a forecast" id="calculator">
+  <Panel title="Release calculator" meta="Illustrative" id="calculator">
     <form class="calc" onsubmit="return false" data-remaining={remaining}>
       <div class="filterbar" style="margin:-10px -12px 10px;border-bottom:1px solid var(--rule-2)">
         <div class="field grow">

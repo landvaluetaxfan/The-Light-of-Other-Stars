@@ -77,12 +77,10 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
   </div>
 
   {guides.length > 0 && (
-    <Panel title="Joining the simulation? Player guides" meta="One guide per founding party, and one on the electorate">
-      <p class="small" style="margin:0 0 10px">Short introductions for prospective players. Party labels are provisional — you may ask for a different party, and parties can be renamed, split or merged in play.</p>
+    <Panel title="Player guides">
       <div class="bible-callout">
         <div>
           <b>Start here: the {WORLD_BIBLE.title}</b>
-          <span class="small">{WORLD_BIBLE.description}</span>
         </div>
         <span class="bible-links"><a class="btn" href={WORLD_BIBLE.url} target="_blank" rel="noopener">Read the PDF</a> <a href={WORLD_BIBLE.url} download class="small">Download ({WORLD_BIBLE.size})</a></span>
       </div>
@@ -98,7 +96,7 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
     </Panel>
   )}
 
-  <Panel title={`Term ${romanTerm(term.number)} calendar`} meta="One real month = ten simulated years" link={{ href: href('/registry/documents/DOC-RULES/'), label: ' · Rules of Procedure' }} flush>
+  <Panel title={`Term ${romanTerm(term.number)} calendar`} link={{ href: href('/registry/documents/DOC-RULES/'), label: 'Rules of Procedure →' }} flush>
     <WeekCalendar current={s.meta.currentWeek} />
   </Panel>
 
@@ -108,19 +106,17 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
         {bulletins.length ? <BulletinList events={bulletins} /> : (
           <div class="panel-b">
             <EmptyState code="NO BULLETINS" title="No bulletins have been issued.">
-              <p>Official notices, world events, rulings and election bulletins will appear here as they are published.</p>
             </EmptyState>
           </div>
         )}
       </Panel>
 
-      <Panel title="Pending legislation" meta={`Term ${romanTerm(term.number)}`} link={{ href: href('/legislation/'), label: ' · Legislation →' }} flush>
+      <Panel title="Pending legislation" link={{ href: href('/legislation/'), label: 'Legislation →' }} flush>
         {pending.length ? (
           <BillTable bills={pending} />
         ) : (
           <div class="panel-b">
             <EmptyState code="REGISTER EMPTY" title="No measures have been filed for the First Term.">
-              <p>Bills and proposed prohibitions are filed in Week 2 — Deliberation. Anything properly filed but not scheduled by the end of Week 2 reaches the Week 3 floor automatically.</p>
               <p><a href={href('/legislation/drafting/')}>Drafting guide and illustrative docket</a> · <a href={href('/legislation/?dataset=demonstration')}>Demonstration bills ({demoBills})</a></p>
             </EmptyState>
           </div>
@@ -136,7 +132,7 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
         ) : (
           <>
             <Hemicycle segments={[]} total={term.assemblySize} title="Assembly composition: pending" desc="All 600 seats are unassigned pending the founding party assignment." centerLabel="600" centerSub="seats — pending" legend={false} />
-            <p class="small" style="margin:6px 0 0">Seating by founding party assignment is <Badge tone="amber">Pending</Badge>. Six founding parties are provisionally described:</p>
+            <p class="small" style="margin:6px 0 0">Seating <Badge tone="amber">Pending</Badge></p>
             <ul class="legend" style="justify-content:flex-start">
               {parties.map((p) => <li><PartyName id={p.id} /></li>)}
             </ul>
@@ -178,7 +174,6 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
       </Panel>
 
       <Panel title="Demonstration dataset">
-        <p class="small">Illustrative records exercise the portal before canonical business exists. They carry the <span class="badge demo">Demo</span> mark and are excluded from every figure above.</p>
         <ul class="small" style="margin:0;padding-left:1.2em">
           <li><a href={href('/assembly/demonstration/')}>Demonstration Assembly composition</a></li>
           <li><a href={href('/legislation/?dataset=demonstration')}>{demoBills} demonstration bills</a></li>

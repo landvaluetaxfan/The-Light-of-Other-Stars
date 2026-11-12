@@ -15,7 +15,7 @@ const allocations = s.allocations.filter((a) => a.dataset === dataset);
 const channels = ['endowment', 'assembly', 'deferral', 'reserve'] as const;
 const DEC = { voted: 'Voted', default: 'Default rule' } as const;
 ---
-<Panel title="Release ledger" meta="Starting pool × fraction = released; remainder carried forward" flush>
+<Panel title="Release ledger" flush>
   <div class="table-wrap">
     <table class="tbl">
       <thead>
@@ -53,7 +53,7 @@ const DEC = { voted: 'Voted', default: 'Default rule' } as const;
   ))}
 </Panel>
 
-<Panel title="Allocations and implementation" meta="Allocated → committed → reached → used" flush>
+<Panel title="Allocations and implementation" flush>
   {allocations.length ? (
     <div class="table-wrap">
       <table class="tbl stack">
@@ -75,7 +75,6 @@ const DEC = { voted: 'Voted', default: 'Default rule' } as const;
     </div>
   ) : (
     <div class="panel-b"><EmptyState code="NO ALLOCATIONS" title="No allocations have been entered in this ledger.">
-      <p>Allocations are entered after a release is authorised and legal review is complete.</p>
     </EmptyState></div>
   )}
 </Panel>

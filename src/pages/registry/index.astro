@@ -25,7 +25,6 @@ const total = [...s.terms, ...s.parties, ...s.members, ...s.blocs, ...s.institut
     <div>
       <div class="kicker">Section 06 · Records of the treaty order</div>
       <h1>Registry</h1>
-      <p class="lede">The treaty, the Interim Charter and rules of procedure; records of each treaty institution; election history; and the public ledger of resource releases and allocations.</p>
     </div>
     <div class="head-tools"><a class="btn" href={WORLD_BIBLE.url} target="_blank" rel="noopener">{WORLD_BIBLE.title} (PDF)</a> <a class="btn" href={href('/registry/records/')}>Index of identifiers</a></div>
   </div>
@@ -78,7 +77,7 @@ const total = [...s.terms, ...s.parties, ...s.members, ...s.blocs, ...s.institut
         </ul>
       </Panel>
       <Panel title="Archive" link={{ href: href('/archive/'), label: 'Open →' }}>
-        <p class="small" style="margin:0">Term-by-term archive of every bill, division, bulletin and ledger entry. {total} public records in all.</p>
+        <p class="small" style="margin:0">{total} public records, by term.</p>
       </Panel>
       <Panel title="Open data">
         <ul class="small" style="margin:0;padding-left:1.2em">

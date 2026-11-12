@@ -18,7 +18,6 @@ const pubOf = (id: string) => s.publications.find((p) => p.id === id)!;
     <div>
       <div class="kicker">The press · Directory</div>
       <h1>Press directory</h1>
-      <p class="lede">Any player may operate a newspaper, magazine, newsletter or broadcaster. Reporting influences voters according to its audience, credibility and relevance; publishing more often does not by itself produce a larger effect.</p>
     </div>
   </div>
 
@@ -28,7 +27,6 @@ const pubOf = (id: string) => s.publications.find((p) => p.id === id)!;
 
   {canon.length === 0 && (
     <EmptyState code="NO PLAYER PUBLICATIONS" title="No player-operated publications have been registered yet.">
-      <p>Titles marked <strong>Demonstration</strong> are examples created to show how player publications will appear. Players wishing to register a title should contact the moderators; the publication's name, masthead, typography and brand colours are set in its public record.</p>
     </EmptyState>
   )}
   <div style="height:14px"></div>

@@ -10,7 +10,6 @@ import type { Store } from './data/schema.ts';
 /** The original player handbook, published as-is (public/docs/). */
 export const WORLD_BIBLE = {
   title: 'World Bible v3.4',
-  description: 'The complete player handbook: the setting, the treaty, the rules and the public electorate.',
   url: href('/docs/world-bible-v3-4.pdf'),
   size: '1.3 MB',
 } as const;

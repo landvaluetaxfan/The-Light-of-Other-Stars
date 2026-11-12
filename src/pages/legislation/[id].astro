@@ -153,7 +153,6 @@ const link = (id: string, label?: string) => {
           </div>
         ) : (
           <div class="panel-b"><EmptyState code="NO OUTCOME" title={['not-passed', 'voided', 'withdrawn', 'vetoed'].includes(b.status) ? 'This measure did not take effect.' : 'No implementation outcome has been recorded yet.'}>
-            <p>Enacted measures are entered in the public resource ledger after legal review; consequences are reported in the following term.</p>
           </EmptyState></div>
         )}
       </Panel>
