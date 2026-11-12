@@ -1412,6 +1412,21 @@ a.reflink[data-demo='true'] {
 /* ---------------------------------------------------------------------
    Print — official documents
    --------------------------------------------------------------------- */
+/* Interest-group marks */
+.with-mark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.with-mark .mark {
+  flex: none;
+}
+.guide-marks {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
 /* Player guides on the overview page */
 .bible-callout {
   display: flex;

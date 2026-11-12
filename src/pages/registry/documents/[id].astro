@@ -7,6 +7,7 @@ import { href } from '../../../lib/site.ts';
 import { inline, blocks } from '../../../lib/richtext.ts';
 import type { DocumentT } from '../../../lib/data/schema.ts';
 import { guidePdf } from '../../../lib/guides.ts';
+import { markSvg } from '../../../lib/marks.mjs';
 
 export function getStaticPaths() {
   return getStore().documents.map((d) => ({ params: { id: d.id }, props: { doc: d } }));
@@ -65,7 +66,7 @@ const others = s.documents.filter((x) => x.id !== d.id && x.dataset === d.datase
                 <table class="tbl">
                   {sec.table.caption && <caption>{sec.table.caption}</caption>}
                   <thead><tr>{sec.table.columns.map((c) => <th scope="col">{c}</th>)}</tr></thead>
-                  <tbody>{sec.table.rows.map((row) => <tr>{row.map((cell, ci) => (ci === 0 ? <th scope="row" style="font-weight:500" set:html={inline(cell, s)} /> : <td set:html={inline(cell, s)} />))}</tr>)}</tbody>
+                  <tbody>{sec.table.rows.map((row) => <tr>{row.map((cell, ci) => (ci === 0 ? <th scope="row" style="font-weight:500" set:html={markSvg(cell) ? `<span class="with-mark">${markSvg(cell)}<span>${inline(cell, s)}</span></span>` : inline(cell, s)} /> : <td set:html={inline(cell, s)} />))}</tr>)}</tbody>
                 </table>
               </div>
             )}
