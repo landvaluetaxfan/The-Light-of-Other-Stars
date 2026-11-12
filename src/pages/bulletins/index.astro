@@ -15,7 +15,6 @@ const kinds = [...new Set(s.events.map((e) => e.kind))];
     <div>
       <div class="kicker">Section 05 · Chronicle</div>
       <h1>Bulletins</h1>
-      <p class="lede">World events, official notices, election bulletins, Council statements, legal rulings, research reports and historical records, in simulated chronological order. Events are published only once they have occurred in the simulation.</p>
     </div>
   </div>
   {s.events.every((e) => e.dataset !== 'canonical') && (

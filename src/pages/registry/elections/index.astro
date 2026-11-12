@@ -17,7 +17,6 @@ const TONE = { scheduled: 'neutral', pending: 'amber', certified: 'ok' } as cons
     <div>
       <div class="kicker">Registry · Elections</div>
       <h1>Election history</h1>
-      <p class="lede">Elections occur between terms and take effect at Week 1 of the next term. Results are computed by the published model; the narrative does not override the counted results. See <a href={href('/registry/documents/DOC-ELECTORAL/')}>Electoral System and Regions</a>.</p>
     </div>
   </div>
   <Panel title="Elections" flush>
@@ -49,6 +48,5 @@ const TONE = { scheduled: 'neutral', pending: 'amber', certified: 'ok' } as cons
       </tbody>
       <tfoot><tr><th scope="row" colspan="2">Total</th><td class="num">{regions.reduce((a, r) => a + r.population2040Billions, 0).toFixed(2)}</td><td class="num">{regions.reduce((a, r) => a + r.constituencySeats, 0)}</td><td></td></tr></tfoot>
     </table></div>
-    <p class="small muted" style="padding:6px 12px;margin:0">Bars are scaled to the largest region. Antarctica is excluded. A further 300 compensatory list seats are allocated globally.</p>
   </Panel>
 </BaseLayout>

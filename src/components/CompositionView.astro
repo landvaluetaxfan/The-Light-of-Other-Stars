@@ -52,7 +52,6 @@ const largest = rows.length ? Math.max(...rows.map((r) => r.total)) : 0;
         <p class="small muted" style="margin-top:8px;text-align:center">300 constituency seats in twelve regions · 300 compensatory list seats</p>
       </>
     )}
-    <p class="small muted" style="margin:8px 0 0">Seating order on the diagram is administrative and implies no ideological placement. Ordinary passage requires a simple majority of <em>seats voting</em>, so the figure needed on any division depends on abstentions.</p>
   </Panel>
   <Panel title="Party composition" meta={comp ? `As of ${comp.asOf}` : 'Pending'} flush>
     {comp ? (
@@ -81,8 +80,7 @@ const largest = rows.length ? Math.max(...rows.map((r) => r.total)) : 0;
     ) : (
       <div class="panel-b">
         <EmptyState code="COMPOSITION PENDING" title="The founding party assignment has not been published.">
-          <p>The initial Assembly is seated by founding party assignment, not by popular election. Seat totals, bloc holders and the seating diagram will appear here once the assignment is final. See the <a href={href('/registry/elections/EL-T1-FOUNDING/')}>founding assignment record</a>.</p>
-          {dataset === 'canonical' && <p><a href={href('/assembly/demonstration/')}>View a demonstration composition</a> to see how this page will present seated parties and blocs.</p>}
+          {dataset === 'canonical' && <p><a href={href('/assembly/demonstration/')}>Demonstration composition</a></p>}
         </EmptyState>
       </div>
     )}
@@ -117,7 +115,6 @@ const largest = rows.length ? Math.max(...rows.map((r) => r.total)) : 0;
   ) : (
     <div class="panel-b">
       <EmptyState code="NO BLOCS SEATED" title="No blocs have been seated for this term.">
-        <p>Each player ordinarily controls one indivisible party bloc of up to sixty seats. Bloc holders are published with the composition.</p>
       </EmptyState>
     </div>
   )}

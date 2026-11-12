@@ -19,7 +19,6 @@ const terms = s.terms;
     <div>
       <div class="kicker">Section 03 · Bill register</div>
       <h1>Legislation</h1>
-      <p class="lede">Every measure filed with the Assembly carries a permanent record with its full text, amendments, divisions, Council and legal actions, and its outcome in the resource ledger.</p>
     </div>
     <div class="head-tools"><a class="btn" href={href('/legislation/drafting/')}>Drafting guide</a></div>
   </div>
@@ -51,7 +50,6 @@ const terms = s.terms;
     {s.bills.length ? <BillTable bills={s.bills} filterable /> : null}
     <div data-empty hidden style="padding:10px">
       <EmptyState code="NO MATCH" title="No measures match these filters.">
-        <p>{canonCount === 0 ? 'No canonical measures have been filed yet. ' : ''}Clear the filters to see the full register.</p>
       </EmptyState>
     </div>
   </div>
