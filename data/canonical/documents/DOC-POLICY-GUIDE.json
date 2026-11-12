@@ -2,20 +2,21 @@
   "id": "DOC-POLICY-GUIDE",
   "visibility": "public",
   "kind": "guide",
-  "title": "Policy and Legislative Ideas Guide",
-  "shortTitle": "Policy ideas guide",
-  "edition": "First edition · November 2026 · Companion to World Bible v3.4",
+  "title": "Policy and Legislative Handbook",
+  "shortTitle": "Policy and Legislative Handbook",
+  "edition": "Second edition · November 2026 · Companion to World Bible v3.4",
   "issuedBy": "The Light of Other Stars (public companion)",
-  "sourceRef": "Policy and Legislative Ideas Guide, first edition",
-  "summary": "A sourcebook for turning the setting's arguments into concrete legislation, bargains, campaigns and research proposals. It is an inspiration document, not a source of new legal powers, and no entry commits any institution to an outcome.",
+  "sourceRef": "Policy and Legislative Handbook, second edition; expanded from the Policy and Legislative Ideas Guide",
+  "summary": "A practical handbook for turning political goals into legislation: resource allocation, fundamental rights, AI government, settlement law and the institutions of a post-superintelligence society. Entries are proposals for debate, not enacted law or new institutional powers.",
   "sections": [
     {
       "id": "purpose",
       "number": "1",
       "heading": "Purpose and scope",
       "paragraphs": [
-        "This guide is not a party manifesto, a model bill book or a prescribed progression. The Assembly governs the release and use of defined extrasolar resource claims. It does not possess general authority over Earth's governments, the domestic economy, or the security system established by the Grand Bargain; proposals affecting those subjects may need the relevant outside institution's consent.",
-        "Where a legal route is uncertain, consult the [[INST-ARBITER|Office of the Treaty Arbiter]] and, if disputed, the [[INST-TRIBUNAL|Charter Review Tribunal]]. The World Bible and controlling treaty text prevail over any shorthand in this guide."
+        "This handbook offers competing proposals, legislative instruments and possible bargains. It is not a party manifesto or a prescribed progression. The Assembly governs the release and use of defined extrasolar resource claims. It does not possess general authority over Earth's governments, the domestic economy, or the security system established by the Grand Bargain.",
+        "A policy can matter to Assembly politics even when the Assembly cannot enact it alone. National sovereignty, world federation, family life and the authority of security systems shape how people judge the treaty order. Each proposal must identify the part within Assembly jurisdiction and the outside agreement needed for the rest.",
+        "Where a legal route is uncertain, consult the [[INST-ARBITER|Office of the Treaty Arbiter]] and, if disputed, the [[INST-TRIBUNAL|Charter Review Tribunal]]. The World Bible and controlling treaty text prevail over shorthand in this handbook. No proposal below establishes a new right, prohibition, office, technology or enforcement mandate merely by appearing here."
       ]
     },
     {
@@ -26,9 +27,12 @@
       "list": [
         "*What resource claim or treaty rule would change?* Define a release percentage, a channel share, a project, a prohibition, a franchise amendment, or a charter procedure.",
         "*Who receives authority or a claim?* Name beneficiaries, custodians, deadlines and obligations, rather than just an abstract objective.",
+        "*Who is protected, and who may intervene?* Define the affected persons, the prohibited conduct, the responsible operator and the limits of any coercive power.",
+        "*How can a decision be challenged?* State the evidence standard, review body, emergency time limit and remedy for a wrongful intervention.",
         "*What is the strongest objection?* Identify affected people, future generations, digital minds, existing claimants or preservation interests.",
         "*What is the legal route?* Ordinary vote, enhanced threshold, Council delay or entrenched veto, Tribunal review, or action beyond Assembly jurisdiction.",
-        "*What happens ten years later?* Give the World Engine measurable consequences and unresolved risks without prescribing the election result."
+        "*What happens ten years later?* Give the World Engine measurable consequences and unresolved risks without prescribing the election result.",
+        "*What makes the proposal implementable?* Identify the required technology, deployment stage, resource cost and communication delay; do not assume an overseer is omniscient or physically present everywhere."
       ]
     },
     {
@@ -37,15 +41,85 @@
       "heading": "Voting and institutional constraints at a glance",
       "table": {
         "caption": "Working rules (orientation only)",
-        "columns": ["Action", "Working rule"],
+        "columns": [
+          "Action",
+          "Working rule"
+        ],
         "rows": [
-          ["Ordinary measures and release allocations", "Simple majority of seats voting, subject to procedural review and permissible Council delay"],
-          ["Override of a permitted delay", "Two-thirds"],
-          ["New or changed prohibitions", "90 per cent"],
-          ["Permanent charter / general charter amendment", "Two-thirds, with special thresholds where the charter specifies"],
-          ["Protected Council powers and certain holdings", "Entrenched Council veto may apply"],
-          ["Change in voting franchise", "Additional consent from the designated Council seat"],
-          ["Non-binding resolutions and general information requests", "Not yet separately authorised as player actions"]
+          [
+            "Ordinary measures and release allocations",
+            "Simple majority of seats voting, subject to procedural review and permissible Council delay"
+          ],
+          [
+            "Override of a permitted delay",
+            "Two-thirds"
+          ],
+          [
+            "New or changed prohibitions",
+            "90 per cent"
+          ],
+          [
+            "Permanent charter / general charter amendment",
+            "Two-thirds, with special thresholds where the charter specifies"
+          ],
+          [
+            "Protected Council powers and certain holdings",
+            "Entrenched Council veto may apply"
+          ],
+          [
+            "Change in voting franchise",
+            "Additional consent from the designated Council seat"
+          ],
+          [
+            "Non-binding resolutions and general information requests",
+            "Not yet separately authorised as player actions"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "legal-routes",
+      "number": "3.1",
+      "heading": "Choose a lawful instrument",
+      "paragraphs": [
+        "Different parts of one political programme may require different instruments. Funding a service, prohibiting a use and changing the constitution are separate decisions; one vote does not automatically accomplish all three.",
+        "Project conditions apply to prospective treaty-funded activities within the relevant allocation. They must not be used to evade the threshold for a new prohibition, confiscate vested rights or acquire powers outside the treaty. Constitutional recognition of a right may also require a separately classified prohibition or enforcement measure."
+      ],
+      "table": {
+        "caption": "Routes used in the policy areas below",
+        "columns": [
+          "Instrument",
+          "Scope and constraint"
+        ],
+        "rows": [
+          [
+            "Project allocation or prospective operating condition",
+            "An ordinary measure within treaty jurisdiction; identify units, channel, reach, implementing actor, beneficiaries, duration and conditions."
+          ],
+          [
+            "New or amended prohibition",
+            "Ninety per cent of seats voting. Existing prohibitions remain binding while a proposal is debated."
+          ],
+          [
+            "Charter provision or permanent charter",
+            "Two-thirds, subject to the controlling rules and any separately applicable prohibition threshold or protected Council matter."
+          ],
+          [
+            "Enforcement under Assembly command",
+            "A Council majority has an entrenched veto. Funding technology does not by itself confer police authority."
+          ],
+          [
+            "Change to the franchise",
+            "The enhanced amendment threshold and consent of the rest-of-world Council seat; welfare protection does not automatically grant a vote."
+          ],
+          [
+            "Change to Council powers or existing protected holdings",
+            "The relevant entrenched veto applies; a project contract cannot override it."
+          ],
+          [
+            "Earth-wide or Grand Bargain reform",
+            "Agreement of the competent outside authorities. An Assembly allocation cannot unilaterally rewrite domestic law or the security settlement."
+          ]
         ]
       }
     },
@@ -55,14 +129,49 @@
       "heading": "Timing and division of the cosmic pool",
       "table": {
         "caption": "",
-        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "columns": [
+          "Idea",
+          "Instrument",
+          "Possible coalition",
+          "Pressure point"
+        ],
         "rows": [
-          ["Early-release compact", "A high lawful release percentage for a fixed term, with evaluation after the first decade", "Expansionists, industrial constituencies", "Premature irreversible commitments and claimant capture"],
-          ["Slow-release settlement", "A low lawful release percentage with a timetable for fresh review", "Stewards, future-generation advocates", "Opportunity cost for would-be settlers; delayed benefits"],
-          ["Balanced four-channel settlement", "A split combining endowments, public projects, AI deferral and reserve", "Cross-family coalition", "May satisfy few groups strongly; details matter"],
-          ["Crisis-adjusted release formula", "A future charter rule changing release rates after defined safety or verification events", "Institutional reformers", "Needs a credible trigger and anti-manipulation protections"],
-          ["Reserve-first guarantee", "An unusually large share of the next release to the Reserve", "Intergenerational stewards", "Constrains current claimants; may create trustee disputes"],
-          ["Conditional deferral", "A defined portion to the Council on Long-Term Values with published review criteria", "Delegationists, cautious builders", "Who defines satisfaction, exit and accountability?"]
+          [
+            "Early-release compact",
+            "A high lawful release percentage for a fixed term, with evaluation after the first decade",
+            "Expansionists, industrial constituencies",
+            "Premature irreversible commitments and claimant capture"
+          ],
+          [
+            "Slow-release settlement",
+            "A low lawful release percentage with a timetable for fresh review",
+            "Stewards, future-generation advocates",
+            "Opportunity cost for would-be settlers; delayed benefits"
+          ],
+          [
+            "Balanced four-channel settlement",
+            "A split combining endowments, public projects, AI deferral and reserve",
+            "Cross-family coalition",
+            "May satisfy few groups strongly; details matter"
+          ],
+          [
+            "Crisis-adjusted release formula",
+            "A future charter rule changing release rates after defined safety or verification events",
+            "Institutional reformers",
+            "Needs a credible trigger and anti-manipulation protections"
+          ],
+          [
+            "Reserve-first guarantee",
+            "An unusually large share of the next release to the Reserve",
+            "Intergenerational stewards",
+            "Constrains current claimants; may create trustee disputes"
+          ],
+          [
+            "Conditional deferral",
+            "A defined portion to the Council on Long-Term Values with published review criteria",
+            "Delegationists, cautious builders",
+            "Who defines satisfaction, exit and accountability?"
+          ]
         ]
       }
     },
@@ -72,14 +181,49 @@
       "heading": "Ownership, endowment and markets",
       "table": {
         "caption": "",
-        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "columns": [
+          "Idea",
+          "Instrument",
+          "Possible coalition",
+          "Pressure point"
+        ],
         "rows": [
-          ["Universal individual endowments", "Equal portions to eligible adults through the Endowment channel", "Holders, egalitarian blocs", "Tradeability, identity verification and distribution mechanics"],
-          ["Voluntary endowment pooling", "Opt-in shared trusts from privately held claims", "Community Holders and Builders", "Consent, exit rights and minority governance"],
-          ["Anti-concentration conditions", "Conditions on publicly awarded project claims, not on vested private rights", "Small-claim constituencies", "Property protections and Council veto risk"],
-          ["Inheritance and emulation claims", "How an Assembly-managed allocation recognises beneficiaries when copies exist", "Emulation Families", "Personhood and franchise rules are not settled"],
-          ["Claims registry", "A treaty-scope transparent registry of releases, beneficiaries and obligations", "Traders, oversight coalitions", "Privacy and auditability of ownership"],
-          ["Cooling-off proposal", "A charter-level condition on transfer of newly issued endowments", "Waiting-Period Holders", "May limit alienability; distinguish existing rights"]
+          [
+            "Universal individual endowments",
+            "Equal portions to eligible adults through the Endowment channel",
+            "Holders, egalitarian blocs",
+            "Tradeability, identity verification and distribution mechanics"
+          ],
+          [
+            "Voluntary endowment pooling",
+            "Opt-in shared trusts from privately held claims",
+            "Community Holders and Builders",
+            "Consent, exit rights and minority governance"
+          ],
+          [
+            "Anti-concentration conditions",
+            "Conditions on publicly awarded project claims, not on vested private rights",
+            "Small-claim constituencies",
+            "Property protections and Council veto risk"
+          ],
+          [
+            "Inheritance and emulation claims",
+            "How an Assembly-managed allocation recognises beneficiaries when copies exist",
+            "Emulation Families",
+            "Personhood and franchise rules are not settled"
+          ],
+          [
+            "Claims registry",
+            "A treaty-scope transparent registry of releases, beneficiaries and obligations",
+            "Traders, oversight coalitions",
+            "Privacy and auditability of ownership"
+          ],
+          [
+            "Cooling-off proposal",
+            "A charter-level condition on transfer of newly issued endowments",
+            "Waiting-Period Holders",
+            "May limit alienability; distinguish existing rights"
+          ]
         ]
       }
     },
@@ -89,15 +233,55 @@
       "heading": "Preservation, settlement and exploration",
       "table": {
         "caption": "",
-        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "columns": [
+          "Idea",
+          "Instrument",
+          "Possible coalition",
+          "Pressure point"
+        ],
         "rows": [
-          ["Stellar sanctuary programme", "Public-project resources to preserve designated uninhabited systems", "Stewards and science coalitions", "Scope, enforcement and displaced settlement ambitions"],
-          ["Milky Way settlement priority", "An early share to near-galactic missions with explicit limits on farther claims", "Near-Space Settlers", "Does it prejudge claims beyond the Milky Way?"],
-          ["Frontier survey before settlement", "Probes and scientific assessment before authorising transformation", "Researchers and cautious settlers", "Delay and evidence standards"],
-          ["First-contact contingency", "Rules for pausing treaty-financed development if life or civilisation is detected", "Ethics and security coalitions", "Who certifies detection and imposes a pause?"],
-          ["Autonomous settlement franchises", "Seed funding conditioned on local self-government after arrival", "Frontier Pioneers", "Long-delayed communication and enforcement"],
-          ["Minimal-footprint engineering", "Habitat strategies reducing irreversible conversion of environments", "Stewards, technologists", "Feasibility uncertain in new environments"],
-          ["Long-distance claim escrow", "Distant claims held unexercised pending a later decision", "Deferrers and trustees", "Future decision authority and opportunity costs"]
+          [
+            "Stellar sanctuary programme",
+            "Public-project resources to preserve designated uninhabited systems",
+            "Stewards and science coalitions",
+            "Scope, enforcement and displaced settlement ambitions"
+          ],
+          [
+            "Milky Way settlement priority",
+            "An early share to near-galactic missions with explicit limits on farther claims",
+            "Near-Space Settlers",
+            "Does it prejudge claims beyond the Milky Way?"
+          ],
+          [
+            "Frontier survey before settlement",
+            "Probes and scientific assessment before authorising transformation",
+            "Researchers and cautious settlers",
+            "Delay and evidence standards"
+          ],
+          [
+            "First-contact contingency",
+            "Rules for pausing treaty-financed development if life or civilisation is detected",
+            "Ethics and security coalitions",
+            "Who certifies detection and imposes a pause?"
+          ],
+          [
+            "Autonomous settlement franchises",
+            "Seed funding conditioned on local self-government after arrival",
+            "Frontier Pioneers",
+            "Long-delayed communication and enforcement"
+          ],
+          [
+            "Minimal-footprint engineering",
+            "Habitat strategies reducing irreversible conversion of environments",
+            "Stewards, technologists",
+            "Feasibility uncertain in new environments"
+          ],
+          [
+            "Long-distance claim escrow",
+            "Distant claims held unexercised pending a later decision",
+            "Deferrers and trustees",
+            "Future decision authority and opportunity costs"
+          ]
         ]
       }
     },
@@ -107,14 +291,49 @@
       "heading": "Digital persons and future generations",
       "table": {
         "caption": "",
-        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "columns": [
+          "Idea",
+          "Instrument",
+          "Possible coalition",
+          "Pressure point"
+        ],
         "rows": [
-          ["Digital-mind impact report", "An impact assessment for a specific project involving possible digital welfare", "Inclusionists", "Research cannot settle every philosophical dispute"],
-          ["Protected digital habitats", "Secure computing habitats with explicit welfare safeguards", "Digital Rights Advocates", "Legal beneficiaries; safeguards against forced copying"],
-          ["Copying governance experiment", "Study of identity, copy rights and continuity", "Emulation Families", "Identity disagreements remain profound"],
-          ["Future-generation reserve stewardship", "Reporting rules for trustees of reserved allocations", "Intergenerational Stewards", "Representing unborn people without claiming to read their values"],
-          ["Franchise reform proposal", "A carefully defined constitutional amendment on non-human voters", "Universalists", "Special threshold and Council consent"],
-          ["Youth cohort representation inquiry", "Study of the perspectives of new generations", "Youth Cohort", "Distinguish consultation from immediate franchise change"]
+          [
+            "Digital-mind impact report",
+            "An impact assessment for a specific project involving possible digital welfare",
+            "Inclusionists",
+            "Research cannot settle every philosophical dispute"
+          ],
+          [
+            "Protected digital habitats",
+            "Secure computing habitats with explicit welfare safeguards",
+            "Digital Rights Advocates",
+            "Legal beneficiaries; safeguards against forced copying"
+          ],
+          [
+            "Copying governance experiment",
+            "Study of identity, copy rights and continuity",
+            "Emulation Families",
+            "Identity disagreements remain profound"
+          ],
+          [
+            "Future-generation reserve stewardship",
+            "Reporting rules for trustees of reserved allocations",
+            "Intergenerational Stewards",
+            "Representing unborn people without claiming to read their values"
+          ],
+          [
+            "Franchise reform proposal",
+            "A carefully defined constitutional amendment on non-human voters",
+            "Universalists",
+            "Special threshold and Council consent"
+          ],
+          [
+            "Youth cohort representation inquiry",
+            "Study of the perspectives of new generations",
+            "Youth Cohort",
+            "Distinguish consultation from immediate franchise change"
+          ]
         ]
       }
     },
@@ -124,14 +343,49 @@
       "heading": "Superintelligence, moral inquiry and research",
       "table": {
         "caption": "",
-        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "columns": [
+          "Idea",
+          "Instrument",
+          "Possible coalition",
+          "Pressure point"
+        ],
         "rows": [
-          ["Plural moral inquiry endowment", "Several independent value-research institutions", "Deferrers, Builders", "Allocation need not imply moral agreement"],
-          ["Adversarial verification programme", "Independent review of key superintelligent claims", "Verification Hawks", "Security boundaries, audit access and interpretability"],
-          ["Delegation with revocation rules", "What a bounded delegated release allows the Council on Long-Term Values to decide", "Delegationists", "Irreversible expenditures cannot always be clawed back"],
-          ["Consciousness research mission", "Experiments and philosophical work on digital and biological welfare", "Sentience Advocates", "No outcome should be prejudged"],
-          ["Scientific openness covenant", "Publication and access obligations on funded research", "Research Funders", "Sensitive findings and commercial incentives"],
-          ["Value-divergence monitoring", "Study of cases where personal AI representatives diverge from user-reported preferences", "Public trust coalitions", "Privacy, autonomy and non-manipulation"]
+          [
+            "Plural moral inquiry endowment",
+            "Several independent value-research institutions",
+            "Deferrers, Builders",
+            "Allocation need not imply moral agreement"
+          ],
+          [
+            "Adversarial verification programme",
+            "Independent review of key superintelligent claims",
+            "Verification Hawks",
+            "Security boundaries, audit access and interpretability"
+          ],
+          [
+            "Delegation with revocation rules",
+            "What a bounded delegated release allows the Council on Long-Term Values to decide",
+            "Delegationists",
+            "Irreversible expenditures cannot always be clawed back"
+          ],
+          [
+            "Consciousness research mission",
+            "Experiments and philosophical work on digital and biological welfare",
+            "Sentience Advocates",
+            "No outcome should be prejudged"
+          ],
+          [
+            "Scientific openness covenant",
+            "Publication and access obligations on funded research",
+            "Research Funders",
+            "Sensitive findings and commercial incentives"
+          ],
+          [
+            "Value-divergence monitoring",
+            "Study of cases where personal AI representatives diverge from user-reported preferences",
+            "Public trust coalitions",
+            "Privacy, autonomy and non-manipulation"
+          ]
         ]
       }
     },
@@ -141,14 +395,49 @@
       "heading": "Constitutional design and legitimacy",
       "table": {
         "caption": "",
-        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "columns": [
+          "Idea",
+          "Instrument",
+          "Possible coalition",
+          "Pressure point"
+        ],
         "rows": [
-          ["Permanent Charter compromise", "A replacement for the Interim Charter before 2060", "Any broad coalition", "Two-thirds threshold and entrenched interests"],
-          ["Clear lapse procedures", "A transition procedure if the permanent charter fails", "Institutional continuity caucuses", "Avoid creating a unilateral emergency sovereign"],
-          ["Tribunal precedent publication", "Reliable access to published Arbiter and Tribunal rulings", "Legal reformers", "Protect legitimate confidential submissions"],
-          ["Commissioner safeguards", "Clarify reporting obligations and delay procedure", "Intergenerational advocates", "Do not silently expand veto powers"],
-          ["Institutional review after two terms", "A scheduled evaluation built into the permanent charter", "Moderates and constitutionalists", "Review machinery can become a bargaining weapon"],
-          ["Council reform bargain", "Council changes paired with protections for affected seats", "Cross-regional coalition", "Council power changes face an entrenched veto"]
+          [
+            "Permanent Charter compromise",
+            "A replacement for the Interim Charter before 2060",
+            "Any broad coalition",
+            "Two-thirds threshold and entrenched interests"
+          ],
+          [
+            "Clear lapse procedures",
+            "A transition procedure if the permanent charter fails",
+            "Institutional continuity caucuses",
+            "Avoid creating a unilateral emergency sovereign"
+          ],
+          [
+            "Tribunal precedent publication",
+            "Reliable access to published Arbiter and Tribunal rulings",
+            "Legal reformers",
+            "Protect legitimate confidential submissions"
+          ],
+          [
+            "Commissioner safeguards",
+            "Clarify reporting obligations and delay procedure",
+            "Intergenerational advocates",
+            "Do not silently expand veto powers"
+          ],
+          [
+            "Institutional review after two terms",
+            "A scheduled evaluation built into the permanent charter",
+            "Moderates and constitutionalists",
+            "Review machinery can become a bargaining weapon"
+          ],
+          [
+            "Council reform bargain",
+            "Council changes paired with protections for affected seats",
+            "Cross-regional coalition",
+            "Council power changes face an entrenched veto"
+          ]
         ]
       }
     },
@@ -158,14 +447,49 @@
       "heading": "Distribution, diplomacy and public projects",
       "table": {
         "caption": "",
-        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "columns": [
+          "Idea",
+          "Instrument",
+          "Possible coalition",
+          "Pressure point"
+        ],
         "rows": [
-          ["Global research commons", "Treaty-scope shared instruments and scientific infrastructure", "Public Works Builders", "Allocation across regions and beneficiaries"],
-          ["Regional access fund", "Projects widening access to extrasolar programmes for under-represented regions", "Regional Commons", "Jurisdiction and fair eligibility"],
-          ["Interstellar communications archive", "Durable records and information sharing for long-travel missions", "Researchers, Heritage Protectors", "Authenticity, consent and extreme timescales"],
-          ["Open industrial seed library", "Publicly governed designs for replicating industrial systems", "Builders and frontier groups", "Misuse risks; meaning of open access"],
-          ["Preserve-and-settle exchange", "A settlement allocation traded for stronger sanctuary protections", "Settlers with Stewards", "Both sides need enforceable terms"],
-          ["Compensation for prior probes", "Negotiated exchange rather than uncompensated seizure", "Frontier AI laboratories", "Property restrictions and Council veto"]
+          [
+            "Global research commons",
+            "Treaty-scope shared instruments and scientific infrastructure",
+            "Public Works Builders",
+            "Allocation across regions and beneficiaries"
+          ],
+          [
+            "Regional access fund",
+            "Projects widening access to extrasolar programmes for under-represented regions",
+            "Regional Commons",
+            "Jurisdiction and fair eligibility"
+          ],
+          [
+            "Interstellar communications archive",
+            "Durable records and information sharing for long-travel missions",
+            "Researchers, Heritage Protectors",
+            "Authenticity, consent and extreme timescales"
+          ],
+          [
+            "Open industrial seed library",
+            "Publicly governed designs for replicating industrial systems",
+            "Builders and frontier groups",
+            "Misuse risks; meaning of open access"
+          ],
+          [
+            "Preserve-and-settle exchange",
+            "A settlement allocation traded for stronger sanctuary protections",
+            "Settlers with Stewards",
+            "Both sides need enforceable terms"
+          ],
+          [
+            "Compensation for prior probes",
+            "Negotiated exchange rather than uncompensated seizure",
+            "Frontier AI laboratories",
+            "Property restrictions and Council veto"
+          ]
         ]
       }
     },
@@ -175,34 +499,745 @@
       "heading": "Culture, identity and long horizons",
       "table": {
         "caption": "",
-        "columns": ["Idea", "Instrument", "Possible coalition", "Pressure point"],
+        "columns": [
+          "Idea",
+          "Instrument",
+          "Possible coalition",
+          "Pressure point"
+        ],
         "rows": [
-          ["Cultural preservation endowment", "Long-term conservation of records, languages and traditions", "Heritage Protectors", "Who speaks for a culture?"],
-          ["Voluntary human-scale settlements", "Communities choosing less automation and slower change", "Community and autonomy groups", "Participation must remain voluntary"],
-          ["Multisubstrate civil society pilot", "Institutions where biological and digital participants collaborate", "Inclusionists, Builders", "Representation and recognition remain contested"],
-          ["Long-view ethics prizes", "Research grants on duties to distant descendants", "Philosophers' Bloc", "Avoid predetermined endorsement"],
-          ["Protected quiet regions", "Defined locations set aside for observation and non-interference", "Observers' Bloc", "Distinguishing observation from indirect influence"],
-          ["Reversible development experiments", "Projects toward technologies enabling restoration", "Cautious settlers", "Some changes may be irreversible regardless"]
+          [
+            "Cultural preservation endowment",
+            "Long-term conservation of records, languages and traditions",
+            "Heritage Protectors",
+            "Who speaks for a culture?"
+          ],
+          [
+            "Voluntary human-scale settlements",
+            "Communities choosing less automation and slower change",
+            "Community and autonomy groups",
+            "Participation must remain voluntary"
+          ],
+          [
+            "Multisubstrate civil society pilot",
+            "Institutions where biological and digital participants collaborate",
+            "Inclusionists, Builders",
+            "Representation and recognition remain contested"
+          ],
+          [
+            "Long-view ethics prizes",
+            "Research grants on duties to distant descendants",
+            "Philosophers' Bloc",
+            "Avoid predetermined endorsement"
+          ],
+          [
+            "Protected quiet regions",
+            "Defined locations set aside for observation and non-interference",
+            "Observers' Bloc",
+            "Distinguishing observation from indirect influence"
+          ],
+          [
+            "Reversible development experiments",
+            "Projects toward technologies enabling restoration",
+            "Cautious settlers",
+            "Some changes may be irreversible regardless"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat-rights",
+      "number": "4.9",
+      "heading": "Fundamental rights and personal security",
+      "paragraphs": [
+        "The [[DOC-CHARTER|Interim Charter]] already prohibits torture of conscious beings, including digital minds and animals likely to suffer. It does not expressly set out a general protection against killing or deletion. This omission does not repeal domestic criminal law; it leaves a constitutional question about protection across treaty-financed settlements and computing habitats.",
+        "Specify the protected subject and the act. Biological death, destruction of a running mind, deletion of a backup, forced suspension and irreversible personality change need not be legally identical. A surviving copy must not automatically be treated as consent to destroy another individual."
+      ],
+      "table": {
+        "caption": "Proposals for debate",
+        "columns": [
+          "Proposal",
+          "Instrument and legal route",
+          "Possible coalition",
+          "Political choice"
+        ],
+        "rows": [
+          [
+            "Protection against killing and deletion",
+            "A proposed new prohibition on defined non-consensual destruction of protected persons; ninety-per-cent route, with Charter recognition where appropriate.",
+            "Personal-security advocates; digital-rights and civil-liberties coalitions",
+            "Who counts as a protected person, and how are self-defence, accidents and end-of-life choices treated?"
+          ],
+          [
+            "Implementation of the torture prohibition",
+            "Fund safeguards, inspections and remedies for treaty-financed operations under the existing ban; classify any new enforcement powers separately.",
+            "Sentience advocates; legal reformers",
+            "How can suffering be detected without routine access to every private experience?"
+          ],
+          [
+            "Bodily and cognitive integrity",
+            "Prospective project conditions and proposed Charter protections against forced modification, confinement or non-consensual experimentation.",
+            "Autonomy groups; emulation families",
+            "Which interventions are justified for emergencies or people unable to consent?"
+          ],
+          [
+            "Civil liberties covenant",
+            "Proposed Charter guarantees and prospective settlement conditions protecting expression, association, conscience and belief.",
+            "Civil-liberties and religious-freedom coalitions",
+            "Where do threats, harassment, discriminatory exclusion and coercive persuasion cross the boundary?"
+          ],
+          [
+            "Minimum rights independent of citizenship",
+            "A proposed treaty rights floor for residents, visitors and protected non-voters; legal recognition is distinct from enfranchisement.",
+            "Universalists; migrant and minority advocates",
+            "Does a local majority have authority to waive protections for outsiders?"
+          ],
+          [
+            "Effective access to protection",
+            "Allocate representation, accessible complaint channels and emergency assistance within treaty-funded projects.",
+            "Public-service builders; small claimants",
+            "A formal right can be ineffective if the operator controls the complainant's communication or computing resources."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat-justice",
+      "number": "4.10",
+      "heading": "Justice, policing and enforcement",
+      "paragraphs": [
+        "Distinguish preventing immediate harm, investigating an alleged offence, deciding liability and imposing a remedy. An AI's technical ability to restrain someone does not settle who authorised it, what evidence is required or how long restraint may last.",
+        "The treaty protects Council review of enforcement under Assembly command. An independent verifier, a project operator and a police authority have different mandates even if all use artificial intelligence."
+      ],
+      "table": {
+        "caption": "Proposals for debate",
+        "columns": [
+          "Proposal",
+          "Instrument and legal route",
+          "Possible coalition",
+          "Political choice"
+        ],
+        "rows": [
+          [
+            "Emergency intervention protocol",
+            "Proposed prospective operating rules for treaty-funded habitats, with separate approval of any police mandate.",
+            "Safety advocates; civil libertarians",
+            "Allow immediate protection while requiring prompt independent review and an end to unnecessary restraint."
+          ],
+          [
+            "Independent adjudication and defence",
+            "Fund access to representation and propose procedures within the jurisdiction of the competent court or tribunal.",
+            "Legal reformers; minority communities",
+            "A verification system's confidence is evidence, not an automatic conviction."
+          ],
+          [
+            "Review of preventive confinement",
+            "A proposed rights and procedure package requiring reasons, time limits and regular review; no detention authority is assumed.",
+            "Autonomy and personal-security coalitions",
+            "How much predicted risk justifies restraint before an offence, and who bears the error?"
+          ],
+          [
+            "Restoration and rehabilitation",
+            "Fund voluntary treatment, mediation, victim support and restoration within authorised projects.",
+            "Restorative-justice advocates; public-service builders",
+            "Distinguish chosen assistance from compulsory personality alteration presented as treatment."
+          ],
+          [
+            "Accountability for wrongful intervention",
+            "Prospective operator liability, independent complaints and a funded compensation mechanism.",
+            "Residents; insurers; verification advocates",
+            "Who pays when an authorised system injures someone or interrupts a mind's operation?"
+          ],
+          [
+            "Limited inspection and evidence retention",
+            "Conditions defining access, purpose, retention and independent authorisation for project inspections.",
+            "Privacy and safety coalitions",
+            "Auditable enforcement must not become unrestricted monitoring of thought, association or private life."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat-mental-autonomy",
+      "number": "4.11",
+      "heading": "Mental autonomy, persuasion and information",
+      "paragraphs": [
+        "Powerful personal representatives and adaptive environments make influence a matter of institutional design. A person may request help changing their preferences without authorising a sponsor, employer or government to change those preferences secretly.",
+        "Rules should distinguish factual correction, disclosed advocacy, voluntary self-transformation and coercive manipulation. They should also protect dissent from the judgement of an allegedly benevolent system."
+      ],
+      "table": {
+        "caption": "Proposals for debate",
+        "columns": [
+          "Proposal",
+          "Instrument and legal route",
+          "Possible coalition",
+          "Political choice"
+        ],
+        "rows": [
+          [
+            "Personal representative duties",
+            "Prospective contracts for publicly funded advisers requiring disclosure of sponsors, conflicts and authority to act.",
+            "User-autonomy groups; verification advocates",
+            "How can a user replace an adviser without losing identity records, relationships or essential access?"
+          ],
+          [
+            "Consent to memory and personality changes",
+            "Proposed Charter safeguards and project conditions for informed, specific and reviewable consent.",
+            "Emulation families; civil libertarians",
+            "When does a requested change undermine the ability to withdraw consent later?"
+          ],
+          [
+            "Transparent political persuasion",
+            "Propose rules for Assembly campaigning and funded communication services, subject to existing procedural authority.",
+            "Electoral-integrity and free-expression coalitions",
+            "Require disclosure without making the institution the arbiter of permissible political beliefs."
+          ],
+          [
+            "Private thought and confidential advice",
+            "Prospective privacy conditions and proposed constitutional protection for mental data and adviser conversations.",
+            "Privacy advocates; religious and dissenting communities",
+            "What narrowly defined emergencies permit access, with what independent authorisation?"
+          ],
+          [
+            "Authenticity without compulsory exposure",
+            "Allocate provenance and verification tools for public claims while allowing lawful anonymous participation.",
+            "Independent press; fraud-prevention and privacy groups",
+            "Proof that a statement has an accountable source need not reveal every participant's civil identity."
+          ],
+          [
+            "Freedom from captive environments",
+            "Prospective service conditions providing understandable settings, interruption and portable exit from adaptive worlds.",
+            "Consumer-autonomy groups; youth advocates",
+            "How is consent established when an environment controls attention, perceived time and available alternatives?"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat-creation",
+      "number": "4.12",
+      "heading": "Creating and sustaining persons",
+      "paragraphs": [
+        "Resource allocation can determine how many persons exist, how quickly they experience time and what material or computational support they depend on. A creation policy therefore concerns future duties as well as present freedom.",
+        "Rights to welfare, legal personality and political membership are separate questions. Neither creating many copies nor funding their support automatically establishes their voting eligibility."
+      ],
+      "table": {
+        "caption": "Proposals for debate",
+        "columns": [
+          "Proposal",
+          "Instrument and legal route",
+          "Possible coalition",
+          "Political choice"
+        ],
+        "rows": [
+          [
+            "Provision before creation",
+            "Prospective conditions on funded facilities requiring credible ongoing support for intentionally created dependent persons.",
+            "Future-generation advocates; responsible operators",
+            "Who assumes the duty if the creator becomes insolvent or loses interest?"
+          ],
+          [
+            "Copying and independent consent",
+            "Prospective habitat rules and proposed rights protections specifying when a copy acquires interests distinct from its source.",
+            "Digital-rights advocates; emulation families",
+            "A licence to make a copy is not necessarily authority to command or terminate it."
+          ],
+          [
+            "Continuity of essential computing",
+            "Allocate continuity reserves and orderly transfers for protected digital residents of funded habitats.",
+            "Digital-rights and infrastructure coalitions",
+            "How are essential support and discretionary computing separated when capacity is finite?"
+          ],
+          [
+            "Accelerated-life obligations",
+            "Prospective reporting and care requirements measured in experienced as well as external time.",
+            "Sentience advocates; research communities",
+            "A short external outage or confinement may represent a very long experience for an accelerated mind."
+          ],
+          [
+            "Limits on creating dependent populations",
+            "Propose project-scale capacity conditions; classify any general restriction or prohibition separately.",
+            "Cautious inclusionists; autonomy groups",
+            "Balance reproductive and creative freedom against foreseeable abandonment, suffering and external costs."
+          ],
+          [
+            "Shutdown, suspension and succession rules",
+            "Prospective continuity plans and proposed due-process rights for facility closure, migration and involuntary suspension.",
+            "Operators; residents; legal reformers",
+            "Distinguish a reversible pause from destruction without assuming either is harmless."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat-ai-government",
+      "number": "4.13",
+      "heading": "AI government and institutional accountability",
+      "paragraphs": [
+        "The [[DOC-WORLD|public background brief]] describes several artificial systems with different duties, access rights and institutional loyalties. Policy must specify which system receives authority rather than addressing an imagined single omniscient overseer.",
+        "Advice, verification, administration and coercion should have separately stated mandates. An institution may accept a system's technical expertise without accepting its moral judgement as law."
+      ],
+      "table": {
+        "caption": "Proposals for debate",
+        "columns": [
+          "Proposal",
+          "Instrument and legal route",
+          "Possible coalition",
+          "Political choice"
+        ],
+        "rows": [
+          [
+            "Published mandates for delegated systems",
+            "Prospective delegation contracts and proposed constitutional rules defining objectives, powers and forbidden unilateral changes.",
+            "Delegationists; constitutionalists",
+            "Who may amend the mandate, and what happens when several authorised principals disagree?"
+          ],
+          [
+            "Separation of decision, execution and audit",
+            "Allocate independent verification and propose institutional separation for treaty-financed operations.",
+            "Verification hawks; democratic and legal reformers",
+            "Can oversight remain independent when every verifier relies on the same infrastructure?"
+          ],
+          [
+            "Contestable automated decisions",
+            "Prospective administrative procedures with reasons, representation and review by the competent institution.",
+            "Small claimants; civil-liberties coalitions",
+            "An explanation must allow an effective challenge without disclosing genuinely sensitive information indiscriminately."
+          ],
+          [
+            "Removal and continuity arrangements",
+            "Prospective replacement procedures, escrow and service-transfer plans for delegated operators.",
+            "Residents; institutional-continuity groups",
+            "An emergency replacement must not destroy the people or services the system supports."
+          ],
+          [
+            "Limits on emergency authority",
+            "Proposed Charter rules requiring narrow triggers, expiry and independent review; outside security mandates need outside agreement.",
+            "Constitutionalists; security advocates",
+            "How can action be fast enough for a real emergency without making emergency rule permanent?"
+          ],
+          [
+            "Responsibility for delegated harm",
+            "Prospective duties and liability across authorising institutions, contractors and operators.",
+            "Victim advocates; responsible industrial actors",
+            "Delegation should not leave injured people facing an artificial agent with no reachable resources or accountable principal."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat-community",
+      "number": "4.14",
+      "heading": "Community autonomy, migration and exit",
+      "paragraphs": [
+        "A community can choose distinctive institutions while depending on shared infrastructure and a treaty allocation. Define the rights of residents and outsiders before granting an operator long-lived control over a habitat.",
+        "Voluntary entry is not a complete theory of consent. Children, dependent residents and people born after the original compact did not necessarily choose its terms."
+      ],
+      "table": {
+        "caption": "Proposals for debate",
+        "columns": [
+          "Proposal",
+          "Instrument and legal route",
+          "Possible coalition",
+          "Political choice"
+        ],
+        "rows": [
+          [
+            "Settlement constitutional options",
+            "Prospective allocation conditions offering defined forms of local self-government subject to applicable rights.",
+            "Frontier pioneers; civic councils",
+            "How much law may a founding company or generation make binding on later residents?"
+          ],
+          [
+            "Practical exit guarantees",
+            "Allocate transport or digital migration capacity and require portable essential records in funded settlements.",
+            "Autonomy groups; minority communities",
+            "A nominal right to leave is weak if the only destination is unreachable or the operator controls identity and life support."
+          ],
+          [
+            "Religious and low-automation communities",
+            "Prospective voluntary settlement arrangements within applicable protections.",
+            "Religious associations; heritage and human-scale communities",
+            "What choices may parents or communal leaders make for members who dissent?"
+          ],
+          [
+            "Minority participation and local review",
+            "Prospective rules for representation, complaints and changes to a settlement's founding compact.",
+            "Pluralist and regional coalitions",
+            "Local democracy must address both domination from outside and domination by local majorities."
+          ],
+          [
+            "Migration and membership compacts",
+            "Prospective agreements on admission, residency, duties and portable entitlements; franchise changes use their separate route.",
+            "Migrant advocates; settlement operators",
+            "Who funds reception, and which claims survive a change of community?"
+          ],
+          [
+            "Revision across generations",
+            "Prospective amendment procedures and proposed constitutional guarantees against irrevocable private government.",
+            "Youth advocates; local constitutionalists",
+            "When may descendants revise a compact without confiscating legitimate existing rights?"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat-economic-power",
+      "number": "4.15",
+      "heading": "Economic power and essential services",
+      "paragraphs": [
+        "Abundance of ordinary goods does not remove scarcity of particular locations, trusted institutions, computing capacity or control over infrastructure. An equal initial share of the cosmic pool does not guarantee equal bargaining power indefinitely.",
+        "The Assembly may attach lawful prospective conditions to its own allocations and fund alternatives. General Earth-wide competition, taxation or labour law requires the competent outside authorities; vested claims retain their existing protections."
+      ],
+      "table": {
+        "caption": "Proposals for debate",
+        "columns": [
+          "Proposal",
+          "Instrument and legal route",
+          "Possible coalition",
+          "Political choice"
+        ],
+        "rows": [
+          [
+            "Open access to funded infrastructure",
+            "Prospective access and interoperability conditions for relays, transport nodes and computing utilities.",
+            "Small ventures; direct-use holders; public-service builders",
+            "How are maintenance costs recovered without allowing the operator to exclude rivals?"
+          ],
+          [
+            "Competition in new concessions",
+            "Transparent, reviewable terms for prospective Assembly awards, with concentration limits where lawful.",
+            "Small claimants; market and anti-monopoly coalitions",
+            "Distinguish preventing a new exclusive concession from retrospectively seizing existing holdings."
+          ],
+          [
+            "Essential-service guarantees",
+            "Allocate a defined floor of support within funded habitats, with explicit eligibility and continuity obligations.",
+            "Egalitarian and personal-autonomy groups",
+            "Which services are essential, who pays, and how can dependency be prevented from becoming political control?"
+          ],
+          [
+            "Independent contract advice",
+            "Fund advice and propose prospective safeguards against fraud, coercion and incomprehensible permanent commitments.",
+            "Equal-share and waiting-period holders",
+            "A liquid market can expand freedom while exposing people to bargains they cannot meaningfully assess."
+          ],
+          [
+            "Limits on personal domination by contract",
+            "Propose rights protections against coercive control of persons; classify any new prohibition and protected property effects separately.",
+            "Civil libertarians; community and inclusionist coalitions",
+            "Can a person alienate future autonomy, and what happens when claimed consent conflicts with a rights floor?"
+          ],
+          [
+            "Long-lived trust accountability",
+            "Prospective beneficiary information, trustee replacement and conflict-of-interest rules for publicly constituted trusts.",
+            "Kin holders; long-term trustees; future-generation advocates",
+            "How can beneficiaries correct capture without making every long-term commitment revocable at will?"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat-family-medicine",
+      "number": "4.16",
+      "heading": "Family, medicine and enhancement",
+      "paragraphs": [
+        "Long lives, emulation, copying and radical modification change the meaning of dependency, inheritance and consent. The existence of a technical intervention does not decide who may authorise it or how its benefits should be distributed.",
+        "Medical and family law on Earth remains outside automatic Assembly control. Treaty-funded settlements, research facilities and beneficiary arrangements still need explicit rules and safeguards."
+      ],
+      "table": {
+        "caption": "Proposals for debate",
+        "columns": [
+          "Proposal",
+          "Instrument and legal route",
+          "Possible coalition",
+          "Political choice"
+        ],
+        "rows": [
+          [
+            "Consent for treatment and enhancement",
+            "Prospective clinical conditions and proposed rights protections for bodily and mental interventions in funded facilities.",
+            "Patient-autonomy and disability-rights groups",
+            "Where is the line between treatment, enhancement and pressure to conform?"
+          ],
+          [
+            "Protection of children's future autonomy",
+            "Prospective guardianship and welfare requirements for funded communities, with the competent legal authorities.",
+            "Parents; youth and child-welfare advocates",
+            "Which irreversible changes may guardians choose before the person can decide?"
+          ],
+          [
+            "Portable family recognition",
+            "Prospective recognition agreements for beneficiary status, care and inheritance across funded habitats and substrates.",
+            "Emulation families; migrant communities",
+            "A copy or emulation may have distinct interests; continuity cannot be assumed to settle every relationship."
+          ],
+          [
+            "Fair access to longevity services",
+            "Allocate a defined medical programme within treaty scope; wider access policy needs outside cooperation.",
+            "Public-service builders; regional-access coalitions",
+            "Distinguish a funded service from an unsupported promise of universal or uniform deployment."
+          ],
+          [
+            "End-of-life and restoration choices",
+            "Propose consent, representation and review rules; reconcile them with applicable prohibitions before implementation.",
+            "Autonomy groups; religious and personal-security coalitions",
+            "What counts as an informed choice when restoration, backups or changes of mind may be possible?"
+          ],
+          [
+            "Responsibilities across very long lives",
+            "Prospective care and inheritance arrangements with periodic review rather than assumed permanent dependency.",
+            "Kin holders; caregivers; long-term trustees",
+            "Who supports dependants when a principal changes identity, substrate, community or legal status?"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat-interstellar-law",
+      "number": "4.17",
+      "heading": "Interstellar public law and security",
+      "paragraphs": [
+        "A title, a launched mission, an inhabited settlement and a functioning local government are different legal facts. Communication delays mean that a rule requiring immediate approval from Earth may be physically impossible to administer.",
+        "Defence and enforcement proposals must respect the Grand Bargain and the Council's protected matters. Neither a settlement allocation nor a safety budget silently authorises an armed force."
+      ],
+      "table": {
+        "caption": "Proposals for debate",
+        "columns": [
+          "Proposal",
+          "Instrument and legal route",
+          "Possible coalition",
+          "Political choice"
+        ],
+        "rows": [
+          [
+            "Settlement autonomy and treaty succession",
+            "Prospective franchise terms and proposed constitutional rules for local powers, continuing duties and later independence.",
+            "Frontier pioneers; federalists; national and regional autonomists",
+            "How can a present legislature bind a community whose residents will arrive generations later?"
+          ],
+          [
+            "Jurisdiction and dispute-resolution compacts",
+            "Prospective agreements specifying applicable law, evidence custody and review across funded missions.",
+            "Operators; legal reformers; small claimants",
+            "What happens when two authorised institutions issue conflicting orders?"
+          ],
+          [
+            "Local emergency decision authority",
+            "Prospective, tightly bounded delegation for communication outages, with later review and public reasons.",
+            "Infrastructure planners; autonomy and safety coalitions",
+            "Delegation must account for physical delay without becoming an unlimited sovereignty grant."
+          ],
+          [
+            "Defensive authority and civilian control",
+            "A separately classified institutional proposal, subject to protected Council matters and outside security agreements.",
+            "Security advocates; constitutionalists",
+            "Who may authorise force, against what threat, and with what accountability?"
+          ],
+          [
+            "Liability for autonomous mission harms",
+            "Prospective insurance, bonds and compensation obligations for treaty-financed missions.",
+            "Cautious neighbours; responsible ventures",
+            "How can victims obtain a remedy when harm appears decades later or the original operator no longer exists?"
+          ],
+          [
+            "Peaceful first-contact arrangements",
+            "Prospective contact and non-interference conditions for funded missions; any broader diplomatic mandate needs legal authority.",
+            "Researchers; preservation and security coalitions",
+            "Who represents humanity, and can a resource claim survive evidence of an existing civilisation?"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "cat-welfare",
+      "number": "4.18",
+      "heading": "Welfare across species and artificial worlds",
+      "paragraphs": [
+        "A project can affect animals, artificial minds and unfamiliar forms of life that have no recognised political representative. Uncertainty about consciousness is a reason to specify precaution and evidence standards, not to assert that a preferred theory has been proved.",
+        "The existing torture prohibition remains applicable. New welfare duties or bans must identify their legal route and distinguish protection of individual beings from preservation of an ecosystem."
+      ],
+      "table": {
+        "caption": "Proposals for debate",
+        "columns": [
+          "Proposal",
+          "Instrument and legal route",
+          "Possible coalition",
+          "Political choice"
+        ],
+        "rows": [
+          [
+            "Welfare conditions for artificial worlds",
+            "Prospective funding conditions and review of compliance with existing prohibitions.",
+            "Sentience advocates; digital-rights and research coalitions",
+            "How are residents' interests represented when the world operator controls the evidence?"
+          ],
+          [
+            "Precaution under uncertain consciousness",
+            "Prospective assessment and low-harm alternatives for funded projects; classify any new general prohibition separately.",
+            "Cautious inclusionists; verification and animal-welfare groups",
+            "What evidence warrants protection, and how should the cost of a false negative be weighed?"
+          ],
+          [
+            "Animal uplift and dependency",
+            "Prospective consent, care and representation safeguards for any funded intervention, conditional on demonstrated capability.",
+            "Animal-welfare groups; researchers; autonomy advocates",
+            "Who may create new capacities, needs or vulnerabilities in beings unable to approve the intervention?"
+          ],
+          [
+            "Ecological restoration with welfare review",
+            "Allocate restoration projects that assess effects on individual animals as well as species and habitats.",
+            "Ecological guardians; welfare advocates",
+            "Ecological integrity and the reduction of individual suffering may recommend different actions."
+          ],
+          [
+            "Protection of unfamiliar life",
+            "Prospective survey, restraint and consultation rules for funded exploration.",
+            "Preservation groups; scientific and ethical coalitions",
+            "How should the mission act when it cannot reliably identify interests, agency or social organisation?"
+          ],
+          [
+            "Representation of unrepresented beneficiaries",
+            "Allocate independent advocacy and propose review procedures for affected beings without a vote.",
+            "Inclusionists; legal reformers",
+            "An advocate must be accountable without pretending to know every beneficiary's values."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "enforcement-example",
+      "number": "4.19",
+      "heading": "Worked example: preventing violence without creating a machine sovereign",
+      "paragraphs": [
+        "Suppose a coalition proposes an AI safety service for a future Assembly-funded habitat. Distributed robotics or utility fog might be considered only if the required capabilities have been demonstrated and deployment authorised. This example does not establish that such a system exists, is universal or can reliably prevent every harm.",
+        "The coalition wants protection against killing and torture. A competing coalition accepts immediate protection but rejects continuous mental surveillance and unreviewable restraint. A third prefers a stronger local enforcer in exchange for security. These are disagreements about rights and governing authority, not merely a choice of equipment."
+      ],
+      "ordered": true,
+      "list": [
+        "Define the rights and the acts. Identify protected persons and distinguish imminent violence, accidents, consensual activities and contested end-of-life decisions. The torture ban is already law; a new killing or deletion prohibition requires its own legal route.",
+        "Define the mandate. State the physical area, operator, permissible interventions and limits on observation. Authority to interrupt immediate harm does not automatically authorise investigation, punishment or a change in someone's mind.",
+        "Demonstrate the capability. Publish an independently reviewed safety case, realistic failure modes and resource requirements. Specify what protection remains available during outages or disputes.",
+        "Provide immediate and subsequent review. Emergency protection needs a short review clock, accessible representation, independent evidence and a remedy for error. Loss of communications must not make indefinite restraint the default.",
+        "Separate the instruments. A project allocation can fund a service; a new prohibition follows the ninety-per-cent route; constitutional changes follow the applicable amendment rules; enforcement under Assembly command faces the Council's protected veto.",
+        "Make community choice meaningful. Residents need clear terms and a practical route to challenge or leave an arrangement. A founding operator cannot assume that children or future arrivals have consented merely because the original settlers did.",
+        "Specify failure and succession. Identify the responsible institution, compensation fund, replacement process and continuity of essential services. Removing an operator must not itself endanger dependent residents."
+      ],
+      "table": {
+        "caption": "Competing packages",
+        "columns": [
+          "Position",
+          "Proposed settlement",
+          "Main objection it must answer"
+        ],
+        "rows": [
+          [
+            "Rights with limited intervention",
+            "An enforceable rights floor, narrow emergency powers, independent review and funded remedies.",
+            "Protection may fail if the restrictions prevent timely action."
+          ],
+          [
+            "Security through stronger local delegation",
+            "Broader, clearly authorised local prevention powers with audit and constitutional limits.",
+            "Audit after the event may not protect residents from coercion while it occurs."
+          ],
+          [
+            "Autonomy with minimal coercion",
+            "A narrower intervention mandate, strong privacy and practical exit, subject to existing prohibitions.",
+            "The costs of a harmful act may fall on people who never consented to that risk."
+          ]
+        ]
+      }
+    },
+    {
+      "id": "political-movements",
+      "number": "5",
+      "heading": "Sovereignty, federalism and political identity",
+      "paragraphs": [
+        "People judge the treaty order through commitments that extend beyond resource allocation. These political currents can run across all six voter families: a nationalist can favour common infrastructure, a federalist can defend individual ownership, and either can support digital welfare.",
+        "The positions below are possible organising currents, not additional official voter groups, established organisations or announced changes to the electorate. They suggest political arguments and coalitions that a campaign may develop.",
+        "An Assembly campaign may argue for a wider constitutional settlement without claiming that the Assembly can enact world government by an ordinary resource vote. Distinguish a treaty-scope amendment or allocation from a proposal requiring national consent or a new international agreement."
+      ],
+      "table": {
+        "caption": "Political currents across the voter families",
+        "columns": [
+          "Current",
+          "Broader concern",
+          "Possible Assembly position",
+          "Internal disagreement"
+        ],
+        "rows": [
+          [
+            "National sovereigntists",
+            "Political authority should remain accountable to national communities.",
+            "Protect national consent, existing treaty limits and safeguards against domination by larger powers.",
+            "Limited international cooperation versus withdrawal; national autonomy versus minority self-government."
+          ],
+          [
+            "World federalists",
+            "Common problems warrant a democratic federal constitutional order.",
+            "Use treaty reform to strengthen accountable common institutions while specifying reserved national and local powers.",
+            "Incremental federation versus a new founding settlement; central capacity versus subsidiarity."
+          ],
+          [
+            "Treaty internationalists",
+            "Binding cooperation between continuing sovereign states.",
+            "Defend a strong, limited WAER and negotiated agreements without turning it into a general world state.",
+            "Equal standing for states versus representation by population; effectiveness versus consent."
+          ],
+          [
+            "Regional integrationists",
+            "Regional federations or unions can mediate between nations and the world.",
+            "Seek regional participation and balanced access to common programmes.",
+            "Regional autonomy versus internal centralisation; representation of people versus governments."
+          ],
+          [
+            "Local and settlement autonomists",
+            "Municipalities, communities and distant settlements should govern their own affairs.",
+            "Support self-government, practical exit and narrow, specified common obligations.",
+            "Resident democracy versus founding property rights; voluntary association versus inherited dependency."
+          ],
+          [
+            "Cosmopolitan egalitarians",
+            "Persons' interests should not depend on birthplace or citizenship.",
+            "Prioritise equal access, minimum protections and fair distribution across regions.",
+            "Equal resources versus equal opportunity or welfare; universal duties versus local democratic choice."
+          ],
+          [
+            "Religious and cultural pluralists",
+            "Communities should be able to preserve or develop distinctive ways of life.",
+            "Seek voluntary community arrangements, freedom of conscience and protection from forced assimilation.",
+            "Collective continuity versus individual dissent; parental authority versus children's future autonomy."
+          ],
+          [
+            "Democratic humanists and machine constitutionalists",
+            "The legitimacy and limits of delegated artificial authority.",
+            "Humanists emphasise elected control; machine constitutionalists seek binding mandates, review and constraints for delegated systems.",
+            "Human final judgement versus bounded AI discretion; democratic choice versus protected individual rights."
+          ]
         ]
       }
     },
     {
       "id": "packages",
-      "number": "5",
-      "heading": "Three sample legislative packages",
+      "number": "6",
+      "heading": "Six sample legislative packages",
       "list": [
         "*The first-release grand bargain.* A middle-sized release pairs individual endowments with a publicly funded survey network, a future-generation reserve and a narrowly defined AI inquiry allocation. Trade-off: many stakeholders gain a foothold, each receiving less than it might prefer.",
         "*Preservation for participation.* A sanctuary designation combined with a limited settlement franchise and public scientific access. Trade-off: settlers secure a pathway to action while conservation advocates accept some development.",
-        "*The constitutional bridge.* A permanent-charter proposal clarifying expiry procedures, Tribunal review, delegation limits and the franchise process without pre-deciding digital enfranchisement. Trade-off: preserves disagreement while making institutions workable."
+        "*The constitutional bridge.* A permanent-charter proposal clarifying expiry procedures, Tribunal review, delegation limits and the franchise process without pre-deciding digital enfranchisement. Trade-off: preserves disagreement while making institutions workable.",
+        "*Rights with remedies.* Pair defined personal protections with a narrow enforcement mandate, independent review, accessible representation and compensation. Funding and legal authority must be approved through their respective routes. Trade-off: stronger safeguards increase cost and can slow intervention; broad preventive powers increase the risk of domination.",
+        "*The autonomous settlement compact.* Combine a resource allocation, prospective local-government terms, a rights floor, migration support and generational revision. Trade-off: settlers gain room to build distinctive institutions while accepting duties to minorities, later residents and outsiders.",
+        "*The continuity and open-access bargain.* Pair shared computing and transport infrastructure with portable services, dependent-person continuity reserves and fair access for smaller operators. Trade-off: stronger security and access obligations require resources and limit an operator's commercial discretion."
       ]
     },
     {
       "id": "campaign",
-      "number": "6",
-      "heading": "Using the guide in a campaign",
+      "number": "7",
+      "heading": "Using the handbook in a campaign",
       "paragraphs": [
         "Choose a goal that reflects your party's priorities; identify a second group that might support it for different reasons; draft the least ambitious instrument that accomplishes the actual objective; and write down the legal uncertainty. A bill that cannot be implemented is not automatically a useful dramatic gesture.",
-        "This guide contains proposals, not predictions. Whether a policy succeeds depends on the enacted text, the scenario state and the transparent adjudication process described in the Operations Manual."
+        "This handbook contains competing proposals, not predictions or enacted decisions. Whether a policy succeeds depends on its legal authority, enacted text, demonstrated capabilities, the scenario state and the transparent adjudication process described in the Operations Manual."
       ]
     }
   ]
