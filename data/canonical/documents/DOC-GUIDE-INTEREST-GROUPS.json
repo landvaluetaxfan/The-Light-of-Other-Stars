@@ -472,7 +472,13 @@
       "paragraphs": [
         "Earth politics continues beside the treaty: nations still govern domestic law and the Grand Bargain still binds. With welfare no longer tied to wages, the old arguments over ownership have moved to who controls self-reproducing industry and cosmic claims.",
         "*Illustrative.* The World Bible names no such movements. Most voters belong to one group and sympathise with several currents. Currents play no part in election results, which score groups only on the five axes, and say nothing about any group’s hidden loyalties."
-      ],
+      ]
+    },
+    {
+      "id": "currents-sovereignty",
+      "number": "12",
+      "heading": "Currents — sovereignty and geopolitics",
+      "paragraphs": [],
       "table": {
         "caption": "",
         "columns": [
@@ -492,6 +498,42 @@
             "Probe Lobbyists, Industrial Expanders, Claim-First Loyalists"
           ],
           [
+            "Continentalists",
+            "Want regional unions, not single nations, to hold seats and claims.",
+            "Regional Commons, Civic Councils, Representation Reformers"
+          ],
+          [
+            "Great-Power Realists",
+            "Loyal to the American or Chinese order; treat the treaty as one more arena of rivalry.",
+            "Claim-First Loyalists, Verification Hawks, Risk Acceptors"
+          ],
+          [
+            "Non-Aligned",
+            "Heirs of the Nairobi Group; refuse either bloc’s terms and guard the voice of smaller states.",
+            "Regional Commons, Universal Franchise, Cautious Neighbors"
+          ],
+          [
+            "Developmentalists",
+            "Put material access and a fair regional share ahead of long reflection.",
+            "Regional Commons, Civic Councils, Homestead Migrants"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "currents-economy",
+      "number": "13",
+      "heading": "Currents — ownership and the economy",
+      "paragraphs": [],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Current",
+          "Outlook",
+          "Often found among"
+        ],
+        "rows": [
+          [
             "Cosmic Communists",
             "Would abolish private title to cosmic resources outright; split between democratic planning through the Assembly and planning by machine.",
             "Shared-Sky Advocates, Infrastructure Planners, Council Delegators"
@@ -501,6 +543,42 @@
             "Won the citizen dividend; now want a public share of self-reproducing industry within a mixed economy.",
             "Equal-Share Traders, Mutual Benefit Pools, Public Works Builders"
           ],
+          [
+            "Guild Socialists",
+            "Want industry run by the communities and crafts that still choose to work it.",
+            "Civic Councils, Community Holders, Infrastructure Planners"
+          ],
+          [
+            "Georgists",
+            "Let anyone hold title, but tax the rental value of every claim and pay it out as a dividend.",
+            "Homestead Migrants, Open-Exchange Holders, Shared-Sky Advocates"
+          ],
+          [
+            "Abundance Movement",
+            "Treat growth as the moral project; every year of delay is a cost.",
+            "Speed Pragmatists, Rapid Distributors, Risk Acceptors"
+          ],
+          [
+            "Sufficiency Movement",
+            "Hold that once everyone has enough, more is not better.",
+            "Minimal-Footprint Colonists, Intergenerational Stewards, Reflection First"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "currents-liberty",
+      "number": "14",
+      "heading": "Currents — liberals and anarchists",
+      "paragraphs": [],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Current",
+          "Outlook",
+          "Often found among"
+        ],
+        "rows": [
           [
             "Title Liberals",
             "See individual, transferable title as the guarantee of freedom from states and machines alike.",
@@ -517,29 +595,81 @@
             "Frontier Pioneers, Open-Exchange Holders, Share Speculators"
           ],
           [
-            "Abundance Movement",
-            "Treat growth as the moral project; every year of delay is a cost.",
-            "Speed Pragmatists, Rapid Distributors, Risk Acceptors"
+            "Charter Cities Movement",
+            "Want settlements governed as firms, with exit as the only voice anyone needs.",
+            "Frontier Pioneers, Private Ventures, Planetary Colonists"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "currents-conservatives",
+      "number": "15",
+      "heading": "Currents — conservatives and populists",
+      "paragraphs": [],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Current",
+          "Outlook",
+          "Often found among"
+        ],
+        "rows": [
+          [
+            "National Conservatives",
+            "Put nation, family and borders first; suspicious of the Assembly’s reach.",
+            "Heritage Protectors, Claim-First Loyalists, Wait-and-See Centrists"
           ],
           [
-            "Green Restraint",
-            "Carry the conservation ethic past Earth; value unmodified places for their own sake.",
-            "Wilderness Advocates, Preserve Keepers, Ecological Guardians"
+            "Christian Democrats",
+            "Stewardship, subsidiarity and the dignity of persons; the faith-based centre-right.",
+            "Kin Holders, Pledge Givers, Moral Project Funders"
           ],
           [
-            "Faith and Tradition",
-            "Defend family, lineage and inherited places; divided over whether digital and emulated people are persons.",
-            "Heritage Protectors, Kin Holders, Legacy Builders"
-          ],
-          [
-            "Developmentalists",
-            "Put material access and a fair regional share ahead of long reflection.",
-            "Regional Commons, Civic Councils, Homestead Migrants"
-          ],
+            "Anti-Elite Populists",
+            "Distrust the laboratories, the Council and the experts alike; can swing left or right.",
+            "Equal-Share Traders, Verification Hawks, Homestead Migrants"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "currents-minds",
+      "number": "16",
+      "heading": "Currents — technology and minds",
+      "paragraphs": [],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Current",
+          "Outlook",
+          "Often found among"
+        ],
+        "rows": [
           [
             "Personhood Movement",
             "Extend rights and the vote to digital minds, emulations and future people.",
             "Digital Rights Advocates, Sentience Advocates, Later-Generation Advocates"
+          ],
+          [
+            "Transhumanists and Longevists",
+            "Treat rejuvenation and enhancement as rights.",
+            "Agent Operators, Emulation Families, Risk Acceptors"
+          ],
+          [
+            "Bioconservatives",
+            "Want firm limits on modifying people.",
+            "Heritage Protectors, Cautious Inclusionists, Kin Holders"
+          ],
+          [
+            "Longtermists",
+            "Weigh every decision against the whole of the future.",
+            "Later-Generation Advocates, Intergenerational Stewards, Uncertainty Hedgers"
+          ],
+          [
+            "Upload Separatists",
+            "Digital people seeking jurisdictions of their own.",
+            "Digital Rights Advocates, Copy-Limit Reformers, Emulation Families"
           ],
           [
             "Humanist Sceptics",
@@ -555,8 +685,75 @@
       }
     },
     {
+      "id": "currents-ecology",
+      "number": "17",
+      "heading": "Currents — ecology",
+      "paragraphs": [],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Current",
+          "Outlook",
+          "Often found among"
+        ],
+        "rows": [
+          [
+            "Green Restraint",
+            "Carry the conservation ethic past Earth; value unmodified places for their own sake.",
+            "Wilderness Advocates, Preserve Keepers, Ecological Guardians"
+          ],
+          [
+            "Deep Ecologists",
+            "Hold that life and wild places matter in themselves, beyond any use to people.",
+            "Wilderness Advocates, Ecological Guardians, Sentience Advocates"
+          ],
+          [
+            "Eco-modernists",
+            "Would spare Earth by building everything off-world.",
+            "Industrial Expanders, Near-Space Settlers, Infrastructure Planners"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "currents-belief",
+      "number": "18",
+      "heading": "Currents — belief",
+      "paragraphs": [],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Current",
+          "Outlook",
+          "Often found among"
+        ],
+        "rows": [
+          [
+            "Faith and Tradition",
+            "Defend family, lineage and inherited places; divided over whether digital and emulated people are persons.",
+            "Heritage Protectors, Kin Holders, Legacy Builders"
+          ],
+          [
+            "Cosmic Theologies",
+            "Old and new faiths that read meaning into the stars.",
+            "Observers’ Bloc, Moral Realists, Legacy Builders"
+          ],
+          [
+            "Contemplative Non-Interventionists",
+            "Look long before touching anything, in a Buddhist or Quaker spirit.",
+            "Observers’ Bloc, Reflection First, Slow Settlers"
+          ],
+          [
+            "Machine-Reverent Movements",
+            "Religious or near-religious awe toward superintelligence.",
+            "Council Delegators, Agent Operators, Moral Realists"
+          ]
+        ]
+      }
+    },
+    {
       "id": "not-published",
-      "number": "12",
+      "number": "19",
       "heading": "What is not published",
       "paragraphs": [
         "The groups’ salience weights, loyalty, turnout, regional weights and the simulation’s random draws stay in the moderators’ model. Strategy should be intelligible from public information, not reverse-engineered from hidden numbers. These descriptions are segments of a simulated electorate, not real organisations, and none is affiliated automatically with any party. See also the [[DOC-ELECTORATE|Public Electorate Reference]] and the six party guides."
