@@ -7,7 +7,7 @@
   "edition": "Orientation edition · November 2026",
   "issuedBy": "Assembly Information Service — orientation for prospective players",
   "sourceRef": "World Bible v3.4, § 17 and Appendix B",
-  "summary": "An introduction for prospective players to the electorate: six voter families, sixty publicly described groups, and the five axes on which they judge parties.",
+  "summary": "An introduction for prospective players to the electorate: six voter families, sixty publicly described groups, the five axes on which they judge parties, and the wider political currents they overlap with.",
   "sections": [
     {
       "id": "electorate",
@@ -466,8 +466,97 @@
       ]
     },
     {
-      "id": "not-published",
+      "id": "wider-currents",
       "number": "11",
+      "heading": "Wider currents",
+      "paragraphs": [
+        "Earth politics continues beside the treaty: nations still govern domestic law and the Grand Bargain still binds. With welfare no longer tied to wages, the old arguments over ownership have moved to who controls self-reproducing industry and cosmic claims.",
+        "*Illustrative.* The World Bible names no such movements. Most voters belong to one group and sympathise with several currents. Currents play no part in election results, which score groups only on the five axes, and say nothing about any group’s hidden loyalties."
+      ],
+      "table": {
+        "caption": "",
+        "columns": [
+          "Current",
+          "Outlook",
+          "Often found among"
+        ],
+        "rows": [
+          [
+            "Treaty Federalists",
+            "Treat Geneva as the first organ of a future world polity; want the Assembly’s authority and franchise to grow.",
+            "Assembly Loyalists, Universal Franchise, Representation Reformers"
+          ],
+          [
+            "Sovereigntists",
+            "Hold that legitimacy stays with nations; read the treaty narrowly and guard national probe programmes and holdings.",
+            "Probe Lobbyists, Industrial Expanders, Claim-First Loyalists"
+          ],
+          [
+            "Cosmic Communists",
+            "Would abolish private title to cosmic resources outright; split between democratic planning through the Assembly and planning by machine.",
+            "Shared-Sky Advocates, Infrastructure Planners, Council Delegators"
+          ],
+          [
+            "Dividend Socialists",
+            "Won the citizen dividend; now want a public share of self-reproducing industry within a mixed economy.",
+            "Equal-Share Traders, Mutual Benefit Pools, Public Works Builders"
+          ],
+          [
+            "Title Liberals",
+            "See individual, transferable title as the guarantee of freedom from states and machines alike.",
+            "Homestead Migrants, Open-Exchange Holders, Private Ventures"
+          ],
+          [
+            "Commune Anarchists",
+            "Want distant settlements free of any sovereign, held in common by the people who live there.",
+            "Frontier Pioneers, Community Holders, Minimal-Footprint Colonists"
+          ],
+          [
+            "Market Anarchists",
+            "Want title and contract without states, enforced by private arbitration.",
+            "Frontier Pioneers, Open-Exchange Holders, Share Speculators"
+          ],
+          [
+            "Abundance Movement",
+            "Treat growth as the moral project; every year of delay is a cost.",
+            "Speed Pragmatists, Rapid Distributors, Risk Acceptors"
+          ],
+          [
+            "Green Restraint",
+            "Carry the conservation ethic past Earth; value unmodified places for their own sake.",
+            "Wilderness Advocates, Preserve Keepers, Ecological Guardians"
+          ],
+          [
+            "Faith and Tradition",
+            "Defend family, lineage and inherited places; divided over whether digital and emulated people are persons.",
+            "Heritage Protectors, Kin Holders, Legacy Builders"
+          ],
+          [
+            "Developmentalists",
+            "Put material access and a fair regional share ahead of long reflection.",
+            "Regional Commons, Civic Councils, Homestead Migrants"
+          ],
+          [
+            "Personhood Movement",
+            "Extend rights and the vote to digital minds, emulations and future people.",
+            "Digital Rights Advocates, Sentience Advocates, Later-Generation Advocates"
+          ],
+          [
+            "Humanist Sceptics",
+            "Insist that humans govern and that machine guarantees be verified, not trusted.",
+            "Verification Hawks, Philosophers’ Bloc, Slow Constitutionalists"
+          ],
+          [
+            "Trusteeship Idealists",
+            "Believe aligned AI delegates can deliberate better than electorates and want hard questions handed to them.",
+            "Council Delegators, Moral Realists, Long-Term Trustees"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "not-published",
+      "number": "12",
       "heading": "What is not published",
       "paragraphs": [
         "The groups’ salience weights, loyalty, turnout, regional weights and the simulation’s random draws stay in the moderators’ model. Strategy should be intelligible from public information, not reverse-engineered from hidden numbers. These descriptions are segments of a simulated electorate, not real organisations, and none is affiliated automatically with any party. See also the [[DOC-ELECTORATE|Public Electorate Reference]] and the six party guides."
