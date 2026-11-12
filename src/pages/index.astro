@@ -11,6 +11,7 @@ import PartyName from '../components/PartyName.astro';
 import { getStore } from '../lib/data/load.ts';
 import { href, fmtSim, fmtUnits, romanTerm, sortBySimDesc, partiesInSeatingOrder, CHANNEL_LABEL, CHANNEL_COLOR, displayName } from '../lib/site.ts';
 import { WEEKS } from '../lib/procedure.ts';
+import { markSvg, markFamilies } from '../lib/marks.mjs';
 import { playerGuides, WORLD_BIBLE } from '../lib/guides.ts';
 
 const s = getStore();
@@ -37,6 +38,7 @@ const inquiry = offices.filter((o) => o.institutionId === 'INST-INQUIRY');
 const holderFor = (o: (typeof offices)[number]) => o.holders.find((h) => h.termId === term.id);
 const filledCount = (list: typeof offices) => list.filter((o) => holderFor(o)?.status === 'serving').length;
 const guides = playerGuides(s);
+const sampleMarks = markFamilies.map((fm) => markSvg(fm.names[0], { size: 24 })).join('');
 const demoBills = s.bills.filter((b) => b.dataset === 'demonstration').length;
 const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length;
 ---
@@ -89,6 +91,7 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
       <ul class="guide-grid">
         {guides.map((g) => (
           <li class="guide-card" style={`--guide-color:${g.party?.color ?? 'var(--steel)'}`}>
+            {!g.party && <div class="guide-marks" set:html={sampleMarks} />}
             <h3><a href={g.url}>{g.party ? g.party.name : g.doc.shortTitle.replace(/^Guide: /, '').replace(/^./, (c) => c.toUpperCase())}</a></h3>
             <p>{g.party ? g.party.corePosition : 'Six voter families, sixty groups and the five axes on which they judge parties.'}</p>
             <div class="guide-links"><a href={g.url}>Read online</a>{g.pdf && <a href={g.pdf} download>PDF</a>}</div>
