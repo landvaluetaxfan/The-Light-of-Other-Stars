@@ -38,6 +38,7 @@ const inquiry = offices.filter((o) => o.institutionId === 'INST-INQUIRY');
 const holderFor = (o: (typeof offices)[number]) => o.holders.find((h) => h.termId === term.id);
 const filledCount = (list: typeof offices) => list.filter((o) => holderFor(o)?.status === 'serving').length;
 const guides = playerGuides(s);
+const handbook = s.documents.find((d) => d.id === 'DOC-POLICY-GUIDE' && d.dataset === 'canonical');
 const sampleMarks = markFamilies.map((fm) => markSvg(fm.names[0], { size: 24 })).join('');
 const demoBills = s.bills.filter((b) => b.dataset === 'demonstration').length;
 const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length;
@@ -78,14 +79,23 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
     <div class="stat" role="listitem"><div class="label">Measures filed</div><div class="value">{filedCount}</div><div class="sub">{filedCount ? `${pending.length} pending` : 'Filing opens in Week 2'}</div></div>
   </div>
 
-  {guides.length > 0 && (
-    <Panel title="Player guides">
+  {(guides.length > 0 || handbook) && (
+    <Panel title="Player resources">
       <div class="bible-callout">
         <div>
           <b>Start here: the {WORLD_BIBLE.title}</b>
         </div>
         <span class="bible-links"><a class="btn" href={WORLD_BIBLE.url} target="_blank" rel="noopener">Read the PDF</a> <a href={WORLD_BIBLE.url} download class="small">Download ({WORLD_BIBLE.size})</a></span>
       </div>
+      {handbook && (
+        <section class="bible-callout" aria-labelledby="policy-handbook-title">
+          <div>
+            <b id="policy-handbook-title"><a href={href(`/registry/documents/${handbook.id}/`)}>{handbook.title}</a></b>
+            <span class="small">Turn political goals into bills: resource policy, fundamental rights, AI government and settlement law.</span>
+          </div>
+          <a class="btn" href={href(`/registry/documents/${handbook.id}/`)}>Open the handbook →</a>
+        </section>
+      )}
       <ul class="guide-grid">
         {guides.map((g) => (
           <li class="guide-card" style={`--guide-color:${g.party?.color ?? 'var(--steel)'}`}>
