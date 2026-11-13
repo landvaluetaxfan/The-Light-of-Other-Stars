@@ -1305,6 +1305,22 @@ a.reflink[data-demo='true'] {
   margin-bottom: 0;
   font-size: 13.5px;
 }
+.earth-band p.eb-purpose {
+  color: #fff;
+  font-size: 14.5px;
+  margin-bottom: 6px;
+}
+.guide-aims {
+  margin: 12px 0 0;
+  color: var(--muted, inherit);
+}
+.questions {
+  margin: 0;
+  padding-left: 1.2em;
+}
+.questions li + li {
+  margin-top: 4px;
+}
 .earth-band .eb-kicker {
   font-family: var(--font-mono);
   font-size: 11px;
