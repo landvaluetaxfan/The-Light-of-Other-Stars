@@ -47,6 +47,7 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
     <div class="eb-inner">
       <div class="eb-kicker">Public record · {fmtSim(s.meta.simulatedDate)} · Term {romanTerm(term.number)}, Week {s.meta.currentWeek}</div>
       <h1 id="ov-h">The First Assembly is forming</h1>
+      <p class="eb-purpose">The Assembly decides, term by term, how much of humanity’s common claim on resources beyond the solar system to release, who receives it, and what may never be done with it. The treaty created it so that no first launch could settle those questions for everyone.</p>
       <p>{s.meta.statusNote}</p>
     </div>
     <svg class="eb-art" viewBox="0 0 420 200" preserveAspectRatio="xMaxYMax slice" aria-hidden="true">
@@ -96,6 +97,7 @@ const demoDivs = s.divisions.filter((d) => d.dataset === 'demonstration').length
           </li>
         ))}
       </ul>
+      <p class="guide-aims small">Each player holds two or three private goals, and every party is judged on the public scorecard: Welfare, Prohibitions, Breadth, Public goods and Future. A party can meet its private goals while worsening the scorecard.</p>
     </Panel>
   )}
 

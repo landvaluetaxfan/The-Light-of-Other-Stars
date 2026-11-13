@@ -23,6 +23,15 @@ const institutions = s.institutions.filter((i) => i.dataset === 'canonical');
     <div class="head-tools"><a class="btn" href={href('/assembly/demonstration/')}>Demonstration composition</a></div>
   </div>
 
+  <Panel title="The questions before the Assembly" id="questions">
+    <ul class="questions">
+      <li>Who receives a claim on cosmic resources: living humans, future humans, digital minds or other beings?</li>
+      <li>Should claims go to individuals, the legislature or aligned AI, or be preserved for later generations?</li>
+      <li>How quickly should ownership and instructions become irreversible?</li>
+      <li>How far may settlement and industry extend, and what is forbidden even if owners want it?</li>
+    </ul>
+  </Panel>
+
   <CompositionView termId={term.id} dataset="canonical" />
 
   <Panel title="Founding parties" flush id="parties">
